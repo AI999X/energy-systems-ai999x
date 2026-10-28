@@ -1,5 +1,5 @@
 {
- "package": "1.0.1",
+ "package": "1.0.2",
  "pack": "1.0.1",
  "knowledge_db": null,
  "files": {
@@ -9,7 +9,7 @@
   "knowledge/reference_cases.json": "7414a14e2c4202a7fae8cdd14e1a2ef7267f35a9665b0633001349c698d4e4e7",
   "capabilities/procedures.py": "21aa085239c800ce9c62204a1fe986b937e9af82ba69e65d2cbbe0b0385ac08c",
   "capabilities/procedures_certified.json": "29e071fcd035e5e10fa693db01973c93be17978d2d95a579769c5a0cb109aa8d",
-  "energy_systems_knowledge_public.sqlite": "6c9c7fb1b0648ed501d68247fb925c787ed08db1813b7e4ff3efa23d45da800a",
+  "energy_systems_knowledge_public.sqlite": "6871ea44cdebf1f17256458849efe078475d9f2c7eb89531c1ac3e1cd1bda595",
   "search/encoder.int8.onnx": "521452d928a72da4d241b1835ab0f46b0e81ff58ffff0367b9a7029bd129fbd9",
   "search/tokenizer.json": "b2f2deb461e6ad672b8e42aac29773e7a9be77d582cdf58808113ea43fda565e",
   "search/index.json": "d8f81d9706c9a0efa7d9643bcec3d39a6c3500766ce0f44937d85ad90f772507",
