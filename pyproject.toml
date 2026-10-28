@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "energy-systems-ai999x"
-version = "1.0.2"
+version = "1.0.3"
 description = "Offline energy systems solver: power systems and load flow, three-phase power, transformers and machines, solar photovoltaics, wind power, batteries, fuel cells and hydrogen, with steps, LaTeX and honest refusals"
 readme = "README.md"
 requires-python = ">=3.10"

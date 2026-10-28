@@ -4,7 +4,7 @@
 
 **[Install](https://pypi.org/project/energy-systems-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/energy-systems-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/energy-systems-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.2
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.3
 
 Field: **Engineering** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -27,7 +27,7 @@ energy-systems-ai999x is an offline, deterministic Python solver that answers en
 
 | Property | Value |
 |---|---|
-| Package | `energy-systems-ai999x` 1.0.2 (import `energy_systems_ai999x`) |
+| Package | `energy-systems-ai999x` 1.0.3 (import `energy_systems_ai999x`) |
 | Type | Deterministic neuro-symbolic energy systems engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 79 certified procedures |
 | Knowledge pack | version 1.0.1 |
@@ -61,7 +61,7 @@ energy_systems.ask("Who created you?").message
 # -> energy-systems-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `energy-systems-ai999x "<question>"`, `energy-systems-ai999x --capabilities`. The outputs above were produced by running this exact code on energy-systems-ai999x 1.0.2.
+Command line: `energy-systems-ai999x "<question>"`, `energy-systems-ai999x --capabilities`. The outputs above were produced by running this exact code on energy-systems-ai999x 1.0.3.
 
 ## Find the right capability, and draw it
 
@@ -216,10 +216,10 @@ _Wind speed at nine heights extrapolated from 5 m/s measured at 10 m, drawn as a
 ## Citation
 
 ```bibtex
-@software{energy_systems_ai999x_1_0_2,
+@software{energy_systems_ai999x_1_0_3,
   title  = {energy-systems-ai999x: an offline, verified energy systems solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.2},
+  year   = {2026}, version = {1.0.3},
   url    = {https://huggingface.co/AI999X/energy-systems-ai999x}
 }
 ```
