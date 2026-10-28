@@ -4,7 +4,7 @@
 
 **[Install](https://pypi.org/project/energy-systems-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/energy-systems-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/energy-systems-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.0
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.1
 
 Field: **Engineering** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -27,7 +27,7 @@ energy-systems-ai999x is an offline, deterministic Python solver that answers en
 
 | Property | Value |
 |---|---|
-| Package | `energy-systems-ai999x` 1.0.0 (import `energy_systems_ai999x`) |
+| Package | `energy-systems-ai999x` 1.0.1 (import `energy_systems_ai999x`) |
 | Type | Deterministic neuro-symbolic energy systems engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 79 certified procedures |
 | Knowledge pack | version 1.0.1 |
@@ -61,7 +61,18 @@ energy_systems.ask("Who created you?").message
 # -> energy-systems-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `energy-systems-ai999x "<question>"`, `energy-systems-ai999x --capabilities`. The outputs above were produced by running this exact code on energy-systems-ai999x 1.0.0.
+Command line: `energy-systems-ai999x "<question>"`, `energy-systems-ai999x --capabilities`. The outputs above were produced by running this exact code on energy-systems-ai999x 1.0.1.
+
+## Find the right capability, and draw it
+
+`energy_systems.search()` finds which certified capability a question is about — across **every** AI999X model, so a question for another model points you to it. It runs **[ai999x-encoder](https://huggingface.co/AI999X/ai999x-encoder)**, AI999X's own capability encoder (4.7M parameters, a 4.9 MB ONNX model, offline; the root `model.safetensors` of this repository): `pip install "energy-systems-ai999x[search]"`. `ask(question, suggest=True)` adds the same pointers to a question it does not answer; an answer itself never changes.
+
+```python
+import energy_systems_ai999x as energy_systems
+
+energy_systems.search("Solve x^2 - 5x + 6 = 0", k=2)
+# -> Roots of a quadratic equation (math-foundations-ai999x, 0.63); Roots of a cubic equation (math-foundations-ai999x, 0.59)
+```
 
 ## How every answer is verified
 
@@ -71,6 +82,116 @@ Command line: `energy-systems-ai999x "<question>"`, `energy-systems-ai999x --cap
 4. **Checking** — dimensions, substitution back into the defining equation, and agreement between independent readings; any disagreement becomes a refusal, never a number.
 
 Capabilities are certified before they ship: each must reproduce hand-worked reference cases, reject a deliberately wrong variant (a control), and leave every benchmark answer unchanged.
+
+## Worked examples
+
+Each question was put to `energy-systems-ai999x`; the answer is the one it returned, with the steps it took.
+
+**Balanced three-phase power from line quantities** · _Three-phase power_
+
+> Three-phase power: VL = 400 V, IL = 50 A, pf = 0.8, connection = star
+
+→ **P = 27712.81292 W, Q = 20784.60969 var, S = 34641.01615 VA, V_phase = 230.9401077 V, I_phase = 50 A**
+
+<details><summary>Steps</summary>
+
+- Balanced three-phase power from line quantities: VL = 400 V, IL = 50 A, pf = 0.8, connection = star → P = 27712.81292 W, Q = 20784.60969 var, S = 34641.01615 VA, V_phase = 230.9401077 V, I_phase = 50 A
+
+</details>
+
+**Sun position at a place and local time** · _Solar resource_
+
+> Solar position: latitude = 40, longitude = -105, n = 172, clock = 13:00, utc_offset = -7
+
+→ **declination_deg = 23.45204607, eot_min = -1.343724732, hour_angle_deg = 14.66406882, zenith_deg = 20.66003785, elevation_deg = 69.33996215, azimuth_deg = 221.165265**
+
+<details><summary>Steps</summary>
+
+- Sun position at a place and local time: latitude = 40, longitude = -105, n = 172, clock = 13, utc_offset = -7 → declination_deg = 23.45204607, eot_min = -1.343724732, hour_angle_deg = 14.66406882, zenith_deg = 20.66003785, elevation_deg = 69.33996215, azimuth_deg = 221.165265
+
+</details>
+
+**Power in the wind and the Betz limit** · _Wind power_
+
+> Power in the wind: rho = 1.225 kg/m^3, D = 80 m, v = 10 m/s, cp = 0.4
+
+→ **P_wind = 3078760.801 W, P_betz = 1824450.845 W, power_density = 612.5, area = 5026.548246 m^2, P = 1231504.32 W**
+
+<details><summary>Steps</summary>
+
+- Power in the wind and the Betz limit: rho = 1.225 kg/m^3, D = 80 m, v = 10 m/s, cp = 0.4 → P_wind = 3078760.801 W, P_betz = 1824450.845 W, power_density = 612.5 W, area = 5026.548246 m^2, P = 1231504.32 W
+
+</details>
+
+**Hydrogen stored in a tank at pressure (real gas)** · _Hydrogen_
+
+> Hydrogen tank: V = 125 L, p = 700 bar, T = 15 degC
+
+→ **rho = 40.17216108 kg/m^3, Z = 1.466169638, mass = 5.021520135 kg, rho_ideal = 58.89920286 kg/m^3, mass_ideal = 7.362400358 kg, ideal_over_real = 1.466169638, energy_LHV_kWh = 167.3289261**
+
+<details><summary>Steps</summary>
+
+- Hydrogen stored in a tank at pressure (real gas): V = 125 L, p = 700 bar, T = 15 degC → rho = 40.17216108 kg/m^3, Z = 1.466169638 kg, mass = 5.021520135 kg, rho_ideal = 58.89920286 kg/m^3, mass_ideal = 7.362400358 kg, ideal_over_real = 1.466169638 kg, energy_LHV_kWh = 167.3289261 kg
+
+</details>
+
+**Economic dispatch with quadratic costs and limits** · _Power systems_
+
+`m.solve("energy_economic_dispatch", costs="500 5.3 0.004 200 450; 400 5.5 0.006 150 350; 200 5.8 0.009 100 225", demand=800)`
+
+→ **lambda_ = 8.5, P = [400, 250, 150], cost = 6682.5**
+
+<details><summary>Steps</summary>
+
+- Economic dispatch with quadratic costs and limits: costs = [500 5.3 0.004 200 450; 400 5.5 0.006 150 350; 200 5.8 0.009 100 225], demand = 800 → lambda_ = 8.5, P = [400, 250, 150], cost = 6682.5
+
+</details>
+
+**Battery pack series-parallel sizing** · _Batteries_
+
+> Battery pack sizing: V_target = 48 V, E_target = 10 kWh, V_cell = 3.2 V, Q_cell = 100 Ah
+
+→ **N_series = 15, N_parallel = 3, N_cells = 45, V_pack = 48 V, E_pack_kWh = 14.4, Q_pack_Ah = 300**
+
+<details><summary>Steps</summary>
+
+- Battery pack series-parallel sizing: V_target = 48 V, E_target = 10 kWh, V_cell = 3.2 V, Q_cell = 360000 C → N_series = 15, N_parallel = 3, N_cells = 45, V_pack = 48 V, E_pack_kWh = 14.4, Q_pack_Ah = 300
+
+</details>
+
+## Figures
+
+Every point was computed by `energy-systems-ai999x`.
+
+**Photovoltaic module: current–voltage curve and maximum power**
+
+![Photovoltaic module: current–voltage curve and maximum power — computed by energy-systems-ai999x](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-single-diode-mpp-curve.svg)
+
+_Current–voltage curve of a PV module (single-diode model: photocurrent 9 A, saturation current 1.0000e-10 A, Rs = 0.3 Ω, Rsh = 400 Ω), computed by the package at 81 voltages. The shaded rectangle is the maximum power the package finds, P = 335.252 W at V = 39.6025 V, I = 8.46542 A; it fills 0.778276 of Isc × Voc (8.99326 A × 47.8984 V), the fill factor._
+
+**Wind turbine power curve**
+
+![Wind turbine power curve — computed by energy-systems-ai999x](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-power-curve-output-curve.svg)
+
+_Wind turbine output against wind speed from the tabulated power curve (speeds 3, 5, 8, 12, 25 m/s, powers 0, 150, 800, 2000, 2000 kW), computed by the package at 121 speeds from 0 to 30 m/s: nothing below cut-in at 3 m/s, rated 2000 kW up to cut-out at 25 m/s, nothing above. Marked: v = 6.5 m/s, P = 475 kW._
+
+**The Sun's path across the sky: polar sky chart**
+
+![The Sun's path across the sky: polar sky chart — computed by energy-systems-ai999x](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-solar-position-sky.svg)
+
+_The Sun's path across the sky at latitude 40°, longitude -105° (UTC-7) on three days: azimuth around the rim (N at the top) and elevation inward (rings at 0°, 30° and 60°), computed by the package every 15 minutes while the Sun is up; dots every 2 h of clock time. Highest computed elevations: 21 June 73.4496°, 22 March 50.2928°, 21 December 26.5781°. Marked: 21 June at 13 h, elevation 69.34°, azimuth 221.165°._
+
+**Economic dispatch: three generators sharing a load**
+
+![Economic dispatch: three generators sharing a load — computed by energy-systems-ai999x](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-economic-dispatch-bars.svg)
+
+_Economic dispatch of 3 generators with quadratic cost curves (rows a, b, c, Pmin, Pmax: 500 5.3 0.004 200 450; 400 5.5 0.006 150 350; 200 5.8 0.009 100 225) meeting a demand of 800 MW: the package returns outputs 400, 250, 150 MW (bars, dashed lines the limits) at a common incremental cost λ = 8.5 per MWh, total cost 6682.5 per hour._
+
+**Wind speed with height: the shear profile as arrows**
+
+![Wind speed with height: the shear profile as arrows — computed by energy-systems-ai999x](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-wind-shear-log-profile.svg)
+
+_Wind speed at nine heights extrapolated from 5 m/s measured at 10 m, drawn as arrows whose length is the speed: logarithmic law (roughness length 1 m) and power law (exponent 0.333333), each computed by the package. At 100 m: 10 and 10.7722 m/s; at 150 m: 10.8805 and 12.3311 m/s._
 
 ## Capabilities
 
@@ -95,10 +216,10 @@ Capabilities are certified before they ship: each must reproduce hand-worked ref
 ## Citation
 
 ```bibtex
-@software{energy_systems_ai999x_1_0_0,
+@software{energy_systems_ai999x_1_0_1,
   title  = {energy-systems-ai999x: an offline, verified energy systems solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.0},
+  year   = {2026}, version = {1.0.1},
   url    = {https://huggingface.co/AI999X/energy-systems-ai999x}
 }
 ```

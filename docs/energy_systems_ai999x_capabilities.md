@@ -388,6 +388,10 @@ $$
 - **Assumes:** $1  \leq  n  \leq  366$; 0 <= clock < 24; -90 < latitude < 90
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The Sun's path across the sky at latitude 40°, longitude -105° (UTC-7) on three days: azimuth around the rim (N at the top) and elevation inward (rings at 0°, 30° and 60°), computed by the package every 15 minutes while the Sun is up; dots every 2 h of clock time](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-solar-position-sky.svg)
+
+*The Sun's path across the sky at latitude 40°, longitude -105° (UTC-7) on three days: azimuth around the rim (N at the top) and elevation inward (rings at 0°, 30° and 60°), computed by the package every 15 minutes while the Sun is up; dots every 2 h of clock time. Highest computed elevations: 21 June 73.4496°, 22 March 50.2928°, 21 December 26.5781°. Marked: 21 June at 13 h, elevation 69.34°, azimuth 221.165°.*
+
 ```python
 energy_systems_ai999x.solve('energy_solar_position', latitude=40, longitude=-105, n=172, clock=13.0, utc_offset=-7)
 # -> declination_deg = 23.452, eot_min = -1.34372, hour_angle_deg = 14.6641, zenith_deg = 20.66, elevation_deg = 69.34, azimuth_deg = 221.165   (SOLVED)
@@ -1388,6 +1392,10 @@ $$
 - **Assumes:** $h - 0.7$ $d > z_{0}$ at both heights
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Wind speed at nine heights extrapolated from 5 m/s measured at 10 m, drawn as arrows whose length is the speed: logarithmic law (roughness length 1 m) and power law (exponent 0](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-wind-shear-log-profile.svg)
+
+*Wind speed at nine heights extrapolated from 5 m/s measured at 10 m, drawn as arrows whose length is the speed: logarithmic law (roughness length 1 m) and power law (exponent 0.333333), each computed by the package. At 100 m: 10 and 10.7722 m/s; at 150 m: 10.8805 and 12.3311 m/s.*
+
 ```python
 energy_systems_ai999x.solve('energy_wind_shear_log', v1=5, h1=10, h2=100, z0=1)
 # -> v2 = 10 m/s   (SOLVED)
@@ -1475,6 +1483,10 @@ $$
 - **Method:** linear interpolation between the curve points; 0 outside the listed speeds
 - **Assumes:** speeds strictly increasing; one power per speed
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Wind turbine output against wind speed from the tabulated power curve (speeds 3, 5, 8, 12, 25 m/s, powers 0, 150, 800, 2000, 2000 kW), computed by the package at 121 speeds from 0 to 30 m/s: nothing below cut-in at 3 m/s, rated 2000 kW up to cut-out at 25 m/s, nothing above](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-power-curve-output-curve.svg)
+
+*Wind turbine output against wind speed from the tabulated power curve (speeds 3, 5, 8, 12, 25 m/s, powers 0, 150, 800, 2000, 2000 kW), computed by the package at 121 speeds from 0 to 30 m/s: nothing below cut-in at 3 m/s, rated 2000 kW up to cut-out at 25 m/s, nothing above. Marked: v = 6.5 m/s, P = 475 kW.*
 
 ```python
 energy_systems_ai999x.solve('energy_power_curve_output', speeds='3, 5, 8, 12, 25', powers='0, 150, 800, 2000, 2000', v=6.5)
@@ -2077,6 +2089,10 @@ $$
 - **Method:** equal incremental cost: P_i(lambda) = clip((lambda - b_i)/(2 c_i), Pmin_i, Pmax_i), lambda by bisection on sum $P_i = D$
 - **Assumes:** $c > 0$ for every unit; sum Pmin <= demand <= sum Pmax; at least one unit between its limits
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Economic dispatch of 3 generators with quadratic cost curves (rows a, b, c, Pmin, Pmax: 500 5](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-economic-dispatch-bars.svg)
+
+*Economic dispatch of 3 generators with quadratic cost curves (rows a, b, c, Pmin, Pmax: 500 5.3 0.004 200 450; 400 5.5 0.006 150 350; 200 5.8 0.009 100 225) meeting a demand of 800 MW: the package returns outputs 400, 250, 150 MW (bars, dashed lines the limits) at a common incremental cost λ = 8.5 per MWh, total cost 6682.5 per hour.*
 
 ```python
 energy_systems_ai999x.solve('energy_economic_dispatch', costs='500 5.3 0.004 200 450; 400 5.5 0.006 150 350; 200 5.8 0.009 100 225', demand=800)
@@ -3256,6 +3272,10 @@ $$
 - **Method:** I(0) and V(I = 0) from the implicit equation; maximum power where $dP/dV_d = 0$ along the curve parametrized by the diode voltage (bisection)
 - **Assumes:** IL, I0, Rsh, $a > 0$; $Rs  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Current–voltage curve of a PV module (single-diode model: photocurrent 9 A, saturation current 1](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-single-diode-mpp-curve.svg)
+
+*Current–voltage curve of a PV module (single-diode model: photocurrent 9 A, saturation current 1.0000e-10 A, Rs = 0.3 Ω, Rsh = 400 Ω), computed by the package at 81 voltages. The shaded rectangle is the maximum power the package finds, P = 335.252 W at V = 39.6025 V, I = 8.46542 A; it fills 0.778276 of Isc × Voc (8.99326 A × 47.8984 V), the fill factor.*
 
 ```python
 energy_systems_ai999x.solve('energy_single_diode_mpp', IL=9.0, I0=1e-10, Rs=0.3, Rsh=400.0, nNsVth=1.9)
