@@ -4,7 +4,7 @@
 
 **[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/energy-systems-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/energy-systems-ai999x/)** · **[Guides](https://huggingface.co/AI999X/energy-systems-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/energy-systems-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.3
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.1.0
 
 Field: **Engineering** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -20,26 +20,13 @@ energy-systems-ai999x is an offline, deterministic Python solver that answers en
 
 | Way to run it | For | Get it |
 |---|---|---|
-| **AI999X Energy Systems desktop app** 1.2.0 | Windows, Linux — this model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-energy-systems-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-energy-systems-1.2.0-linux-x86_64.tar.gz) |
-| **AI999X desktop app** 1.2.0 | Windows, Linux — every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-linux-x86_64.tar.gz) |
-| **Command line** (`energy-systems`) | Windows, Linux — one program per model, offline, no Python | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) |
+| **AI999X Energy Systems desktop app** 1.4.0 | Windows, Linux — this model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-energy-systems-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.4.0 | Windows, Linux — every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz) |
+| **Command line** (`energy-systems`) | Windows, Linux — one program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz) |
 | **In your browser** | any device — nothing to install | [Compute on the model page](https://www.ai999x.com/models/energy-systems-ai999x/#try) |
 | **Python** | Python 3.10+ | `pip install energy-systems-ai999x` |
 
-Checksums: [SHA256SUMS](https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS) · every version: [https://www.ai999x.com/downloads/desktop/latest/](https://www.ai999x.com/downloads/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
-
-## Rust versions
-
-Energy Systems also comes as native programs compiled from Rust, version 1.2.0 of the AI999X desktop app and command line: they run offline on your computer and need no Python. Each file is in this repository's `rust/` folder, on the [GitHub release v1.0.3](https://github.com/AI999X/energy-systems-ai999x/releases/tag/v1.0.3) and on the website.
-
-| Program | System | File | Size | Download | Use |
-|---|---|---|---|---|---|
-| Desktop app (Energy Systems) | Windows x86-64 | `ai999x-energy-systems-1.2.0-windows-x86_64.zip` | 7.7 MB | [Hub](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/rust/ai999x-energy-systems-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/energy-systems-ai999x/releases/download/v1.0.3/ai999x-energy-systems-1.2.0-windows-x86_64.zip) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-energy-systems-1.2.0-windows-x86_64.zip) | unzip, then double-click `ai999x-energy-systems.exe` (no installer) |
-| Desktop app (Energy Systems) | Linux x86-64 | `ai999x-energy-systems-1.2.0-linux-x86_64.tar.gz` | 8.6 MB | [Hub](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/rust/ai999x-energy-systems-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/energy-systems-ai999x/releases/download/v1.0.3/ai999x-energy-systems-1.2.0-linux-x86_64.tar.gz) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-energy-systems-1.2.0-linux-x86_64.tar.gz) | extract, then run `./ai999x-energy-systems` (X11 or Wayland desktop) |
-| Command line (`energy-systems`) | Windows x86-64 | `ai999x-energy-systems-cli-1.2.0-windows-x86_64.zip` | 3.2 MB | [Hub](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/rust/ai999x-energy-systems-cli-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/energy-systems-ai999x/releases/download/v1.0.3/ai999x-energy-systems-cli-1.2.0-windows-x86_64.zip) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) | unzip, then `energy-systems.exe ask "<question>"` or `energy-systems.exe solve <capability> name=value` |
-| Command line (`energy-systems`) | Linux x86-64 | `ai999x-energy-systems-cli-1.2.0-linux-x86_64.tar.gz` | 3.2 MB | [Hub](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/rust/ai999x-energy-systems-cli-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/energy-systems-ai999x/releases/download/v1.0.3/ai999x-energy-systems-cli-1.2.0-linux-x86_64.tar.gz) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) | extract, then `./energy-systems ask "<question>"` or `./energy-systems solve <capability> name=value` |
-
-The command-line archive holds `energy-systems` with a README of its commands and examples, the licence and the notice. Checksums: [`rust/SHA256SUMS`](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/rust/SHA256SUMS) (`sha256sum -c SHA256SUMS`).
+Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
 
 ## Quick start
 
@@ -50,11 +37,11 @@ Download **AI999X Energy Systems** for your system (above), unpack it and start 
 Linux, from a terminal:
 
 ```bash
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-energy-systems-1.2.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-energy-systems-1.2.0-linux-x86_64.tar.gz
-./ai999x-energy-systems-1.2.0-linux-x86_64/ai999x-energy-systems
+tar xzf ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz
+./ai999x-energy-systems-1.4.0-linux-x86_64/ai999x-energy-systems
 ```
 
 ### Command line
@@ -62,23 +49,23 @@ tar xzf ai999x-energy-systems-1.2.0-linux-x86_64.tar.gz
 Linux:
 
 ```bash
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.2.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.2.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 energy-systems --version
 ```
 
 Windows (PowerShell):
 
 ```powershell
-$F = "ai999x-cli-1.2.0-windows-x86_64.zip"
-Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/$F" -OutFile $F
-Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.4.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.2.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 energy-systems --version
 ```
@@ -136,26 +123,6 @@ I_phase = 50 A
   pf = 0.8
   connection = star
   assumes: balanced load; 0 < pf <= 1
-```
-
-**Draw the figures** — The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
-
-```console
-$ energy-systems figures energy_three_phase_power "VL=400 V" "IL=50 A" pf=0.8 connection=star --out .
-[
-  {
-    "slug": "energy-three-phase-power-live-1",
-    "title": "Real power (three-phase total) as line-to-line rms voltage varies",
-    "caption": "Real power (three-phase total) as VL runs from 100 to 700 V, every other input as you entered it (41 solutions). Marked: your VL = 400 V gives P = 2.771e+04. Your inputs: VL = 400 V, IL = 50 A, pf = 0.8, connection = star.",
-    "file": "./energy-three-phase-power-live-1.svg"
-  },
-  {
-    "slug": "energy-three-phase-power-live-2",
-    "title": "Real power (three-phase total) as line current (rms) varies",
-    "caption": "Real power (three-phase total) as IL runs from 12.5 to 87.5 A, every other input as you entered it (29 solutions). Marked: your IL = 50 A gives P = 2.771e+04. Your inputs: VL = 400 V, IL = 50 A, pf = 0.8, connection = star.",
-    "file": "./energy-three-phase-power-live-2.svg"
-  }
-]
 ```
 
 **Many questions at once** — One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | energy-systems batch
@@ -345,7 +312,7 @@ _What this means:_ This calculation determines the battery's state of charge by 
 
 | Property | Value |
 |---|---|
-| Package | `energy-systems-ai999x` 1.0.3 (import `energy_systems_ai999x`) |
+| Package | `energy-systems-ai999x` 1.1.0 (import `energy_systems_ai999x`) |
 | Type | Deterministic neuro-symbolic energy systems engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 79 certified procedures |
 | Knowledge pack | version 1.0.1 |
@@ -379,7 +346,7 @@ energy_systems.ask("Who created you?").message
 # -> energy-systems-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-The Python package also installs a Python command, `energy-systems-ai999x "<question>"`; for the native program use `energy-systems` (above). The outputs above were produced by running this exact code on energy-systems-ai999x 1.0.3.
+The Python package also installs a Python command, `energy-systems-ai999x "<question>"`; for the native program use `energy-systems` (above). The outputs above were produced by running this exact code on energy-systems-ai999x 1.1.0.
 
 ## Find the right capability, and draw it
 
@@ -534,10 +501,10 @@ _Wind speed at nine heights extrapolated from 5 m/s measured at 10 m, drawn as a
 ## Citation
 
 ```bibtex
-@software{energy_systems_ai999x_1_0_3,
+@software{energy_systems_ai999x_1_1_0,
   title  = {energy-systems-ai999x: an offline, verified energy systems solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.3},
+  year   = {2026}, version = {1.1.0},
   url    = {https://huggingface.co/AI999X/energy-systems-ai999x}
 }
 ```

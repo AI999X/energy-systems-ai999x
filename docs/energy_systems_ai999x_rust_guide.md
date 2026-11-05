@@ -1,6 +1,6 @@
 # energy-systems: the Energy Systems program — user guide
 
-**energy-systems-ai999x 1.0.3**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**energy-systems-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
 Energy Systems covers power systems and load flow, three-phase power, transformers and machines, solar photovoltaics, wind power, batteries, fuel cells and hydrogen. This guide is about `energy-systems`, the model as a self-contained program for Windows and Linux: 79 capabilities in 10 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/energy-systems-ai999x/); the Python package (`pip install energy-systems-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
@@ -17,24 +17,24 @@ Energy Systems covers power systems and load flow, three-phase power, transforme
 
 ## 1. Get it
 
-Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS; the newest version is always under https://www.ai999x.com/downloads/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Energy Systems | Windows x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-energy-systems-1.4.0-windows-x86_64.zip |
-| Desktop app: Energy Systems | Linux x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz |
+| Desktop app: Energy Systems | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-energy-systems-1.4.0-windows-x86_64.zip |
+| Desktop app: Energy Systems | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
 Energy Systems in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-energy-systems-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-energy-systems.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
 tar xzf ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz
 ./ai999x-energy-systems-1.4.0-linux-x86_64/ai999x-energy-systems
@@ -43,8 +43,8 @@ tar xzf ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz
 It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
 tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
 ./ai999x-1.4.0-linux-x86_64/ai999x
@@ -55,8 +55,8 @@ tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
 The bundle holds one program per model; `energy-systems` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
 mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
 echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
@@ -69,8 +69,8 @@ The fourth line should print True.
 
 ```powershell
 $F = "ai999x-cli-1.4.0-windows-x86_64.zip"
-Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.4.0/$F" -OutFile $F
-Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
 $D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
@@ -99,44 +99,7 @@ $ energy-systems --version
 energy-systems-ai999x 1.0.3 (Rust build, ax-engine 0.1.0)
 ```
 
-### 2.2 Ask in words
-
-Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.
-
-```shell
-$ energy-systems ask "Three-phase power: VL = 400 V, IL = 50 A, pf = 0.8, connection = star"
-Read as: Balanced three-phase power from line quantities
-P = 27712.81292 W
-Q = 20784.60969 var
-S = 34641.01615 VA
-V_phase = 230.9401077 V
-I_phase = 50 A
-  by: Balanced three-phase power from line quantities  (S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3))
-  IL = 50 A
-  VL = 400 V
-  pf = 0.8
-  connection = star
-  assumes: balanced load; 0 < pf <= 1
-```
-
-### 2.3 Find a capability
-
-Search the capabilities by what you want to know; the first column is the id to pass to info and solve.
-
-```shell
-$ energy-systems search "balanced three-phase power from line quantities"
-energy_three_phase_power             Balanced three-phase power from line quantities  (three-phase power / balanced systems)
-energy_geometric_mean_distance       Geometric mean distance of a three-phase line  (power systems / line parameters)
-energy_line_parameters               Inductance, capacitance and surge impedance of a three-phase overhead line  (power systems / line parameters)
-energy_symmetrical_fault             Three-phase (symmetrical) fault current by the bus impedance matrix  (power systems / faults)
-energy_two_bus_load_flow             Receiving-end voltage of a line feeding a constant-power load (two-bus load flow)  (power systems / load flow)
-energy_medium_line                   Medium transmission line (nominal pi)  (power systems / transmission lines)
-energy_long_line                     Long transmission line (exact distributed parameters)  (power systems / transmission lines)
-energy_short_line                    Short transmission line: sending-end voltage, regulation and efficiency  (power systems / transmission lines)
-… 12 more
-```
-
-### 2.4 List the capabilities
+### 2.2 List the capabilities
 
 Every capability the program answers: its id (what you pass to solve) and its name.
 
@@ -150,10 +113,10 @@ energy_battery_rc_discharge              Battery terminal voltage under constant
 energy_cell_temperature_faiman           PV module temperature (Faiman model)
 energy_cell_temperature_noct             PV cell temperature from NOCT
 energy_cell_temperature_sapm             PV cell and module temperature (Sandia SAPM model)
-… 71 more
+… 62 more
 ```
 
-### 2.5 What a capability needs
+### 2.3 What a capability needs
 
 The equation or method, every input and output with its SI unit. Read this before solve: it tells you the input names.
 
@@ -173,7 +136,7 @@ Balanced three-phase power from line quantities
   out  I_phase  current in each phase of the load [A]
 ```
 
-### 2.6 Solve
+### 2.4 Solve
 
 Inputs as name=value, each with any unit of the right kind. The answer lists every output, the method used, each input converted to SI, and the conditions the answer assumes.
 
@@ -185,14 +148,14 @@ S = 34641.01615 VA
 V_phase = 230.9401077 V
 I_phase = 50 A
   by: Balanced three-phase power from line quantities  (S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3))
-  VL = 400 V
-  IL = 50 A
-  pf = 0.8
+  VL = 400 V   []
+  IL = 50 A   []
+  pf = 0.8   []
   connection = star
   assumes: balanced load; 0 < pf <= 1
 ```
 
-### 2.7 Machine-readable answer
+### 2.5 Machine-readable answer
 
 --json prints the same answer as one line of JSON (values in SI): for scripts and other programs.
 
@@ -201,7 +164,7 @@ $ energy-systems solve energy_three_phase_power "VL=400 V" "IL=50 A" pf=0.8 conn
 {"outcome":"SOLVED","message":"","value":27712.8129211,"unit":"W","solved_for":"P","si":[["VL",400.0],["IL",50.0],["pf",0.8]],"values":[["P",27712.8129211,"W"],["Q",20784.6096908,"var"],["S",34641.0161514,"VA"],["V_phase",230.940107676,"V"],["I_phase",50.0,"A"]],"target":"P","phrase":"real power (three-phase total)","assumptions":["balanced load","0 < pf <= 1"],"name":"Balanced three-phase power from line quantities","equation":"S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3)"}
 ```
 
-### 2.8 When an input is missing
+### 2.6 When an input is missing
 
 No number is guessed: the answer names what is missing, shows a complete call, and the program exits with status 1.
 
@@ -210,35 +173,7 @@ $ energy-systems solve energy_three_phase_power "VL=400 V" "IL=50 A" pf=0.8
 NEEDS_INPUT: energy_three_phase_power needs connection (connection of the load (star = wye)). Example: solve('energy_three_phase_power', VL='400 V', IL='50 A', pf=0.8, connection='star').
 ```
 
-### 2.9 Draw the figures
-
-The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
-
-```shell
-$ energy-systems figures energy_three_phase_power "VL=400 V" "IL=50 A" pf=0.8 connection=star --out .
-[
-  {
-    "slug": "energy-three-phase-power-phasor",
-    "title": "Three-phase power triangle",
-    "caption": "Power triangle of the three-phase load: the model returns P = 27.71 kW, Q = 20.78 kvar and S = 34.64 kVA (phase voltage 230.9 V, phase current 50 A); φ = 36.87° is the angle of the returned P and Q. In SI units: P = 2.771e+04 W. Your inputs: VL = 400 V, IL = 50 A, pf = 0.8, connection = star.",
-    "file": ".\\energy-three-phase-power-phasor.svg"
-  },
-  {
-    "slug": "energy-three-phase-power-live-1",
-    "title": "Real power (three-phase total) as line-to-line rms voltage varies",
-    "caption": "Real power (three-phase total) as VL runs from 100 to 700 V, every other input as you entered it (41 solutions). Marked: your VL = 400 V gives P = 2.771e+04. Your inputs: VL = 400 V, IL = 50 A, pf = 0.8, connection = star.",
-    "file": ".\\energy-three-phase-power-live-1.svg"
-  },
-  {
-    "slug": "energy-three-phase-power-live-2",
-    "title": "Real power (three-phase total) as line current (rms) varies",
-    "caption": "Real power (three-phase total) as IL runs from 12.5 to 87.5 A, every other input as you entered it (29 solutions). Marked: your IL = 50 A gives P = 2.771e+04. Your inputs: VL = 400 V, IL = 50 A, pf = 0.8, connection = star.",
-    "file": ".\\energy-three-phase-power-live-2.svg"
-  }
-]
-```
-
-### 2.10 Many questions at once
+### 2.7 Many questions at once
 
 One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | energy-systems batch
 
@@ -251,8 +186,8 @@ One JSON request per line in, one JSON answer per line out, in order: for script
 
 ```shell
 $ energy-systems batch < cases.jsonl
-{"outcome":"SOLVED","message":"","value":27712.8129211,"unit":"W","solved_for":"P","si":[["VL",400.0],["IL",50.0],["pf",0.8]],"values":[["P",27712.8129211,"W"],["Q",20784.6096908,"var"],["S",34641.0161514,"VA"],["V_phase",230.940107676,"V"],["I_phase",50.0,"A"]],"target":"P","phrase":"real power (three-phase total)","assumptions":["balanced load","0 < pf <= 1"],"name":"Balanced three-phase power from line quantities","equation":"S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3)"}
-{"outcome":"SOLVED","message":"","value":69.3399621499,"unit":"","solved_for":"elevation_deg","si":[["latitude",40.0],["longitude",-105.0],["clock",13.0],["utc_offset",-7.0]],"values":[["declination_deg",23.4520460745,""],["eot_min",-1.34372473169,""],["hour_angle_deg",14.6640688171,""],["zenith_deg",20.6600378501,""],["elevation_deg",69.3399621499,""],["azimuth_deg",221.165264952,""]],"target":"elevation_deg","phrase":"declination in degrees","assumptions":["1 <= n <= 366","0 <= clock < 24","-90 < latitude < 90"],"name":"Sun position at a place and local time","equation":"Spencer declination and equation of time; omega = 15 (t - UTC offset - 12) + longitude + E/4; cos z = cos(delta) cos(phi) cos(omega) + sin(delta) sin(phi)"}
+{"outcome":"SOLVED","message":"","value":27712.8129211,"unit":"W","solved_for":"P","si":[["IL",50.0],["VL",400.0],["pf",0.8]],"values":[["P",27712.8129211,"W"],["Q",20784.6096908,"var"],["S",34641.0161514,"VA"],["V_phase",230.940107676,"V"],["I_phase",50.0,"A"]],"target":"P","phrase":"real power (three-phase total)","assumptions":["balanced load","0 < pf <= 1"],"name":"Balanced three-phase power from line quantities","equation":"S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3)"}
+{"outcome":"SOLVED","message":"","value":69.3399621499,"unit":"","solved_for":"elevation_deg","si":[["clock",13.0],["latitude",40.0],["longitude",-105.0],["utc_offset",-7.0]],"values":[["declination_deg",23.4520460745,""],["eot_min",-1.34372473169,""],["hour_angle_deg",14.6640688171,""],["zenith_deg",20.6600378501,""],["elevation_deg",69.3399621499,""],["azimuth_deg",221.165264952,""]],"target":"elevation_deg","phrase":"declination in degrees","assumptions":["1 <= n <= 366","0 <= clock < 24","-90 < latitude < 90"],"name":"Sun position at a place and local time","equation":"Spencer declination and equation of time; omega = 15 (t - UTC offset - 12) + longitude + E/4; cos z = cos(delta) cos(phi) cos(omega) + sin(delta) sin(phi)"}
 ```
 
 ## 3. Writing inputs
@@ -311,30 +246,6 @@ answers = [json.loads(line) for line in out.splitlines()]
 
 `energy-systems figures <capability> name=value ... --out DIR` draws the live figures for those inputs and writes each as an SVG file into DIR (an existing folder); without `--out` the SVG text comes back as JSON. The desktop app and the model page draw the same figures as soon as you press Compute.
 
-```shell
-$ energy-systems figures energy_three_phase_power "VL=400 V" "IL=50 A" pf=0.8 connection=star --out .
-[
-  {
-    "slug": "energy-three-phase-power-phasor",
-    "title": "Three-phase power triangle",
-    "caption": "Power triangle of the three-phase load: the model returns P = 27.71 kW, Q = 20.78 kvar and S = 34.64 kVA (phase voltage 230.9 V, phase current 50 A); φ = 36.87° is the angle of the returned P and Q. In SI units: P = 2.771e+04 W. Your inputs: VL = 400 V, IL = 50 A, pf = 0.8, connection = star.",
-    "file": ".\\energy-three-phase-power-phasor.svg"
-  },
-  {
-    "slug": "energy-three-phase-power-live-1",
-    "title": "Real power (three-phase total) as line-to-line rms voltage varies",
-    "caption": "Real power (three-phase total) as VL runs from 100 to 700 V, every other input as you entered it (41 solutions). Marked: your VL = 400 V gives P = 2.771e+04. Your inputs: VL = 400 V, IL = 50 A, pf = 0.8, connection = star.",
-    "file": ".\\energy-three-phase-power-live-1.svg"
-  },
-  {
-    "slug": "energy-three-phase-power-live-2",
-    "title": "Real power (three-phase total) as line current (rms) varies",
-    "caption": "Real power (three-phase total) as IL runs from 12.5 to 87.5 A, every other input as you entered it (29 solutions). Marked: your IL = 50 A gives P = 2.771e+04. Your inputs: VL = 400 V, IL = 50 A, pf = 0.8, connection = star.",
-    "file": ".\\energy-three-phase-power-live-2.svg"
-  }
-]
-```
-
 ## 7. In a web page or Node.js: WebAssembly
 
 The same model is a WebAssembly module, `energy_systems_ai999x.wasm` (https://www.ai999x.com/compute/rust/energy_systems_ai999x.wasm), with a small loader, `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js). It runs in a browser, a Web Worker or Node.js, with no server.
@@ -390,10 +301,10 @@ V_pack = 48 V
 E_pack_kWh = 14.4
 Q_pack_Ah = 300
   by: Battery pack series-parallel sizing  (N_s = ceil(V/V_cell); N_p = ceil(E/(N_s V_cell Q_cell)))
-  V_target = 48 V
-  E_target = 36000000 J
-  V_cell = 3.2 V
-  Q_cell = 360000 C
+  V_target = 48 V   []
+  E_target = 36000000 J   []
+  V_cell = 3.2 V   []
+  Q_cell = 360000 C   []
   assumes: nominal voltages and capacities; a target met within 1e-9 counts as met
 ```
 
@@ -435,12 +346,12 @@ E_Wh = 0
 heat = 0 J
 tau = 20 s
   by: Battery terminal voltage under constant current (one-RC equivalent circuit)  (V1 = I R1 (1 - e^(-t/tau)), V_t = OCV - I R0 - V1; energy and heat integrated in closed form)
-  OCV = 4 V
-  R0 = 0.01 ohm
-  R1 = 0.02 ohm
-  C1 = 1000 F
-  I = 10 A
-  t = 0 s
+  OCV = 4 V   []
+  R0 = 0.01 ohm   []
+  R1 = 0.02 ohm   []
+  C1 = 1000 F   []
+  I = 10 A   []
+  t = 0 s   []
   assumes: constant open-circuit voltage over the interval (short pulse or flat OCV curve); RC branch initially relaxed
 ```
 
@@ -475,7 +386,7 @@ C_p = 100
 runtime_h = 20
 capacity_Ah = 100
   by: Peukert exponent and run time at a new discharge current  (ln t = ln C_p - k ln I fitted by least squares; t(I) = C_p I^-k)
-  I = 5 A
+  I = 5 A   []
   assumes: at least two tests at different currents; constant temperature and cut-off voltage
 ```
 
@@ -513,9 +424,9 @@ SOC_max = 0.9
 charge_out = 90000 C
 charge_out_Ah = 25
   by: State of charge by coulomb counting  (SOC_k = SOC0 - (sum_{j<=k} I_j dt)/Q)
-  SOC0 = 0.9
-  Q = 180000 C
-  dt = 3600 s
+  SOC0 = 0.9   []
+  Q = 180000 C   []
+  dt = 3600 s   []
   assumes: 0 <= SOC0 <= 1; Q, dt > 0; the state of charge stays within 0 to 100%; no coulombic losses
 ```
 
@@ -550,8 +461,8 @@ P = 14000 W
 P_kW = 14
 V_stack = 70 V
   by: Electrical power of a fuel-cell or electrolyser stack  (P = N I V_cell, V_stack = N V_cell)
-  I = 200 A
-  V_cell = 0.7 V
+  I = 200 A   []
+  V_cell = 0.7 V   []
   assumes: cells in series carrying the same current; 0 < V_cell <= 5 V
 ```
 
@@ -595,8 +506,8 @@ efficiency_LHV = 0.5585812318
 efficiency_HHV = 0.4725933434
 heat_LHV = 106746.535 W
   by: Hydrogen fuel-cell stack: consumption, power and efficiency  (n_H2 = N I/(2F); n_O2 = n_H2/2; n_H2O = n_H2; P = N I V; eta = P/(n_H2 LHV))
-  I = 192970.6642 A
-  V_cell = 0.7 V
+  I = 192970.6642 A   []
+  V_cell = 0.7 V   []
   assumes: hydrogen/oxygen cell, 2 electrons per H2; heating values at 25 degC
 ```
 
@@ -638,8 +549,8 @@ specific_energy_kWh_per_kg = 53.18070747
 efficiency_HHV = 0.7405944347
 efficiency_LHV = 0.6265874685
   by: Water electrolyser: hydrogen production and energy per kilogram  (n_H2 = eta_F N I/(2F); specific energy = N I V/(n_H2 M_H2); eta_HHV = n_H2 HHV/P)
-  I = 192970.6642 A
-  V_cell = 2 V
+  I = 192970.6642 A   []
+  V_cell = 2 V   []
   assumes: water electrolysis, 2 electrons per H2; heating values at 25 degC
 ```
 
@@ -682,9 +593,9 @@ mass_ideal = 58.89920286 kg
 ideal_over_real = 1.466169638
 energy_LHV_kWh = 1338.631409
   by: Hydrogen stored in a tank at pressure (real gas)  (Leachman 2009 Helmholtz equation: p = rho R T (1 + delta d(alpha_r)/d(delta)), solved for rho; Z = p/(rho R T))
-  V = 1 m^3
-  p = 70000000 Pa
-  T = 288.15 K
+  V = 1 m^3   []
+  p = 70000000 Pa   []
+  T = 288.15 K   []
   assumes: 1 kPa <= p <= 1500 bar; 200 K <= T <= 700 K; normal hydrogen, uniform state
 ```
 
@@ -717,9 +628,9 @@ T2 = 423.2935564 K
 w = 1833212.524 J/kg
 w_kWh_per_kg = 0.5092257011
   by: Isentropic (adiabatic) compression of hydrogen  (s(p2, T2) = s(p1, T1) solved for T2 by bisection; w = h(p2, T2) - h(p1, T1); s and h from the Helmholtz energy (ideal + residual parts))
-  p1 = 3000000 Pa
-  T1 = 300 K
-  p2 = 10000000 Pa
+  p1 = 3000000 Pa   []
+  T1 = 300 K   []
+  p2 = 10000000 Pa   []
   assumes: reversible adiabatic, single stage; outlet temperature below 1000 K
 ```
 
@@ -754,9 +665,9 @@ w_kWh_per_kg = 0.2384406723
 w_ideal = 857663.0789 J/kg
 real_over_ideal = 1.000843387
   by: Minimum (isothermal) work to compress hydrogen  (w = g(p2, T) - g(p1, T), g/(RT) = ln(delta) + alpha_r + delta d(alpha_r)/d(delta) + (terms in T only))
-  p1 = 100000 Pa
-  p2 = 200000 Pa
-  T = 300 K
+  p1 = 100000 Pa   []
+  p2 = 200000 Pa   []
+  T = 300 K   []
   assumes: reversible and isothermal; 200 K <= T <= 700 K, pressures up to 1500 bar
 ```
 
@@ -805,13 +716,13 @@ V_th = 265.5811238 V
 R_th = 0 ohm
 X_th = 1 ohm
   by: Induction motor breakdown (maximum) torque and starting torque  (Thevenin: V_th = V jXm/(R1 + j(X1 + Xm)), Z_th = Z1 || jXm; s_max = R2/sqrt(R_th^2 + (X_th + X2)^2); T_max = 3 V_th^2/(2 omega_s (R_th + sqrt(R_th^2 + (X_th + X2)^2))))
-  VL = 460 V
-  f = 60 Hz
-  R1 = 0 ohm
-  X1 = 1 ohm
-  R2 = 0.2 ohm
-  X2 = 1 ohm
-  Xm = 1e+12 ohm
+  VL = 460 V   []
+  f = 60 Hz   []
+  R1 = 0 ohm   []
+  X1 = 1 ohm   []
+  R2 = 0.2 ohm   []
+  X2 = 1 ohm   []
+  Xm = 1e+12 ohm   []
   connection = star
   assumes: constant parameters (no deep-bar or saturation effects)
 ```
@@ -865,14 +776,14 @@ T = 62.80682157 N*m
 P_out = 11578.3532 W
 efficiency_pct = 92.44093315
   by: Induction motor performance from its equivalent circuit  (Z = R1 + jX1 + jXm || (R2/s + jX2); P_ag = 3 I2^2 R2/s; P_conv = (1 - s) P_ag; T = P_ag/omega_s; n_s = 120 f/p)
-  VL = 460 V
-  f = 60 Hz
-  R1 = 0.641 ohm
-  X1 = 1.106 ohm
-  R2 = 0.332 ohm
-  X2 = 0.464 ohm
-  Xm = 26.3 ohm
-  slip = 0.022
+  VL = 460 V   []
+  f = 60 Hz   []
+  R1 = 0.641 ohm   []
+  X1 = 1.106 ohm   []
+  R2 = 0.332 ohm   []
+  X2 = 0.464 ohm   []
+  Xm = 26.3 ohm   []
+  slip = 0.022   []
   connection = star
   assumes: steady state, balanced supply; 0 < slip <= 1
 ```
@@ -915,10 +826,10 @@ regulation_pct = 41.42135622
 P = 3000.000001 W
 Q = 0 var
   by: Synchronous generator internal EMF, power angle and regulation  (E = V + (Ra + jXs) I per phase, I at angle -acos(pf))
-  VL = 173.2050808 V
-  IL = 10 A
-  pf = 1
-  Xs = 10 ohm
+  VL = 173.2050808 V   []
+  IL = 10 A   []
+  pf = 1   []
+  Xs = 10 ohm   []
   assumes: cylindrical rotor (no saliency), star connection, unsaturated
 ```
 
@@ -948,14 +859,7 @@ $$
 
 **Applies when:** f > 0; even number of poles; at most one of slip and rotor speed.
 
-```shell
-$ energy-systems solve energy_synchronous_speed "f=50 Hz" poles=4
-n_sync_rpm = 1500
-omega_sync = 157.0796327 rad/s
-  by: Synchronous speed, rotor speed and slip of an AC machine  (n_s = 120 f/P; n = n_s (1 - s); s = (n_s - n)/n_s; f_r = s f)
-  f = 50 Hz
-  assumes: f > 0; even number of poles; at most one of slip and rotor speed
-```
+*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
 
 In the worked example, f = 50 Hz, poles = 4 go through the equation above and give n_sync_rpm = 1500, omega_sync = 157.0796327 rad/s. It applies only when f > 0; even number of poles; at most one of slip and rotor speed: outside that it says what is wrong instead of returning a number.
 
@@ -995,16 +899,16 @@ total_loss = 0.1
 performance_factor = 0.9
 total_loss_pct = 10
   by: Combined PV system losses (PVWatts)  (L = 1 - prod(1 - L_i))
-  soiling = 0
-  shading = 0
-  snow = 0
-  mismatch = 0
-  wiring = 0
-  connections = 0
-  lid = 0
-  nameplate_rating = 0
-  age = 0
-  availability = 0.1
+  soiling = 0   []
+  shading = 0   []
+  snow = 0   []
+  mismatch = 0   []
+  wiring = 0   []
+  connections = 0   []
+  lid = 0   []
+  nameplate_rating = 0   []
+  age = 0   []
+  availability = 0.1   []
   assumes: each loss between 0 and 100%
 ```
 
@@ -1032,7 +936,7 @@ $$
 $ energy-systems solve energy_iam_ashrae aoi=60
 iam = 0.95
   by: Incidence angle modifier (ASHRAE)  (IAM = max(0, 1 - b0 (sec(theta) - 1)); 0 for theta >= 90)
-  aoi = 60
+  aoi = 60   []
   assumes: 0 <= aoi <= 180
 ```
 
@@ -1062,7 +966,7 @@ $$
 $ energy-systems solve energy_iam_physical aoi=0
 iam = 1
   by: Incidence angle modifier from Fresnel reflection and absorption  (Snell's law, Fresnel reflectances r_s, r_p, transmission tau = (1 - r) exp(-K L/cos theta_r), IAM = (tau_s + tau_p)/2/tau(0))
-  aoi = 0
+  aoi = 0   []
   assumes: 0 <= aoi < 90; 1 < n < 3
 ```
 
@@ -1096,8 +1000,8 @@ pac = 4800 W
 efficiency = 0.8
 clipped = true
   by: Inverter AC output and efficiency (PVWatts)  (zeta = P_dc/P_dc0; eta = (eta_nom/eta_ref)(-0.0162 zeta - 0.0059/zeta + 0.9858); P_ac = min(eta P_dc, eta_nom P_dc0))
-  pdc = 6000 W
-  pdc0 = 5000 W
+  pdc = 6000 W   []
+  pdc0 = 5000 W   []
   assumes: P_dc > 0
 ```
 
@@ -1129,10 +1033,10 @@ $ energy-systems solve energy_pvwatts_dc "G_eff=800 W/m^2" "T_cell=45 degC" "pdc
 pdc = 3680 W
 pdc_kW = 3.68
   by: PV array DC power with temperature derating (PVWatts)  (P_dc = (G/1000) P_dc0 [1 + gamma (T_c - 25)])
-  G_eff = 800 W/m^2
-  T_cell = 318.15 K
-  pdc0 = 5000 W
-  gamma = -0.004
+  G_eff = 800 W/m^2   []
+  T_cell = 318.15 K   []
+  pdc0 = 5000 W   []
+  gamma = -0.004   []
   assumes: -0.02 <= gamma <= 0.01 per K
 ```
 
@@ -1169,11 +1073,11 @@ T_cell_C = 50
 pdc = 7200 W
 derate = 0.9
   by: PV array output at operating temperature  (T_c = T_a + (NOCT - 20) G/800; P = (G/1000) P_dc0 [1 + gamma (T_c - 25)])
-  poa = 800 W/m^2
-  T_air = 298.15 K
-  noct = 318.15 K
-  pdc0 = 10000 W
-  gamma = -0.004
+  poa = 800 W/m^2   []
+  T_air = 298.15 K   []
+  noct = 318.15 K   []
+  pdc0 = 10000 W   []
+  gamma = -0.004   []
   assumes: G > 0; -0.02 <= gamma <= 0.01 per K
 ```
 
@@ -1207,9 +1111,9 @@ T_module_C = 41.11703066
 T_cell_C = 44.11703066
 T_cell = 317.2670307 K
   by: PV cell and module temperature (Sandia SAPM model)  (T_m = G exp(a + b v) + T_a; T_c = T_m + G dT/1000 (a, b, dT from the Sandia table))
-  poa = 1000 W/m^2
-  T_air = 283.15 K
-  wind = 0 m/s
+  poa = 1000 W/m^2   []
+  T_air = 283.15 K   []
+  wind = 0 m/s   []
   mount = open_rack_glass_glass
   assumes: G >= 0
 ```
@@ -1241,9 +1145,9 @@ $ energy-systems solve energy_cell_temperature_noct "poa=800 W/m^2" "T_air=25 de
 T_cell = 323.15 K
 T_cell_C = 50
   by: PV cell temperature from NOCT  (T_c = T_a + (NOCT - 20)/800 G (Ross model with the NOCT coefficient))
-  poa = 800 W/m^2
-  T_air = 298.15 K
-  noct = 318.15 K
+  poa = 800 W/m^2   []
+  T_air = 298.15 K   []
+  noct = 318.15 K   []
   assumes: irradiance >= 0
 ```
 
@@ -1280,25 +1184,7 @@ $$
 
 **Applies when:** reference conditions 1000 W/m^2 and 25 degC.
 
-```shell
-$ energy-systems solve energy_pv_module_at_conditions "G=1000 W/m^2" "T_cell=25 degC" alpha_sc=0.004 "a_ref=1 V" "IL_ref=5 A" "I0_ref=1e-10 A" "Rsh_ref=1e+15 ohm" "Rs=0 ohm"
-Isc = 5 A
-Voc = 24.63528884 V
-Imp = 4.777983488 A
-Vmp = 21.52084741 V
-Pmp = 102.8262536 W
-FF = 0.8347882927
-  by: PV module maximum power at an irradiance and temperature  (De Soto parameter translation, then I_sc, V_oc and the maximum power point of the single-diode equation)
-  G = 1000 W/m^2
-  T_cell = 298.15 K
-  alpha_sc = 0.004
-  a_ref = 1 V
-  IL_ref = 5 A
-  I0_ref = 1e-10 A
-  Rsh_ref = 1e+15 ohm
-  Rs = 0 ohm
-  assumes: reference conditions 1000 W/m^2 and 25 degC
-```
+*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
 
 **What the worked example means:** This calculation determines the performance of a photovoltaic module under specific environmental conditions. It begins by translating reference parameters to the current irradiance of 1000 W/m^2 and cell temperature of 25 degC using the De Soto method. These translated values feed into a single-diode model to find the short-circuit current of 5 A amperes and open-circuit voltage of 24.6353 V volts. The system then solves for the point where power is maximized, yielding a current at maximum power of 4.77798 A amperes and a voltage at maximum power of 21.5208 V volts. The final result, 102.826 W watts, represents the usable electrical output, while the fill factor of 0.834788 indicates how effectively the module converts its theoretical potential into actual power.
 
@@ -1340,14 +1226,14 @@ Rs = 0.3 ohm
 Rsh = 400 ohm
 nNsVth = 1.9 V
   by: PV module single-diode parameters at operating conditions (De Soto)  (a = a_ref T/T_ref; IL = (G/1000)(IL_ref + alpha_sc (T - T_ref)); I0 = I0_ref (T/T_ref)^3 exp(Eg_ref/(k T_ref) - Eg/(k T)), Eg = Eg_ref (1 + dEg/dT (T - T_ref)); Rsh = Rsh_ref 1000/G)
-  G = 1000 W/m^2
-  T_cell = 298.15 K
-  alpha_sc = 0.004
-  a_ref = 1.9 V
-  IL_ref = 9 A
-  I0_ref = 1e-10 A
-  Rsh_ref = 400 ohm
-  Rs = 0.3 ohm
+  G = 1000 W/m^2   []
+  T_cell = 298.15 K   []
+  alpha_sc = 0.004   []
+  a_ref = 1.9 V   []
+  IL_ref = 9 A   []
+  I0_ref = 1e-10 A   []
+  Rsh_ref = 400 ohm   []
+  Rs = 0.3 ohm   []
   assumes: reference conditions 1000 W/m^2 and 25 degC
 ```
 
@@ -1380,9 +1266,9 @@ $ energy-systems solve energy_cell_temperature_faiman "poa=1000 W/m^2" "T_air=25
 T_cell = 338.15 K
 T_cell_C = 65
   by: PV module temperature (Faiman model)  (T = T_a + G/(u0 + u1 v))
-  poa = 1000 W/m^2
-  T_air = 298.15 K
-  wind = 0 m/s
+  poa = 1000 W/m^2   []
+  T_air = 298.15 K   []
+  wind = 0 m/s   []
   assumes: G >= 0; u0 > 0
 ```
 
@@ -1416,12 +1302,12 @@ $ energy-systems solve energy_single_diode_current "V=1 V" "IL=5 A" "I0=1e-10 A"
 I = 4.99 A
 P = 4.99 W
   by: PV single-diode model: current at a voltage  (the implicit single-diode equation solved for I by bisection to full precision)
-  V = 1 V
-  IL = 5 A
-  I0 = 1e-10 A
-  Rs = 0 ohm
-  Rsh = 100 ohm
-  nNsVth = 1 V
+  V = 1 V   []
+  IL = 5 A   []
+  I0 = 1e-10 A   []
+  Rs = 0 ohm   []
+  Rsh = 100 ohm   []
+  nNsVth = 1 V   []
   assumes: IL, I0, Rsh, a > 0; Rs >= 0
 ```
 
@@ -1453,22 +1339,7 @@ $$
 
 **Applies when:** IL, I0, Rsh, a > 0; Rs >= 0.
 
-```shell
-$ energy-systems solve energy_single_diode_mpp "IL=5 A" "I0=1e-10 A" "Rs=0 ohm" "Rsh=1e+15 ohm" "nNsVth=1 V"
-Isc = 5 A
-Voc = 24.63528884 V
-Imp = 4.777983488 A
-Vmp = 21.52084741 V
-Pmp = 102.8262536 W
-FF = 0.8347882927
-  by: PV single-diode model: short-circuit, open-circuit and maximum power point  (I(0) and V(I = 0) from the implicit equation; maximum power where dP/dV_d = 0 along the curve parametrized by the diode voltage (bisection))
-  IL = 5 A
-  I0 = 1e-10 A
-  Rs = 0 ohm
-  Rsh = 1e+15 ohm
-  nNsVth = 1 V
-  assumes: IL, I0, Rsh, a > 0; Rs >= 0
-```
+*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
 
 **What the worked example means:** This calculation determines the key operating characteristics of a photovoltaic cell using the single-diode model. It computes the short-circuit current, which is 5 A, and the open-circuit voltage, which is 24.6353 V. By finding where the derivative of power with respect to voltage equals zero, it identifies the current at maximum power as 4.77798 A and the voltage at maximum power as 21.5208 V, resulting in a maximum power output of 102.826 W. The efficiency of this extraction relative to the ideal square product of current and voltage is quantified by the fill factor, calculated here as 0.834788.
 
@@ -1500,12 +1371,12 @@ $ energy-systems solve energy_single_diode_voltage "I=0 A" "IL=5 A" "I0=1e-10 A"
 V = 24.63528884 V
 P = 0 W
   by: PV single-diode model: voltage at a current  (the implicit single-diode equation solved for V by bisection to full precision)
-  I = 0 A
-  IL = 5 A
-  I0 = 1e-10 A
-  Rs = 0 ohm
-  Rsh = 1e+15 ohm
-  nNsVth = 1 V
+  I = 0 A   []
+  IL = 5 A   []
+  I0 = 1e-10 A   []
+  Rs = 0 ohm   []
+  Rsh = 1e+15 ohm   []
+  nNsVth = 1 V   []
   assumes: IL, I0, Rsh, a > 0; Rs >= 0
 ```
 
@@ -1538,17 +1409,7 @@ $$
 
 **Applies when:** buses numbered 1..n, bus 1 the slack; the load flow converges from a flat start.
 
-```shell
-$ energy-systems solve energy_newton_load_flow "lines=1 2 0.0 0.5 0.0" "loads=2 0.0 0.0"
-V = [1.0,1.0]
-angle_deg = [0.0,0.0]
-P_slack = 0
-Q_slack = 0
-P_loss = 0
-Q_gen = []
-  by: AC load flow by Newton-Raphson  (polar Newton-Raphson on the P and Q mismatches with the analytic Jacobian, solved by Gaussian elimination, to a mismatch below 1e-13 pu)
-  assumes: buses numbered 1..n, bus 1 the slack; the load flow converges from a flat start
-```
+*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
 
 **What the worked example means:** This calculation determines the steady-state voltages and power flows in an electrical network using the Newton-Raphson method. It takes line parameters, load demands, and generator settings as inputs to solve for bus voltage magnitudes given by [1, 1] and phase angles provided by [0, 0]. The resulting slack bus real power injection is 0 and reactive power is 0, while total system losses are calculated as 0. Generator reactive outputs are listed in [], reflecting the balance between generation and demand under the assumed flat start convergence.
 
@@ -1584,10 +1445,10 @@ R_pu = 0.02869605142
 X_pu = 0.1147842057
 Z_pu = 0.1183168511
   by: Base impedance and per-unit impedance  (Z_base = V_base^2/S_base, I_base = S_base/(sqrt(3) V_base), Z_pu = Z/Z_base)
-  R = 5 ohm
-  X = 20 ohm
-  S_base = 100000000 VA
-  V_base = 132000 V
+  R = 5 ohm   []
+  X = 20 ohm   []
+  S_base = 100000000 VA   []
+  V_base = 132000 V   []
   assumes: R, X >= 0, not both 0; positive bases; three-phase base, line-to-line voltage
 ```
 
@@ -1624,10 +1485,10 @@ delta0_deg = 30
 delta_max_deg = 150
 delta_cr_deg = 79.56195848
   by: Critical clearing angle and time (equal-area criterion)  (cos(delta_cr) = [Pm (delta_max - delta0) + Pmax_post cos(delta_max) - Pmax_fault cos(delta0)]/(Pmax_post - Pmax_fault); t_cr = sqrt(4 H (delta_cr - delta0)/(omega_s Pm)))
-  Pm = 1
-  Pmax_pre = 2
-  Pmax_fault = 0
-  Pmax_post = 2
+  Pm = 1   []
+  Pmax_pre = 2   []
+  Pmax_fault = 0   []
+  Pmax_post = 2   []
   assumes: Pmax_fault < Pm < Pmax_pre, Pmax_post; classical model (constant voltage behind transient reactance, no damping)
 ```
 
@@ -1653,14 +1514,7 @@ $$
 
 **Applies when:** connected network; positive reactances; bus 1 is the slack.
 
-```shell
-$ energy-systems solve energy_dc_power_flow "lines=1-2 0.1, 2-3 0.2" "P=0, -1"
-theta_deg = [0.0,-5.72957795131,-17.1887338539]
-flows = [1.0,1.0]
-P_slack = 1
-  by: DC power flow  (B' theta = P (reduced susceptance matrix, slack removed), solved by Gaussian elimination; P_ij = (theta_i - theta_j)/x_ij)
-  assumes: connected network; positive reactances; bus 1 is the slack
-```
+*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
 
 **What the worked example means:** This calculation determines the steady-state operating point of the power network using a linearized model. Solving the system of equations relating net injections to voltage angles shows that the bus angles are [0, -5.72958, -17.1887]. These angles drive the active power flow through each transmission line, calculated as [1, 1]. The difference between total generation and load is balanced by the slack bus, which provides an injection of 1. This method assumes flat voltage magnitudes and ignores losses, providing a quick approximation suitable for planning studies.
 
@@ -1708,9 +1562,9 @@ Va = 1
 Vb = 0
 Vc = 0
   by: Double line-to-ground fault (symmetrical components)  (I1 = Vf/(Z1 + Z2 || (Z0 + 3Zf)); I2 = -I1 (Z0 + 3Zf)/(Z2 + Z0 + 3Zf); I0 = -I1 Z2/(Z2 + Z0 + 3Zf))
-  X1 = 0.1
-  X2 = 0.1
-  X0 = 0.1
+  X1 = 0.1   []
+  X2 = 0.1   []
+  X0 = 0.1   []
   assumes: sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf
 ```
 
@@ -1742,7 +1596,7 @@ lambda_ = 8.5
 P = [400.0,250.0,150.0]
 cost = 6682.5
   by: Economic dispatch with quadratic costs and limits  (equal incremental cost: P_i(lambda) = clip((lambda - b_i)/(2 c_i), Pmin_i, Pmax_i), lambda by bisection on sum P_i = D)
-  demand = 800
+  demand = 800   []
   assumes: c > 0 for every unit; sum Pmin <= demand <= sum Pmax; at least one unit between its limits
 ```
 
@@ -1779,8 +1633,8 @@ f = 49.75
 dP_gen = [50.0,50.0]
 dP_load_damping = 0
   by: Frequency deviation and load sharing under governor droop  (beta = sum(S_i/(R_i f0)) + D; df = -dP/beta; dP_i = -df S_i/(R_i f0))
-  dP = 100
-  f0 = 50 Hz
+  dP = 100   []
+  f0 = 50 Hz   []
   assumes: primary control only (no secondary/AGC); R, ratings > 0
 ```
 
@@ -1811,9 +1665,9 @@ $ energy-systems solve energy_geometric_mean_distance "D_ab=4 m" "D_bc=4 m" "D_c
 GMD = 5.0396842 m
 ratio_to_mean = 0.9449407874
   by: Geometric mean distance of a three-phase line  (GMD = (D_ab D_bc D_ca)^(1/3))
-  D_ab = 4 m
-  D_bc = 4 m
-  D_ca = 8 m
+  D_ab = 4 m   []
+  D_bc = 4 m   []
+  D_ca = 8 m   []
   assumes: positive spacings that form a triangle (or a straight line); fully transposed line
 ```
 
@@ -1859,12 +1713,12 @@ X_ohm_per_km = 0.4340270647
 B_uS_per_km = 2.81231993
 Zc = 392.8493542 ohm
   by: Inductance, capacitance and surge impedance of a three-phase overhead line  (GMD = (D_ab D_bc D_ca)^(1/3); L = 2e-7 ln(GMD/GMR) H/m; C = 2 pi eps0/ln(GMD/r) F/m; bundles: GMR_b = (GMR d^(n-1))^(1/n) (2^(1/8) (GMR d^3)^(1/4) = 1.09 (GMR d^3)^(1/4) for 4))
-  D_ab = 5 m
-  D_bc = 5 m
-  D_ca = 5 m
-  r = 0.01 m
-  f = 50 Hz
-  gmr = 0.005 m
+  D_ab = 5 m   []
+  D_bc = 5 m   []
+  D_ca = 5 m   []
+  r = 0.01 m   []
+  f = 50 Hz   []
+  gmr = 0.005 m   []
   assumes: fully transposed line; spacings much larger than the conductors; ground effect neglected
 ```
 
@@ -1914,9 +1768,9 @@ Va = 1
 Vb = 0.5
 Vc = 0.5
   by: Line-to-line fault (symmetrical components)  (I1 = -I2 = Vf/(Z1 + Z2 + Zf), I0 = 0; |I_b| = sqrt(3) |I_1|)
-  X1 = 0.1
-  X2 = 0.1
-  X0 = 0.1
+  X1 = 0.1   []
+  X2 = 0.1   []
+  X0 = 0.1   []
   assumes: sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf
 ```
 
@@ -1959,32 +1813,7 @@ $$
 
 **Applies when:** uniformly distributed parameters; balanced load.
 
-```shell
-$ energy-systems solve energy_long_line "Vr=400 kV" "P=1 MW" pf=1 "R=0 ohm" "X=100 ohm" "B=400 uS"
-Vs = 392026.7098 V
-delta_deg = 0.03629508733
-Is = 91.77233649 A
-Ps = 1000000 W
-losses = 0 W
-regulation_pct = 2.006413788e-05
-efficiency_pct = 100
-A_mag = 0.9800665778
-A_angle_deg = 0
-B_mag = 99.3346654 ohm
-B_angle_deg = 90
-Zc_mag = 500 ohm
-Zc_angle_deg = 0
-alpha_l = 0
-beta_l = 0.2
-  by: Long transmission line (exact distributed parameters)  (gamma l = sqrt(ZY), Zc = sqrt(Z/Y); A = D = cosh(gamma l), B = Zc sinh(gamma l), C = sinh(gamma l)/Zc)
-  Vr = 400000 V
-  P = 1000000 W
-  pf = 1
-  R = 0 ohm
-  X = 100 ohm
-  B = 0.0004 S
-  assumes: uniformly distributed parameters; balanced load
-```
+*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
 
 **What the worked example means:** This calculation determines the precise electrical behavior of a long transmission line by treating resistance, reactance, and susceptance as uniformly distributed rather than lumped. Using the receiving-end voltage 400 kV, load power 1 MW, and line parameters 0 ohm, 100 ohm, and 400 uS, it computes the propagation constant and characteristic impedance to find the ABCD constants. The resulting sending-end voltage is 392027 V, with a phase angle shift of 0.0362951. The calculated voltage regulation is 2.00641e-05 percent, which may be negative under light loads due to the Ferranti effect, while the total line losses are 0 W watts.
 
@@ -2021,28 +1850,7 @@ $$
 
 **Applies when:** nominal-pi model (half the shunt admittance at each end); balanced load.
 
-```shell
-$ energy-systems solve energy_medium_line "Vr=132 kV" "P=50 MW" pf=1 "R=0 ohm" "X=40 ohm" "B=500 uS"
-Vs = 131555.4287 V
-delta_deg = 6.613551682
-Is = 219.8010835 A
-Ps = 50000000 W
-losses = 0 W
-regulation_pct = 0.6699025601
-efficiency_pct = 100
-A_mag = 0.99
-A_angle_deg = 0
-B_mag = 40 ohm
-B_angle_deg = 90
-  by: Medium transmission line (nominal pi)  (A = D = 1 + ZY/2, B = Z, C = Y(1 + ZY/4); V_s = A V_r + B I_r, I_s = C V_r + D I_r; regulation = (V_s/|A| - V_r)/V_r)
-  Vr = 132000 V
-  P = 50000000 W
-  pf = 1
-  R = 0 ohm
-  X = 40 ohm
-  B = 0.0005 S
-  assumes: nominal-pi model (half the shunt admittance at each end); balanced load
-```
+*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
 
 **What the worked example means:** This calculation determines the performance of a medium-length transmission line using the nominal-pi equivalent circuit. Given the receiving-end voltage 132 kV, load power 50 MW, and line parameters, it computes the ABCD constants to find the sending-end voltage 131555 V, current 219.801 A, and real power 5e+07 W. The result indicates how much the voltage changes along the line, with a regulation of 0.669903 percent and an efficiency of 100 percent.
 
@@ -2076,12 +1884,12 @@ R_pu_new = 0.1
 X_pu_new = 1
 Z_pu_new = 1.004987562
   by: Per-unit impedance on a new base  (Z_new = Z_old (V_old/V_new)^2 (S_new/S_old))
-  R_pu = 0.01
-  X_pu = 0.1
-  S_old = 10000000 VA
-  V_old = 11000 V
-  S_new = 100000000 VA
-  V_new = 11000 V
+  R_pu = 0.01   []
+  X_pu = 0.1   []
+  S_old = 10000000 VA   []
+  V_old = 11000 V   []
+  S_new = 100000000 VA   []
+  V_new = 11000 V   []
   assumes: X_pu > 0; positive bases
 ```
 
@@ -2119,10 +1927,10 @@ Q_sent = 13397459.62 var
 Q_received = -13397459.62 var
 margin_pct = 50
   by: Power transfer and power angle between two voltages  (P = V1 V2 sin(delta)/X; Q_sent = (V2^2 - V1 V2 cos delta)/X; Q_received = (V1 V2 cos delta - V1^2)/X)
-  V1 = 100000 V
-  V2 = 100000 V
-  X = 100 ohm
-  P = 50000000 W
+  V1 = 100000 V   []
+  V2 = 100000 V   []
+  X = 100 ohm   []
+  P = 50000000 W   []
   assumes: lossless transfer reactance; |P| < V1 V2/X
 ```
 
@@ -2163,11 +1971,11 @@ P_loss = 0 W
 Q_loss = 267949.1924 var
 voltage_drop_pct = 3.407417371
   by: Receiving-end voltage of a line feeding a constant-power load (two-bus load flow)  (V_r^4 + [2(PR + QX) - V_s^2] V_r^2 + (P^2 + Q^2)(R^2 + X^2) = 0, larger root; angle from V_s = V_r + (PR + QX)/V_r + j(PX - QR)/V_r)
-  Vs = 2000 V
-  R = 0 ohm
-  X = 1 ohm
-  P = 1000000 W
-  Q = 0 var
+  Vs = 2000 V   []
+  R = 0 ohm   []
+  X = 1 ohm   []
+  P = 1000000 W   []
+  Q = 0 var   []
   assumes: the load is within the line's transfer limit (a real solution exists); the high-voltage (normal) solution is reported
 ```
 
@@ -2211,11 +2019,11 @@ Ps = 10000000 W
 regulation_pct = 0
 efficiency_pct = 100
   by: Short transmission line: sending-end voltage, regulation and efficiency  (V_s = V_r + I (R + jX) per phase, I = P/(sqrt(3) V_r pf) at angle -acos(pf); regulation = (V_s - V_r)/V_r; efficiency = P/(P + 3 I^2 R))
-  Vr = 33000 V
-  P = 10000000 W
-  pf = 1
-  R = 0 ohm
-  X = 0 ohm
+  Vr = 33000 V   []
+  P = 10000000 W   []
+  pf = 1   []
+  R = 0 ohm   []
+  X = 0 ohm   []
   assumes: short line: shunt admittance neglected; balanced three-phase load
 ```
 
@@ -2265,9 +2073,9 @@ Va = 0
 Vb = 1
 Vc = 1
   by: Single line-to-ground fault (symmetrical components)  (I1 = I2 = I0 = Vf/(Z1 + Z2 + Z0 + 3 Zf); I_a = 3 I_0)
-  X1 = 0.1
-  X2 = 0.1
-  X0 = 0.1
+  X1 = 0.1   []
+  X2 = 0.1   []
+  X0 = 0.1   []
   assumes: sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf
 ```
 
@@ -2298,14 +2106,7 @@ $$
 
 **Applies when:** reactance network; no prefault load current (all prefault voltages Vf).
 
-```shell
-$ energy-systems solve energy_symmetrical_fault "network=0-1 0.2, 1-2 0.3" fault_bus=2
-If = 2
-X_th = 0.5
-V = [0.6,0.0]
-  by: Three-phase (symmetrical) fault current by the bus impedance matrix  (column f of Zbus from Ybus z = e_f; I_f = V_f/(Z_ff + jX_f); V_i = V_f - Z_if I_f)
-  assumes: reactance network; no prefault load current (all prefault voltages Vf)
-```
+*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
 
 **What the worked example means:** This calculation determines the symmetrical three-phase fault current at the specified bus using the bus impedance matrix. The result, 2 per unit, represents the magnitude of the short-circuit current flowing into the fault location. The associated Thevenin equivalent reactance seen from the faulted bus is 0.5 per unit, which characterizes the network's strength against faults.
 
@@ -2337,10 +2138,10 @@ $ energy-systems solve energy_angle_of_incidence tilt=0 surface_azimuth=180 zeni
 aoi_deg = 60
 cos_aoi = 0.5
   by: Angle of incidence of the sun on a tilted surface  (cos(theta) = cos(beta) cos(z) + sin(beta) sin(z) cos(azimuth_sun - azimuth_surface))
-  tilt = 0
-  surface_azimuth = 180
-  zenith = 60
-  azimuth = 100
+  tilt = 0   []
+  surface_azimuth = 180   []
+  zenith = 60   []
+  azimuth = 100   []
   assumes: 0 <= tilt <= 180; azimuths from 0 to 360 degrees
 ```
 
@@ -2367,7 +2168,7 @@ $$
 $ energy-systems solve energy_clear_sky_haurwitz zenith=0
 ghi = 1035.092033 W/m^2
   by: Clear-sky global horizontal irradiance (Haurwitz)  (GHI = 1098 cos z exp(-0.059/cos z) for cos z > 0, else 0)
-  zenith = 0
+  zenith = 0   []
   assumes: 0 <= zenith <= 180
 ```
 
@@ -2403,9 +2204,9 @@ dni = 910.1415626 W/m^2
 dhi = 96.79737577 W/m^2
 AM_absolute = 1.087206272
   by: Clear-sky irradiance (Ineichen-Perez with Linke turbidity)  (GHI = cg1 G_on cos z exp(-cg2 AM (fh1 + fh2 (TL - 1))); DNI = min(b G_on exp(-0.09 AM (TL - 1)), GHI (1 - (0.1 - 0.2 e^-TL)/(0.1 + 0.882/fh1))/cos z); fh1 = e^(-h/8000), fh2 = e^(-h/1250))
-  zenith = 30
-  linke_turbidity = 3
-  altitude = 500 m
+  zenith = 30   []
+  linke_turbidity = 3   []
+  altitude = 500 m   []
   assumes: sun above the horizon; 1 <= TL <= 10
 ```
 
@@ -2440,8 +2241,8 @@ diffuse_fraction = 0.991
 dhi = 140.1255969 W/m^2
 dni = 1.272583624 W/m^2
   by: Diffuse and direct irradiance from global horizontal irradiance (Erbs)  (kt = GHI/(G_on cos z); DHI/GHI = 1 - 0.09 kt (kt <= 0.22), 0.9511 - 0.1604 kt + 4.388 kt^2 - 16.638 kt^3 + 12.336 kt^4 (<= 0.8), 0.165; DNI = (GHI - DHI)/cos z)
-  ghi = 141.3981805 W/m^2
-  zenith = 0
+  ghi = 141.3981805 W/m^2   []
+  zenith = 0   []
   assumes: 0 <= zenith <= 85; GHI > 0; kt is capped at 1
 ```
 
@@ -2475,8 +2276,8 @@ dni = 163.6448616 W/m^2
 kt = 0.5
 airmass = 0.9994939326
   by: Direct normal irradiance from global horizontal irradiance (DISC model)  (kt = GHI/(I0 cos z); Kn = Knc(AM) - (a(kt) + b(kt) exp(c(kt) AM)); DNI = Kn I0)
-  ghi = 709.00925 W/m^2
-  zenith = 0
+  ghi = 709.00925 W/m^2   []
+  zenith = 0   []
   assumes: 0 <= zenith <= 85; GHI > 0
 ```
 
@@ -2537,7 +2338,7 @@ $ energy-systems solve energy_extraterrestrial_irradiance n=365 method=asce "sol
 G_on = 1412.111 W/m^2
 distance_factor = 1.033
   by: Extraterrestrial (top-of-atmosphere) normal irradiance  (G_on = G_sc (1.00011 + 0.034221 cos B + 0.00128 sin B + 0.000719 cos 2B + 0.000077 sin 2B) (Spencer) or G_sc (1 + 0.033 cos(360 n/365)))
-  solar_constant = 1367 W/m^2
+  solar_constant = 1367 W/m^2   []
   method = asce
   assumes: 1 <= n <= 366
 ```
@@ -2581,14 +2382,14 @@ poa_sky_diffuse = 106.7203912 W/m^2
 poa_ground_diffuse = 10.62177826 W/m^2
 aoi_deg = 0
   by: Irradiance on a tilted plane (Hay-Davies sky model)  (sky = DHI [A R_b + (1 - A)(1 + cos beta)/2], A = DNI/G_on, R_b = cos(theta)/cos(z))
-  tilt = 30
-  surface_azimuth = 180
-  zenith = 30
-  azimuth = 180
-  dni = 800 W/m^2
-  ghi = 792.820323 W/m^2
-  dhi = 100 W/m^2
-  albedo = 0.2
+  tilt = 30   []
+  surface_azimuth = 180   []
+  zenith = 30   []
+  azimuth = 180   []
+  dni = 800 W/m^2   []
+  ghi = 792.820323 W/m^2   []
+  dhi = 100 W/m^2   []
+  albedo = 0.2   []
   assumes: sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 ```
 
@@ -2630,14 +2431,14 @@ poa_sky_diffuse = 93.30127019 W/m^2
 poa_ground_diffuse = 10.62177826 W/m^2
 aoi_deg = 0
   by: Irradiance on a tilted plane (isotropic sky)  (G_poa = DNI cos(theta) + DHI (1 + cos beta)/2 + GHI rho (1 - cos beta)/2)
-  tilt = 30
-  surface_azimuth = 180
-  zenith = 30
-  azimuth = 180
-  dni = 800 W/m^2
-  ghi = 792.820323 W/m^2
-  dhi = 100 W/m^2
-  albedo = 0.2
+  tilt = 30   []
+  surface_azimuth = 180   []
+  zenith = 30   []
+  azimuth = 180   []
+  dni = 800 W/m^2   []
+  ghi = 792.820323 W/m^2   []
+  dhi = 100 W/m^2   []
+  albedo = 0.2   []
   assumes: sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 ```
 
@@ -2679,14 +2480,14 @@ poa_sky_diffuse = 106.5660881 W/m^2
 poa_ground_diffuse = 10.62177826 W/m^2
 aoi_deg = 0
   by: Irradiance on a tilted plane (Klucher sky model)  (sky = DHI (1 + cos beta)/2 (1 + F sin^3(beta/2)) (1 + F cos^2(theta) sin^3(z)), F = 1 - (DHI/GHI)^2)
-  tilt = 30
-  surface_azimuth = 180
-  zenith = 30
-  azimuth = 180
-  dni = 800 W/m^2
-  ghi = 792.820323 W/m^2
-  dhi = 100 W/m^2
-  albedo = 0.2
+  tilt = 30   []
+  surface_azimuth = 180   []
+  zenith = 30   []
+  azimuth = 180   []
+  dni = 800 W/m^2   []
+  ghi = 792.820323 W/m^2   []
+  dhi = 100 W/m^2   []
+  albedo = 0.2   []
   assumes: sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 ```
 
@@ -2729,14 +2530,14 @@ poa_sky_diffuse = 113.1562866 W/m^2
 poa_ground_diffuse = 10.62177826 W/m^2
 aoi_deg = 0
   by: Irradiance on a tilted plane (Perez sky model)  (eps = ((DHI + DNI)/DHI + 1.041 z^3)/(1 + 1.041 z^3), Delta = DHI AM/G_on; F1, F2 from the bin's coefficients; sky = DHI [(1 - F1)(1 + cos beta)/2 + F1 a/b + F2 sin beta])
-  tilt = 30
-  surface_azimuth = 180
-  zenith = 30
-  azimuth = 180
-  dni = 800 W/m^2
-  ghi = 792.820323 W/m^2
-  dhi = 100 W/m^2
-  albedo = 0.2
+  tilt = 30   []
+  surface_azimuth = 180   []
+  zenith = 30   []
+  azimuth = 180   []
+  dni = 800 W/m^2   []
+  ghi = 792.820323 W/m^2   []
+  dhi = 100 W/m^2   []
+  albedo = 0.2   []
   assumes: 0 <= zenith < 87; DHI > 0; DHI <= GHI
 ```
 
@@ -2779,14 +2580,14 @@ poa_sky_diffuse = 107.3172184 W/m^2
 poa_ground_diffuse = 10.62177826 W/m^2
 aoi_deg = 0
   by: Irradiance on a tilted plane (Reindl sky model)  (sky = DHI [(1 - A)(1 + cos beta)/2 (1 + sqrt(BHI/GHI) sin^3(beta/2)) + A R_b])
-  tilt = 30
-  surface_azimuth = 180
-  zenith = 30
-  azimuth = 180
-  dni = 800 W/m^2
-  ghi = 792.820323 W/m^2
-  dhi = 100 W/m^2
-  albedo = 0.2
+  tilt = 30   []
+  surface_azimuth = 180   []
+  zenith = 30   []
+  azimuth = 180   []
+  dni = 800 W/m^2   []
+  ghi = 792.820323 W/m^2   []
+  dhi = 100 W/m^2   []
+  albedo = 0.2   []
   assumes: sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 ```
 
@@ -2817,7 +2618,7 @@ $ energy-systems solve energy_air_mass zenith=60 model=simple
 AM_relative = 2
 AM_absolute = 2
   by: Optical air mass  (Kasten-Young: AM = 1/(cos z + 0.50572 (96.07995 - z)^-1.6364); absolute AM = AM p/p0)
-  zenith = 60
+  zenith = 60   []
   model = simple
   assumes: 0 <= zenith < 90
 ```
@@ -2881,9 +2682,9 @@ eot_min = -1.343724732
 hour_angle_deg = 37.16406882
 solar_time_h = 14.47760459
   by: Solar time and hour angle from clock time  (omega = 15 (t_clock - UTC offset - 12) + longitude + E/4 (degrees); solar time = 12 + omega/15)
-  clock = 14.5
-  longitude = -75
-  utc_offset = -5
+  clock = 14.5   []
+  longitude = -75   []
+  utc_offset = -5   []
   assumes: 1 <= n <= 366; 0 <= clock < 24; -180 <= longitude <= 180
 ```
 
@@ -2916,9 +2717,9 @@ zenith_deg = 40
 elevation_deg = 50
 azimuth_deg = 180
   by: Solar zenith, elevation and azimuth from latitude, declination and hour angle  (cos z = cos(delta) cos(phi) cos(omega) + sin(delta) sin(phi); cos(azimuth - 180) = (cos z sin phi - sin delta)/(sin z cos phi), sign of omega)
-  latitude = 40
-  declination = 0
-  hour_angle = 0
+  latitude = 40   []
+  declination = 0   []
+  hour_angle = 0   []
   assumes: -90 < latitude < 90; |declination| <= 23.5; |hour angle| <= 180
 ```
 
@@ -2959,10 +2760,10 @@ zenith_deg = 20.66003785
 elevation_deg = 69.33996215
 azimuth_deg = 221.165265
   by: Sun position at a place and local time  (Spencer declination and equation of time; omega = 15 (t - UTC offset - 12) + longitude + E/4; cos z = cos(delta) cos(phi) cos(omega) + sin(delta) sin(phi))
-  latitude = 40
-  longitude = -105
-  clock = 13
-  utc_offset = -7
+  latitude = 40   []
+  longitude = -105   []
+  clock = 13   []
+  utc_offset = -7   []
   assumes: 1 <= n <= 366; 0 <= clock < 24; -90 < latitude < 90
 ```
 
@@ -3000,9 +2801,9 @@ solar_noon_h = 12.12607734
 day_length_h = 12
 sunset_hour_angle_deg = 90
   by: Sunrise, sunset, solar noon and day length  (omega_s = acos(-tan(phi) tan(delta)); t = (omega - longitude - E/4)/15 + 12 + UTC offset; day length = 2 omega_s/15)
-  latitude = 0
-  longitude = 0
-  utc_offset = 0
+  latitude = 0   []
+  longitude = 0   []
+  utc_offset = 0   []
   assumes: the sun rises and sets on that day (no polar day or night)
 ```
 
@@ -3043,9 +2844,9 @@ S = 34641.01615 VA
 V_phase = 230.9401077 V
 I_phase = 50 A
   by: Balanced three-phase power from line quantities  (S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3))
-  VL = 400 V
-  IL = 50 A
-  pf = 0.8
+  VL = 400 V   []
+  IL = 50 A   []
+  pf = 0.8   []
   connection = star
   assumes: balanced load; 0 < pf <= 1
 ```
@@ -3084,10 +2885,10 @@ S_at_max = 50000 VA
 efficiency_max_pct = 98.03921569
 efficiency_full_load_pct = 97.56097561
   by: Load for maximum transformer efficiency  (x = sqrt(P_core/P_cu,fl); eta_max = x S pf/(x S pf + 2 P_core))
-  S = 100000 VA
-  P_core = 500 W
-  P_cu_fl = 2000 W
-  pf = 1
+  S = 100000 VA   []
+  P_core = 500 W   []
+  P_cu_fl = 2000 W   []
+  pf = 1   []
   assumes: constant core loss, copper loss proportional to the load squared
 ```
 
@@ -3136,15 +2937,15 @@ Q2 = 100000 var
 share1_pct_of_rating = 63.2455532
 share2_pct_of_rating = 63.2455532
   by: Load sharing between two transformers in parallel  (impedances in ohms on the common secondary: Z_i = (vkr_i + j sqrt(vk_i^2 - vkr_i^2)) V^2/S_i; S_1 = S_L conj(Z_2/(Z_1 + Z_2)), S_2 = S_L conj(Z_1/(Z_1 + Z_2)))
-  S1 = 500000 VA
-  vk1 = 0.05
-  vkr1 = 0.01
-  S2 = 500000 VA
-  vk2 = 0.05
-  vkr2 = 0.01
-  V_lv = 400 V
-  P = 600000 W
-  Q = 200000 var
+  S1 = 500000 VA   []
+  vk1 = 0.05   []
+  vkr1 = 0.01   []
+  S2 = 500000 VA   []
+  vk2 = 0.05   []
+  vkr2 = 0.01   []
+  V_lv = 400 V   []
+  P = 600000 W   []
+  Q = 200000 var   []
   assumes: equal voltage ratios (no circulating current); magnetizing branches neglected
 ```
 
@@ -3188,12 +2989,12 @@ Zeq = 5 ohm
 pf_oc = 0.6
 pf_sc = 0.6
   by: Transformer parameters from open-circuit and short-circuit tests  (Rc = V_oc^2/P_oc, Xm = 1/sqrt((I_oc/V_oc)^2 - (P_oc/V_oc^2)^2); Req = P_sc/I_sc^2, Xeq = sqrt((V_sc/I_sc)^2 - Req^2))
-  Voc = 100 V
-  Ioc = 1 A
-  Poc = 60 W
-  Vsc = 50 V
-  Isc = 10 A
-  Psc = 300 W
+  Voc = 100 V   []
+  Ioc = 1 A   []
+  Poc = 60 W   []
+  Vsc = 50 V   []
+  Isc = 10 A   []
+  Psc = 300 W   []
   assumes: P < V I in both tests
 ```
 
@@ -3243,15 +3044,15 @@ P_cu = 100 W
 P_core = 0.0010201 W
 efficiency_pct = 99.00989099
   by: Transformer regulation and efficiency from its equivalent circuit  (V1 = a V2 + I2' (Req + jXeq), I2' = I2/a at angle -acos(pf); P_cu = |I2'|^2 Req; P_core = V1^2/Rc; eta = P_out/(P_out + P_cu + P_core))
-  S = 10000 VA
-  V1 = 1000 V
-  V2 = 100 V
-  Req = 1 ohm
-  Xeq = 0 ohm
-  Rc = 1000000000 ohm
-  Xm = 1000000000 ohm
-  load = 1
-  pf = 1
+  S = 10000 VA   []
+  V1 = 1000 V   []
+  V2 = 100 V   []
+  Req = 1 ohm   []
+  Xeq = 0 ohm   []
+  Rc = 1000000000 ohm   []
+  Xm = 1000000000 ohm   []
+  load = 1   []
+  pf = 1   []
   assumes: approximate equivalent circuit (shunt branch at the primary terminals); 0 < load <= 2
 ```
 
@@ -3298,15 +3099,15 @@ Q_loss = 19030.91932 var
 efficiency_pct = 98.73598327
 loading_pct = 69.67771432
   by: Transformer under load from nameplate data  (per unit on the rating: z = vkr + j sqrt(vk^2 - vkr^2), y_m = P0/S - j sqrt(i0^2 - (P0/S)^2); the T circuit solved for the load-bus voltage by Newton iteration)
-  sn = 630000 VA
-  V_hv = 20000 V
-  V_lv = 400 V
-  vk = 0.06
-  vkr = 0.012
-  P0 = 1500 W
-  i0 = 0.003
-  P = 400000 W
-  Q = 150000 var
+  sn = 630000 VA   []
+  V_hv = 20000 V   []
+  V_lv = 400 V   []
+  vk = 0.06   []
+  vkr = 0.012   []
+  P0 = 1500 W   []
+  i0 = 0.003   []
+  P = 400000 W   []
+  Q = 150000 var   []
   assumes: T equivalent circuit (series impedance halved on each side of the magnetizing branch); rated voltage applied, nominal tap
 ```
 
@@ -3348,10 +3149,10 @@ v_wake = 4 m/s
 P = 13571.68026 W
 T = 2261.946711 N
   by: Actuator-disc (momentum theory) rotor performance  (Cp = 4a(1 - a)^2, Ct = 4a(1 - a), v_disc = v(1 - a), v_wake = v(1 - 2a); P = Cp (1/2) rho A v^3, T = Ct (1/2) rho A v^2)
-  a = 0.25
-  rho = 1.2 kg/m^3
-  D = 10 m
-  v = 8 m/s
+  a = 0.25   []
+  rho = 1.2 kg/m^3   []
+  D = 10 m   []
+  v = 8 m/s   []
   assumes: 0 <= a < 0.5
 ```
 
@@ -3387,11 +3188,11 @@ T_hub = 288.15 K
 p_hub = 101330 Pa
 rho = 1.225 kg/m^3
   by: Air density at hub height  (T_hub = T - 0.0065 (h_hub - h_T); p_hub = p - 12.5 Pa/m (h_hub - h_p); rho = p_hub/(R T_hub) (ideal gas) or 1.225 (p_hub/101330)(288.15/T_hub) (barometric))
-  p = 101330 Pa
-  h_p = 0 m
-  T = 288.15 K
-  h_T = 0 m
-  hub = 0 m
+  p = 101330 Pa   []
+  h_p = 0 m   []
+  T = 288.15 K   []
+  h_T = 0 m   []
+  hub = 0 m   []
   assumes: pressure and temperature stay positive at hub height
 ```
 
@@ -3420,16 +3221,7 @@ $$
 
 **Applies when:** 1 < k <= 5; speeds strictly increasing.
 
-```shell
-$ energy-systems solve energy_weibull_aep "speeds=[0, 1000]" "powers=[0, 1000]" k=2 "c=7 m/s"
-mean_power_kW = 6.203588478
-AEP_MWh = 54.34343507
-capacity_factor = 0.006203588478
-  by: Annual energy production from a power curve and a Weibull distribution  (P_mean = sum over segments of integral (P_i + s (v - v_i)) f(v) dv, each in closed form: F(b) - F(a) and c Gamma(1 + 1/k) [P(1 + 1/k, (b/c)^k) - P(1 + 1/k, (a/c)^k)])
-  k = 2
-  c = 7 m/s
-  assumes: 1 < k <= 5; speeds strictly increasing
-```
+*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
 
 **What the worked example means:** This calculation determines the average electrical output of a wind turbine by integrating its piecewise linear power curve against a Weibull distribution of wind speeds. The resulting mean power is 6.20359, which leads to an annual energy production of 54.3434 over the specified period. This value represents the expected energy yield assuming the site's wind conditions follow the provided statistical model.
 
@@ -3465,10 +3257,10 @@ power_density = 612.5
 area = 5026.548246 m^2
 P = 1231504.32 W
   by: Power in the wind and the Betz limit  (P = (1/2) rho A v^3, A = pi D^2/4; P_Betz = (16/27) P; P(cp) = cp P)
-  rho = 1.225 kg/m^3
-  D = 80 m
-  v = 10 m/s
-  cp = 0.4
+  rho = 1.225 kg/m^3   []
+  D = 80 m   []
+  v = 10 m/s   []
+  cp = 0.4   []
   assumes: rho, D, v > 0; 0 < cp <= 16/27
 ```
 
@@ -3500,8 +3292,8 @@ $ energy-systems solve energy_power_curve_density_corrected "speeds=[3, 5, 8, 12
 P_kW = 475
 P = 475000 W
   by: Turbine output from a density-corrected power curve  (v_i' = v_i (1.225/rho)^e(v_i); interpolate P(v) on (v_i', P_i))
-  v = 6.5 m/s
-  rho = 1.225 kg/m^3
+  v = 6.5 m/s   []
+  rho = 1.225 kg/m^3   []
   assumes: 0.5 < rho < 1.6 kg/m^3
 ```
 
@@ -3532,7 +3324,7 @@ $ energy-systems solve energy_power_curve_output "speeds=[3, 5, 8, 12, 25]" "pow
 P_kW = 475
 P = 475000 W
   by: Turbine output from its power curve  (linear interpolation between the curve points; 0 outside the listed speeds)
-  v = 6.5 m/s
+  v = 6.5 m/s   []
   assumes: speeds strictly increasing; one power per speed
 ```
 
@@ -3569,9 +3361,9 @@ energy_pattern_factor = 1.909859317
 v_most_probable = 5.656854249 m/s
 v_max_energy = 11.3137085 m/s
   by: Weibull wind statistics and mean power density  (v_mean = c Gamma(1 + 1/k); P/A = (1/2) rho c^3 Gamma(1 + 3/k); v_mp = c ((k - 1)/k)^(1/k); v_maxE = c ((k + 2)/k)^(1/k))
-  k = 2
-  c = 8 m/s
-  rho = 1.225 kg/m^3
+  k = 2   []
+  c = 8 m/s   []
+  rho = 1.225 kg/m^3   []
   assumes: 1 < k <= 5; c > 0
 ```
 
@@ -3602,10 +3394,10 @@ $$
 $ energy-systems solve energy_wind_shear_log "v1=5 m/s" "h1=10 m" "h2=100 m" "z0=1 m"
 v2 = 10 m/s
   by: Wind speed at another height (logarithmic profile)  (v2 = v1 ln((h2 - 0.7 d)/z0)/ln((h1 - 0.7 d)/z0))
-  v1 = 5 m/s
-  h1 = 10 m
-  h2 = 100 m
-  z0 = 1 m
+  v1 = 5 m/s   []
+  h1 = 10 m   []
+  h2 = 100 m   []
+  z0 = 1 m   []
   assumes: h - 0.7 d > z0 at both heights
 ```
 
@@ -3635,9 +3427,9 @@ $$
 $ energy-systems solve energy_wind_shear_power_law "v1=6 m/s" "h1=10 m" "h2=1280 m"
 v2 = 12 m/s
   by: Wind speed at another height (power law)  (v2 = v1 (h2/h1)^alpha)
-  v1 = 6 m/s
-  h1 = 10 m
-  h2 = 1280 m
+  v1 = 6 m/s   []
+  h1 = 10 m   []
+  h2 = 1280 m   []
   assumes: heights > 0; 0 <= alpha <= 1
 ```
 
