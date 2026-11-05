@@ -1,4 +1,4 @@
-# energy-systems: the Energy Systems program — user guide
+# energy-systems: the Energy Systems program, user guide
 
 **energy-systems-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
@@ -17,63 +17,63 @@ Energy Systems covers power systems and load flow, three-phase power, transforme
 
 ## 1. Get it
 
-Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Energy Systems | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-energy-systems-1.4.0-windows-x86_64.zip |
-| Desktop app: Energy Systems | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz |
+| Desktop app: Energy Systems | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-energy-systems-1.5.0-windows-x86_64.zip |
+| Desktop app: Energy Systems | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-energy-systems-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Energy Systems in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-energy-systems-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-energy-systems.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Energy Systems in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-energy-systems-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-energy-systems.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-energy-systems-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-energy-systems-1.4.0-linux-x86_64.tar.gz
-./ai999x-energy-systems-1.4.0-linux-x86_64/ai999x-energy-systems
+tar xzf ai999x-energy-systems-1.5.0-linux-x86_64.tar.gz
+./ai999x-energy-systems-1.5.0-linux-x86_64/ai999x-energy-systems
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
-./ai999x-1.4.0-linux-x86_64/ai999x
+tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
+./ai999x-1.5.0-linux-x86_64/ai999x
 ```
 
-### Command line — Linux
+### Command line: Linux
 
 The bundle holds one program per model; `energy-systems` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 energy-systems --version
 ```
 
-### Command line — Windows (PowerShell)
+### Command line: Windows (PowerShell)
 
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.4.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 energy-systems --version
 ```
@@ -96,10 +96,47 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ energy-systems --version
-energy-systems-ai999x 1.0.3 (Rust build, ax-engine 0.1.0)
+energy-systems-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
 ```
 
-### 2.2 List the capabilities
+### 2.2 Ask in words
+
+Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.
+
+```shell
+$ energy-systems ask "Three-phase power: VL = 400 V, IL = 50 A, pf = 0.8, connection = star"
+Read as: Balanced three-phase power from line quantities
+P = 27712.81292 W
+Q = 20784.60969 var
+S = 34641.01615 VA
+V_phase = 230.9401077 V
+I_phase = 50 A
+  by: Balanced three-phase power from line quantities  (S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3))
+  IL = 50 A
+  VL = 400 V
+  pf = 0.8
+  connection = star
+  assumes: balanced load; 0 < pf <= 1
+```
+
+### 2.3 Find a capability
+
+Search the capabilities by what you want to know; the first column is the id to pass to info and solve.
+
+```shell
+$ energy-systems search "balanced three-phase power from line quantities"
+energy_three_phase_power             Balanced three-phase power from line quantities  (three-phase power / balanced systems)
+energy_geometric_mean_distance       Geometric mean distance of a three-phase line  (power systems / line parameters)
+energy_line_parameters               Inductance, capacitance and surge impedance of a three-phase overhead line  (power systems / line parameters)
+energy_symmetrical_fault             Three-phase (symmetrical) fault current by the bus impedance matrix  (power systems / faults)
+energy_two_bus_load_flow             Receiving-end voltage of a line feeding a constant-power load (two-bus load flow)  (power systems / load flow)
+energy_medium_line                   Medium transmission line (nominal pi)  (power systems / transmission lines)
+energy_long_line                     Long transmission line (exact distributed parameters)  (power systems / transmission lines)
+energy_short_line                    Short transmission line: sending-end voltage, regulation and efficiency  (power systems / transmission lines)
+… 12 more
+```
+
+### 2.4 List the capabilities
 
 Every capability the program answers: its id (what you pass to solve) and its name.
 
@@ -113,10 +150,10 @@ energy_battery_rc_discharge              Battery terminal voltage under constant
 energy_cell_temperature_faiman           PV module temperature (Faiman model)
 energy_cell_temperature_noct             PV cell temperature from NOCT
 energy_cell_temperature_sapm             PV cell and module temperature (Sandia SAPM model)
-… 62 more
+… 71 more
 ```
 
-### 2.3 What a capability needs
+### 2.5 What a capability needs
 
 The equation or method, every input and output with its SI unit. Read this before solve: it tells you the input names.
 
@@ -136,7 +173,7 @@ Balanced three-phase power from line quantities
   out  I_phase  current in each phase of the load [A]
 ```
 
-### 2.4 Solve
+### 2.6 Solve
 
 Inputs as name=value, each with any unit of the right kind. The answer lists every output, the method used, each input converted to SI, and the conditions the answer assumes.
 
@@ -148,14 +185,14 @@ S = 34641.01615 VA
 V_phase = 230.9401077 V
 I_phase = 50 A
   by: Balanced three-phase power from line quantities  (S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3))
-  VL = 400 V   []
-  IL = 50 A   []
-  pf = 0.8   []
+  VL = 400 V
+  IL = 50 A
+  pf = 0.8
   connection = star
   assumes: balanced load; 0 < pf <= 1
 ```
 
-### 2.5 Machine-readable answer
+### 2.7 Machine-readable answer
 
 --json prints the same answer as one line of JSON (values in SI): for scripts and other programs.
 
@@ -164,7 +201,7 @@ $ energy-systems solve energy_three_phase_power "VL=400 V" "IL=50 A" pf=0.8 conn
 {"outcome":"SOLVED","message":"","value":27712.8129211,"unit":"W","solved_for":"P","si":[["VL",400.0],["IL",50.0],["pf",0.8]],"values":[["P",27712.8129211,"W"],["Q",20784.6096908,"var"],["S",34641.0161514,"VA"],["V_phase",230.940107676,"V"],["I_phase",50.0,"A"]],"target":"P","phrase":"real power (three-phase total)","assumptions":["balanced load","0 < pf <= 1"],"name":"Balanced three-phase power from line quantities","equation":"S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3)"}
 ```
 
-### 2.6 When an input is missing
+### 2.8 When an input is missing
 
 No number is guessed: the answer names what is missing, shows a complete call, and the program exits with status 1.
 
@@ -173,7 +210,7 @@ $ energy-systems solve energy_three_phase_power "VL=400 V" "IL=50 A" pf=0.8
 NEEDS_INPUT: energy_three_phase_power needs connection (connection of the load (star = wye)). Example: solve('energy_three_phase_power', VL='400 V', IL='50 A', pf=0.8, connection='star').
 ```
 
-### 2.7 Many questions at once
+### 2.9 Many questions at once
 
 One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | energy-systems batch
 
@@ -186,8 +223,8 @@ One JSON request per line in, one JSON answer per line out, in order: for script
 
 ```shell
 $ energy-systems batch < cases.jsonl
-{"outcome":"SOLVED","message":"","value":27712.8129211,"unit":"W","solved_for":"P","si":[["IL",50.0],["VL",400.0],["pf",0.8]],"values":[["P",27712.8129211,"W"],["Q",20784.6096908,"var"],["S",34641.0161514,"VA"],["V_phase",230.940107676,"V"],["I_phase",50.0,"A"]],"target":"P","phrase":"real power (three-phase total)","assumptions":["balanced load","0 < pf <= 1"],"name":"Balanced three-phase power from line quantities","equation":"S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3)"}
-{"outcome":"SOLVED","message":"","value":69.3399621499,"unit":"","solved_for":"elevation_deg","si":[["clock",13.0],["latitude",40.0],["longitude",-105.0],["utc_offset",-7.0]],"values":[["declination_deg",23.4520460745,""],["eot_min",-1.34372473169,""],["hour_angle_deg",14.6640688171,""],["zenith_deg",20.6600378501,""],["elevation_deg",69.3399621499,""],["azimuth_deg",221.165264952,""]],"target":"elevation_deg","phrase":"declination in degrees","assumptions":["1 <= n <= 366","0 <= clock < 24","-90 < latitude < 90"],"name":"Sun position at a place and local time","equation":"Spencer declination and equation of time; omega = 15 (t - UTC offset - 12) + longitude + E/4; cos z = cos(delta) cos(phi) cos(omega) + sin(delta) sin(phi)"}
+{"outcome":"SOLVED","message":"","value":27712.8129211,"unit":"W","solved_for":"P","si":[["VL",400.0],["IL",50.0],["pf",0.8]],"values":[["P",27712.8129211,"W"],["Q",20784.6096908,"var"],["S",34641.0161514,"VA"],["V_phase",230.940107676,"V"],["I_phase",50.0,"A"]],"target":"P","phrase":"real power (three-phase total)","assumptions":["balanced load","0 < pf <= 1"],"name":"Balanced three-phase power from line quantities","equation":"S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3)"}
+{"outcome":"SOLVED","message":"","value":69.3399621499,"unit":"","solved_for":"elevation_deg","si":[["latitude",40.0],["longitude",-105.0],["clock",13.0],["utc_offset",-7.0]],"values":[["declination_deg",23.4520460745,""],["eot_min",-1.34372473169,""],["hour_angle_deg",14.6640688171,""],["zenith_deg",20.6600378501,""],["elevation_deg",69.3399621499,""],["azimuth_deg",221.165264952,""]],"target":"elevation_deg","phrase":"declination in degrees","assumptions":["1 <= n <= 366","0 <= clock < 24","-90 < latitude < 90"],"name":"Sun position at a place and local time","equation":"Spencer declination and equation of time; omega = 15 (t - UTC offset - 12) + longitude + E/4; cos z = cos(delta) cos(phi) cos(omega) + sin(delta) sin(phi)"}
 ```
 
 ## 3. Writing inputs
@@ -269,7 +306,7 @@ By topic. For each: what it does, what it needs and gives, when it applies, and 
 
 <a id="energy_battery_pack_sizing"></a>
 
-#### Battery pack series-parallel sizing — `energy_battery_pack_sizing`
+#### Battery pack series-parallel sizing: `energy_battery_pack_sizing`
 
 The number of cells in series to reach a pack voltage and of strings in parallel to reach a pack energy, with the resulting pack voltage, energy and capacity (fewest cells; nominal values).
 
@@ -283,12 +320,12 @@ $$
 | `E_target` | in | required pack energy (Wh or kWh) | J |
 | `V_cell` | in | nominal cell voltage | V |
 | `Q_cell` | in | cell capacity (Ah accepted) | C |
-| `N_series` | out | cells in series | — |
-| `N_parallel` | out | strings in parallel | — |
-| `N_cells` | out | total cells | — |
+| `N_series` | out | cells in series | - |
+| `N_parallel` | out | strings in parallel | - |
+| `N_cells` | out | total cells | - |
 | `V_pack` | out | nominal pack voltage | V |
-| `E_pack_kWh` | out | pack energy in kWh | — |
-| `Q_pack_Ah` | out | pack capacity in Ah | — |
+| `E_pack_kWh` | out | pack energy in kWh | - |
+| `Q_pack_Ah` | out | pack capacity in Ah | - |
 
 **Applies when:** nominal voltages and capacities; a target met within 1e-9 counts as met.
 
@@ -301,10 +338,10 @@ V_pack = 48 V
 E_pack_kWh = 14.4
 Q_pack_Ah = 300
   by: Battery pack series-parallel sizing  (N_s = ceil(V/V_cell); N_p = ceil(E/(N_s V_cell Q_cell)))
-  V_target = 48 V   []
-  E_target = 36000000 J   []
-  V_cell = 3.2 V   []
-  Q_cell = 360000 C   []
+  V_target = 48 V
+  E_target = 36000000 J
+  V_cell = 3.2 V
+  Q_cell = 360000 C
   assumes: nominal voltages and capacities; a target met within 1e-9 counts as met
 ```
 
@@ -312,7 +349,7 @@ Q_pack_Ah = 300
 
 <a id="energy_battery_rc_discharge"></a>
 
-#### Battery terminal voltage under constant current (one-RC equivalent circuit) — `energy_battery_rc_discharge`
+#### Battery terminal voltage under constant current (one-RC equivalent circuit), `energy_battery_rc_discharge`
 
 Terminal voltage, polarization (RC) voltage, energy delivered and heat generated after a constant-current discharge of duration t, for a cell modelled as an open-circuit voltage with a series resistance R0 and one R1 || C1 branch (constant OCV).
 
@@ -331,7 +368,7 @@ $$
 | `V_terminal` | out | terminal voltage | V |
 | `V_rc` | out | voltage across the RC branch | V |
 | `E_delivered` | out | energy delivered to the load | J |
-| `E_Wh` | out | energy delivered in Wh | — |
+| `E_Wh` | out | energy delivered in Wh | - |
 | `heat` | out | heat generated in R0 and R1 | J |
 | `tau` | out | time constant R1 C1 | s |
 
@@ -346,12 +383,12 @@ E_Wh = 0
 heat = 0 J
 tau = 20 s
   by: Battery terminal voltage under constant current (one-RC equivalent circuit)  (V1 = I R1 (1 - e^(-t/tau)), V_t = OCV - I R0 - V1; energy and heat integrated in closed form)
-  OCV = 4 V   []
-  R0 = 0.01 ohm   []
-  R1 = 0.02 ohm   []
-  C1 = 1000 F   []
-  I = 10 A   []
-  t = 0 s   []
+  OCV = 4 V
+  R0 = 0.01 ohm
+  R1 = 0.02 ohm
+  C1 = 1000 F
+  I = 10 A
+  t = 0 s
   assumes: constant open-circuit voltage over the interval (short pulse or flat OCV curve); RC branch initially relaxed
 ```
 
@@ -359,7 +396,7 @@ tau = 20 s
 
 <a id="energy_peukert"></a>
 
-#### Peukert exponent and run time at a new discharge current — `energy_peukert`
+#### Peukert exponent and run time at a new discharge current, `energy_peukert`
 
 Peukert's law t = C_p/I^k fitted (least squares on the logarithms) to two or more constant-current discharge tests, then the run time and delivered capacity at another current.
 
@@ -369,13 +406,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `currents` | in | test discharge currents in A | — |
-| `times` | in | run time of each test in hours | — |
+| `currents` | in | test discharge currents in A | - |
+| `times` | in | run time of each test in hours | - |
 | `I` | in | new discharge current | A |
-| `k` | out | Peukert exponent | — |
-| `C_p` | out | Peukert capacity C_p in A^k h | — |
-| `runtime_h` | out | run time at I in hours | — |
-| `capacity_Ah` | out | capacity delivered at I in Ah | — |
+| `k` | out | Peukert exponent | - |
+| `C_p` | out | Peukert capacity C_p in A^k h | - |
+| `runtime_h` | out | run time at I in hours | - |
+| `capacity_Ah` | out | capacity delivered at I in Ah | - |
 
 **Applies when:** at least two tests at different currents; constant temperature and cut-off voltage.
 
@@ -386,7 +423,7 @@ C_p = 100
 runtime_h = 20
 capacity_Ah = 100
   by: Peukert exponent and run time at a new discharge current  (ln t = ln C_p - k ln I fitted by least squares; t(I) = C_p I^-k)
-  I = 5 A   []
+  I = 5 A
   assumes: at least two tests at different currents; constant temperature and cut-off voltage
 ```
 
@@ -394,7 +431,7 @@ capacity_Ah = 100
 
 <a id="energy_coulomb_counting"></a>
 
-#### State of charge by coulomb counting — `energy_coulomb_counting`
+#### State of charge by coulomb counting: `energy_coulomb_counting`
 
 The state of charge of a battery after a sequence of constant currents over equal time steps (positive on discharge), by coulomb counting SOC = SOC0 - integral(I dt)/Q, with its lowest and highest value and the charge delivered.
 
@@ -404,15 +441,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `SOC0` | in | initial state of charge (fraction or %) | — |
+| `SOC0` | in | initial state of charge (fraction or %) | - |
 | `Q` | in | capacity (Ah, mAh, C) | C |
-| `currents` | in | current in each time step in A (positive on discharge) | — |
+| `currents` | in | current in each time step in A (positive on discharge) | - |
 | `dt` | in | length of each time step | s |
-| `SOC` | out | final state of charge | — |
-| `SOC_min` | out | lowest state of charge | — |
-| `SOC_max` | out | highest state of charge | — |
+| `SOC` | out | final state of charge | - |
+| `SOC_min` | out | lowest state of charge | - |
+| `SOC_max` | out | highest state of charge | - |
 | `charge_out` | out | net charge delivered | C |
-| `charge_out_Ah` | out | net charge delivered in Ah | — |
+| `charge_out_Ah` | out | net charge delivered in Ah | - |
 
 **Applies when:** 0 <= SOC0 <= 1; Q, dt > 0; the state of charge stays within 0 to 100%; no coulombic losses.
 
@@ -424,9 +461,9 @@ SOC_max = 0.9
 charge_out = 90000 C
 charge_out_Ah = 25
   by: State of charge by coulomb counting  (SOC_k = SOC0 - (sum_{j<=k} I_j dt)/Q)
-  SOC0 = 0.9   []
-  Q = 180000 C   []
-  dt = 3600 s   []
+  SOC0 = 0.9
+  Q = 180000 C
+  dt = 3600 s
   assumes: 0 <= SOC0 <= 1; Q, dt > 0; the state of charge stays within 0 to 100%; no coulombic losses
 ```
 
@@ -436,7 +473,7 @@ charge_out_Ah = 25
 
 <a id="energy_stack_electrical_power"></a>
 
-#### Electrical power of a fuel-cell or electrolyser stack — `energy_stack_electrical_power`
+#### Electrical power of a fuel-cell or electrolyser stack, `energy_stack_electrical_power`
 
 The electrical power P = N I V_cell delivered by a fuel-cell stack (or drawn by an electrolyser stack) of N cells in series at a current and an average cell voltage, and the stack voltage.
 
@@ -447,10 +484,10 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `I` | in | stack current | A |
-| `N` | in | number of cells in series | — |
+| `N` | in | number of cells in series | - |
 | `V_cell` | in | average cell voltage | V |
 | `P` | out | electrical power N I V_cell | W |
-| `P_kW` | out | electrical power in kW | — |
+| `P_kW` | out | electrical power in kW | - |
 | `V_stack` | out | stack voltage N V_cell | V |
 
 **Applies when:** cells in series carrying the same current; 0 < V_cell <= 5 V.
@@ -461,8 +498,8 @@ P = 14000 W
 P_kW = 14
 V_stack = 70 V
   by: Electrical power of a fuel-cell or electrolyser stack  (P = N I V_cell, V_stack = N V_cell)
-  I = 200 A   []
-  V_cell = 0.7 V   []
+  I = 200 A
+  V_cell = 0.7 V
   assumes: cells in series carrying the same current; 0 < V_cell <= 5 V
 ```
 
@@ -470,7 +507,7 @@ V_stack = 70 V
 
 <a id="energy_fuel_cell_stack"></a>
 
-#### Hydrogen fuel-cell stack: consumption, power and efficiency — `energy_fuel_cell_stack`
+#### Hydrogen fuel-cell stack: consumption, power and efficiency, `energy_fuel_cell_stack`
 
 Hydrogen and oxygen consumption, water production (Faraday's law), efficiency on the lower and higher heating value and heat released of a hydrogen fuel-cell stack of N cells at a current and cell voltage.
 
@@ -481,16 +518,16 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `I` | in | stack current | A |
-| `N` | in | number of cells in series | — |
+| `N` | in | number of cells in series | - |
 | `V_cell` | in | average cell voltage | V |
-| `utilization` | in | fuel utilization (fraction or %, default 1) (optional) | — |
+| `utilization` | in | fuel utilization (fraction or %, default 1) (optional) | - |
 | `H2_kg_s` | out | hydrogen consumed | kg/s |
-| `H2_g_h` | out | hydrogen consumed in g/h | — |
+| `H2_g_h` | out | hydrogen consumed in g/h | - |
 | `H2_fed_kg_s` | out | hydrogen fed (consumed/utilization) | kg/s |
 | `O2_kg_s` | out | oxygen consumed | kg/s |
 | `H2O_kg_s` | out | water produced | kg/s |
-| `efficiency_LHV` | out | efficiency on the lower heating value | — |
-| `efficiency_HHV` | out | efficiency on the higher heating value | — |
+| `efficiency_LHV` | out | efficiency on the lower heating value | - |
+| `efficiency_HHV` | out | efficiency on the higher heating value | - |
 | `heat_LHV` | out | heat released (water vapour product) | W |
 
 **Applies when:** hydrogen/oxygen cell, 2 electrons per H2; heating values at 25 degC.
@@ -506,8 +543,8 @@ efficiency_LHV = 0.5585812318
 efficiency_HHV = 0.4725933434
 heat_LHV = 106746.535 W
   by: Hydrogen fuel-cell stack: consumption, power and efficiency  (n_H2 = N I/(2F); n_O2 = n_H2/2; n_H2O = n_H2; P = N I V; eta = P/(n_H2 LHV))
-  I = 192970.6642 A   []
-  V_cell = 0.7 V   []
+  I = 192970.6642 A
+  V_cell = 0.7 V
   assumes: hydrogen/oxygen cell, 2 electrons per H2; heating values at 25 degC
 ```
 
@@ -515,7 +552,7 @@ heat_LHV = 106746.535 W
 
 <a id="energy_electrolyser"></a>
 
-#### Water electrolyser: hydrogen production and energy per kilogram — `energy_electrolyser`
+#### Water electrolyser: hydrogen production and energy per kilogram, `energy_electrolyser`
 
 Hydrogen and oxygen production, water consumption, specific energy (kWh per kg H2) and efficiency on the higher and lower heating value of a water electrolyser of N cells.
 
@@ -526,16 +563,16 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `I` | in | stack current | A |
-| `N` | in | number of cells in series | — |
+| `N` | in | number of cells in series | - |
 | `V_cell` | in | cell voltage (1.23 to 3 V) | V |
-| `faradaic` | in | Faradaic (current) efficiency, fraction or % (default 1) (optional) | — |
+| `faradaic` | in | Faradaic (current) efficiency, fraction or % (default 1) (optional) | - |
 | `H2_kg_s` | out | hydrogen produced | kg/s |
-| `H2_kg_h` | out | hydrogen produced in kg/h | — |
+| `H2_kg_h` | out | hydrogen produced in kg/h | - |
 | `O2_kg_s` | out | oxygen produced | kg/s |
 | `H2O_kg_s` | out | water consumed | kg/s |
-| `specific_energy_kWh_per_kg` | out | electricity per kg of hydrogen in kWh/kg | — |
-| `efficiency_HHV` | out | efficiency on the higher heating value | — |
-| `efficiency_LHV` | out | efficiency on the lower heating value | — |
+| `specific_energy_kWh_per_kg` | out | electricity per kg of hydrogen in kWh/kg | - |
+| `efficiency_HHV` | out | efficiency on the higher heating value | - |
+| `efficiency_LHV` | out | efficiency on the lower heating value | - |
 
 **Applies when:** water electrolysis, 2 electrons per H2; heating values at 25 degC.
 
@@ -549,8 +586,8 @@ specific_energy_kWh_per_kg = 53.18070747
 efficiency_HHV = 0.7405944347
 efficiency_LHV = 0.6265874685
   by: Water electrolyser: hydrogen production and energy per kilogram  (n_H2 = eta_F N I/(2F); specific energy = N I V/(n_H2 M_H2); eta_HHV = n_H2 HHV/P)
-  I = 192970.6642 A   []
-  V_cell = 2 V   []
+  I = 192970.6642 A
+  V_cell = 2 V
   assumes: water electrolysis, 2 electrons per H2; heating values at 25 degC
 ```
 
@@ -560,7 +597,7 @@ efficiency_LHV = 0.6265874685
 
 <a id="energy_hydrogen_tank"></a>
 
-#### Hydrogen stored in a tank at pressure (real gas) — `energy_hydrogen_tank`
+#### Hydrogen stored in a tank at pressure (real gas), `energy_hydrogen_tank`
 
 Density, compressibility factor, stored mass and energy (lower heating value) of compressed hydrogen in a tank at a pressure and temperature, by the Leachman (2009) equation of state for normal hydrogen, compared with the ideal-gas estimate.
 
@@ -574,12 +611,12 @@ $$
 | `p` | in | gas pressure (absolute) | Pa |
 | `T` | in | gas temperature | K |
 | `rho` | out | hydrogen density (real gas) | kg/m^3 |
-| `Z` | out | compressibility factor | — |
+| `Z` | out | compressibility factor | - |
 | `mass` | out | stored hydrogen mass | kg |
 | `rho_ideal` | out | ideal-gas density p M/(R T) | kg/m^3 |
 | `mass_ideal` | out | ideal-gas mass | kg |
-| `ideal_over_real` | out | ideal-gas over real density (= Z) | — |
-| `energy_LHV_kWh` | out | stored chemical energy (LHV) in kWh | — |
+| `ideal_over_real` | out | ideal-gas over real density (= Z) | - |
+| `energy_LHV_kWh` | out | stored chemical energy (LHV) in kWh | - |
 
 **Applies when:** 1 kPa <= p <= 1500 bar; 200 K <= T <= 700 K; normal hydrogen, uniform state.
 
@@ -593,9 +630,9 @@ mass_ideal = 58.89920286 kg
 ideal_over_real = 1.466169638
 energy_LHV_kWh = 1338.631409
   by: Hydrogen stored in a tank at pressure (real gas)  (Leachman 2009 Helmholtz equation: p = rho R T (1 + delta d(alpha_r)/d(delta)), solved for rho; Z = p/(rho R T))
-  V = 1 m^3   []
-  p = 70000000 Pa   []
-  T = 288.15 K   []
+  V = 1 m^3
+  p = 70000000 Pa
+  T = 288.15 K
   assumes: 1 kPa <= p <= 1500 bar; 200 K <= T <= 700 K; normal hydrogen, uniform state
 ```
 
@@ -603,7 +640,7 @@ energy_LHV_kWh = 1338.631409
 
 <a id="energy_hydrogen_isentropic_compression"></a>
 
-#### Isentropic (adiabatic) compression of hydrogen — `energy_hydrogen_isentropic_compression`
+#### Isentropic (adiabatic) compression of hydrogen, `energy_hydrogen_isentropic_compression`
 
 Outlet temperature and work per kilogram of a reversible adiabatic compression of hydrogen from (p1, T1) to p2, from the full Leachman equation of state (real gas, variable heat capacity).
 
@@ -618,7 +655,7 @@ $$
 | `p2` | in | outlet pressure | Pa |
 | `T2` | out | outlet temperature | K |
 | `w` | out | compression work per kg (h2 - h1) | J/kg |
-| `w_kWh_per_kg` | out | work in kWh/kg | — |
+| `w_kWh_per_kg` | out | work in kWh/kg | - |
 
 **Applies when:** reversible adiabatic, single stage; outlet temperature below 1000 K.
 
@@ -628,9 +665,9 @@ T2 = 423.2935564 K
 w = 1833212.524 J/kg
 w_kWh_per_kg = 0.5092257011
   by: Isentropic (adiabatic) compression of hydrogen  (s(p2, T2) = s(p1, T1) solved for T2 by bisection; w = h(p2, T2) - h(p1, T1); s and h from the Helmholtz energy (ideal + residual parts))
-  p1 = 3000000 Pa   []
-  T1 = 300 K   []
-  p2 = 10000000 Pa   []
+  p1 = 3000000 Pa
+  T1 = 300 K
+  p2 = 10000000 Pa
   assumes: reversible adiabatic, single stage; outlet temperature below 1000 K
 ```
 
@@ -638,7 +675,7 @@ w_kWh_per_kg = 0.5092257011
 
 <a id="energy_hydrogen_isothermal_compression"></a>
 
-#### Minimum (isothermal) work to compress hydrogen — `energy_hydrogen_isothermal_compression`
+#### Minimum (isothermal) work to compress hydrogen, `energy_hydrogen_isothermal_compression`
 
 The reversible isothermal work per kilogram to compress hydrogen from p1 to p2 at temperature T (the integral of v dp, equal to the Gibbs-energy rise) for the real gas (Leachman equation of state) and the ideal gas.
 
@@ -652,9 +689,9 @@ $$
 | `p2` | in | final pressure | Pa |
 | `T` | in | compression temperature | K |
 | `w` | out | real-gas isothermal work per kg | J/kg |
-| `w_kWh_per_kg` | out | the same in kWh/kg | — |
+| `w_kWh_per_kg` | out | the same in kWh/kg | - |
 | `w_ideal` | out | ideal-gas work R T ln(p2/p1)/M | J/kg |
-| `real_over_ideal` | out | real over ideal work | — |
+| `real_over_ideal` | out | real over ideal work | - |
 
 **Applies when:** reversible and isothermal; 200 K <= T <= 700 K, pressures up to 1500 bar.
 
@@ -665,9 +702,9 @@ w_kWh_per_kg = 0.2384406723
 w_ideal = 857663.0789 J/kg
 real_over_ideal = 1.000843387
   by: Minimum (isothermal) work to compress hydrogen  (w = g(p2, T) - g(p1, T), g/(RT) = ln(delta) + alpha_r + delta d(alpha_r)/d(delta) + (terms in T only))
-  p1 = 100000 Pa   []
-  p2 = 200000 Pa   []
-  T = 300 K   []
+  p1 = 100000 Pa
+  p2 = 200000 Pa
+  T = 300 K
   assumes: reversible and isothermal; 200 K <= T <= 700 K, pressures up to 1500 bar
 ```
 
@@ -677,7 +714,7 @@ real_over_ideal = 1.000843387
 
 <a id="energy_induction_max_torque"></a>
 
-#### Induction motor breakdown (maximum) torque and starting torque — `energy_induction_max_torque`
+#### Induction motor breakdown (maximum) torque and starting torque, `energy_induction_max_torque`
 
 The slip at maximum torque, the maximum (breakdown) torque, the starting torque and current, and the Thevenin equivalent of the stator and magnetizing branch, for a three-phase induction motor.
 
@@ -689,14 +726,14 @@ $$
 |---|---|---|---|
 | `VL` | in | line voltage | V |
 | `f` | in | supply frequency | Hz |
-| `poles` | in | number of poles (even) | — |
+| `poles` | in | number of poles (even) | - |
 | `R1` | in | stator resistance per phase | ohm |
 | `X1` | in | stator leakage reactance per phase | ohm |
 | `R2` | in | rotor resistance per phase referred to the stator | ohm |
 | `X2` | in | rotor leakage reactance referred to the stator | ohm |
 | `Xm` | in | magnetizing reactance per phase | ohm |
-| `connection` | in | stator connection | — |
-| `s_maxT` | out | slip at maximum torque | — |
+| `connection` | in | stator connection | - |
+| `s_maxT` | out | slip at maximum torque | - |
 | `T_max` | out | maximum (pull-out) torque | N*m |
 | `T_start` | out | starting torque (s = 1) | N*m |
 | `I_start` | out | starting line current | A |
@@ -716,13 +753,13 @@ V_th = 265.5811238 V
 R_th = 0 ohm
 X_th = 1 ohm
   by: Induction motor breakdown (maximum) torque and starting torque  (Thevenin: V_th = V jXm/(R1 + j(X1 + Xm)), Z_th = Z1 || jXm; s_max = R2/sqrt(R_th^2 + (X_th + X2)^2); T_max = 3 V_th^2/(2 omega_s (R_th + sqrt(R_th^2 + (X_th + X2)^2))))
-  VL = 460 V   []
-  f = 60 Hz   []
-  R1 = 0 ohm   []
-  X1 = 1 ohm   []
-  R2 = 0.2 ohm   []
-  X2 = 1 ohm   []
-  Xm = 1e+12 ohm   []
+  VL = 460 V
+  f = 60 Hz
+  R1 = 0 ohm
+  X1 = 1 ohm
+  R2 = 0.2 ohm
+  X2 = 1 ohm
+  Xm = 1e+12 ohm
   connection = star
   assumes: constant parameters (no deep-bar or saturation effects)
 ```
@@ -731,7 +768,7 @@ In the worked example, VL = 460 V, f = 60 Hz, poles = 4, R1 = 0 ohm, X1 = 1 ohm,
 
 <a id="energy_induction_motor"></a>
 
-#### Induction motor performance from its equivalent circuit — `energy_induction_motor`
+#### Induction motor performance from its equivalent circuit, `energy_induction_motor`
 
 Line and rotor currents, power factor, air-gap and converted power, induced torque, output and efficiency of a three-phase induction motor at a slip, from its per-phase equivalent circuit.
 
@@ -743,24 +780,24 @@ $$
 |---|---|---|---|
 | `VL` | in | line voltage | V |
 | `f` | in | supply frequency | Hz |
-| `poles` | in | number of poles (even) | — |
+| `poles` | in | number of poles (even) | - |
 | `R1` | in | stator resistance per phase | ohm |
 | `X1` | in | stator leakage reactance per phase | ohm |
 | `R2` | in | rotor resistance per phase referred to the stator | ohm |
 | `X2` | in | rotor leakage reactance referred to the stator | ohm |
 | `Xm` | in | magnetizing reactance per phase | ohm |
-| `slip` | in | slip (0 < s <= 1) | — |
-| `connection` | in | stator connection | — |
+| `slip` | in | slip (0 < s <= 1) | - |
+| `connection` | in | stator connection | - |
 | `P_rot` | in | rotational (friction, windage and core) loss, default 0 (optional) | W |
 | `I_line` | out | line current | A |
 | `I2` | out | rotor current referred to the stator | A |
-| `pf` | out | power factor | — |
+| `pf` | out | power factor | - |
 | `P_in` | out | input power | W |
 | `P_ag` | out | air-gap power | W |
 | `P_conv` | out | converted (developed) power | W |
 | `T` | out | induced torque | N*m |
 | `P_out` | out | output power | W |
-| `efficiency_pct` | out | efficiency in percent | — |
+| `efficiency_pct` | out | efficiency in percent | - |
 
 **Applies when:** steady state, balanced supply; 0 < slip <= 1.
 
@@ -776,14 +813,14 @@ T = 62.80682157 N*m
 P_out = 11578.3532 W
 efficiency_pct = 92.44093315
   by: Induction motor performance from its equivalent circuit  (Z = R1 + jX1 + jXm || (R2/s + jX2); P_ag = 3 I2^2 R2/s; P_conv = (1 - s) P_ag; T = P_ag/omega_s; n_s = 120 f/p)
-  VL = 460 V   []
-  f = 60 Hz   []
-  R1 = 0.641 ohm   []
-  X1 = 1.106 ohm   []
-  R2 = 0.332 ohm   []
-  X2 = 0.464 ohm   []
-  Xm = 26.3 ohm   []
-  slip = 0.022   []
+  VL = 460 V
+  f = 60 Hz
+  R1 = 0.641 ohm
+  X1 = 1.106 ohm
+  R2 = 0.332 ohm
+  X2 = 0.464 ohm
+  Xm = 26.3 ohm
+  slip = 0.022
   connection = star
   assumes: steady state, balanced supply; 0 < slip <= 1
 ```
@@ -792,7 +829,7 @@ efficiency_pct = 92.44093315
 
 <a id="energy_synchronous_generator"></a>
 
-#### Synchronous generator internal EMF, power angle and regulation — `energy_synchronous_generator`
+#### Synchronous generator internal EMF, power angle and regulation, `energy_synchronous_generator`
 
 The internal (excitation) EMF, power angle and voltage regulation of a star-connected cylindrical-rotor synchronous generator delivering a current at a power factor, from its synchronous reactance and armature resistance.
 
@@ -804,14 +841,14 @@ $$
 |---|---|---|---|
 | `VL` | in | terminal line voltage | V |
 | `IL` | in | armature (line) current | A |
-| `pf` | in | power factor | — |
+| `pf` | in | power factor | - |
 | `Xs` | in | synchronous reactance per phase | ohm |
 | `Ra` | in | armature resistance per phase (default 0) (optional) | ohm |
-| `pf_type` | in | lagging (default) or leading (optional) | — |
+| `pf_type` | in | lagging (default) or leading (optional) | - |
 | `E_line` | out | internal EMF (line value) | V |
 | `E_phase` | out | internal EMF per phase | V |
-| `delta_deg` | out | power (torque) angle in degrees | — |
-| `regulation_pct` | out | voltage regulation (E - V)/V in percent | — |
+| `delta_deg` | out | power (torque) angle in degrees | - |
+| `regulation_pct` | out | voltage regulation (E - V)/V in percent | - |
 | `P` | out | real power output | W |
 | `Q` | out | reactive power output in var | var |
 
@@ -826,10 +863,10 @@ regulation_pct = 41.42135622
 P = 3000.000001 W
 Q = 0 var
   by: Synchronous generator internal EMF, power angle and regulation  (E = V + (Ra + jXs) I per phase, I at angle -acos(pf))
-  VL = 173.2050808 V   []
-  IL = 10 A   []
-  pf = 1   []
-  Xs = 10 ohm   []
+  VL = 173.2050808 V
+  IL = 10 A
+  pf = 1
+  Xs = 10 ohm
   assumes: cylindrical rotor (no saliency), star connection, unsaturated
 ```
 
@@ -837,7 +874,7 @@ Q = 0 var
 
 <a id="energy_synchronous_speed"></a>
 
-#### Synchronous speed, rotor speed and slip of an AC machine — `energy_synchronous_speed`
+#### Synchronous speed, rotor speed and slip of an AC machine, `energy_synchronous_speed`
 
 The synchronous speed n_s = 120 f/P of an AC machine and, with the slip, the rotor speed n = n_s (1 - s) (or, with the rotor speed, the slip) and the rotor (slip) frequency.
 
@@ -848,18 +885,25 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `f` | in | supply frequency | Hz |
-| `poles` | in | number of poles (even) | — |
-| `s` | in | slip (fraction or %, optional) (optional) | — |
+| `poles` | in | number of poles (even) | - |
+| `s` | in | slip (fraction or %, optional) (optional) | - |
 | `n_r` | in | rotor speed (rpm, optional) (optional) | rad/s |
-| `n_sync_rpm` | out | synchronous speed in rpm | — |
+| `n_sync_rpm` | out | synchronous speed in rpm | - |
 | `omega_sync` | out | synchronous speed in rad/s | rad/s |
-| `n_rotor_rpm` | out | rotor speed in rpm | — |
-| `slip` | out | slip (n_s - n)/n_s | — |
+| `n_rotor_rpm` | out | rotor speed in rpm | - |
+| `slip` | out | slip (n_s - n)/n_s | - |
 | `slip_frequency` | out | rotor current frequency s f | Hz |
 
 **Applies when:** f > 0; even number of poles; at most one of slip and rotor speed.
 
-*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
+```shell
+$ energy-systems solve energy_synchronous_speed "f=50 Hz" poles=4
+n_sync_rpm = 1500
+omega_sync = 157.0796327 rad/s
+  by: Synchronous speed, rotor speed and slip of an AC machine  (n_s = 120 f/P; n = n_s (1 - s); s = (n_s - n)/n_s; f_r = s f)
+  f = 50 Hz
+  assumes: f > 0; even number of poles; at most one of slip and rotor speed
+```
 
 In the worked example, f = 50 Hz, poles = 4 go through the equation above and give n_sync_rpm = 1500, omega_sync = 157.0796327 rad/s. It applies only when f > 0; even number of poles; at most one of slip and rotor speed: outside that it says what is wrong instead of returning a number.
 
@@ -867,7 +911,7 @@ In the worked example, f = 50 Hz, poles = 4 go through the equation above and gi
 
 <a id="energy_pvwatts_losses"></a>
 
-#### Combined PV system losses (PVWatts) — `energy_pvwatts_losses`
+#### Combined PV system losses (PVWatts): `energy_pvwatts_losses`
 
 The total system loss of a PV system from its individual loss percentages, combined multiplicatively as in PVWatts: 1 - prod(1 - L_i); unstated losses take the PVWatts defaults (soiling 2%, shading 3%, snow 0%, mismatch 2%, wiring 2%, connections 0.5%, light-induced degradation 1.5%, nameplate 1%, age 0%, availability 3%).
 
@@ -877,19 +921,19 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `soiling` | in | soiling loss as a fraction or a percentage (default 2.0%) (optional) | — |
-| `shading` | in | shading loss as a fraction or a percentage (default 3.0%) (optional) | — |
-| `snow` | in | snow loss as a fraction or a percentage (default 0.0%) (optional) | — |
-| `mismatch` | in | mismatch loss as a fraction or a percentage (default 2.0%) (optional) | — |
-| `wiring` | in | wiring loss as a fraction or a percentage (default 2.0%) (optional) | — |
-| `connections` | in | connections loss as a fraction or a percentage (default 0.5%) (optional) | — |
-| `lid` | in | lid loss as a fraction or a percentage (default 1.5%) (optional) | — |
-| `nameplate_rating` | in | nameplate rating loss as a fraction or a percentage (default 1.0%) (optional) | — |
-| `age` | in | age loss as a fraction or a percentage (default 0.0%) (optional) | — |
-| `availability` | in | availability loss as a fraction or a percentage (default 3.0%) (optional) | — |
-| `total_loss` | out | total loss as a fraction | — |
-| `performance_factor` | out | product of (1 - loss) | — |
-| `total_loss_pct` | out | total loss in percent | — |
+| `soiling` | in | soiling loss as a fraction or a percentage (default 2.0%) (optional) | - |
+| `shading` | in | shading loss as a fraction or a percentage (default 3.0%) (optional) | - |
+| `snow` | in | snow loss as a fraction or a percentage (default 0.0%) (optional) | - |
+| `mismatch` | in | mismatch loss as a fraction or a percentage (default 2.0%) (optional) | - |
+| `wiring` | in | wiring loss as a fraction or a percentage (default 2.0%) (optional) | - |
+| `connections` | in | connections loss as a fraction or a percentage (default 0.5%) (optional) | - |
+| `lid` | in | lid loss as a fraction or a percentage (default 1.5%) (optional) | - |
+| `nameplate_rating` | in | nameplate rating loss as a fraction or a percentage (default 1.0%) (optional) | - |
+| `age` | in | age loss as a fraction or a percentage (default 0.0%) (optional) | - |
+| `availability` | in | availability loss as a fraction or a percentage (default 3.0%) (optional) | - |
+| `total_loss` | out | total loss as a fraction | - |
+| `performance_factor` | out | product of (1 - loss) | - |
+| `total_loss_pct` | out | total loss in percent | - |
 
 **Applies when:** each loss between 0 and 100%.
 
@@ -899,16 +943,16 @@ total_loss = 0.1
 performance_factor = 0.9
 total_loss_pct = 10
   by: Combined PV system losses (PVWatts)  (L = 1 - prod(1 - L_i))
-  soiling = 0   []
-  shading = 0   []
-  snow = 0   []
-  mismatch = 0   []
-  wiring = 0   []
-  connections = 0   []
-  lid = 0   []
-  nameplate_rating = 0   []
-  age = 0   []
-  availability = 0.1   []
+  soiling = 0
+  shading = 0
+  snow = 0
+  mismatch = 0
+  wiring = 0
+  connections = 0
+  lid = 0
+  nameplate_rating = 0
+  age = 0
+  availability = 0.1
   assumes: each loss between 0 and 100%
 ```
 
@@ -916,7 +960,7 @@ total_loss_pct = 10
 
 <a id="energy_iam_ashrae"></a>
 
-#### Incidence angle modifier (ASHRAE) — `energy_iam_ashrae`
+#### Incidence angle modifier (ASHRAE): `energy_iam_ashrae`
 
 The fraction of beam irradiance transmitted into a PV module at an angle of incidence, by the ASHRAE model IAM = 1 - b0 (1/cos(theta) - 1), floored at 0.
 
@@ -926,9 +970,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `aoi` | in | angle of incidence in degrees | — |
-| `b0` | in | ASHRAE coefficient (default 0.05) (optional) | — |
-| `iam` | out | incidence angle modifier | — |
+| `aoi` | in | angle of incidence in degrees | - |
+| `b0` | in | ASHRAE coefficient (default 0.05) (optional) | - |
+| `iam` | out | incidence angle modifier | - |
 
 **Applies when:** 0 <= aoi <= 180.
 
@@ -936,7 +980,7 @@ $$
 $ energy-systems solve energy_iam_ashrae aoi=60
 iam = 0.95
   by: Incidence angle modifier (ASHRAE)  (IAM = max(0, 1 - b0 (sec(theta) - 1)); 0 for theta >= 90)
-  aoi = 60   []
+  aoi = 60
   assumes: 0 <= aoi <= 180
 ```
 
@@ -944,7 +988,7 @@ In the worked example, aoi = 60 go through the equation above and give iam = 0.9
 
 <a id="energy_iam_physical"></a>
 
-#### Incidence angle modifier from Fresnel reflection and absorption — `energy_iam_physical`
+#### Incidence angle modifier from Fresnel reflection and absorption, `energy_iam_physical`
 
 The incidence angle modifier of a glass cover from Fresnel reflection (both polarizations) and absorption in the glass (De Soto / physical model), normalised to normal incidence.
 
@@ -954,11 +998,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `aoi` | in | angle of incidence in degrees | — |
-| `n` | in | refractive index of the glass (default 1.526) (optional) | — |
-| `K` | in | glazing extinction coefficient in 1/m (default 4) (optional) | — |
+| `aoi` | in | angle of incidence in degrees | - |
+| `n` | in | refractive index of the glass (default 1.526) (optional) | - |
+| `K` | in | glazing extinction coefficient in 1/m (default 4) (optional) | - |
 | `L` | in | glazing thickness (default 2 mm) (optional) | m |
-| `iam` | out | incidence angle modifier | — |
+| `iam` | out | incidence angle modifier | - |
 
 **Applies when:** 0 <= aoi < 90; 1 < n < 3.
 
@@ -966,7 +1010,7 @@ $$
 $ energy-systems solve energy_iam_physical aoi=0
 iam = 1
   by: Incidence angle modifier from Fresnel reflection and absorption  (Snell's law, Fresnel reflectances r_s, r_p, transmission tau = (1 - r) exp(-K L/cos theta_r), IAM = (tau_s + tau_p)/2/tau(0))
-  aoi = 0   []
+  aoi = 0
   assumes: 0 <= aoi < 90; 1 < n < 3
 ```
 
@@ -974,7 +1018,7 @@ In the worked example, aoi = 0 go through the equation above and give iam = 1. I
 
 <a id="energy_pvwatts_inverter"></a>
 
-#### Inverter AC output and efficiency (PVWatts) — `energy_pvwatts_inverter`
+#### Inverter AC output and efficiency (PVWatts), `energy_pvwatts_inverter`
 
 AC output and efficiency of an inverter at a DC input by the PVWatts part-load efficiency curve, with clipping at the AC rating eta_nom P_dc0.
 
@@ -986,11 +1030,11 @@ $$
 |---|---|---|---|
 | `pdc` | in | DC input power | W |
 | `pdc0` | in | inverter DC input rating | W |
-| `eta_nom` | in | nominal efficiency (default 0.96) (optional) | — |
-| `eta_ref` | in | reference efficiency of the curve (default 0.9637) (optional) | — |
+| `eta_nom` | in | nominal efficiency (default 0.96) (optional) | - |
+| `eta_ref` | in | reference efficiency of the curve (default 0.9637) (optional) | - |
 | `pac` | out | AC output power | W |
-| `efficiency` | out | conversion efficiency P_ac/P_dc | — |
-| `clipped` | out | true when the output is limited at the AC rating | — |
+| `efficiency` | out | conversion efficiency P_ac/P_dc | - |
+| `clipped` | out | true when the output is limited at the AC rating | - |
 
 **Applies when:** P_dc > 0.
 
@@ -1000,8 +1044,8 @@ pac = 4800 W
 efficiency = 0.8
 clipped = true
   by: Inverter AC output and efficiency (PVWatts)  (zeta = P_dc/P_dc0; eta = (eta_nom/eta_ref)(-0.0162 zeta - 0.0059/zeta + 0.9858); P_ac = min(eta P_dc, eta_nom P_dc0))
-  pdc = 6000 W   []
-  pdc0 = 5000 W   []
+  pdc = 6000 W
+  pdc0 = 5000 W
   assumes: P_dc > 0
 ```
 
@@ -1009,7 +1053,7 @@ clipped = true
 
 <a id="energy_pvwatts_dc"></a>
 
-#### PV array DC power with temperature derating (PVWatts) — `energy_pvwatts_dc`
+#### PV array DC power with temperature derating (PVWatts), `energy_pvwatts_dc`
 
 DC power of a PV array from the effective irradiance and cell temperature (PVWatts): P = (G/1000) P_dc0 (1 + gamma (T_c - 25 degC)).
 
@@ -1022,9 +1066,9 @@ $$
 | `G_eff` | in | effective (transmitted) irradiance on the cells | W/m^2 |
 | `T_cell` | in | cell temperature | K |
 | `pdc0` | in | DC rating at 1000 W/m^2 and 25 degC | W |
-| `gamma` | in | power temperature coefficient per K (e.g. -0.004, or -0.4%) | — |
+| `gamma` | in | power temperature coefficient per K (e.g. -0.004, or -0.4%) | - |
 | `pdc` | out | DC power | W |
-| `pdc_kW` | out | DC power in kW | — |
+| `pdc_kW` | out | DC power in kW | - |
 
 **Applies when:** -0.02 <= gamma <= 0.01 per K.
 
@@ -1033,10 +1077,10 @@ $ energy-systems solve energy_pvwatts_dc "G_eff=800 W/m^2" "T_cell=45 degC" "pdc
 pdc = 3680 W
 pdc_kW = 3.68
   by: PV array DC power with temperature derating (PVWatts)  (P_dc = (G/1000) P_dc0 [1 + gamma (T_c - 25)])
-  G_eff = 800 W/m^2   []
-  T_cell = 318.15 K   []
-  pdc0 = 5000 W   []
-  gamma = -0.004   []
+  G_eff = 800 W/m^2
+  T_cell = 318.15 K
+  pdc0 = 5000 W
+  gamma = -0.004
   assumes: -0.02 <= gamma <= 0.01 per K
 ```
 
@@ -1044,7 +1088,7 @@ pdc_kW = 3.68
 
 <a id="energy_pv_array_output"></a>
 
-#### PV array output at operating temperature — `energy_pv_array_output`
+#### PV array output at operating temperature: `energy_pv_array_output`
 
 Cell temperature from NOCT and the resulting DC output of an array with a power temperature coefficient, from the plane-of-array irradiance and the air temperature.
 
@@ -1058,11 +1102,11 @@ $$
 | `T_air` | in | ambient air temperature | K |
 | `noct` | in | nominal operating cell temperature | K |
 | `pdc0` | in | array DC rating at STC | W |
-| `gamma` | in | power temperature coefficient per K (e.g. -0.004, or -0.4%) | — |
+| `gamma` | in | power temperature coefficient per K (e.g. -0.004, or -0.4%) | - |
 | `T_cell` | out | cell temperature | K |
-| `T_cell_C` | out | cell temperature in degC | — |
+| `T_cell_C` | out | cell temperature in degC | - |
 | `pdc` | out | DC output | W |
-| `derate` | out | temperature derating factor 1 + gamma (T_c - 25) | — |
+| `derate` | out | temperature derating factor 1 + gamma (T_c - 25) | - |
 
 **Applies when:** G > 0; -0.02 <= gamma <= 0.01 per K.
 
@@ -1073,11 +1117,11 @@ T_cell_C = 50
 pdc = 7200 W
 derate = 0.9
   by: PV array output at operating temperature  (T_c = T_a + (NOCT - 20) G/800; P = (G/1000) P_dc0 [1 + gamma (T_c - 25)])
-  poa = 800 W/m^2   []
-  T_air = 298.15 K   []
-  noct = 318.15 K   []
-  pdc0 = 10000 W   []
-  gamma = -0.004   []
+  poa = 800 W/m^2
+  T_air = 298.15 K
+  noct = 318.15 K
+  pdc0 = 10000 W
+  gamma = -0.004
   assumes: G > 0; -0.02 <= gamma <= 0.01 per K
 ```
 
@@ -1085,7 +1129,7 @@ derate = 0.9
 
 <a id="energy_cell_temperature_sapm"></a>
 
-#### PV cell and module temperature (Sandia SAPM model) — `energy_cell_temperature_sapm`
+#### PV cell and module temperature (Sandia SAPM model), `energy_cell_temperature_sapm`
 
 Back-of-module and cell temperature by the Sandia Array Performance Model, T_m = G exp(a + b v) + T_a, T_c = T_m + (G/1000) dT, for the standard module/mounting parameter sets.
 
@@ -1098,9 +1142,9 @@ $$
 | `poa` | in | plane-of-array irradiance | W/m^2 |
 | `T_air` | in | ambient air temperature | K |
 | `wind` | in | wind speed at 10 m | m/s |
-| `mount` | in | module construction and mounting (Sandia parameter set) | — |
-| `T_module_C` | out | back-of-module temperature in degC | — |
-| `T_cell_C` | out | cell temperature in degC | — |
+| `mount` | in | module construction and mounting (Sandia parameter set) | - |
+| `T_module_C` | out | back-of-module temperature in degC | - |
+| `T_cell_C` | out | cell temperature in degC | - |
 | `T_cell` | out | cell temperature | K |
 
 **Applies when:** G >= 0.
@@ -1111,9 +1155,9 @@ T_module_C = 41.11703066
 T_cell_C = 44.11703066
 T_cell = 317.2670307 K
   by: PV cell and module temperature (Sandia SAPM model)  (T_m = G exp(a + b v) + T_a; T_c = T_m + G dT/1000 (a, b, dT from the Sandia table))
-  poa = 1000 W/m^2   []
-  T_air = 283.15 K   []
-  wind = 0 m/s   []
+  poa = 1000 W/m^2
+  T_air = 283.15 K
+  wind = 0 m/s
   mount = open_rack_glass_glass
   assumes: G >= 0
 ```
@@ -1122,7 +1166,7 @@ T_cell = 317.2670307 K
 
 <a id="energy_cell_temperature_noct"></a>
 
-#### PV cell temperature from NOCT — `energy_cell_temperature_noct`
+#### PV cell temperature from NOCT: `energy_cell_temperature_noct`
 
 The operating temperature of a PV cell from the plane-of-array irradiance, the air temperature and the module's nominal operating cell temperature (NOCT): T_c = T_a + (NOCT - 20 degC) G/800.
 
@@ -1136,7 +1180,7 @@ $$
 | `T_air` | in | ambient air temperature | K |
 | `noct` | in | nominal operating cell temperature (at 800 W/m^2, 20 degC, 1 m/s) | K |
 | `T_cell` | out | cell temperature | K |
-| `T_cell_C` | out | cell temperature in degC | — |
+| `T_cell_C` | out | cell temperature in degC | - |
 
 **Applies when:** irradiance >= 0.
 
@@ -1145,9 +1189,9 @@ $ energy-systems solve energy_cell_temperature_noct "poa=800 W/m^2" "T_air=25 de
 T_cell = 323.15 K
 T_cell_C = 50
   by: PV cell temperature from NOCT  (T_c = T_a + (NOCT - 20)/800 G (Ross model with the NOCT coefficient))
-  poa = 800 W/m^2   []
-  T_air = 298.15 K   []
-  noct = 318.15 K   []
+  poa = 800 W/m^2
+  T_air = 298.15 K
+  noct = 318.15 K
   assumes: irradiance >= 0
 ```
 
@@ -1155,7 +1199,7 @@ T_cell_C = 50
 
 <a id="energy_pv_module_at_conditions"></a>
 
-#### PV module maximum power at an irradiance and temperature — `energy_pv_module_at_conditions`
+#### PV module maximum power at an irradiance and temperature, `energy_pv_module_at_conditions`
 
 Short-circuit current, open-circuit voltage, maximum-power current, voltage and power, and fill factor of a PV module at an irradiance and cell temperature: the De Soto translation of its reference parameters, then the single-diode maximum power point.
 
@@ -1167,30 +1211,48 @@ $$
 |---|---|---|---|
 | `G` | in | effective irradiance | W/m^2 |
 | `T_cell` | in | cell temperature | K |
-| `alpha_sc` | in | short-circuit current temperature coefficient in A/K | — |
+| `alpha_sc` | in | short-circuit current temperature coefficient in A/K | - |
 | `a_ref` | in | modified ideality factor at reference conditions | V |
 | `IL_ref` | in | photocurrent at reference conditions | A |
 | `I0_ref` | in | saturation current at reference conditions | A |
 | `Rsh_ref` | in | shunt resistance at reference conditions | ohm |
 | `Rs` | in | series resistance | ohm |
-| `EgRef` | in | band gap at 25 degC in eV (default 1.121, silicon) (optional) | — |
-| `dEgdT` | in | band-gap temperature coefficient in 1/K (default -0.0002677) (optional) | — |
+| `EgRef` | in | band gap at 25 degC in eV (default 1.121, silicon) (optional) | - |
+| `dEgdT` | in | band-gap temperature coefficient in 1/K (default -0.0002677) (optional) | - |
 | `Isc` | out | short-circuit current | A |
 | `Voc` | out | open-circuit voltage | V |
 | `Imp` | out | current at maximum power | A |
 | `Vmp` | out | voltage at maximum power | V |
 | `Pmp` | out | maximum power | W |
-| `FF` | out | fill factor | — |
+| `FF` | out | fill factor | - |
 
 **Applies when:** reference conditions 1000 W/m^2 and 25 degC.
 
-*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
+```shell
+$ energy-systems solve energy_pv_module_at_conditions "G=1000 W/m^2" "T_cell=25 degC" alpha_sc=0.004 "a_ref=1 V" "IL_ref=5 A" "I0_ref=1e-10 A" "Rsh_ref=1e+15 ohm" "Rs=0 ohm"
+Isc = 5 A
+Voc = 24.63528884 V
+Imp = 4.777983488 A
+Vmp = 21.52084741 V
+Pmp = 102.8262536 W
+FF = 0.8347882927
+  by: PV module maximum power at an irradiance and temperature  (De Soto parameter translation, then I_sc, V_oc and the maximum power point of the single-diode equation)
+  G = 1000 W/m^2
+  T_cell = 298.15 K
+  alpha_sc = 0.004
+  a_ref = 1 V
+  IL_ref = 5 A
+  I0_ref = 1e-10 A
+  Rsh_ref = 1e+15 ohm
+  Rs = 0 ohm
+  assumes: reference conditions 1000 W/m^2 and 25 degC
+```
 
 **What the worked example means:** This calculation determines the performance of a photovoltaic module under specific environmental conditions. It begins by translating reference parameters to the current irradiance of 1000 W/m^2 and cell temperature of 25 degC using the De Soto method. These translated values feed into a single-diode model to find the short-circuit current of 5 A amperes and open-circuit voltage of 24.6353 V volts. The system then solves for the point where power is maximized, yielding a current at maximum power of 4.77798 A amperes and a voltage at maximum power of 21.5208 V volts. The final result, 102.826 W watts, represents the usable electrical output, while the fill factor of 0.834788 indicates how effectively the module converts its theoretical potential into actual power.
 
 <a id="energy_desoto_parameters"></a>
 
-#### PV module single-diode parameters at operating conditions (De Soto) — `energy_desoto_parameters`
+#### PV module single-diode parameters at operating conditions (De Soto), `energy_desoto_parameters`
 
 The five single-diode parameters (photocurrent, saturation current, series and shunt resistance, modified ideality factor) of a PV module at an irradiance and cell temperature from its reference-condition values, by the De Soto (2006) model.
 
@@ -1202,14 +1264,14 @@ $$
 |---|---|---|---|
 | `G` | in | effective irradiance | W/m^2 |
 | `T_cell` | in | cell temperature | K |
-| `alpha_sc` | in | short-circuit current temperature coefficient in A/K | — |
+| `alpha_sc` | in | short-circuit current temperature coefficient in A/K | - |
 | `a_ref` | in | modified ideality factor at reference conditions | V |
 | `IL_ref` | in | photocurrent at reference conditions | A |
 | `I0_ref` | in | saturation current at reference conditions | A |
 | `Rsh_ref` | in | shunt resistance at reference conditions | ohm |
 | `Rs` | in | series resistance | ohm |
-| `EgRef` | in | band gap at 25 degC in eV (default 1.121, silicon) (optional) | — |
-| `dEgdT` | in | band-gap temperature coefficient in 1/K (default -0.0002677) (optional) | — |
+| `EgRef` | in | band gap at 25 degC in eV (default 1.121, silicon) (optional) | - |
+| `dEgdT` | in | band-gap temperature coefficient in 1/K (default -0.0002677) (optional) | - |
 | `IL` | out | photocurrent | A |
 | `I0` | out | saturation current | A |
 | `Rs` | out | series resistance | ohm |
@@ -1226,14 +1288,14 @@ Rs = 0.3 ohm
 Rsh = 400 ohm
 nNsVth = 1.9 V
   by: PV module single-diode parameters at operating conditions (De Soto)  (a = a_ref T/T_ref; IL = (G/1000)(IL_ref + alpha_sc (T - T_ref)); I0 = I0_ref (T/T_ref)^3 exp(Eg_ref/(k T_ref) - Eg/(k T)), Eg = Eg_ref (1 + dEg/dT (T - T_ref)); Rsh = Rsh_ref 1000/G)
-  G = 1000 W/m^2   []
-  T_cell = 298.15 K   []
-  alpha_sc = 0.004   []
-  a_ref = 1.9 V   []
-  IL_ref = 9 A   []
-  I0_ref = 1e-10 A   []
-  Rsh_ref = 400 ohm   []
-  Rs = 0.3 ohm   []
+  G = 1000 W/m^2
+  T_cell = 298.15 K
+  alpha_sc = 0.004
+  a_ref = 1.9 V
+  IL_ref = 9 A
+  I0_ref = 1e-10 A
+  Rsh_ref = 400 ohm
+  Rs = 0.3 ohm
   assumes: reference conditions 1000 W/m^2 and 25 degC
 ```
 
@@ -1241,7 +1303,7 @@ nNsVth = 1.9 V
 
 <a id="energy_cell_temperature_faiman"></a>
 
-#### PV module temperature (Faiman model) — `energy_cell_temperature_faiman`
+#### PV module temperature (Faiman model): `energy_cell_temperature_faiman`
 
 Module (cell) temperature by the Faiman heat-loss model used in IEC 61853: T = T_a + G/(u0 + u1 v).
 
@@ -1254,10 +1316,10 @@ $$
 | `poa` | in | plane-of-array irradiance | W/m^2 |
 | `T_air` | in | ambient air temperature | K |
 | `wind` | in | wind speed at module height | m/s |
-| `u0` | in | constant heat-loss coefficient in W/(m^2 K) (default 25) (optional) | — |
-| `u1` | in | wind heat-loss coefficient in W s/(m^3 K) (default 6.84) (optional) | — |
+| `u0` | in | constant heat-loss coefficient in W/(m^2 K) (default 25) (optional) | - |
+| `u1` | in | wind heat-loss coefficient in W s/(m^3 K) (default 6.84) (optional) | - |
 | `T_cell` | out | module temperature | K |
-| `T_cell_C` | out | module temperature in degC | — |
+| `T_cell_C` | out | module temperature in degC | - |
 
 **Applies when:** G >= 0; u0 > 0.
 
@@ -1266,9 +1328,9 @@ $ energy-systems solve energy_cell_temperature_faiman "poa=1000 W/m^2" "T_air=25
 T_cell = 338.15 K
 T_cell_C = 65
   by: PV module temperature (Faiman model)  (T = T_a + G/(u0 + u1 v))
-  poa = 1000 W/m^2   []
-  T_air = 298.15 K   []
-  wind = 0 m/s   []
+  poa = 1000 W/m^2
+  T_air = 298.15 K
+  wind = 0 m/s
   assumes: G >= 0; u0 > 0
 ```
 
@@ -1276,7 +1338,7 @@ T_cell_C = 65
 
 <a id="energy_single_diode_current"></a>
 
-#### PV single-diode model: current at a voltage — `energy_single_diode_current`
+#### PV single-diode model: current at a voltage, `energy_single_diode_current`
 
 The current (and power) of a PV cell or module at a terminal voltage from the five-parameter single-diode equation I = IL - I0 [exp((V + I Rs)/a) - 1] - (V + I Rs)/Rsh, solved implicitly.
 
@@ -1302,12 +1364,12 @@ $ energy-systems solve energy_single_diode_current "V=1 V" "IL=5 A" "I0=1e-10 A"
 I = 4.99 A
 P = 4.99 W
   by: PV single-diode model: current at a voltage  (the implicit single-diode equation solved for I by bisection to full precision)
-  V = 1 V   []
-  IL = 5 A   []
-  I0 = 1e-10 A   []
-  Rs = 0 ohm   []
-  Rsh = 100 ohm   []
-  nNsVth = 1 V   []
+  V = 1 V
+  IL = 5 A
+  I0 = 1e-10 A
+  Rs = 0 ohm
+  Rsh = 100 ohm
+  nNsVth = 1 V
   assumes: IL, I0, Rsh, a > 0; Rs >= 0
 ```
 
@@ -1315,7 +1377,7 @@ P = 4.99 W
 
 <a id="energy_single_diode_mpp"></a>
 
-#### PV single-diode model: short-circuit, open-circuit and maximum power point — `energy_single_diode_mpp`
+#### PV single-diode model: short-circuit, open-circuit and maximum power point, `energy_single_diode_mpp`
 
 Short-circuit current, open-circuit voltage, the maximum power point (current, voltage, power) and the fill factor of a PV cell or module described by the five-parameter single-diode model.
 
@@ -1335,17 +1397,32 @@ $$
 | `Imp` | out | current at maximum power | A |
 | `Vmp` | out | voltage at maximum power | V |
 | `Pmp` | out | maximum power | W |
-| `FF` | out | fill factor Pmp/(Isc Voc) | — |
+| `FF` | out | fill factor Pmp/(Isc Voc) | - |
 
 **Applies when:** IL, I0, Rsh, a > 0; Rs >= 0.
 
-*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
+```shell
+$ energy-systems solve energy_single_diode_mpp "IL=5 A" "I0=1e-10 A" "Rs=0 ohm" "Rsh=1e+15 ohm" "nNsVth=1 V"
+Isc = 5 A
+Voc = 24.63528884 V
+Imp = 4.777983488 A
+Vmp = 21.52084741 V
+Pmp = 102.8262536 W
+FF = 0.8347882927
+  by: PV single-diode model: short-circuit, open-circuit and maximum power point  (I(0) and V(I = 0) from the implicit equation; maximum power where dP/dV_d = 0 along the curve parametrized by the diode voltage (bisection))
+  IL = 5 A
+  I0 = 1e-10 A
+  Rs = 0 ohm
+  Rsh = 1e+15 ohm
+  nNsVth = 1 V
+  assumes: IL, I0, Rsh, a > 0; Rs >= 0
+```
 
 **What the worked example means:** This calculation determines the key operating characteristics of a photovoltaic cell using the single-diode model. It computes the short-circuit current, which is 5 A, and the open-circuit voltage, which is 24.6353 V. By finding where the derivative of power with respect to voltage equals zero, it identifies the current at maximum power as 4.77798 A and the voltage at maximum power as 21.5208 V, resulting in a maximum power output of 102.826 W. The efficiency of this extraction relative to the ideal square product of current and voltage is quantified by the fill factor, calculated here as 0.834788.
 
 <a id="energy_single_diode_voltage"></a>
 
-#### PV single-diode model: voltage at a current — `energy_single_diode_voltage`
+#### PV single-diode model: voltage at a current, `energy_single_diode_voltage`
 
 The terminal voltage (and power) of a PV cell or module carrying a current, from the five-parameter single-diode equation solved implicitly for V; I = 0 gives the open-circuit voltage.
 
@@ -1371,12 +1448,12 @@ $ energy-systems solve energy_single_diode_voltage "I=0 A" "IL=5 A" "I0=1e-10 A"
 V = 24.63528884 V
 P = 0 W
   by: PV single-diode model: voltage at a current  (the implicit single-diode equation solved for V by bisection to full precision)
-  I = 0 A   []
-  IL = 5 A   []
-  I0 = 1e-10 A   []
-  Rs = 0 ohm   []
-  Rsh = 1e+15 ohm   []
-  nNsVth = 1 V   []
+  I = 0 A
+  IL = 5 A
+  I0 = 1e-10 A
+  Rs = 0 ohm
+  Rsh = 1e+15 ohm
+  nNsVth = 1 V
   assumes: IL, I0, Rsh, a > 0; Rs >= 0
 ```
 
@@ -1386,7 +1463,7 @@ P = 0 W
 
 <a id="energy_newton_load_flow"></a>
 
-#### AC load flow by Newton-Raphson — `energy_newton_load_flow`
+#### AC load flow by Newton-Raphson: `energy_newton_load_flow`
 
 Bus voltage magnitudes and angles, slack-bus power, PV-bus reactive power and losses of a small network by the Newton-Raphson load flow (per unit; pi-model lines; bus 1 is the slack, generator buses hold their voltage; reactive limits are not enforced).
 
@@ -1396,26 +1473,36 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `lines` | in | one row per line: from bus, to bus, r, x, total shunt b (per unit) | — |
-| `loads` | in | one row per load: bus, P, Q (per unit) | — |
-| `gens` | in | optional rows per voltage-controlled (PV) generator: bus, P, V (per unit) (optional) | — |
-| `V1` | in | slack-bus voltage magnitude in per unit (default 1.0) (optional) | — |
-| `V` | out | voltage magnitudes in per unit, buses 1..n | — |
-| `angle_deg` | out | voltage angles in degrees, buses 1..n | — |
-| `P_slack` | out | slack real power injection (pu) | — |
-| `Q_slack` | out | slack reactive power injection (pu) | — |
-| `P_loss` | out | total real power loss (pu) | — |
-| `Q_gen` | out | reactive power of each PV generator (pu), in the order given | — |
+| `lines` | in | one row per line: from bus, to bus, r, x, total shunt b (per unit) | - |
+| `loads` | in | one row per load: bus, P, Q (per unit) | - |
+| `gens` | in | optional rows per voltage-controlled (PV) generator: bus, P, V (per unit) (optional) | - |
+| `V1` | in | slack-bus voltage magnitude in per unit (default 1.0) (optional) | - |
+| `V` | out | voltage magnitudes in per unit, buses 1..n | - |
+| `angle_deg` | out | voltage angles in degrees, buses 1..n | - |
+| `P_slack` | out | slack real power injection (pu) | - |
+| `Q_slack` | out | slack reactive power injection (pu) | - |
+| `P_loss` | out | total real power loss (pu) | - |
+| `Q_gen` | out | reactive power of each PV generator (pu), in the order given | - |
 
 **Applies when:** buses numbered 1..n, bus 1 the slack; the load flow converges from a flat start.
 
-*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
+```shell
+$ energy-systems solve energy_newton_load_flow "lines=1 2 0.0 0.5 0.0" "loads=2 0.0 0.0"
+V = [1.0,1.0]
+angle_deg = [0.0,0.0]
+P_slack = 0
+Q_slack = 0
+P_loss = 0
+Q_gen = []
+  by: AC load flow by Newton-Raphson  (polar Newton-Raphson on the P and Q mismatches with the analytic Jacobian, solved by Gaussian elimination, to a mismatch below 1e-13 pu)
+  assumes: buses numbered 1..n, bus 1 the slack; the load flow converges from a flat start
+```
 
 **What the worked example means:** This calculation determines the steady-state voltages and power flows in an electrical network using the Newton-Raphson method. It takes line parameters, load demands, and generator settings as inputs to solve for bus voltage magnitudes given by [1, 1] and phase angles provided by [0, 0]. The resulting slack bus real power injection is 0 and reactive power is 0, while total system losses are calculated as 0. Generator reactive outputs are listed in [], reflecting the balance between generation and demand under the assumed flat start convergence.
 
 <a id="energy_per_unit_impedance"></a>
 
-#### Base impedance and per-unit impedance — `energy_per_unit_impedance`
+#### Base impedance and per-unit impedance: `energy_per_unit_impedance`
 
 The base impedance Z_base = V_base^2/S_base and base current of a three-phase per-unit system, and an impedance in ohms expressed in per unit.
 
@@ -1431,9 +1518,9 @@ $$
 | `V_base` | in | line-to-line base voltage | V |
 | `Z_base` | out | base impedance V_base^2/S_base | ohm |
 | `I_base` | out | base current S_base/(sqrt(3) V_base) | A |
-| `R_pu` | out | per-unit resistance | — |
-| `X_pu` | out | per-unit reactance | — |
-| `Z_pu` | out | per-unit impedance magnitude | — |
+| `R_pu` | out | per-unit resistance | - |
+| `X_pu` | out | per-unit reactance | - |
+| `Z_pu` | out | per-unit impedance magnitude | - |
 
 **Applies when:** R, X >= 0, not both 0; positive bases; three-phase base, line-to-line voltage.
 
@@ -1445,10 +1532,10 @@ R_pu = 0.02869605142
 X_pu = 0.1147842057
 Z_pu = 0.1183168511
   by: Base impedance and per-unit impedance  (Z_base = V_base^2/S_base, I_base = S_base/(sqrt(3) V_base), Z_pu = Z/Z_base)
-  R = 5 ohm   []
-  X = 20 ohm   []
-  S_base = 100000000 VA   []
-  V_base = 132000 V   []
+  R = 5 ohm
+  X = 20 ohm
+  S_base = 100000000 VA
+  V_base = 132000 V
   assumes: R, X >= 0, not both 0; positive bases; three-phase base, line-to-line voltage
 ```
 
@@ -1456,7 +1543,7 @@ Z_pu = 0.1183168511
 
 <a id="energy_critical_clearing"></a>
 
-#### Critical clearing angle and time (equal-area criterion) — `energy_critical_clearing`
+#### Critical clearing angle and time (equal-area criterion), `energy_critical_clearing`
 
 The initial rotor angle, the largest allowable angle and the critical clearing angle of a machine against an infinite bus by the equal-area criterion, for given pre-fault, during-fault and post-fault transfer limits; with H and f, the critical clearing time for a fault that blocks all transfer.
 
@@ -1466,15 +1553,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `Pm` | in | mechanical input power (pu) | — |
-| `Pmax_pre` | in | pre-fault transfer limit (pu) | — |
-| `Pmax_fault` | in | transfer limit during the fault (pu; 0 for a fault at the terminals) | — |
-| `Pmax_post` | in | post-fault transfer limit (pu) | — |
+| `Pm` | in | mechanical input power (pu) | - |
+| `Pmax_pre` | in | pre-fault transfer limit (pu) | - |
+| `Pmax_fault` | in | transfer limit during the fault (pu; 0 for a fault at the terminals) | - |
+| `Pmax_post` | in | post-fault transfer limit (pu) | - |
 | `H` | in | inertia constant H (MJ/MVA, i.e. seconds), for the clearing time (optional) | s |
 | `f` | in | system frequency, for the clearing time (optional) | Hz |
-| `delta0_deg` | out | initial rotor angle in degrees | — |
-| `delta_max_deg` | out | largest angle before loss of synchronism in degrees | — |
-| `delta_cr_deg` | out | critical clearing angle in degrees | — |
+| `delta0_deg` | out | initial rotor angle in degrees | - |
+| `delta_max_deg` | out | largest angle before loss of synchronism in degrees | - |
+| `delta_cr_deg` | out | critical clearing angle in degrees | - |
 | `t_cr` | out | critical clearing time (Pmax_fault = 0) | s |
 
 **Applies when:** Pmax_fault < Pm < Pmax_pre, Pmax_post; classical model (constant voltage behind transient reactance, no damping).
@@ -1485,10 +1572,10 @@ delta0_deg = 30
 delta_max_deg = 150
 delta_cr_deg = 79.56195848
   by: Critical clearing angle and time (equal-area criterion)  (cos(delta_cr) = [Pm (delta_max - delta0) + Pmax_post cos(delta_max) - Pmax_fault cos(delta0)]/(Pmax_post - Pmax_fault); t_cr = sqrt(4 H (delta_cr - delta0)/(omega_s Pm)))
-  Pm = 1   []
-  Pmax_pre = 2   []
-  Pmax_fault = 0   []
-  Pmax_post = 2   []
+  Pm = 1
+  Pmax_pre = 2
+  Pmax_fault = 0
+  Pmax_post = 2
   assumes: Pmax_fault < Pm < Pmax_pre, Pmax_post; classical model (constant voltage behind transient reactance, no damping)
 ```
 
@@ -1496,7 +1583,7 @@ delta_cr_deg = 79.56195848
 
 <a id="energy_dc_power_flow"></a>
 
-#### DC power flow — `energy_dc_power_flow`
+#### DC power flow: `energy_dc_power_flow`
 
 Bus voltage angles and line flows of a network by the DC (linearised) power flow: lossless lines, flat 1 pu voltages, P_ij = (theta_i - theta_j)/x_ij; bus 1 is the slack (angle 0) and takes the balance.
 
@@ -1506,21 +1593,28 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `lines` | in | lines as 'i-j x' with the series reactance x in per unit (buses numbered 1..n) | — |
-| `P` | in | net injections (generation minus load) of buses 2..n in per unit | — |
-| `theta_deg` | out | bus voltage angles in degrees, buses 1..n | — |
-| `flows` | out | line flows from the first to the second named bus, per unit, in the order given | — |
-| `P_slack` | out | slack (bus 1) injection in per unit | — |
+| `lines` | in | lines as 'i-j x' with the series reactance x in per unit (buses numbered 1..n) | - |
+| `P` | in | net injections (generation minus load) of buses 2..n in per unit | - |
+| `theta_deg` | out | bus voltage angles in degrees, buses 1..n | - |
+| `flows` | out | line flows from the first to the second named bus, per unit, in the order given | - |
+| `P_slack` | out | slack (bus 1) injection in per unit | - |
 
 **Applies when:** connected network; positive reactances; bus 1 is the slack.
 
-*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
+```shell
+$ energy-systems solve energy_dc_power_flow "lines=1-2 0.1, 2-3 0.2" "P=0, -1"
+theta_deg = [0.0,-5.72957795131,-17.1887338539]
+flows = [1.0,1.0]
+P_slack = 1
+  by: DC power flow  (B' theta = P (reduced susceptance matrix, slack removed), solved by Gaussian elimination; P_ij = (theta_i - theta_j)/x_ij)
+  assumes: connected network; positive reactances; bus 1 is the slack
+```
 
 **What the worked example means:** This calculation determines the steady-state operating point of the power network using a linearized model. Solving the system of equations relating net injections to voltage angles shows that the bus angles are [0, -5.72958, -17.1887]. These angles drive the active power flow through each transmission line, calculated as [1, 1]. The difference between total generation and load is balanced by the slack bus, which provides an injection of 1. This method assumes flat voltage magnitudes and ignores losses, providing a quick approximation suitable for planning studies.
 
 <a id="energy_dlg_fault"></a>
 
-#### Double line-to-ground fault (symmetrical components) — `energy_dlg_fault`
+#### Double line-to-ground fault (symmetrical components), `energy_dlg_fault`
 
 Phase, neutral and sequence currents and phase voltages for a fault from phases b and c to ground through Zf: negative and (zero + 3Zf) networks in parallel.
 
@@ -1530,22 +1624,22 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `X1` | in | positive-sequence Thevenin reactance (pu) | — |
-| `X2` | in | negative-sequence reactance (pu) | — |
-| `X0` | in | zero-sequence reactance (pu) | — |
-| `Rf` | in | fault resistance (pu, default 0) (optional) | — |
-| `Xf` | in | fault reactance (pu, default 0) (optional) | — |
-| `Vf` | in | prefault voltage (pu, default 1.0) (optional) | — |
-| `Ia` | out | \|I_a\| (pu) | — |
-| `Ib` | out | \|I_b\| (pu) | — |
-| `Ic` | out | \|I_c\| (pu) | — |
-| `In` | out | neutral (earth) current \|3 I_0\| (pu) | — |
-| `I1` | out | \|I_1\| (pu) | — |
-| `I2` | out | \|I_2\| (pu) | — |
-| `I0` | out | \|I_0\| (pu) | — |
-| `Va` | out | \|V_a\| (pu) | — |
-| `Vb` | out | \|V_b\| (pu) | — |
-| `Vc` | out | \|V_c\| (pu) | — |
+| `X1` | in | positive-sequence Thevenin reactance (pu) | - |
+| `X2` | in | negative-sequence reactance (pu) | - |
+| `X0` | in | zero-sequence reactance (pu) | - |
+| `Rf` | in | fault resistance (pu, default 0) (optional) | - |
+| `Xf` | in | fault reactance (pu, default 0) (optional) | - |
+| `Vf` | in | prefault voltage (pu, default 1.0) (optional) | - |
+| `Ia` | out | \|I_a\| (pu) | - |
+| `Ib` | out | \|I_b\| (pu) | - |
+| `Ic` | out | \|I_c\| (pu) | - |
+| `In` | out | neutral (earth) current \|3 I_0\| (pu) | - |
+| `I1` | out | \|I_1\| (pu) | - |
+| `I2` | out | \|I_2\| (pu) | - |
+| `I0` | out | \|I_0\| (pu) | - |
+| `Va` | out | \|V_a\| (pu) | - |
+| `Vb` | out | \|V_b\| (pu) | - |
+| `Vc` | out | \|V_c\| (pu) | - |
 
 **Applies when:** sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf.
 
@@ -1562,9 +1656,9 @@ Va = 1
 Vb = 0
 Vc = 0
   by: Double line-to-ground fault (symmetrical components)  (I1 = Vf/(Z1 + Z2 || (Z0 + 3Zf)); I2 = -I1 (Z0 + 3Zf)/(Z2 + Z0 + 3Zf); I0 = -I1 Z2/(Z2 + Z0 + 3Zf))
-  X1 = 0.1   []
-  X2 = 0.1   []
-  X0 = 0.1   []
+  X1 = 0.1
+  X2 = 0.1
+  X0 = 0.1
   assumes: sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf
 ```
 
@@ -1572,7 +1666,7 @@ Vc = 0
 
 <a id="energy_economic_dispatch"></a>
 
-#### Economic dispatch with quadratic costs and limits — `energy_economic_dispatch`
+#### Economic dispatch with quadratic costs and limits, `energy_economic_dispatch`
 
 The least-cost outputs of thermal units with costs a + b P + c P^2 ($/h) and output limits that together meet a demand (losses neglected): every unit between its limits runs at the same incremental cost lambda.
 
@@ -1582,11 +1676,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `costs` | in | one row per unit: a ($/h), b ($/MWh), c ($/MW^2 h), Pmin (MW), Pmax (MW) | — |
-| `demand` | in | total demand in MW | — |
-| `lambda_` | out | system incremental cost in $/MWh | — |
-| `P` | out | unit outputs in MW, in the order given | — |
-| `cost` | out | total cost in $/h | — |
+| `costs` | in | one row per unit: a ($/h), b ($/MWh), c ($/MW^2 h), Pmin (MW), Pmax (MW) | - |
+| `demand` | in | total demand in MW | - |
+| `lambda_` | out | system incremental cost in $/MWh | - |
+| `P` | out | unit outputs in MW, in the order given | - |
+| `cost` | out | total cost in $/h | - |
 
 **Applies when:** c > 0 for every unit; sum Pmin <= demand <= sum Pmax; at least one unit between its limits.
 
@@ -1596,7 +1690,7 @@ lambda_ = 8.5
 P = [400.0,250.0,150.0]
 cost = 6682.5
   by: Economic dispatch with quadratic costs and limits  (equal incremental cost: P_i(lambda) = clip((lambda - b_i)/(2 c_i), Pmin_i, Pmax_i), lambda by bisection on sum P_i = D)
-  demand = 800   []
+  demand = 800
   assumes: c > 0 for every unit; sum Pmin <= demand <= sum Pmax; at least one unit between its limits
 ```
 
@@ -1604,7 +1698,7 @@ cost = 6682.5
 
 <a id="energy_droop_sharing"></a>
 
-#### Frequency deviation and load sharing under governor droop — `energy_droop_sharing`
+#### Frequency deviation and load sharing under governor droop, `energy_droop_sharing`
 
 The steady-state frequency drop after a load step and each generator's output change when governors with droop R (per unit on their own rating) share the load, with optional load damping D.
 
@@ -1614,15 +1708,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `R` | in | droop of each governor in per unit on its own rating (e.g. 0.05) | — |
-| `ratings` | in | rating of each generator in MW | — |
-| `dP` | in | load increase in MW (negative for a load decrease) | — |
+| `R` | in | droop of each governor in per unit on its own rating (e.g. 0.05) | - |
+| `ratings` | in | rating of each generator in MW | - |
+| `dP` | in | load increase in MW (negative for a load decrease) | - |
 | `f0` | in | nominal frequency | Hz |
-| `D` | in | load damping in MW/Hz (default 0) (optional) | — |
-| `df` | out | frequency change in Hz | — |
-| `f` | out | new frequency in Hz | — |
-| `dP_gen` | out | output change of each generator in MW | — |
-| `dP_load_damping` | out | load relief from damping in MW | — |
+| `D` | in | load damping in MW/Hz (default 0) (optional) | - |
+| `df` | out | frequency change in Hz | - |
+| `f` | out | new frequency in Hz | - |
+| `dP_gen` | out | output change of each generator in MW | - |
+| `dP_load_damping` | out | load relief from damping in MW | - |
 
 **Applies when:** primary control only (no secondary/AGC); R, ratings > 0.
 
@@ -1633,8 +1727,8 @@ f = 49.75
 dP_gen = [50.0,50.0]
 dP_load_damping = 0
   by: Frequency deviation and load sharing under governor droop  (beta = sum(S_i/(R_i f0)) + D; df = -dP/beta; dP_i = -df S_i/(R_i f0))
-  dP = 100   []
-  f0 = 50 Hz   []
+  dP = 100
+  f0 = 50 Hz
   assumes: primary control only (no secondary/AGC); R, ratings > 0
 ```
 
@@ -1642,7 +1736,7 @@ dP_load_damping = 0
 
 <a id="energy_geometric_mean_distance"></a>
 
-#### Geometric mean distance of a three-phase line — `energy_geometric_mean_distance`
+#### Geometric mean distance of a three-phase line, `energy_geometric_mean_distance`
 
 The geometric mean distance GMD = (D_ab D_bc D_ca)^(1/3) between the phases of a fully transposed three-phase line.
 
@@ -1656,7 +1750,7 @@ $$
 | `D_bc` | in | distance between phases b and c | m |
 | `D_ca` | in | distance between phases c and a | m |
 | `GMD` | out | geometric mean distance | m |
-| `ratio_to_mean` | out | GMD divided by the arithmetic mean spacing | — |
+| `ratio_to_mean` | out | GMD divided by the arithmetic mean spacing | - |
 
 **Applies when:** positive spacings that form a triangle (or a straight line); fully transposed line.
 
@@ -1665,9 +1759,9 @@ $ energy-systems solve energy_geometric_mean_distance "D_ab=4 m" "D_bc=4 m" "D_c
 GMD = 5.0396842 m
 ratio_to_mean = 0.9449407874
   by: Geometric mean distance of a three-phase line  (GMD = (D_ab D_bc D_ca)^(1/3))
-  D_ab = 4 m   []
-  D_bc = 4 m   []
-  D_ca = 8 m   []
+  D_ab = 4 m
+  D_bc = 4 m
+  D_ca = 8 m
   assumes: positive spacings that form a triangle (or a straight line); fully transposed line
 ```
 
@@ -1675,7 +1769,7 @@ ratio_to_mean = 0.9449407874
 
 <a id="energy_line_parameters"></a>
 
-#### Inductance, capacitance and surge impedance of a three-phase overhead line — `energy_line_parameters`
+#### Inductance, capacitance and surge impedance of a three-phase overhead line, `energy_line_parameters`
 
 Per-phase inductance, capacitance, reactance, susceptance, surge impedance (and surge-impedance loading at a voltage) of a fully transposed three-phase line from its phase spacings, conductor radius and geometric mean radius, with optional bundled conductors.
 
@@ -1691,16 +1785,16 @@ $$
 | `r` | in | conductor (outer) radius | m |
 | `f` | in | system frequency | Hz |
 | `gmr` | in | conductor geometric mean radius (default r e^(-1/4), a solid round conductor) (optional) | m |
-| `n_bundle` | in | subconductors per phase (1 to 4, regular polygon) (optional) | — |
+| `n_bundle` | in | subconductors per phase (1 to 4, regular polygon) (optional) | - |
 | `spacing` | in | distance between neighbouring subconductors of a bundle (optional) | m |
 | `V` | in | line voltage for the surge-impedance loading (optional) (optional) | V |
 | `GMR` | out | geometric mean radius of a phase (bundle) | m |
-| `L_mH_per_km` | out | inductance per phase in mH/km | — |
-| `C_nF_per_km` | out | capacitance to neutral in nF/km | — |
-| `X_ohm_per_km` | out | series reactance in ohm/km | — |
-| `B_uS_per_km` | out | shunt susceptance in uS/km | — |
+| `L_mH_per_km` | out | inductance per phase in mH/km | - |
+| `C_nF_per_km` | out | capacitance to neutral in nF/km | - |
+| `X_ohm_per_km` | out | series reactance in ohm/km | - |
+| `B_uS_per_km` | out | shunt susceptance in uS/km | - |
 | `Zc` | out | surge impedance of the lossless line sqrt(L/C) | ohm |
-| `SIL_MW` | out | surge-impedance loading V^2/Zc in MW | — |
+| `SIL_MW` | out | surge-impedance loading V^2/Zc in MW | - |
 
 **Applies when:** fully transposed line; spacings much larger than the conductors; ground effect neglected.
 
@@ -1713,12 +1807,12 @@ X_ohm_per_km = 0.4340270647
 B_uS_per_km = 2.81231993
 Zc = 392.8493542 ohm
   by: Inductance, capacitance and surge impedance of a three-phase overhead line  (GMD = (D_ab D_bc D_ca)^(1/3); L = 2e-7 ln(GMD/GMR) H/m; C = 2 pi eps0/ln(GMD/r) F/m; bundles: GMR_b = (GMR d^(n-1))^(1/n) (2^(1/8) (GMR d^3)^(1/4) = 1.09 (GMR d^3)^(1/4) for 4))
-  D_ab = 5 m   []
-  D_bc = 5 m   []
-  D_ca = 5 m   []
-  r = 0.01 m   []
-  f = 50 Hz   []
-  gmr = 0.005 m   []
+  D_ab = 5 m
+  D_bc = 5 m
+  D_ca = 5 m
+  r = 0.01 m
+  f = 50 Hz
+  gmr = 0.005 m
   assumes: fully transposed line; spacings much larger than the conductors; ground effect neglected
 ```
 
@@ -1726,7 +1820,7 @@ Zc = 392.8493542 ohm
 
 <a id="energy_ll_fault"></a>
 
-#### Line-to-line fault (symmetrical components) — `energy_ll_fault`
+#### Line-to-line fault (symmetrical components), `energy_ll_fault`
 
 Phase and sequence currents and phase voltages for a fault between phases b and c through Zf: positive and negative networks in parallel opposition.
 
@@ -1736,22 +1830,22 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `X1` | in | positive-sequence Thevenin reactance (pu) | — |
-| `X2` | in | negative-sequence reactance (pu) | — |
-| `X0` | in | zero-sequence reactance (pu) | — |
-| `Rf` | in | fault resistance (pu, default 0) (optional) | — |
-| `Xf` | in | fault reactance (pu, default 0) (optional) | — |
-| `Vf` | in | prefault voltage (pu, default 1.0) (optional) | — |
-| `Ia` | out | \|I_a\| (pu) | — |
-| `Ib` | out | \|I_b\| (pu) | — |
-| `Ic` | out | \|I_c\| (pu) | — |
-| `In` | out | neutral (earth) current \|3 I_0\| (pu) | — |
-| `I1` | out | \|I_1\| (pu) | — |
-| `I2` | out | \|I_2\| (pu) | — |
-| `I0` | out | \|I_0\| (pu) | — |
-| `Va` | out | \|V_a\| (pu) | — |
-| `Vb` | out | \|V_b\| (pu) | — |
-| `Vc` | out | \|V_c\| (pu) | — |
+| `X1` | in | positive-sequence Thevenin reactance (pu) | - |
+| `X2` | in | negative-sequence reactance (pu) | - |
+| `X0` | in | zero-sequence reactance (pu) | - |
+| `Rf` | in | fault resistance (pu, default 0) (optional) | - |
+| `Xf` | in | fault reactance (pu, default 0) (optional) | - |
+| `Vf` | in | prefault voltage (pu, default 1.0) (optional) | - |
+| `Ia` | out | \|I_a\| (pu) | - |
+| `Ib` | out | \|I_b\| (pu) | - |
+| `Ic` | out | \|I_c\| (pu) | - |
+| `In` | out | neutral (earth) current \|3 I_0\| (pu) | - |
+| `I1` | out | \|I_1\| (pu) | - |
+| `I2` | out | \|I_2\| (pu) | - |
+| `I0` | out | \|I_0\| (pu) | - |
+| `Va` | out | \|V_a\| (pu) | - |
+| `Vb` | out | \|V_b\| (pu) | - |
+| `Vc` | out | \|V_c\| (pu) | - |
 
 **Applies when:** sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf.
 
@@ -1768,9 +1862,9 @@ Va = 1
 Vb = 0.5
 Vc = 0.5
   by: Line-to-line fault (symmetrical components)  (I1 = -I2 = Vf/(Z1 + Z2 + Zf), I0 = 0; |I_b| = sqrt(3) |I_1|)
-  X1 = 0.1   []
-  X2 = 0.1   []
-  X0 = 0.1   []
+  X1 = 0.1
+  X2 = 0.1
+  X0 = 0.1
   assumes: sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf
 ```
 
@@ -1778,7 +1872,7 @@ Vc = 0.5
 
 <a id="energy_long_line"></a>
 
-#### Long transmission line (exact distributed parameters) — `energy_long_line`
+#### Long transmission line (exact distributed parameters), `energy_long_line`
 
 Characteristic impedance, propagation constant, exact ABCD constants and the sending-end quantities, regulation and efficiency of a long three-phase line with uniformly distributed R, X and shunt B (the Ferranti rise appears as a negative regulation at light load).
 
@@ -1790,36 +1884,61 @@ $$
 |---|---|---|---|
 | `Vr` | in | receiving-end line-to-line voltage | V |
 | `P` | in | load real power (three-phase) | W |
-| `pf` | in | load power factor | — |
+| `pf` | in | load power factor | - |
 | `R` | in | line resistance per phase (total) | ohm |
 | `X` | in | line reactance per phase (total) | ohm |
 | `B` | in | total shunt susceptance of the line per phase | S |
-| `pf_type` | in | lagging (default) or leading load (optional) | — |
+| `pf_type` | in | lagging (default) or leading load (optional) | - |
 | `Vs` | out | sending-end line voltage | V |
-| `delta_deg` | out | angle of the sending voltage ahead of the receiving voltage, degrees | — |
+| `delta_deg` | out | angle of the sending voltage ahead of the receiving voltage, degrees | - |
 | `Is` | out | sending-end current | A |
 | `Ps` | out | sending-end real power | W |
 | `losses` | out | line losses (three-phase) | W |
-| `regulation_pct` | out | voltage regulation (V_s/\|A\| - V_r)/V_r in percent | — |
-| `efficiency_pct` | out | transmission efficiency in percent | — |
-| `A_mag` | out | \|A\| (= \|D\|) | — |
-| `A_angle_deg` | out | angle of A in degrees | — |
+| `regulation_pct` | out | voltage regulation (V_s/\|A\| - V_r)/V_r in percent | - |
+| `efficiency_pct` | out | transmission efficiency in percent | - |
+| `A_mag` | out | \|A\| (= \|D\|) | - |
+| `A_angle_deg` | out | angle of A in degrees | - |
 | `B_mag` | out | \|B\| in ohms | ohm |
-| `B_angle_deg` | out | angle of B in degrees | — |
+| `B_angle_deg` | out | angle of B in degrees | - |
 | `Zc_mag` | out | characteristic (surge) impedance magnitude | ohm |
-| `Zc_angle_deg` | out | angle of Zc in degrees | — |
-| `alpha_l` | out | attenuation alpha l in nepers | — |
-| `beta_l` | out | phase shift beta l in radians | — |
+| `Zc_angle_deg` | out | angle of Zc in degrees | - |
+| `alpha_l` | out | attenuation alpha l in nepers | - |
+| `beta_l` | out | phase shift beta l in radians | - |
 
 **Applies when:** uniformly distributed parameters; balanced load.
 
-*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
+```shell
+$ energy-systems solve energy_long_line "Vr=400 kV" "P=1 MW" pf=1 "R=0 ohm" "X=100 ohm" "B=400 uS"
+Vs = 392026.7098 V
+delta_deg = 0.03629508733
+Is = 91.77233649 A
+Ps = 1000000 W
+losses = 0 W
+regulation_pct = 2.006413788e-05
+efficiency_pct = 100
+A_mag = 0.9800665778
+A_angle_deg = 0
+B_mag = 99.3346654 ohm
+B_angle_deg = 90
+Zc_mag = 500 ohm
+Zc_angle_deg = 0
+alpha_l = 0
+beta_l = 0.2
+  by: Long transmission line (exact distributed parameters)  (gamma l = sqrt(ZY), Zc = sqrt(Z/Y); A = D = cosh(gamma l), B = Zc sinh(gamma l), C = sinh(gamma l)/Zc)
+  Vr = 400000 V
+  P = 1000000 W
+  pf = 1
+  R = 0 ohm
+  X = 100 ohm
+  B = 0.0004 S
+  assumes: uniformly distributed parameters; balanced load
+```
 
 **What the worked example means:** This calculation determines the precise electrical behavior of a long transmission line by treating resistance, reactance, and susceptance as uniformly distributed rather than lumped. Using the receiving-end voltage 400 kV, load power 1 MW, and line parameters 0 ohm, 100 ohm, and 400 uS, it computes the propagation constant and characteristic impedance to find the ABCD constants. The resulting sending-end voltage is 392027 V, with a phase angle shift of 0.0362951. The calculated voltage regulation is 2.00641e-05 percent, which may be negative under light loads due to the Ferranti effect, while the total line losses are 0 W watts.
 
 <a id="energy_medium_line"></a>
 
-#### Medium transmission line (nominal pi) — `energy_medium_line`
+#### Medium transmission line (nominal pi): `energy_medium_line`
 
 ABCD constants of the nominal-pi model and the sending-end voltage, current and power, losses, regulation and efficiency of a medium-length three-phase line feeding a load.
 
@@ -1831,32 +1950,53 @@ $$
 |---|---|---|---|
 | `Vr` | in | receiving-end line-to-line voltage | V |
 | `P` | in | load real power (three-phase) | W |
-| `pf` | in | load power factor | — |
+| `pf` | in | load power factor | - |
 | `R` | in | line resistance per phase (total) | ohm |
 | `X` | in | line reactance per phase (total) | ohm |
 | `B` | in | total shunt susceptance of the line per phase | S |
-| `pf_type` | in | lagging (default) or leading load (optional) | — |
+| `pf_type` | in | lagging (default) or leading load (optional) | - |
 | `Vs` | out | sending-end line voltage | V |
-| `delta_deg` | out | angle of the sending voltage ahead of the receiving voltage, degrees | — |
+| `delta_deg` | out | angle of the sending voltage ahead of the receiving voltage, degrees | - |
 | `Is` | out | sending-end current | A |
 | `Ps` | out | sending-end real power | W |
 | `losses` | out | line losses (three-phase) | W |
-| `regulation_pct` | out | voltage regulation (V_s/\|A\| - V_r)/V_r in percent | — |
-| `efficiency_pct` | out | transmission efficiency in percent | — |
-| `A_mag` | out | \|A\| (= \|D\|) | — |
-| `A_angle_deg` | out | angle of A in degrees | — |
+| `regulation_pct` | out | voltage regulation (V_s/\|A\| - V_r)/V_r in percent | - |
+| `efficiency_pct` | out | transmission efficiency in percent | - |
+| `A_mag` | out | \|A\| (= \|D\|) | - |
+| `A_angle_deg` | out | angle of A in degrees | - |
 | `B_mag` | out | \|B\| in ohms | ohm |
-| `B_angle_deg` | out | angle of B in degrees | — |
+| `B_angle_deg` | out | angle of B in degrees | - |
 
 **Applies when:** nominal-pi model (half the shunt admittance at each end); balanced load.
 
-*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
+```shell
+$ energy-systems solve energy_medium_line "Vr=132 kV" "P=50 MW" pf=1 "R=0 ohm" "X=40 ohm" "B=500 uS"
+Vs = 131555.4287 V
+delta_deg = 6.613551682
+Is = 219.8010835 A
+Ps = 50000000 W
+losses = 0 W
+regulation_pct = 0.6699025601
+efficiency_pct = 100
+A_mag = 0.99
+A_angle_deg = 0
+B_mag = 40 ohm
+B_angle_deg = 90
+  by: Medium transmission line (nominal pi)  (A = D = 1 + ZY/2, B = Z, C = Y(1 + ZY/4); V_s = A V_r + B I_r, I_s = C V_r + D I_r; regulation = (V_s/|A| - V_r)/V_r)
+  Vr = 132000 V
+  P = 50000000 W
+  pf = 1
+  R = 0 ohm
+  X = 40 ohm
+  B = 0.0005 S
+  assumes: nominal-pi model (half the shunt admittance at each end); balanced load
+```
 
 **What the worked example means:** This calculation determines the performance of a medium-length transmission line using the nominal-pi equivalent circuit. Given the receiving-end voltage 132 kV, load power 50 MW, and line parameters, it computes the ABCD constants to find the sending-end voltage 131555 V, current 219.801 A, and real power 5e+07 W. The result indicates how much the voltage changes along the line, with a regulation of 0.669903 percent and an efficiency of 100 percent.
 
 <a id="energy_per_unit_change_of_base"></a>
 
-#### Per-unit impedance on a new base — `energy_per_unit_change_of_base`
+#### Per-unit impedance on a new base: `energy_per_unit_change_of_base`
 
 An impedance given in per unit on equipment ratings (S_old, V_old) converted to the per-unit system of the network (S_new, V_new).
 
@@ -1866,15 +2006,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `R_pu` | in | per-unit resistance on the old base | — |
-| `X_pu` | in | per-unit reactance on the old base | — |
+| `R_pu` | in | per-unit resistance on the old base | - |
+| `X_pu` | in | per-unit reactance on the old base | - |
 | `S_old` | in | old base (equipment rating) in VA | VA |
 | `V_old` | in | old base voltage (line-to-line) | V |
 | `S_new` | in | new (system) base power in VA | VA |
 | `V_new` | in | new base voltage (line-to-line) | V |
-| `R_pu_new` | out | per-unit resistance on the new base | — |
-| `X_pu_new` | out | per-unit reactance on the new base | — |
-| `Z_pu_new` | out | per-unit impedance magnitude on the new base | — |
+| `R_pu_new` | out | per-unit resistance on the new base | - |
+| `X_pu_new` | out | per-unit reactance on the new base | - |
+| `Z_pu_new` | out | per-unit impedance magnitude on the new base | - |
 
 **Applies when:** X_pu > 0; positive bases.
 
@@ -1884,12 +2024,12 @@ R_pu_new = 0.1
 X_pu_new = 1
 Z_pu_new = 1.004987562
   by: Per-unit impedance on a new base  (Z_new = Z_old (V_old/V_new)^2 (S_new/S_old))
-  R_pu = 0.01   []
-  X_pu = 0.1   []
-  S_old = 10000000 VA   []
-  V_old = 11000 V   []
-  S_new = 100000000 VA   []
-  V_new = 11000 V   []
+  R_pu = 0.01
+  X_pu = 0.1
+  S_old = 10000000 VA
+  V_old = 11000 V
+  S_new = 100000000 VA
+  V_new = 11000 V
   assumes: X_pu > 0; positive bases
 ```
 
@@ -1897,7 +2037,7 @@ Z_pu_new = 1.004987562
 
 <a id="energy_power_angle"></a>
 
-#### Power transfer and power angle between two voltages — `energy_power_angle`
+#### Power transfer and power angle between two voltages, `energy_power_angle`
 
 The power angle needed to transfer P over a lossless reactance X between a sending voltage V2 (generator) and a receiving voltage V1 (infinite bus), the steady-state limit V1 V2/X, the reactive power at both ends and the stability margin.
 
@@ -1911,11 +2051,11 @@ $$
 | `V2` | in | sending (generator) line voltage | V |
 | `X` | in | transfer reactance per phase | ohm |
 | `P` | in | real power transferred (three-phase) | W |
-| `delta_deg` | out | power angle (V2 ahead of V1) in degrees | — |
+| `delta_deg` | out | power angle (V2 ahead of V1) in degrees | - |
 | `Pmax` | out | steady-state limit V1 V2/X | W |
 | `Q_sent` | out | reactive power sent from the generator end in var | var |
 | `Q_received` | out | reactive power arriving at the infinite bus in var | var |
-| `margin_pct` | out | stability margin (Pmax - P)/Pmax in percent | — |
+| `margin_pct` | out | stability margin (Pmax - P)/Pmax in percent | - |
 
 **Applies when:** lossless transfer reactance; |P| < V1 V2/X.
 
@@ -1927,10 +2067,10 @@ Q_sent = 13397459.62 var
 Q_received = -13397459.62 var
 margin_pct = 50
   by: Power transfer and power angle between two voltages  (P = V1 V2 sin(delta)/X; Q_sent = (V2^2 - V1 V2 cos delta)/X; Q_received = (V1 V2 cos delta - V1^2)/X)
-  V1 = 100000 V   []
-  V2 = 100000 V   []
-  X = 100 ohm   []
-  P = 50000000 W   []
+  V1 = 100000 V
+  V2 = 100000 V
+  X = 100 ohm
+  P = 50000000 W
   assumes: lossless transfer reactance; |P| < V1 V2/X
 ```
 
@@ -1938,7 +2078,7 @@ margin_pct = 50
 
 <a id="energy_two_bus_load_flow"></a>
 
-#### Receiving-end voltage of a line feeding a constant-power load (two-bus load flow) — `energy_two_bus_load_flow`
+#### Receiving-end voltage of a line feeding a constant-power load (two-bus load flow), `energy_two_bus_load_flow`
 
 The receiving-end voltage magnitude and angle, current and losses when a three-phase line of impedance R + jX supplies a constant P + jQ load from a fixed sending-end voltage (the exact two-bus load flow).
 
@@ -1954,11 +2094,11 @@ $$
 | `P` | in | load real power (three-phase) | W |
 | `Q` | in | load reactive power in var (negative for a capacitive load) | var |
 | `Vr` | out | receiving-end line voltage | V |
-| `delta_deg` | out | receiving-end voltage angle in degrees (negative: lagging the source) | — |
+| `delta_deg` | out | receiving-end voltage angle in degrees (negative: lagging the source) | - |
 | `I` | out | line current | A |
 | `P_loss` | out | real power loss | W |
 | `Q_loss` | out | reactive power absorbed by the line in var | var |
-| `voltage_drop_pct` | out | (V_s - V_r)/V_s in percent | — |
+| `voltage_drop_pct` | out | (V_s - V_r)/V_s in percent | - |
 
 **Applies when:** the load is within the line's transfer limit (a real solution exists); the high-voltage (normal) solution is reported.
 
@@ -1971,11 +2111,11 @@ P_loss = 0 W
 Q_loss = 267949.1924 var
 voltage_drop_pct = 3.407417371
   by: Receiving-end voltage of a line feeding a constant-power load (two-bus load flow)  (V_r^4 + [2(PR + QX) - V_s^2] V_r^2 + (P^2 + Q^2)(R^2 + X^2) = 0, larger root; angle from V_s = V_r + (PR + QX)/V_r + j(PX - QR)/V_r)
-  Vs = 2000 V   []
-  R = 0 ohm   []
-  X = 1 ohm   []
-  P = 1000000 W   []
-  Q = 0 var   []
+  Vs = 2000 V
+  R = 0 ohm
+  X = 1 ohm
+  P = 1000000 W
+  Q = 0 var
   assumes: the load is within the line's transfer limit (a real solution exists); the high-voltage (normal) solution is reported
 ```
 
@@ -1983,7 +2123,7 @@ In the worked example, Vs = 2 kV, R = 0 ohm, X = 1 ohm, P = 1 MW, Q = 0 var go t
 
 <a id="energy_short_line"></a>
 
-#### Short transmission line: sending-end voltage, regulation and efficiency — `energy_short_line`
+#### Short transmission line: sending-end voltage, regulation and efficiency, `energy_short_line`
 
 Sending-end voltage and its angle, line current, losses, voltage regulation and efficiency of a short three-phase line (series R + jX, no shunt admittance) feeding a load at a known receiving-end voltage.
 
@@ -1995,17 +2135,17 @@ $$
 |---|---|---|---|
 | `Vr` | in | receiving-end line-to-line voltage | V |
 | `P` | in | load real power (three-phase) | W |
-| `pf` | in | load power factor | — |
+| `pf` | in | load power factor | - |
 | `R` | in | line resistance per phase (total) | ohm |
 | `X` | in | line reactance per phase (total) | ohm |
-| `pf_type` | in | lagging (default) or leading load (optional) | — |
+| `pf_type` | in | lagging (default) or leading load (optional) | - |
 | `Vs` | out | sending-end line voltage | V |
-| `delta_deg` | out | angle of the sending voltage ahead of the receiving voltage, degrees | — |
+| `delta_deg` | out | angle of the sending voltage ahead of the receiving voltage, degrees | - |
 | `I` | out | receiving-end line current | A |
 | `losses` | out | line losses (three-phase) | W |
 | `Ps` | out | sending-end real power | W |
-| `regulation_pct` | out | voltage regulation in percent | — |
-| `efficiency_pct` | out | transmission efficiency in percent | — |
+| `regulation_pct` | out | voltage regulation in percent | - |
+| `efficiency_pct` | out | transmission efficiency in percent | - |
 
 **Applies when:** short line: shunt admittance neglected; balanced three-phase load.
 
@@ -2019,11 +2159,11 @@ Ps = 10000000 W
 regulation_pct = 0
 efficiency_pct = 100
   by: Short transmission line: sending-end voltage, regulation and efficiency  (V_s = V_r + I (R + jX) per phase, I = P/(sqrt(3) V_r pf) at angle -acos(pf); regulation = (V_s - V_r)/V_r; efficiency = P/(P + 3 I^2 R))
-  Vr = 33000 V   []
-  P = 10000000 W   []
-  pf = 1   []
-  R = 0 ohm   []
-  X = 0 ohm   []
+  Vr = 33000 V
+  P = 10000000 W
+  pf = 1
+  R = 0 ohm
+  X = 0 ohm
   assumes: short line: shunt admittance neglected; balanced three-phase load
 ```
 
@@ -2031,7 +2171,7 @@ efficiency_pct = 100
 
 <a id="energy_slg_fault"></a>
 
-#### Single line-to-ground fault (symmetrical components) — `energy_slg_fault`
+#### Single line-to-ground fault (symmetrical components), `energy_slg_fault`
 
 Phase and sequence currents and phase voltages for a fault from phase a to ground through Zf: the three sequence networks in series.
 
@@ -2041,22 +2181,22 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `X1` | in | positive-sequence Thevenin reactance (pu) | — |
-| `X2` | in | negative-sequence reactance (pu) | — |
-| `X0` | in | zero-sequence reactance (pu) | — |
-| `Rf` | in | fault resistance (pu, default 0) (optional) | — |
-| `Xf` | in | fault reactance (pu, default 0) (optional) | — |
-| `Vf` | in | prefault voltage (pu, default 1.0) (optional) | — |
-| `Ia` | out | \|I_a\| (pu) | — |
-| `Ib` | out | \|I_b\| (pu) | — |
-| `Ic` | out | \|I_c\| (pu) | — |
-| `In` | out | neutral (earth) current \|3 I_0\| (pu) | — |
-| `I1` | out | \|I_1\| (pu) | — |
-| `I2` | out | \|I_2\| (pu) | — |
-| `I0` | out | \|I_0\| (pu) | — |
-| `Va` | out | \|V_a\| (pu) | — |
-| `Vb` | out | \|V_b\| (pu) | — |
-| `Vc` | out | \|V_c\| (pu) | — |
+| `X1` | in | positive-sequence Thevenin reactance (pu) | - |
+| `X2` | in | negative-sequence reactance (pu) | - |
+| `X0` | in | zero-sequence reactance (pu) | - |
+| `Rf` | in | fault resistance (pu, default 0) (optional) | - |
+| `Xf` | in | fault reactance (pu, default 0) (optional) | - |
+| `Vf` | in | prefault voltage (pu, default 1.0) (optional) | - |
+| `Ia` | out | \|I_a\| (pu) | - |
+| `Ib` | out | \|I_b\| (pu) | - |
+| `Ic` | out | \|I_c\| (pu) | - |
+| `In` | out | neutral (earth) current \|3 I_0\| (pu) | - |
+| `I1` | out | \|I_1\| (pu) | - |
+| `I2` | out | \|I_2\| (pu) | - |
+| `I0` | out | \|I_0\| (pu) | - |
+| `Va` | out | \|V_a\| (pu) | - |
+| `Vb` | out | \|V_b\| (pu) | - |
+| `Vc` | out | \|V_c\| (pu) | - |
 
 **Applies when:** sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf.
 
@@ -2073,9 +2213,9 @@ Va = 0
 Vb = 1
 Vc = 1
   by: Single line-to-ground fault (symmetrical components)  (I1 = I2 = I0 = Vf/(Z1 + Z2 + Z0 + 3 Zf); I_a = 3 I_0)
-  X1 = 0.1   []
-  X2 = 0.1   []
-  X0 = 0.1   []
+  X1 = 0.1
+  X2 = 0.1
+  X0 = 0.1
   assumes: sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf
 ```
 
@@ -2083,7 +2223,7 @@ Vc = 1
 
 <a id="energy_symmetrical_fault"></a>
 
-#### Three-phase (symmetrical) fault current by the bus impedance matrix — `energy_symmetrical_fault`
+#### Three-phase (symmetrical) fault current by the bus impedance matrix, `energy_symmetrical_fault`
 
 The fault current, Thevenin reactance and the bus voltages during a balanced three-phase fault at a bus of a reactance network (per unit, prefault no-load voltage Vf everywhere; every branch to node 0 is a source).
 
@@ -2093,20 +2233,27 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `network` | in | branches as 'i-j x' with reactances in per unit; node 0 is the reference, each branch to 0 a source (generator or infinite bus) | — |
-| `fault_bus` | in | faulted bus | — |
-| `Vf` | in | prefault voltage in per unit (default 1.0) (optional) | — |
-| `Xf` | in | fault reactance in per unit (default 0, a bolted fault) (optional) | — |
+| `network` | in | branches as 'i-j x' with reactances in per unit; node 0 is the reference, each branch to 0 a source (generator or infinite bus) | - |
+| `fault_bus` | in | faulted bus | - |
+| `Vf` | in | prefault voltage in per unit (default 1.0) (optional) | - |
+| `Xf` | in | fault reactance in per unit (default 0, a bolted fault) (optional) | - |
 | `S_base` | in | base power, for the fault current in amperes (optional) (optional) | VA |
 | `V_base` | in | base line voltage at the faulted bus (optional) (optional) | V |
-| `If` | out | fault current in per unit | — |
-| `X_th` | out | Thevenin reactance at the faulted bus (Z_ff) in per unit | — |
-| `V` | out | bus voltage magnitudes during the fault (pu), buses 1..n | — |
+| `If` | out | fault current in per unit | - |
+| `X_th` | out | Thevenin reactance at the faulted bus (Z_ff) in per unit | - |
+| `V` | out | bus voltage magnitudes during the fault (pu), buses 1..n | - |
 | `If_A` | out | fault current in amperes | A |
 
 **Applies when:** reactance network; no prefault load current (all prefault voltages Vf).
 
-*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
+```shell
+$ energy-systems solve energy_symmetrical_fault "network=0-1 0.2, 1-2 0.3" fault_bus=2
+If = 2
+X_th = 0.5
+V = [0.6,0.0]
+  by: Three-phase (symmetrical) fault current by the bus impedance matrix  (column f of Zbus from Ybus z = e_f; I_f = V_f/(Z_ff + jX_f); V_i = V_f - Z_if I_f)
+  assumes: reactance network; no prefault load current (all prefault voltages Vf)
+```
 
 **What the worked example means:** This calculation determines the symmetrical three-phase fault current at the specified bus using the bus impedance matrix. The result, 2 per unit, represents the magnitude of the short-circuit current flowing into the fault location. The associated Thevenin equivalent reactance seen from the faulted bus is 0.5 per unit, which characterizes the network's strength against faults.
 
@@ -2114,7 +2261,7 @@ $$
 
 <a id="energy_angle_of_incidence"></a>
 
-#### Angle of incidence of the sun on a tilted surface — `energy_angle_of_incidence`
+#### Angle of incidence of the sun on a tilted surface, `energy_angle_of_incidence`
 
 The angle between the sun's rays and the normal of a surface of given tilt and azimuth, and its cosine (the beam projection factor).
 
@@ -2124,12 +2271,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `tilt` | in | surface tilt from horizontal in degrees | — |
-| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | — |
-| `zenith` | in | solar zenith angle in degrees | — |
-| `azimuth` | in | solar azimuth in degrees clockwise from north | — |
-| `aoi_deg` | out | angle of incidence in degrees | — |
-| `cos_aoi` | out | cosine of the angle of incidence | — |
+| `tilt` | in | surface tilt from horizontal in degrees | - |
+| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | - |
+| `zenith` | in | solar zenith angle in degrees | - |
+| `azimuth` | in | solar azimuth in degrees clockwise from north | - |
+| `aoi_deg` | out | angle of incidence in degrees | - |
+| `cos_aoi` | out | cosine of the angle of incidence | - |
 
 **Applies when:** 0 <= tilt <= 180; azimuths from 0 to 360 degrees.
 
@@ -2138,10 +2285,10 @@ $ energy-systems solve energy_angle_of_incidence tilt=0 surface_azimuth=180 zeni
 aoi_deg = 60
 cos_aoi = 0.5
   by: Angle of incidence of the sun on a tilted surface  (cos(theta) = cos(beta) cos(z) + sin(beta) sin(z) cos(azimuth_sun - azimuth_surface))
-  tilt = 0   []
-  surface_azimuth = 180   []
-  zenith = 60   []
-  azimuth = 100   []
+  tilt = 0
+  surface_azimuth = 180
+  zenith = 60
+  azimuth = 100
   assumes: 0 <= tilt <= 180; azimuths from 0 to 360 degrees
 ```
 
@@ -2149,7 +2296,7 @@ cos_aoi = 0.5
 
 <a id="energy_clear_sky_haurwitz"></a>
 
-#### Clear-sky global horizontal irradiance (Haurwitz) — `energy_clear_sky_haurwitz`
+#### Clear-sky global horizontal irradiance (Haurwitz), `energy_clear_sky_haurwitz`
 
 The global horizontal irradiance under a clear sky from the solar zenith angle alone (Haurwitz 1945): 1098 cos z exp(-0.059/cos z).
 
@@ -2159,7 +2306,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `zenith` | in | apparent solar zenith angle in degrees | — |
+| `zenith` | in | apparent solar zenith angle in degrees | - |
 | `ghi` | out | clear-sky global horizontal irradiance (0 when the sun is below the horizon) | W/m^2 |
 
 **Applies when:** 0 <= zenith <= 180.
@@ -2168,7 +2315,7 @@ $$
 $ energy-systems solve energy_clear_sky_haurwitz zenith=0
 ghi = 1035.092033 W/m^2
   by: Clear-sky global horizontal irradiance (Haurwitz)  (GHI = 1098 cos z exp(-0.059/cos z) for cos z > 0, else 0)
-  zenith = 0   []
+  zenith = 0
   assumes: 0 <= zenith <= 180
 ```
 
@@ -2176,7 +2323,7 @@ ghi = 1035.092033 W/m^2
 
 <a id="energy_clear_sky_ineichen"></a>
 
-#### Clear-sky irradiance (Ineichen-Perez with Linke turbidity) — `energy_clear_sky_ineichen`
+#### Clear-sky irradiance (Ineichen-Perez with Linke turbidity), `energy_clear_sky_ineichen`
 
 Clear-sky global horizontal, direct normal and diffuse horizontal irradiance from the apparent solar zenith, the Linke turbidity and the site altitude (Ineichen and Perez 2002), with the pressure-corrected air mass and G_on from day n.
 
@@ -2186,14 +2333,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `zenith` | in | apparent solar zenith angle in degrees | — |
-| `linke_turbidity` | in | Linke turbidity factor (1 to 10; about 2 to 5 for clear skies) | — |
+| `zenith` | in | apparent solar zenith angle in degrees | - |
+| `linke_turbidity` | in | Linke turbidity factor (1 to 10; about 2 to 5 for clear skies) | - |
 | `altitude` | in | site altitude above sea level | m |
-| `n` | in | day of the year (1 = 1 January) | — |
+| `n` | in | day of the year (1 = 1 January) | - |
 | `ghi` | out | clear-sky global horizontal irradiance | W/m^2 |
 | `dni` | out | clear-sky direct normal irradiance | W/m^2 |
 | `dhi` | out | clear-sky diffuse horizontal irradiance | W/m^2 |
-| `AM_absolute` | out | absolute air mass (Kasten-Young, standard pressure at the altitude) | — |
+| `AM_absolute` | out | absolute air mass (Kasten-Young, standard pressure at the altitude) | - |
 
 **Applies when:** sun above the horizon; 1 <= TL <= 10.
 
@@ -2204,9 +2351,9 @@ dni = 910.1415626 W/m^2
 dhi = 96.79737577 W/m^2
 AM_absolute = 1.087206272
   by: Clear-sky irradiance (Ineichen-Perez with Linke turbidity)  (GHI = cg1 G_on cos z exp(-cg2 AM (fh1 + fh2 (TL - 1))); DNI = min(b G_on exp(-0.09 AM (TL - 1)), GHI (1 - (0.1 - 0.2 e^-TL)/(0.1 + 0.882/fh1))/cos z); fh1 = e^(-h/8000), fh2 = e^(-h/1250))
-  zenith = 30   []
-  linke_turbidity = 3   []
-  altitude = 500 m   []
+  zenith = 30
+  linke_turbidity = 3
+  altitude = 500 m
   assumes: sun above the horizon; 1 <= TL <= 10
 ```
 
@@ -2214,7 +2361,7 @@ AM_absolute = 1.087206272
 
 <a id="energy_erbs_decomposition"></a>
 
-#### Diffuse and direct irradiance from global horizontal irradiance (Erbs) — `energy_erbs_decomposition`
+#### Diffuse and direct irradiance from global horizontal irradiance (Erbs), `energy_erbs_decomposition`
 
 The clearness index, diffuse fraction, diffuse horizontal and direct normal irradiance estimated from a measured global horizontal irradiance by the Erbs (1982) correlation.
 
@@ -2225,10 +2372,10 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `ghi` | in | global horizontal irradiance | W/m^2 |
-| `zenith` | in | solar zenith angle in degrees | — |
-| `n` | in | day of the year (1 = 1 January) | — |
-| `kt` | out | clearness index GHI/(G_on cos z) | — |
-| `diffuse_fraction` | out | diffuse fraction DHI/GHI | — |
+| `zenith` | in | solar zenith angle in degrees | - |
+| `n` | in | day of the year (1 = 1 January) | - |
+| `kt` | out | clearness index GHI/(G_on cos z) | - |
+| `diffuse_fraction` | out | diffuse fraction DHI/GHI | - |
 | `dhi` | out | diffuse horizontal irradiance | W/m^2 |
 | `dni` | out | direct normal irradiance | W/m^2 |
 
@@ -2241,8 +2388,8 @@ diffuse_fraction = 0.991
 dhi = 140.1255969 W/m^2
 dni = 1.272583624 W/m^2
   by: Diffuse and direct irradiance from global horizontal irradiance (Erbs)  (kt = GHI/(G_on cos z); DHI/GHI = 1 - 0.09 kt (kt <= 0.22), 0.9511 - 0.1604 kt + 4.388 kt^2 - 16.638 kt^3 + 12.336 kt^4 (<= 0.8), 0.165; DNI = (GHI - DHI)/cos z)
-  ghi = 141.3981805 W/m^2   []
-  zenith = 0   []
+  ghi = 141.3981805 W/m^2
+  zenith = 0
   assumes: 0 <= zenith <= 85; GHI > 0; kt is capped at 1
 ```
 
@@ -2250,7 +2397,7 @@ dni = 1.272583624 W/m^2
 
 <a id="energy_disc_dni"></a>
 
-#### Direct normal irradiance from global horizontal irradiance (DISC model) — `energy_disc_dni`
+#### Direct normal irradiance from global horizontal irradiance (DISC model), `energy_disc_dni`
 
 The direct normal irradiance estimated from global horizontal irradiance by Maxwell's DISC model (clearness index and pressure-corrected air mass), with the clearness index and the air mass used.
 
@@ -2261,12 +2408,12 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `ghi` | in | global horizontal irradiance | W/m^2 |
-| `zenith` | in | solar zenith angle in degrees | — |
-| `n` | in | day of the year (1 = 1 January) | — |
+| `zenith` | in | solar zenith angle in degrees | - |
+| `n` | in | day of the year (1 = 1 January) | - |
 | `pressure` | in | site pressure (default 101325 Pa) (optional) | Pa |
 | `dni` | out | direct normal irradiance (0 when the model gives a negative value) | W/m^2 |
-| `kt` | out | clearness index (solar constant 1370 W/m^2) | — |
-| `airmass` | out | absolute air mass (Kasten 1966, capped at 12) | — |
+| `kt` | out | clearness index (solar constant 1370 W/m^2) | - |
+| `airmass` | out | absolute air mass (Kasten 1966, capped at 12) | - |
 
 **Applies when:** 0 <= zenith <= 85; GHI > 0.
 
@@ -2276,8 +2423,8 @@ dni = 163.6448616 W/m^2
 kt = 0.5
 airmass = 0.9994939326
   by: Direct normal irradiance from global horizontal irradiance (DISC model)  (kt = GHI/(I0 cos z); Kn = Knc(AM) - (a(kt) + b(kt) exp(c(kt) AM)); DNI = Kn I0)
-  ghi = 709.00925 W/m^2   []
-  zenith = 0   []
+  ghi = 709.00925 W/m^2
+  zenith = 0
   assumes: 0 <= zenith <= 85; GHI > 0
 ```
 
@@ -2285,7 +2432,7 @@ airmass = 0.9994939326
 
 <a id="energy_equation_of_time"></a>
 
-#### Equation of time — `energy_equation_of_time`
+#### Equation of time: `energy_equation_of_time`
 
 The equation of time (apparent minus mean solar time) on day n, by Spencer's Fourier series or the PVCDROM formula 9.87 sin 2B - 7.53 cos B - 1.5 sin B.
 
@@ -2295,10 +2442,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | day of the year (1 = 1 January) | — |
-| `method` | in | formula: spencer (default) or pvcdrom (B = 360 (n - 81)/365) (optional) | — |
-| `eot_min` | out | equation of time in minutes | — |
-| `eot_s` | out | equation of time in seconds | — |
+| `n` | in | day of the year (1 = 1 January) | - |
+| `method` | in | formula: spencer (default) or pvcdrom (B = 360 (n - 81)/365) (optional) | - |
+| `eot_min` | out | equation of time in minutes | - |
+| `eot_s` | out | equation of time in seconds | - |
 
 **Applies when:** 1 <= n <= 366.
 
@@ -2315,7 +2462,7 @@ eot_s = -451.8
 
 <a id="energy_extraterrestrial_irradiance"></a>
 
-#### Extraterrestrial (top-of-atmosphere) normal irradiance — `energy_extraterrestrial_irradiance`
+#### Extraterrestrial (top-of-atmosphere) normal irradiance, `energy_extraterrestrial_irradiance`
 
 The solar irradiance on a plane normal to the sun's rays outside the atmosphere on day n, and the Earth-Sun distance factor (R0/R)^2.
 
@@ -2325,11 +2472,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | day of the year (1 = 1 January) | — |
-| `method` | in | formula: spencer (default, Fourier series) or asce (1 + 0.033 cos(360 n/365)) (optional) | — |
+| `n` | in | day of the year (1 = 1 January) | - |
+| `method` | in | formula: spencer (default, Fourier series) or asce (1 + 0.033 cos(360 n/365)) (optional) | - |
 | `solar_constant` | in | solar constant (default 1366.1 W/m^2) (optional) | W/m^2 |
 | `G_on` | out | extraterrestrial normal irradiance | W/m^2 |
-| `distance_factor` | out | Earth-Sun distance factor (R0/R)^2 | — |
+| `distance_factor` | out | Earth-Sun distance factor (R0/R)^2 | - |
 
 **Applies when:** 1 <= n <= 366.
 
@@ -2338,7 +2485,7 @@ $ energy-systems solve energy_extraterrestrial_irradiance n=365 method=asce "sol
 G_on = 1412.111 W/m^2
 distance_factor = 1.033
   by: Extraterrestrial (top-of-atmosphere) normal irradiance  (G_on = G_sc (1.00011 + 0.034221 cos B + 0.00128 sin B + 0.000719 cos 2B + 0.000077 sin 2B) (Spencer) or G_sc (1 + 0.033 cos(360 n/365)))
-  solar_constant = 1367 W/m^2   []
+  solar_constant = 1367 W/m^2
   method = asce
   assumes: 1 <= n <= 366
 ```
@@ -2347,7 +2494,7 @@ distance_factor = 1.033
 
 <a id="energy_poa_haydavies"></a>
 
-#### Irradiance on a tilted plane (Hay-Davies sky model) — `energy_poa_haydavies`
+#### Irradiance on a tilted plane (Hay-Davies sky model), `energy_poa_haydavies`
 
 Beam, sky-diffuse (Hay and Davies 1980: isotropic plus circumsolar weighted by the anisotropy index DNI/G_on) and ground-reflected irradiance on a tilted surface; G_on from day n (Spencer, 1366.1 W/m^2).
 
@@ -2357,20 +2504,20 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `tilt` | in | surface tilt from horizontal in degrees | — |
-| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | — |
-| `zenith` | in | solar zenith angle in degrees | — |
-| `azimuth` | in | solar azimuth in degrees clockwise from north | — |
+| `tilt` | in | surface tilt from horizontal in degrees | - |
+| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | - |
+| `zenith` | in | solar zenith angle in degrees | - |
+| `azimuth` | in | solar azimuth in degrees clockwise from north | - |
 | `dni` | in | direct normal irradiance | W/m^2 |
 | `ghi` | in | global horizontal irradiance | W/m^2 |
 | `dhi` | in | diffuse horizontal irradiance | W/m^2 |
-| `albedo` | in | ground reflectance (0 to 1) | — |
-| `n` | in | day of the year (1 = 1 January) | — |
+| `albedo` | in | ground reflectance (0 to 1) | - |
+| `n` | in | day of the year (1 = 1 January) | - |
 | `poa_global` | out | total irradiance on the plane | W/m^2 |
 | `poa_direct` | out | beam irradiance on the plane | W/m^2 |
 | `poa_sky_diffuse` | out | sky-diffuse irradiance on the plane | W/m^2 |
 | `poa_ground_diffuse` | out | ground-reflected irradiance on the plane | W/m^2 |
-| `aoi_deg` | out | angle of incidence in degrees | — |
+| `aoi_deg` | out | angle of incidence in degrees | - |
 
 **Applies when:** sun above the horizon; DHI <= GHI; 0 <= albedo <= 1.
 
@@ -2382,14 +2529,14 @@ poa_sky_diffuse = 106.7203912 W/m^2
 poa_ground_diffuse = 10.62177826 W/m^2
 aoi_deg = 0
   by: Irradiance on a tilted plane (Hay-Davies sky model)  (sky = DHI [A R_b + (1 - A)(1 + cos beta)/2], A = DNI/G_on, R_b = cos(theta)/cos(z))
-  tilt = 30   []
-  surface_azimuth = 180   []
-  zenith = 30   []
-  azimuth = 180   []
-  dni = 800 W/m^2   []
-  ghi = 792.820323 W/m^2   []
-  dhi = 100 W/m^2   []
-  albedo = 0.2   []
+  tilt = 30
+  surface_azimuth = 180
+  zenith = 30
+  azimuth = 180
+  dni = 800 W/m^2
+  ghi = 792.820323 W/m^2
+  dhi = 100 W/m^2
+  albedo = 0.2
   assumes: sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 ```
 
@@ -2397,7 +2544,7 @@ aoi_deg = 0
 
 <a id="energy_poa_isotropic"></a>
 
-#### Irradiance on a tilted plane (isotropic sky) — `energy_poa_isotropic`
+#### Irradiance on a tilted plane (isotropic sky), `energy_poa_isotropic`
 
 Beam, sky-diffuse (isotropic sky, Liu-Jordan/Hottel-Woertz) and ground-reflected irradiance on a tilted surface from DNI, GHI and DHI.
 
@@ -2407,19 +2554,19 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `tilt` | in | surface tilt from horizontal in degrees | — |
-| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | — |
-| `zenith` | in | solar zenith angle in degrees | — |
-| `azimuth` | in | solar azimuth in degrees clockwise from north | — |
+| `tilt` | in | surface tilt from horizontal in degrees | - |
+| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | - |
+| `zenith` | in | solar zenith angle in degrees | - |
+| `azimuth` | in | solar azimuth in degrees clockwise from north | - |
 | `dni` | in | direct normal irradiance | W/m^2 |
 | `ghi` | in | global horizontal irradiance | W/m^2 |
 | `dhi` | in | diffuse horizontal irradiance | W/m^2 |
-| `albedo` | in | ground reflectance (0 to 1) | — |
+| `albedo` | in | ground reflectance (0 to 1) | - |
 | `poa_global` | out | total irradiance on the plane | W/m^2 |
 | `poa_direct` | out | beam irradiance on the plane | W/m^2 |
 | `poa_sky_diffuse` | out | sky-diffuse irradiance on the plane | W/m^2 |
 | `poa_ground_diffuse` | out | ground-reflected irradiance on the plane | W/m^2 |
-| `aoi_deg` | out | angle of incidence in degrees | — |
+| `aoi_deg` | out | angle of incidence in degrees | - |
 
 **Applies when:** sun above the horizon; DHI <= GHI; 0 <= albedo <= 1.
 
@@ -2431,14 +2578,14 @@ poa_sky_diffuse = 93.30127019 W/m^2
 poa_ground_diffuse = 10.62177826 W/m^2
 aoi_deg = 0
   by: Irradiance on a tilted plane (isotropic sky)  (G_poa = DNI cos(theta) + DHI (1 + cos beta)/2 + GHI rho (1 - cos beta)/2)
-  tilt = 30   []
-  surface_azimuth = 180   []
-  zenith = 30   []
-  azimuth = 180   []
-  dni = 800 W/m^2   []
-  ghi = 792.820323 W/m^2   []
-  dhi = 100 W/m^2   []
-  albedo = 0.2   []
+  tilt = 30
+  surface_azimuth = 180
+  zenith = 30
+  azimuth = 180
+  dni = 800 W/m^2
+  ghi = 792.820323 W/m^2
+  dhi = 100 W/m^2
+  albedo = 0.2
   assumes: sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 ```
 
@@ -2446,7 +2593,7 @@ aoi_deg = 0
 
 <a id="energy_poa_klucher"></a>
 
-#### Irradiance on a tilted plane (Klucher sky model) — `energy_poa_klucher`
+#### Irradiance on a tilted plane (Klucher sky model), `energy_poa_klucher`
 
 Beam, sky-diffuse (Klucher 1979: isotropic sky brightened near the horizon and around the sun under clear skies) and ground-reflected irradiance on a tilted surface.
 
@@ -2456,19 +2603,19 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `tilt` | in | surface tilt from horizontal in degrees | — |
-| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | — |
-| `zenith` | in | solar zenith angle in degrees | — |
-| `azimuth` | in | solar azimuth in degrees clockwise from north | — |
+| `tilt` | in | surface tilt from horizontal in degrees | - |
+| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | - |
+| `zenith` | in | solar zenith angle in degrees | - |
+| `azimuth` | in | solar azimuth in degrees clockwise from north | - |
 | `dni` | in | direct normal irradiance | W/m^2 |
 | `ghi` | in | global horizontal irradiance | W/m^2 |
 | `dhi` | in | diffuse horizontal irradiance | W/m^2 |
-| `albedo` | in | ground reflectance (0 to 1) | — |
+| `albedo` | in | ground reflectance (0 to 1) | - |
 | `poa_global` | out | total irradiance on the plane | W/m^2 |
 | `poa_direct` | out | beam irradiance on the plane | W/m^2 |
 | `poa_sky_diffuse` | out | sky-diffuse irradiance on the plane | W/m^2 |
 | `poa_ground_diffuse` | out | ground-reflected irradiance on the plane | W/m^2 |
-| `aoi_deg` | out | angle of incidence in degrees | — |
+| `aoi_deg` | out | angle of incidence in degrees | - |
 
 **Applies when:** sun above the horizon; DHI <= GHI; 0 <= albedo <= 1.
 
@@ -2480,14 +2627,14 @@ poa_sky_diffuse = 106.5660881 W/m^2
 poa_ground_diffuse = 10.62177826 W/m^2
 aoi_deg = 0
   by: Irradiance on a tilted plane (Klucher sky model)  (sky = DHI (1 + cos beta)/2 (1 + F sin^3(beta/2)) (1 + F cos^2(theta) sin^3(z)), F = 1 - (DHI/GHI)^2)
-  tilt = 30   []
-  surface_azimuth = 180   []
-  zenith = 30   []
-  azimuth = 180   []
-  dni = 800 W/m^2   []
-  ghi = 792.820323 W/m^2   []
-  dhi = 100 W/m^2   []
-  albedo = 0.2   []
+  tilt = 30
+  surface_azimuth = 180
+  zenith = 30
+  azimuth = 180
+  dni = 800 W/m^2
+  ghi = 792.820323 W/m^2
+  dhi = 100 W/m^2
+  albedo = 0.2
   assumes: sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 ```
 
@@ -2495,7 +2642,7 @@ aoi_deg = 0
 
 <a id="energy_poa_perez"></a>
 
-#### Irradiance on a tilted plane (Perez sky model) — `energy_poa_perez`
+#### Irradiance on a tilted plane (Perez sky model), `energy_poa_perez`
 
 Beam, sky-diffuse and ground-reflected irradiance on a tilted surface with the Perez (1990) anisotropic sky (circumsolar and horizon brightening coefficients by sky-clearness bin, all-sites composite set), the air mass by Kasten-Young and G_on from day n (Spencer).
 
@@ -2505,20 +2652,20 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `tilt` | in | surface tilt from horizontal in degrees | — |
-| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | — |
-| `zenith` | in | solar zenith angle in degrees | — |
-| `azimuth` | in | solar azimuth in degrees clockwise from north | — |
+| `tilt` | in | surface tilt from horizontal in degrees | - |
+| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | - |
+| `zenith` | in | solar zenith angle in degrees | - |
+| `azimuth` | in | solar azimuth in degrees clockwise from north | - |
 | `dni` | in | direct normal irradiance | W/m^2 |
 | `ghi` | in | global horizontal irradiance | W/m^2 |
 | `dhi` | in | diffuse horizontal irradiance | W/m^2 |
-| `albedo` | in | ground reflectance (0 to 1) | — |
-| `n` | in | day of the year (1 = 1 January) | — |
+| `albedo` | in | ground reflectance (0 to 1) | - |
+| `n` | in | day of the year (1 = 1 January) | - |
 | `poa_global` | out | total irradiance on the plane | W/m^2 |
 | `poa_direct` | out | beam irradiance on the plane | W/m^2 |
 | `poa_sky_diffuse` | out | sky-diffuse irradiance on the plane | W/m^2 |
 | `poa_ground_diffuse` | out | ground-reflected irradiance on the plane | W/m^2 |
-| `aoi_deg` | out | angle of incidence in degrees | — |
+| `aoi_deg` | out | angle of incidence in degrees | - |
 
 **Applies when:** 0 <= zenith < 87; DHI > 0; DHI <= GHI.
 
@@ -2530,14 +2677,14 @@ poa_sky_diffuse = 113.1562866 W/m^2
 poa_ground_diffuse = 10.62177826 W/m^2
 aoi_deg = 0
   by: Irradiance on a tilted plane (Perez sky model)  (eps = ((DHI + DNI)/DHI + 1.041 z^3)/(1 + 1.041 z^3), Delta = DHI AM/G_on; F1, F2 from the bin's coefficients; sky = DHI [(1 - F1)(1 + cos beta)/2 + F1 a/b + F2 sin beta])
-  tilt = 30   []
-  surface_azimuth = 180   []
-  zenith = 30   []
-  azimuth = 180   []
-  dni = 800 W/m^2   []
-  ghi = 792.820323 W/m^2   []
-  dhi = 100 W/m^2   []
-  albedo = 0.2   []
+  tilt = 30
+  surface_azimuth = 180
+  zenith = 30
+  azimuth = 180
+  dni = 800 W/m^2
+  ghi = 792.820323 W/m^2
+  dhi = 100 W/m^2
+  albedo = 0.2
   assumes: 0 <= zenith < 87; DHI > 0; DHI <= GHI
 ```
 
@@ -2545,7 +2692,7 @@ aoi_deg = 0
 
 <a id="energy_poa_reindl"></a>
 
-#### Irradiance on a tilted plane (Reindl sky model) — `energy_poa_reindl`
+#### Irradiance on a tilted plane (Reindl sky model), `energy_poa_reindl`
 
 Beam, sky-diffuse (Reindl 1990: Hay-Davies plus horizon brightening sqrt(BHI/GHI) sin^3(beta/2)) and ground-reflected irradiance on a tilted surface; G_on from day n (Spencer).
 
@@ -2555,20 +2702,20 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `tilt` | in | surface tilt from horizontal in degrees | — |
-| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | — |
-| `zenith` | in | solar zenith angle in degrees | — |
-| `azimuth` | in | solar azimuth in degrees clockwise from north | — |
+| `tilt` | in | surface tilt from horizontal in degrees | - |
+| `surface_azimuth` | in | surface azimuth in degrees clockwise from north (south = 180) | - |
+| `zenith` | in | solar zenith angle in degrees | - |
+| `azimuth` | in | solar azimuth in degrees clockwise from north | - |
 | `dni` | in | direct normal irradiance | W/m^2 |
 | `ghi` | in | global horizontal irradiance | W/m^2 |
 | `dhi` | in | diffuse horizontal irradiance | W/m^2 |
-| `albedo` | in | ground reflectance (0 to 1) | — |
-| `n` | in | day of the year (1 = 1 January) | — |
+| `albedo` | in | ground reflectance (0 to 1) | - |
+| `n` | in | day of the year (1 = 1 January) | - |
 | `poa_global` | out | total irradiance on the plane | W/m^2 |
 | `poa_direct` | out | beam irradiance on the plane | W/m^2 |
 | `poa_sky_diffuse` | out | sky-diffuse irradiance on the plane | W/m^2 |
 | `poa_ground_diffuse` | out | ground-reflected irradiance on the plane | W/m^2 |
-| `aoi_deg` | out | angle of incidence in degrees | — |
+| `aoi_deg` | out | angle of incidence in degrees | - |
 
 **Applies when:** sun above the horizon; DHI <= GHI; 0 <= albedo <= 1.
 
@@ -2580,14 +2727,14 @@ poa_sky_diffuse = 107.3172184 W/m^2
 poa_ground_diffuse = 10.62177826 W/m^2
 aoi_deg = 0
   by: Irradiance on a tilted plane (Reindl sky model)  (sky = DHI [(1 - A)(1 + cos beta)/2 (1 + sqrt(BHI/GHI) sin^3(beta/2)) + A R_b])
-  tilt = 30   []
-  surface_azimuth = 180   []
-  zenith = 30   []
-  azimuth = 180   []
-  dni = 800 W/m^2   []
-  ghi = 792.820323 W/m^2   []
-  dhi = 100 W/m^2   []
-  albedo = 0.2   []
+  tilt = 30
+  surface_azimuth = 180
+  zenith = 30
+  azimuth = 180
+  dni = 800 W/m^2
+  ghi = 792.820323 W/m^2
+  dhi = 100 W/m^2
+  albedo = 0.2
   assumes: sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 ```
 
@@ -2595,7 +2742,7 @@ aoi_deg = 0
 
 <a id="energy_air_mass"></a>
 
-#### Optical air mass — `energy_air_mass`
+#### Optical air mass: `energy_air_mass`
 
 The relative optical air mass for a solar zenith angle (Kasten-Young by default, or another named model) and the pressure-corrected absolute air mass.
 
@@ -2605,11 +2752,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `zenith` | in | solar zenith angle in degrees (apparent zenith for the refraction-based models) | — |
-| `model` | in | air-mass model (default kastenyoung1989) (optional) | — |
+| `zenith` | in | solar zenith angle in degrees (apparent zenith for the refraction-based models) | - |
+| `model` | in | air-mass model (default kastenyoung1989) (optional) | - |
 | `pressure` | in | site pressure (default 101325 Pa) (optional) | Pa |
-| `AM_relative` | out | relative air mass (sea level) | — |
-| `AM_absolute` | out | absolute air mass AM_rel p/101325 Pa | — |
+| `AM_relative` | out | relative air mass (sea level) | - |
+| `AM_absolute` | out | absolute air mass AM_rel p/101325 Pa | - |
 
 **Applies when:** 0 <= zenith < 90.
 
@@ -2618,7 +2765,7 @@ $ energy-systems solve energy_air_mass zenith=60 model=simple
 AM_relative = 2
 AM_absolute = 2
   by: Optical air mass  (Kasten-Young: AM = 1/(cos z + 0.50572 (96.07995 - z)^-1.6364); absolute AM = AM p/p0)
-  zenith = 60   []
+  zenith = 60
   model = simple
   assumes: 0 <= zenith < 90
 ```
@@ -2627,7 +2774,7 @@ AM_absolute = 2
 
 <a id="energy_solar_declination"></a>
 
-#### Solar declination on a day of the year — `energy_solar_declination`
+#### Solar declination on a day of the year: `energy_solar_declination`
 
 The declination of the sun (the latitude where the sun is overhead at noon) on day n of the year, by Cooper's equation or Spencer's Fourier series.
 
@@ -2637,10 +2784,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | day of the year (1 = 1 January) | — |
-| `method` | in | formula: cooper (Cooper 1969, the textbook default) or spencer (Spencer 1971) (optional) | — |
-| `declination_deg` | out | declination in degrees | — |
-| `declination_rad` | out | declination in radians | — |
+| `n` | in | day of the year (1 = 1 January) | - |
+| `method` | in | formula: cooper (Cooper 1969, the textbook default) or spencer (Spencer 1971) (optional) | - |
+| `declination_deg` | out | declination in degrees | - |
+| `declination_rad` | out | declination in radians | - |
 
 **Applies when:** 1 <= n <= 366.
 
@@ -2656,7 +2803,7 @@ declination_rad = 0.4092759196
 
 <a id="energy_solar_time_hour_angle"></a>
 
-#### Solar time and hour angle from clock time — `energy_solar_time_hour_angle`
+#### Solar time and hour angle from clock time: `energy_solar_time_hour_angle`
 
 Local apparent solar time and the hour angle of the sun from the local clock time, the longitude and the time zone (UTC offset), with the equation of time (Spencer).
 
@@ -2666,13 +2813,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | day of the year (1 = 1 January) | — |
-| `clock` | in | local clock (standard) time in decimal hours or hh:mm | — |
-| `longitude` | in | longitude in degrees, east positive | — |
-| `utc_offset` | in | time zone as hours from UTC (e.g. -5, 1, 5.5) | — |
-| `eot_min` | out | equation of time in minutes | — |
-| `hour_angle_deg` | out | hour angle in degrees (negative before solar noon) | — |
-| `solar_time_h` | out | apparent solar time in decimal hours | — |
+| `n` | in | day of the year (1 = 1 January) | - |
+| `clock` | in | local clock (standard) time in decimal hours or hh:mm | - |
+| `longitude` | in | longitude in degrees, east positive | - |
+| `utc_offset` | in | time zone as hours from UTC (e.g. -5, 1, 5.5) | - |
+| `eot_min` | out | equation of time in minutes | - |
+| `hour_angle_deg` | out | hour angle in degrees (negative before solar noon) | - |
+| `solar_time_h` | out | apparent solar time in decimal hours | - |
 
 **Applies when:** 1 <= n <= 366; 0 <= clock < 24; -180 <= longitude <= 180.
 
@@ -2682,9 +2829,9 @@ eot_min = -1.343724732
 hour_angle_deg = 37.16406882
 solar_time_h = 14.47760459
   by: Solar time and hour angle from clock time  (omega = 15 (t_clock - UTC offset - 12) + longitude + E/4 (degrees); solar time = 12 + omega/15)
-  clock = 14.5   []
-  longitude = -75   []
-  utc_offset = -5   []
+  clock = 14.5
+  longitude = -75
+  utc_offset = -5
   assumes: 1 <= n <= 366; 0 <= clock < 24; -180 <= longitude <= 180
 ```
 
@@ -2692,7 +2839,7 @@ solar_time_h = 14.47760459
 
 <a id="energy_sun_angles"></a>
 
-#### Solar zenith, elevation and azimuth from latitude, declination and hour angle — `energy_sun_angles`
+#### Solar zenith, elevation and azimuth from latitude, declination and hour angle, `energy_sun_angles`
 
 The sun's zenith angle, elevation (altitude) and azimuth (clockwise from north) at a latitude for a given declination and hour angle.
 
@@ -2702,12 +2849,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `latitude` | in | latitude in degrees (north positive) | — |
-| `declination` | in | solar declination in degrees | — |
-| `hour_angle` | in | hour angle in degrees (negative in the morning) | — |
-| `zenith_deg` | out | solar zenith angle in degrees | — |
-| `elevation_deg` | out | solar elevation (altitude) in degrees | — |
-| `azimuth_deg` | out | solar azimuth in degrees clockwise from north | — |
+| `latitude` | in | latitude in degrees (north positive) | - |
+| `declination` | in | solar declination in degrees | - |
+| `hour_angle` | in | hour angle in degrees (negative in the morning) | - |
+| `zenith_deg` | out | solar zenith angle in degrees | - |
+| `elevation_deg` | out | solar elevation (altitude) in degrees | - |
+| `azimuth_deg` | out | solar azimuth in degrees clockwise from north | - |
 
 **Applies when:** -90 < latitude < 90; |declination| <= 23.5; |hour angle| <= 180.
 
@@ -2717,9 +2864,9 @@ zenith_deg = 40
 elevation_deg = 50
 azimuth_deg = 180
   by: Solar zenith, elevation and azimuth from latitude, declination and hour angle  (cos z = cos(delta) cos(phi) cos(omega) + sin(delta) sin(phi); cos(azimuth - 180) = (cos z sin phi - sin delta)/(sin z cos phi), sign of omega)
-  latitude = 40   []
-  declination = 0   []
-  hour_angle = 0   []
+  latitude = 40
+  declination = 0
+  hour_angle = 0
   assumes: -90 < latitude < 90; |declination| <= 23.5; |hour angle| <= 180
 ```
 
@@ -2727,7 +2874,7 @@ azimuth_deg = 180
 
 <a id="energy_solar_position"></a>
 
-#### Sun position at a place and local time — `energy_solar_position`
+#### Sun position at a place and local time: `energy_solar_position`
 
 Declination, equation of time, hour angle, zenith, elevation and azimuth of the sun at a latitude and longitude on day n at a local clock time (Spencer declination and equation of time).
 
@@ -2737,17 +2884,17 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `latitude` | in | latitude in degrees (north positive) | — |
-| `longitude` | in | longitude in degrees, east positive | — |
-| `n` | in | day of the year (1 = 1 January) | — |
-| `clock` | in | local clock (standard) time in decimal hours or hh:mm | — |
-| `utc_offset` | in | time zone as hours from UTC | — |
-| `declination_deg` | out | declination in degrees | — |
-| `eot_min` | out | equation of time in minutes | — |
-| `hour_angle_deg` | out | hour angle in degrees | — |
-| `zenith_deg` | out | solar zenith angle in degrees | — |
-| `elevation_deg` | out | solar elevation in degrees | — |
-| `azimuth_deg` | out | solar azimuth in degrees clockwise from north | — |
+| `latitude` | in | latitude in degrees (north positive) | - |
+| `longitude` | in | longitude in degrees, east positive | - |
+| `n` | in | day of the year (1 = 1 January) | - |
+| `clock` | in | local clock (standard) time in decimal hours or hh:mm | - |
+| `utc_offset` | in | time zone as hours from UTC | - |
+| `declination_deg` | out | declination in degrees | - |
+| `eot_min` | out | equation of time in minutes | - |
+| `hour_angle_deg` | out | hour angle in degrees | - |
+| `zenith_deg` | out | solar zenith angle in degrees | - |
+| `elevation_deg` | out | solar elevation in degrees | - |
+| `azimuth_deg` | out | solar azimuth in degrees clockwise from north | - |
 
 **Applies when:** 1 <= n <= 366; 0 <= clock < 24; -90 < latitude < 90.
 
@@ -2760,10 +2907,10 @@ zenith_deg = 20.66003785
 elevation_deg = 69.33996215
 azimuth_deg = 221.165265
   by: Sun position at a place and local time  (Spencer declination and equation of time; omega = 15 (t - UTC offset - 12) + longitude + E/4; cos z = cos(delta) cos(phi) cos(omega) + sin(delta) sin(phi))
-  latitude = 40   []
-  longitude = -105   []
-  clock = 13   []
-  utc_offset = -7   []
+  latitude = 40
+  longitude = -105
+  clock = 13
+  utc_offset = -7
   assumes: 1 <= n <= 366; 0 <= clock < 24; -90 < latitude < 90
 ```
 
@@ -2771,7 +2918,7 @@ azimuth_deg = 221.165265
 
 <a id="energy_sunrise_sunset"></a>
 
-#### Sunrise, sunset, solar noon and day length — `energy_sunrise_sunset`
+#### Sunrise, sunset, solar noon and day length, `energy_sunrise_sunset`
 
 Geometric sunrise and sunset times (local clock time), solar noon, the day length and the sunset hour angle at a place on day n (no refraction, sun centre on the horizon).
 
@@ -2781,15 +2928,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `latitude` | in | latitude in degrees (north positive) | — |
-| `longitude` | in | longitude in degrees, east positive | — |
-| `n` | in | day of the year (1 = 1 January) | — |
-| `utc_offset` | in | time zone as hours from UTC | — |
-| `sunrise_h` | out | sunrise, local clock time in decimal hours | — |
-| `sunset_h` | out | sunset, local clock time in decimal hours | — |
-| `solar_noon_h` | out | solar noon, local clock time in decimal hours | — |
-| `day_length_h` | out | day length in hours | — |
-| `sunset_hour_angle_deg` | out | sunset hour angle omega_s in degrees | — |
+| `latitude` | in | latitude in degrees (north positive) | - |
+| `longitude` | in | longitude in degrees, east positive | - |
+| `n` | in | day of the year (1 = 1 January) | - |
+| `utc_offset` | in | time zone as hours from UTC | - |
+| `sunrise_h` | out | sunrise, local clock time in decimal hours | - |
+| `sunset_h` | out | sunset, local clock time in decimal hours | - |
+| `solar_noon_h` | out | solar noon, local clock time in decimal hours | - |
+| `day_length_h` | out | day length in hours | - |
+| `sunset_hour_angle_deg` | out | sunset hour angle omega_s in degrees | - |
 
 **Applies when:** the sun rises and sets on that day (no polar day or night).
 
@@ -2801,9 +2948,9 @@ solar_noon_h = 12.12607734
 day_length_h = 12
 sunset_hour_angle_deg = 90
   by: Sunrise, sunset, solar noon and day length  (omega_s = acos(-tan(phi) tan(delta)); t = (omega - longitude - E/4)/15 + 12 + UTC offset; day length = 2 omega_s/15)
-  latitude = 0   []
-  longitude = 0   []
-  utc_offset = 0   []
+  latitude = 0
+  longitude = 0
+  utc_offset = 0
   assumes: the sun rises and sets on that day (no polar day or night)
 ```
 
@@ -2813,7 +2960,7 @@ sunset_hour_angle_deg = 90
 
 <a id="energy_three_phase_power"></a>
 
-#### Balanced three-phase power from line quantities — `energy_three_phase_power`
+#### Balanced three-phase power from line quantities, `energy_three_phase_power`
 
 Real, reactive and apparent power of a balanced three-phase load from the line voltage, line current and power factor, with the phase voltage and phase current of a star or delta connection.
 
@@ -2825,9 +2972,9 @@ $$
 |---|---|---|---|
 | `VL` | in | line-to-line rms voltage | V |
 | `IL` | in | line current (rms) | A |
-| `pf` | in | power factor (0 < pf <= 1) | — |
-| `connection` | in | connection of the load (star = wye) | — |
-| `pf_type` | in | lagging (inductive, default) or leading (capacitive) (optional) | — |
+| `pf` | in | power factor (0 < pf <= 1) | - |
+| `connection` | in | connection of the load (star = wye) | - |
+| `pf_type` | in | lagging (inductive, default) or leading (capacitive) (optional) | - |
 | `P` | out | real power (three-phase total) | W |
 | `Q` | out | reactive power in var (positive lagging) | var |
 | `S` | out | apparent power in VA | VA |
@@ -2844,9 +2991,9 @@ S = 34641.01615 VA
 V_phase = 230.9401077 V
 I_phase = 50 A
   by: Balanced three-phase power from line quantities  (S = sqrt(3) V_L I_L, P = S pf, Q = S sin(acos pf); star: V_ph = V_L/sqrt(3), I_ph = I_L; delta: V_ph = V_L, I_ph = I_L/sqrt(3))
-  VL = 400 V   []
-  IL = 50 A   []
-  pf = 0.8   []
+  VL = 400 V
+  IL = 50 A
+  pf = 0.8
   connection = star
   assumes: balanced load; 0 < pf <= 1
 ```
@@ -2857,7 +3004,7 @@ I_phase = 50 A
 
 <a id="energy_transformer_max_efficiency"></a>
 
-#### Load for maximum transformer efficiency — `energy_transformer_max_efficiency`
+#### Load for maximum transformer efficiency: `energy_transformer_max_efficiency`
 
 The load (fraction of rating and apparent power) at which a transformer's efficiency is greatest (copper loss equal to core loss), that maximum efficiency and the full-load efficiency at a power factor.
 
@@ -2870,11 +3017,11 @@ $$
 | `S` | in | rating in VA | VA |
 | `P_core` | in | core (no-load) loss | W |
 | `P_cu_fl` | in | copper loss at full load | W |
-| `pf` | in | load power factor | — |
-| `load_fraction` | out | load fraction for maximum efficiency sqrt(P_core/P_cu) | — |
+| `pf` | in | load power factor | - |
+| `load_fraction` | out | load fraction for maximum efficiency sqrt(P_core/P_cu) | - |
 | `S_at_max` | out | apparent power at maximum efficiency in VA | VA |
-| `efficiency_max_pct` | out | maximum efficiency in percent | — |
-| `efficiency_full_load_pct` | out | full-load efficiency in percent | — |
+| `efficiency_max_pct` | out | maximum efficiency in percent | - |
+| `efficiency_full_load_pct` | out | full-load efficiency in percent | - |
 
 **Applies when:** constant core loss, copper loss proportional to the load squared.
 
@@ -2885,10 +3032,10 @@ S_at_max = 50000 VA
 efficiency_max_pct = 98.03921569
 efficiency_full_load_pct = 97.56097561
   by: Load for maximum transformer efficiency  (x = sqrt(P_core/P_cu,fl); eta_max = x S pf/(x S pf + 2 P_core))
-  S = 100000 VA   []
-  P_core = 500 W   []
-  P_cu_fl = 2000 W   []
-  pf = 1   []
+  S = 100000 VA
+  P_core = 500 W
+  P_cu_fl = 2000 W
+  pf = 1
   assumes: constant core loss, copper loss proportional to the load squared
 ```
 
@@ -2896,7 +3043,7 @@ efficiency_full_load_pct = 97.56097561
 
 <a id="energy_parallel_transformers"></a>
 
-#### Load sharing between two transformers in parallel — `energy_parallel_transformers`
+#### Load sharing between two transformers in parallel, `energy_parallel_transformers`
 
 How two transformers with equal voltage ratios but different ratings and short-circuit impedances share a load: the apparent, real and reactive power each delivers and its loading on its own rating.
 
@@ -2907,11 +3054,11 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `S1` | in | rating of transformer 1 (VA) | VA |
-| `vk1` | in | short-circuit voltage of transformer 1 (fraction or %) | — |
-| `vkr1` | in | its resistive part (fraction or %) | — |
+| `vk1` | in | short-circuit voltage of transformer 1 (fraction or %) | - |
+| `vkr1` | in | its resistive part (fraction or %) | - |
 | `S2` | in | rating of transformer 2 (VA) | VA |
-| `vk2` | in | short-circuit voltage of transformer 2 (fraction or %) | — |
-| `vkr2` | in | its resistive part (fraction or %) | — |
+| `vk2` | in | short-circuit voltage of transformer 2 (fraction or %) | - |
+| `vkr2` | in | its resistive part (fraction or %) | - |
 | `V_lv` | in | common secondary rated voltage | V |
 | `P` | in | load real power | W |
 | `Q` | in | load reactive power in var | var |
@@ -2921,8 +3068,8 @@ $$
 | `Q1` | out | reactive power of transformer 1 in var | var |
 | `P2` | out | real power of transformer 2 | W |
 | `Q2` | out | reactive power of transformer 2 in var | var |
-| `share1_pct_of_rating` | out | transformer 1 output over its rating, percent | — |
-| `share2_pct_of_rating` | out | transformer 2 output over its rating, percent | — |
+| `share1_pct_of_rating` | out | transformer 1 output over its rating, percent | - |
+| `share2_pct_of_rating` | out | transformer 2 output over its rating, percent | - |
 
 **Applies when:** equal voltage ratios (no circulating current); magnetizing branches neglected.
 
@@ -2937,15 +3084,15 @@ Q2 = 100000 var
 share1_pct_of_rating = 63.2455532
 share2_pct_of_rating = 63.2455532
   by: Load sharing between two transformers in parallel  (impedances in ohms on the common secondary: Z_i = (vkr_i + j sqrt(vk_i^2 - vkr_i^2)) V^2/S_i; S_1 = S_L conj(Z_2/(Z_1 + Z_2)), S_2 = S_L conj(Z_1/(Z_1 + Z_2)))
-  S1 = 500000 VA   []
-  vk1 = 0.05   []
-  vkr1 = 0.01   []
-  S2 = 500000 VA   []
-  vk2 = 0.05   []
-  vkr2 = 0.01   []
-  V_lv = 400 V   []
-  P = 600000 W   []
-  Q = 200000 var   []
+  S1 = 500000 VA
+  vk1 = 0.05
+  vkr1 = 0.01
+  S2 = 500000 VA
+  vk2 = 0.05
+  vkr2 = 0.01
+  V_lv = 400 V
+  P = 600000 W
+  Q = 200000 var
   assumes: equal voltage ratios (no circulating current); magnetizing branches neglected
 ```
 
@@ -2953,7 +3100,7 @@ share2_pct_of_rating = 63.2455532
 
 <a id="energy_transformer_tests"></a>
 
-#### Transformer parameters from open-circuit and short-circuit tests — `energy_transformer_tests`
+#### Transformer parameters from open-circuit and short-circuit tests, `energy_transformer_tests`
 
 Core-loss resistance and magnetizing reactance from the open-circuit test, and the equivalent series resistance, reactance and impedance from the short-circuit test (each on the side where the test was made).
 
@@ -2974,8 +3121,8 @@ $$
 | `Req` | out | equivalent series resistance (short-circuit side) | ohm |
 | `Xeq` | out | equivalent leakage reactance (short-circuit side) | ohm |
 | `Zeq` | out | equivalent series impedance magnitude | ohm |
-| `pf_oc` | out | open-circuit power factor | — |
-| `pf_sc` | out | short-circuit power factor | — |
+| `pf_oc` | out | open-circuit power factor | - |
+| `pf_sc` | out | short-circuit power factor | - |
 
 **Applies when:** P < V I in both tests.
 
@@ -2989,12 +3136,12 @@ Zeq = 5 ohm
 pf_oc = 0.6
 pf_sc = 0.6
   by: Transformer parameters from open-circuit and short-circuit tests  (Rc = V_oc^2/P_oc, Xm = 1/sqrt((I_oc/V_oc)^2 - (P_oc/V_oc^2)^2); Req = P_sc/I_sc^2, Xeq = sqrt((V_sc/I_sc)^2 - Req^2))
-  Voc = 100 V   []
-  Ioc = 1 A   []
-  Poc = 60 W   []
-  Vsc = 50 V   []
-  Isc = 10 A   []
-  Psc = 300 W   []
+  Voc = 100 V
+  Ioc = 1 A
+  Poc = 60 W
+  Vsc = 50 V
+  Isc = 10 A
+  Psc = 300 W
   assumes: P < V I in both tests
 ```
 
@@ -3002,7 +3149,7 @@ pf_sc = 0.6
 
 <a id="energy_transformer_performance"></a>
 
-#### Transformer regulation and efficiency from its equivalent circuit — `energy_transformer_performance`
+#### Transformer regulation and efficiency from its equivalent circuit, `energy_transformer_performance`
 
 Primary voltage needed, voltage regulation, primary current and input power factor, copper and core losses and efficiency of a single-phase transformer (approximate equivalent circuit referred to the primary, shunt branch at the primary terminals) delivering a fraction of its rating at rated secondary voltage.
 
@@ -3019,17 +3166,17 @@ $$
 | `Xeq` | in | series leakage reactance referred to the primary | ohm |
 | `Rc` | in | core-loss resistance (primary side) | ohm |
 | `Xm` | in | magnetizing reactance (primary side) | ohm |
-| `load` | in | load as a fraction of the rating (or a percentage) | — |
-| `pf` | in | load power factor | — |
-| `pf_type` | in | lagging (default) or leading load (optional) | — |
+| `load` | in | load as a fraction of the rating (or a percentage) | - |
+| `pf` | in | load power factor | - |
+| `pf_type` | in | lagging (default) or leading load (optional) | - |
 | `V1_required` | out | primary voltage for rated secondary voltage at this load | V |
-| `regulation_pct` | out | voltage regulation in percent | — |
+| `regulation_pct` | out | voltage regulation in percent | - |
 | `I1` | out | primary current | A |
-| `pf_in` | out | input power factor | — |
+| `pf_in` | out | input power factor | - |
 | `P_out` | out | output power | W |
 | `P_cu` | out | copper loss | W |
 | `P_core` | out | core loss | W |
-| `efficiency_pct` | out | efficiency in percent | — |
+| `efficiency_pct` | out | efficiency in percent | - |
 
 **Applies when:** approximate equivalent circuit (shunt branch at the primary terminals); 0 < load <= 2.
 
@@ -3044,15 +3191,15 @@ P_cu = 100 W
 P_core = 0.0010201 W
 efficiency_pct = 99.00989099
   by: Transformer regulation and efficiency from its equivalent circuit  (V1 = a V2 + I2' (Req + jXeq), I2' = I2/a at angle -acos(pf); P_cu = |I2'|^2 Req; P_core = V1^2/Rc; eta = P_out/(P_out + P_cu + P_core))
-  S = 10000 VA   []
-  V1 = 1000 V   []
-  V2 = 100 V   []
-  Req = 1 ohm   []
-  Xeq = 0 ohm   []
-  Rc = 1000000000 ohm   []
-  Xm = 1000000000 ohm   []
-  load = 1   []
-  pf = 1   []
+  S = 10000 VA
+  V1 = 1000 V
+  V2 = 100 V
+  Req = 1 ohm
+  Xeq = 0 ohm
+  Rc = 1000000000 ohm
+  Xm = 1000000000 ohm
+  load = 1
+  pf = 1
   assumes: approximate equivalent circuit (shunt branch at the primary terminals); 0 < load <= 2
 ```
 
@@ -3060,7 +3207,7 @@ efficiency_pct = 99.00989099
 
 <a id="energy_transformer_loading"></a>
 
-#### Transformer under load from nameplate data — `energy_transformer_loading`
+#### Transformer under load from nameplate data, `energy_transformer_loading`
 
 Secondary voltage, losses, efficiency and loading of a transformer fed at rated primary voltage and supplying a P + jQ load, from its nameplate: rating, rated voltages, short-circuit voltage vk and its resistive part vkr, no-load loss and no-load current (T equivalent circuit).
 
@@ -3073,19 +3220,19 @@ $$
 | `sn` | in | rating in VA | VA |
 | `V_hv` | in | rated (and applied) high-voltage side voltage | V |
 | `V_lv` | in | rated low-voltage side voltage | V |
-| `vk` | in | short-circuit voltage as a fraction or percentage of rated voltage | — |
-| `vkr` | in | resistive part of the short-circuit voltage (fraction or %) | — |
+| `vk` | in | short-circuit voltage as a fraction or percentage of rated voltage | - |
+| `vkr` | in | resistive part of the short-circuit voltage (fraction or %) | - |
 | `P0` | in | no-load (iron) loss | W |
-| `i0` | in | no-load current as a fraction or percentage of rated current | — |
+| `i0` | in | no-load current as a fraction or percentage of rated current | - |
 | `P` | in | load real power on the low-voltage side | W |
 | `Q` | in | load reactive power in var | var |
 | `V_lv_actual` | out | low-voltage side voltage under load | V |
-| `V_lv_pu` | out | low-voltage side voltage in per unit | — |
-| `delta_deg` | out | phase shift of the secondary voltage in degrees (no vector-group shift) | — |
+| `V_lv_pu` | out | low-voltage side voltage in per unit | - |
+| `delta_deg` | out | phase shift of the secondary voltage in degrees (no vector-group shift) | - |
 | `P_loss` | out | total real loss | W |
 | `Q_loss` | out | reactive power absorbed in var | var |
-| `efficiency_pct` | out | efficiency in percent | — |
-| `loading_pct` | out | loading: the larger winding current over its rated current, percent | — |
+| `efficiency_pct` | out | efficiency in percent | - |
+| `loading_pct` | out | loading: the larger winding current over its rated current, percent | - |
 
 **Applies when:** T equivalent circuit (series impedance halved on each side of the magnetizing branch); rated voltage applied, nominal tap.
 
@@ -3099,15 +3246,15 @@ Q_loss = 19030.91932 var
 efficiency_pct = 98.73598327
 loading_pct = 69.67771432
   by: Transformer under load from nameplate data  (per unit on the rating: z = vkr + j sqrt(vk^2 - vkr^2), y_m = P0/S - j sqrt(i0^2 - (P0/S)^2); the T circuit solved for the load-bus voltage by Newton iteration)
-  sn = 630000 VA   []
-  V_hv = 20000 V   []
-  V_lv = 400 V   []
-  vk = 0.06   []
-  vkr = 0.012   []
-  P0 = 1500 W   []
-  i0 = 0.003   []
-  P = 400000 W   []
-  Q = 150000 var   []
+  sn = 630000 VA
+  V_hv = 20000 V
+  V_lv = 400 V
+  vk = 0.06
+  vkr = 0.012
+  P0 = 1500 W
+  i0 = 0.003
+  P = 400000 W
+  Q = 150000 var
   assumes: T equivalent circuit (series impedance halved on each side of the magnetizing branch); rated voltage applied, nominal tap
 ```
 
@@ -3117,7 +3264,7 @@ loading_pct = 69.67771432
 
 <a id="energy_actuator_disc"></a>
 
-#### Actuator-disc (momentum theory) rotor performance — `energy_actuator_disc`
+#### Actuator-disc (momentum theory) rotor performance, `energy_actuator_disc`
 
 Power and thrust coefficients, disc and far-wake speeds, power and thrust of an ideal rotor (actuator disc) with axial induction factor a; a = 1/3 gives the Betz optimum Cp = 16/27.
 
@@ -3127,12 +3274,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | axial induction factor (0 <= a < 0.5) | — |
+| `a` | in | axial induction factor (0 <= a < 0.5) | - |
 | `rho` | in | air density | kg/m^3 |
 | `D` | in | rotor diameter | m |
 | `v` | in | free-stream wind speed | m/s |
-| `Cp` | out | power coefficient 4a(1-a)^2 | — |
-| `Ct` | out | thrust coefficient 4a(1-a) | — |
+| `Cp` | out | power coefficient 4a(1-a)^2 | - |
+| `Ct` | out | thrust coefficient 4a(1-a) | - |
 | `v_disc` | out | speed at the disc | m/s |
 | `v_wake` | out | far-wake speed | m/s |
 | `P` | out | power extracted | W |
@@ -3149,10 +3296,10 @@ v_wake = 4 m/s
 P = 13571.68026 W
 T = 2261.946711 N
   by: Actuator-disc (momentum theory) rotor performance  (Cp = 4a(1 - a)^2, Ct = 4a(1 - a), v_disc = v(1 - a), v_wake = v(1 - 2a); P = Cp (1/2) rho A v^3, T = Ct (1/2) rho A v^2)
-  a = 0.25   []
-  rho = 1.2 kg/m^3   []
-  D = 10 m   []
-  v = 8 m/s   []
+  a = 0.25
+  rho = 1.2 kg/m^3
+  D = 10 m
+  v = 8 m/s
   assumes: 0 <= a < 0.5
 ```
 
@@ -3160,7 +3307,7 @@ T = 2261.946711 N
 
 <a id="energy_hub_air_density"></a>
 
-#### Air density at hub height — `energy_hub_air_density`
+#### Air density at hub height: `energy_hub_air_density`
 
 Temperature, pressure and air density at a turbine's hub height from a pressure and a temperature measured at other heights: temperature gradient -6.5 K/km, pressure gradient -1/8 hPa per m, then the barometric (1.225 kg/m^3 at 288.15 K, 1013.3 hPa) or the ideal-gas (R = 287.058 J/(kg K)) density.
 
@@ -3175,7 +3322,7 @@ $$
 | `T` | in | measured air temperature | K |
 | `h_T` | in | height of the temperature measurement | m |
 | `hub` | in | hub height | m |
-| `model` | in | density model (default barometric) (optional) | — |
+| `model` | in | density model (default barometric) (optional) | - |
 | `T_hub` | out | temperature at hub height | K |
 | `p_hub` | out | pressure at hub height | Pa |
 | `rho` | out | air density at hub height | kg/m^3 |
@@ -3188,11 +3335,11 @@ T_hub = 288.15 K
 p_hub = 101330 Pa
 rho = 1.225 kg/m^3
   by: Air density at hub height  (T_hub = T - 0.0065 (h_hub - h_T); p_hub = p - 12.5 Pa/m (h_hub - h_p); rho = p_hub/(R T_hub) (ideal gas) or 1.225 (p_hub/101330)(288.15/T_hub) (barometric))
-  p = 101330 Pa   []
-  h_p = 0 m   []
-  T = 288.15 K   []
-  h_T = 0 m   []
-  hub = 0 m   []
+  p = 101330 Pa
+  h_p = 0 m
+  T = 288.15 K
+  h_T = 0 m
+  hub = 0 m
   assumes: pressure and temperature stay positive at hub height
 ```
 
@@ -3200,7 +3347,7 @@ rho = 1.225 kg/m^3
 
 <a id="energy_weibull_aep"></a>
 
-#### Annual energy production from a power curve and a Weibull distribution — `energy_weibull_aep`
+#### Annual energy production from a power curve and a Weibull distribution, `energy_weibull_aep`
 
 Mean output, annual energy production and capacity factor of a wind turbine whose power curve (linear between points, zero outside) operates in winds with a Weibull distribution (shape k, scale c).
 
@@ -3210,24 +3357,33 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `speeds` | in | power-curve wind speeds in m/s (increasing) | — |
-| `powers` | in | power-curve outputs in kW | — |
-| `k` | in | Weibull shape factor (1 < k <= 5) | — |
+| `speeds` | in | power-curve wind speeds in m/s (increasing) | - |
+| `powers` | in | power-curve outputs in kW | - |
+| `k` | in | Weibull shape factor (1 < k <= 5) | - |
 | `c` | in | Weibull scale factor | m/s |
-| `hours` | in | hours in the period (default 8760) (optional) | — |
-| `mean_power_kW` | out | mean output in kW | — |
-| `AEP_MWh` | out | energy over the period in MWh | — |
-| `capacity_factor` | out | mean output over the largest output of the curve | — |
+| `hours` | in | hours in the period (default 8760) (optional) | - |
+| `mean_power_kW` | out | mean output in kW | - |
+| `AEP_MWh` | out | energy over the period in MWh | - |
+| `capacity_factor` | out | mean output over the largest output of the curve | - |
 
 **Applies when:** 1 < k <= 5; speeds strictly increasing.
 
-*Not in `energy-systems` 1.1.0 yet:* use the Python package or the model's page in the browser.
+```shell
+$ energy-systems solve energy_weibull_aep "speeds=[0, 1000]" "powers=[0, 1000]" k=2 "c=7 m/s"
+mean_power_kW = 6.203588478
+AEP_MWh = 54.34343507
+capacity_factor = 0.006203588478
+  by: Annual energy production from a power curve and a Weibull distribution  (P_mean = sum over segments of integral (P_i + s (v - v_i)) f(v) dv, each in closed form: F(b) - F(a) and c Gamma(1 + 1/k) [P(1 + 1/k, (b/c)^k) - P(1 + 1/k, (a/c)^k)])
+  k = 2
+  c = 7 m/s
+  assumes: 1 < k <= 5; speeds strictly increasing
+```
 
 **What the worked example means:** This calculation determines the average electrical output of a wind turbine by integrating its piecewise linear power curve against a Weibull distribution of wind speeds. The resulting mean power is 6.20359, which leads to an annual energy production of 54.3434 over the specified period. This value represents the expected energy yield assuming the site's wind conditions follow the provided statistical model.
 
 <a id="energy_wind_power"></a>
 
-#### Power in the wind and the Betz limit — `energy_wind_power`
+#### Power in the wind and the Betz limit: `energy_wind_power`
 
 The kinetic power of the wind through a rotor's swept area, the maximum a turbine can extract (Betz limit 16/27), the power density, and the power at a given power coefficient.
 
@@ -3240,10 +3396,10 @@ $$
 | `rho` | in | air density | kg/m^3 |
 | `D` | in | rotor diameter | m |
 | `v` | in | wind speed | m/s |
-| `cp` | in | power coefficient (optional, at most 16/27) (optional) | — |
+| `cp` | in | power coefficient (optional, at most 16/27) (optional) | - |
 | `P_wind` | out | power in the wind through the swept area | W |
 | `P_betz` | out | maximum extractable power (Betz) | W |
-| `power_density` | out | wind power density in W/m^2 | — |
+| `power_density` | out | wind power density in W/m^2 | - |
 | `area` | out | swept area | m^2 |
 | `P` | out | power at the given power coefficient | W |
 
@@ -3257,10 +3413,10 @@ power_density = 612.5
 area = 5026.548246 m^2
 P = 1231504.32 W
   by: Power in the wind and the Betz limit  (P = (1/2) rho A v^3, A = pi D^2/4; P_Betz = (16/27) P; P(cp) = cp P)
-  rho = 1.225 kg/m^3   []
-  D = 80 m   []
-  v = 10 m/s   []
-  cp = 0.4   []
+  rho = 1.225 kg/m^3
+  D = 80 m
+  v = 10 m/s
+  cp = 0.4
   assumes: rho, D, v > 0; 0 < cp <= 16/27
 ```
 
@@ -3268,7 +3424,7 @@ P = 1231504.32 W
 
 <a id="energy_power_curve_density_corrected"></a>
 
-#### Turbine output from a density-corrected power curve — `energy_power_curve_density_corrected`
+#### Turbine output from a density-corrected power curve, `energy_power_curve_density_corrected`
 
 Turbine output at a wind speed and air density, with the power curve's speeds rescaled by (1.225/rho)^e, e rising from 1/3 below 7.5 m/s to 2/3 above 12.5 m/s (Svenningsen's correction, as in windpowerlib).
 
@@ -3278,11 +3434,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `speeds` | in | power-curve wind speeds in m/s at 1.225 kg/m^3 (increasing) | — |
-| `powers` | in | power-curve outputs in kW | — |
+| `speeds` | in | power-curve wind speeds in m/s at 1.225 kg/m^3 (increasing) | - |
+| `powers` | in | power-curve outputs in kW | - |
 | `v` | in | wind speed at hub height | m/s |
 | `rho` | in | air density at hub height | kg/m^3 |
-| `P_kW` | out | output in kW | — |
+| `P_kW` | out | output in kW | - |
 | `P` | out | output | W |
 
 **Applies when:** 0.5 < rho < 1.6 kg/m^3.
@@ -3292,8 +3448,8 @@ $ energy-systems solve energy_power_curve_density_corrected "speeds=[3, 5, 8, 12
 P_kW = 475
 P = 475000 W
   by: Turbine output from a density-corrected power curve  (v_i' = v_i (1.225/rho)^e(v_i); interpolate P(v) on (v_i', P_i))
-  v = 6.5 m/s   []
-  rho = 1.225 kg/m^3   []
+  v = 6.5 m/s
+  rho = 1.225 kg/m^3
   assumes: 0.5 < rho < 1.6 kg/m^3
 ```
 
@@ -3301,7 +3457,7 @@ P = 475000 W
 
 <a id="energy_power_curve_output"></a>
 
-#### Turbine output from its power curve — `energy_power_curve_output`
+#### Turbine output from its power curve: `energy_power_curve_output`
 
 The electrical output of a wind turbine at a wind speed by linear interpolation of its power curve (zero below the first and above the last listed speed).
 
@@ -3311,10 +3467,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `speeds` | in | power-curve wind speeds in m/s (increasing) | — |
-| `powers` | in | power-curve outputs in kW | — |
+| `speeds` | in | power-curve wind speeds in m/s (increasing) | - |
+| `powers` | in | power-curve outputs in kW | - |
 | `v` | in | wind speed at hub height | m/s |
-| `P_kW` | out | output in kW | — |
+| `P_kW` | out | output in kW | - |
 | `P` | out | output | W |
 
 **Applies when:** speeds strictly increasing; one power per speed.
@@ -3324,7 +3480,7 @@ $ energy-systems solve energy_power_curve_output "speeds=[3, 5, 8, 12, 25]" "pow
 P_kW = 475
 P = 475000 W
   by: Turbine output from its power curve  (linear interpolation between the curve points; 0 outside the listed speeds)
-  v = 6.5 m/s   []
+  v = 6.5 m/s
   assumes: speeds strictly increasing; one power per speed
 ```
 
@@ -3332,7 +3488,7 @@ P = 475000 W
 
 <a id="energy_weibull_wind"></a>
 
-#### Weibull wind statistics and mean power density — `energy_weibull_wind`
+#### Weibull wind statistics and mean power density, `energy_weibull_wind`
 
 Mean wind speed, mean wind power density, energy pattern factor, most probable speed and the speed carrying most energy for a Weibull wind-speed distribution with shape k and scale c.
 
@@ -3342,12 +3498,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `k` | in | Weibull shape factor (1 < k <= 5) | — |
+| `k` | in | Weibull shape factor (1 < k <= 5) | - |
 | `c` | in | Weibull scale factor | m/s |
 | `rho` | in | air density | kg/m^3 |
 | `v_mean` | out | mean wind speed c Gamma(1 + 1/k) | m/s |
-| `power_density` | out | mean wind power density in W/m^2 | — |
-| `energy_pattern_factor` | out | mean of v^3 over the cube of the mean | — |
+| `power_density` | out | mean wind power density in W/m^2 | - |
+| `energy_pattern_factor` | out | mean of v^3 over the cube of the mean | - |
 | `v_most_probable` | out | most probable wind speed | m/s |
 | `v_max_energy` | out | wind speed carrying the most energy | m/s |
 
@@ -3361,9 +3517,9 @@ energy_pattern_factor = 1.909859317
 v_most_probable = 5.656854249 m/s
 v_max_energy = 11.3137085 m/s
   by: Weibull wind statistics and mean power density  (v_mean = c Gamma(1 + 1/k); P/A = (1/2) rho c^3 Gamma(1 + 3/k); v_mp = c ((k - 1)/k)^(1/k); v_maxE = c ((k + 2)/k)^(1/k))
-  k = 2   []
-  c = 8 m/s   []
-  rho = 1.225 kg/m^3   []
+  k = 2
+  c = 8 m/s
+  rho = 1.225 kg/m^3
   assumes: 1 < k <= 5; c > 0
 ```
 
@@ -3371,7 +3527,7 @@ v_max_energy = 11.3137085 m/s
 
 <a id="energy_wind_shear_log"></a>
 
-#### Wind speed at another height (logarithmic profile) — `energy_wind_shear_log`
+#### Wind speed at another height (logarithmic profile), `energy_wind_shear_log`
 
 The wind speed at height h2 from a measurement at h1 by the logarithmic wind profile with roughness length z0 and an optional obstacle height d (displacement 0.7 d).
 
@@ -3394,10 +3550,10 @@ $$
 $ energy-systems solve energy_wind_shear_log "v1=5 m/s" "h1=10 m" "h2=100 m" "z0=1 m"
 v2 = 10 m/s
   by: Wind speed at another height (logarithmic profile)  (v2 = v1 ln((h2 - 0.7 d)/z0)/ln((h1 - 0.7 d)/z0))
-  v1 = 5 m/s   []
-  h1 = 10 m   []
-  h2 = 100 m   []
-  z0 = 1 m   []
+  v1 = 5 m/s
+  h1 = 10 m
+  h2 = 100 m
+  z0 = 1 m
   assumes: h - 0.7 d > z0 at both heights
 ```
 
@@ -3405,7 +3561,7 @@ v2 = 10 m/s
 
 <a id="energy_wind_shear_power_law"></a>
 
-#### Wind speed at another height (power law) — `energy_wind_shear_power_law`
+#### Wind speed at another height (power law): `energy_wind_shear_power_law`
 
 The wind speed at height h2 from a measurement at h1 by the power (Hellman) law v2 = v1 (h2/h1)^alpha; alpha = 1/7 when not stated (the one-seventh law).
 
@@ -3418,7 +3574,7 @@ $$
 | `v1` | in | measured wind speed | m/s |
 | `h1` | in | measurement height | m |
 | `h2` | in | target height (e.g. hub height) | m |
-| `alpha` | in | shear exponent (default 1/7) (optional) | — |
+| `alpha` | in | shear exponent (default 1/7) (optional) | - |
 | `v2` | out | wind speed at h2 | m/s |
 
 **Applies when:** heights > 0; 0 <= alpha <= 1.
@@ -3427,12 +3583,12 @@ $$
 $ energy-systems solve energy_wind_shear_power_law "v1=6 m/s" "h1=10 m" "h2=1280 m"
 v2 = 12 m/s
   by: Wind speed at another height (power law)  (v2 = v1 (h2/h1)^alpha)
-  v1 = 6 m/s   []
-  h1 = 10 m   []
-  h2 = 1280 m   []
+  v1 = 6 m/s
+  h1 = 10 m
+  h2 = 1280 m
   assumes: heights > 0; 0 <= alpha <= 1
 ```
 
 **What the worked example means:** The wind speed at the target height is 12 m/s, derived from a measurement of 6 m/s at 10 m.
 
-Questions and reports: support@ai999x.com. AI999X — The Future Is Self-Improving.
+Questions and reports: support@ai999x.com. AI999X, The Future Is Self-Improving.
