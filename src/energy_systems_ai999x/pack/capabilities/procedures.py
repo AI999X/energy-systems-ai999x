@@ -5071,6 +5071,255 @@ _add("energy_coulomb_counting",
                 {"q": "Coulomb counting: SOC0 = 90%, Q = 50 Ah, currents = [10, 20, -5]", "outcome": "NEEDS_INPUT"}])
 
 
+# ================================================================================================ GENERATION AND MOTORS (core gaps, 2026-11-12)
+def hydro_power(Q, H, eta, rho=1000.0, g=9.81, CF=1.0, hours=8760.0):
+    _pos("the flow rate Q and the head H", Q, H)
+    _need(isinstance(eta, (int, float)) and 0 < eta <= 1, "the efficiency must lie in (0, 1] (e.g. 0.9 or 90%)")
+    _pos("the density and g", rho, g)
+    _need(isinstance(CF, (int, float)) and 0 < CF <= 1, "the capacity factor must lie in (0, 1]")
+    _need(isinstance(hours, (int, float)) and 0 < hours <= 8784, "the period must be between 0 and 8784 hours")
+    Ph = rho * g * Q * H
+    P = eta * Ph
+    E = P * CF * hours * 3600.0
+    return _out(P=P, P_kW=P / 1e3, P_MW=P / 1e6, P_hydraulic=Ph, E=E, E_MWh=E / 3.6e9)
+
+
+def _ref_hydro(Q, H, eta, rho=1000.0, g=9.81, CF=1.0, hours=8760.0):
+    """Fluid statics integrated over the head (scipy quad of dp/dz = rho g) gives the pressure at the turbine; the
+    hydraulic power is that pressure times the flow; the energy is the mean power integrated over the period (quad).
+    (A weaker reference: the same physics by another route.)"""
+    from scipy.integrate import quad
+    p = quad(lambda z: rho * g, 0.0, H, epsabs=0, epsrel=1e-13)[0]
+    Ph = p * Q
+    P = eta * Ph
+    E = quad(lambda t: P * CF, 0.0, hours * 3600.0, epsabs=0, epsrel=1e-13)[0]
+    return {"P": P, "P_kW": P / 1e3, "P_MW": P / 1e6, "P_hydraulic": Ph, "E": E, "E_MWh": E / 3.6e9}
+
+
+def _rnd_hydro(rng):
+    x = {"Q": _lu(rng, 0.05, 2000), "H": _lu(rng, 2, 1500), "eta": rng.uniform(0.6, 0.95)}
+    if rng.random() < 0.5:
+        x["CF"] = rng.uniform(0.2, 0.9)
+    if rng.random() < 0.2:
+        x["hours"] = float(rng.choice([24, 720, 744, 2190, 8784]))
+    if rng.random() < 0.2:
+        x["g"] = 9.80665
+    return x
+
+
+_add("energy_hydro_power",
+     name="Hydroelectric power from flow and head, and the energy over a period", topic="generation / hydropower",
+     purpose="The electrical output P = eta rho g Q H of a hydroelectric plant from the flow rate, the net head and the overall efficiency, the hydraulic power, and the energy over a period (default a year of 8760 h) at a capacity factor (default 1).",
+     inputs=[_phys("Q", "flow_rate", "volume flow rate through the turbines"), _phys("H", "length", "net head"),
+             _numin("eta", "overall efficiency (turbine x generator; fraction or %)"),
+             _phys("rho", "density", "water density (default 1000 kg/m^3)", required=False),
+             _phys("g", "acceleration", "gravitational acceleration (default 9.81 m/s^2)", required=False),
+             _numin("CF", "capacity factor for the energy (fraction or %, default 1)", required=False),
+             _numin("hours", "length of the period in hours (default 8760)", required=False)],
+     outputs=[_o("P", "power", "electrical output"), _o("P_kW", "number", "electrical output in kW"), _o("P_MW", "number", "electrical output in MW"),
+              _o("P_hydraulic", "power", "hydraulic power rho g Q H"), _o("E", "energy", "energy over the period"), _o("E_MWh", "number", "energy over the period in MWh")],
+     primary="P", conditions=["Q, H > 0", "0 < eta <= 1", "0 < CF <= 1", "0 < hours <= 8784", "net head (losses in the penstock already deducted)"],
+     method="P = eta rho g Q H; E = P CF hours", latex=r"P = \eta\,\rho g Q H,\quad E = P \cdot CF \cdot t",
+     run=hydro_power,
+     parse=lambda q: _pairs(q, r"hydro(?:electric)? power|hydropower", {"Q": "Q", "flow": "Q", "H": "H", "head": "H", "eta": "eta", "efficiency": "eta",
+                                                                      "rho": "rho", "g": "g", "CF": "CF", "capacity_factor": "CF", "hours": "hours"},
+                            phys={"Q", "H", "rho", "g"}, num_units=_pct_units("eta", "CF")),
+     reference=_ref_hydro,
+     wrong=_safe(lambda Q, H, eta, rho=1000.0, g=9.81, CF=1.0, hours=8760.0: (lambda P: _out(P=P, P_kW=P / 1e3, P_MW=P / 1e6, P_hydraulic=rho * Q * H,
+                                                                                            E=P * CF * hours * 3600, E_MWh=P * CF * hours / 1e6))(eta * rho * Q * H)),
+     random_inputs=_rnd_hydro,
+     templates=["Hydro power: Q = 10 m^3/s, H = 50 m, eta = 90%", "Hydro power: Q = 2 m^3/s, H = 100 m, eta = 85%, CF = 50%"],
+     examples=[{"inputs": {"Q": 10.0, "H": 50.0, "eta": 0.9}, "outputs": {"P": 4414500.0, "P_MW": 4.4145, "P_hydraulic": 4905000.0, "E_MWh": 4.4145 * 8760}},
+               {"inputs": {"Q": 2.0, "H": 100.0, "eta": 0.85, "CF": 0.5}, "outputs": {"P": 1667700.0, "E_MWh": 1.6677 * 8760 * 0.5}},
+               {"inputs": {"Q": 1.0, "H": 10.0, "eta": 1.0, "g": 9.80665, "hours": 1.0}, "outputs": {"P": 98066.5, "E_MWh": 0.0980665}}],
+     questions=[{"q": "Hydro power: Q = 10 m^3/s, H = 50 m, eta = 90%", "outputs": {"P_MW": 4.4145, "E_MWh": 4.4145 * 8760}},
+                {"q": "Hydro power: Q = 2 m^3/s, H = 100 m, eta = 85%, CF = 50%", "outputs": {"P_kW": 1667.7}},
+                {"q": "Hydro power: Q = 10 m^3/s, H = 50 m, eta = 120%", "outcome": "INVALID_INPUT"},
+                {"q": "Hydro power: Q = 10 m^3/s, eta = 90%", "outcome": "NEEDS_INPUT"}])
+
+
+def capacity_factor(P_rated, E=None, CF=None, hours=8760.0):
+    _pos("the rated power", P_rated)
+    _need(isinstance(hours, (int, float)) and 0 < hours <= 8784, "the period must be between 0 and 8784 hours")
+    _need((E is None) != (CF is None), "give exactly one of the energy produced E and the capacity factor CF")
+    Emax = P_rated * hours * 3600.0
+    if E is not None:
+        _pos("the energy produced", E)
+        _need(E <= Emax * (1 + 1e-12), "the energy produced cannot exceed rated power x period (capacity factor above 1)")
+        cf = E / Emax
+    else:
+        _need(isinstance(CF, (int, float)) and 0 < CF <= 1, "the capacity factor must lie in (0, 1]")
+        cf = CF
+        E = cf * Emax
+    return _out(capacity_factor=cf, capacity_factor_pct=100 * cf, E=E, E_MWh=E / 3.6e9, full_load_hours=cf * hours,
+                average_power=cf * P_rated)
+
+
+def _ref_capacity_factor(P_rated, E=None, CF=None, hours=8760.0):
+    """Exact rational arithmetic (sympy): the energy at full output over the period, the capacity factor as the ratio
+    solved from E = CF x P_rated x t (sympy.solve), or the energy from the given factor. (A weaker reference: the
+    definition solved symbolically.)"""
+    import sympy as sp
+    cf = sp.Symbol("cf", positive=True)
+    Pr, h = sp.Rational(repr(P_rated)), sp.Rational(repr(float(hours)))
+    Emax = Pr * h * 3600
+    if E is not None:
+        c = sp.solve(sp.Eq(sp.Rational(repr(E)), cf * Emax), cf)[0]
+        En = sp.Rational(repr(E))
+    else:
+        c = sp.Rational(repr(CF))
+        En = c * Emax
+    return {"capacity_factor": float(c), "capacity_factor_pct": float(100 * c), "E": float(En), "E_MWh": float(En / (36 * 10 ** 8)),
+            "full_load_hours": float(c * h), "average_power": float(c * Pr)}
+
+
+def _rnd_cf(rng):
+    P = _lu(rng, 1e3, 3e9)
+    hours = float(rng.choice([8760, 8760, 8784, 720, 24]))
+    if rng.random() < 0.5:
+        return {"P_rated": P, "E": P * hours * 3600 * rng.uniform(0.05, 0.98), "hours": hours}
+    return {"P_rated": P, "CF": rng.uniform(0.05, 0.98), "hours": hours}
+
+
+_add("energy_capacity_factor",
+     name="Capacity factor and energy of a generating plant", topic="generation / plant performance",
+     purpose="The capacity factor of a plant of any type from its rated power and the energy produced over a period (default a year of 8760 h), or the energy from a capacity factor, with the equivalent full-load hours and the average output.",
+     inputs=[_phys("P_rated", "power", "rated (nameplate) power"), _phys("E", "energy", "energy produced in the period (give E or CF)", required=False),
+             _numin("CF", "capacity factor (fraction or %; give E or CF)", required=False),
+             _numin("hours", "length of the period in hours (default 8760)", required=False)],
+     outputs=[_o("capacity_factor", "number", "capacity factor E/(P_rated t)"), _o("capacity_factor_pct", "number", "capacity factor in percent"),
+              _o("E", "energy", "energy produced in the period"), _o("E_MWh", "number", "energy produced in MWh"),
+              _o("full_load_hours", "number", "equivalent full-load hours CF t"), _o("average_power", "power", "average output CF P_rated")],
+     primary="capacity_factor", conditions=["P_rated > 0", "exactly one of E and CF", "0 < CF <= 1", "0 < hours <= 8784"],
+     method="CF = E/(P_rated t); E = CF P_rated t; full-load hours = CF t", latex=r"CF = \frac{E}{P_{rated}\,t}",
+     run=capacity_factor,
+     parse=lambda q: _pairs(q, r"(?:plant )?capacity factor|annual energy of a plant", {"P_rated": "P_rated", "P": "P_rated", "rated_power": "P_rated", "E": "E", "energy": "E",
+                                                                                        "CF": "CF", "capacity_factor": "CF", "hours": "hours"},
+                            phys={"P_rated", "E"}, num_units=_pct_units("CF")),
+     reference=_ref_capacity_factor,
+     wrong=_safe(lambda P_rated, E=None, CF=None, hours=8760.0: (lambda o: dict(o, capacity_factor=_r(1 / o["capacity_factor"]),
+                                                                              E=_r(P_rated * hours * 3600), E_MWh=_r(P_rated * hours / 1e6)))(
+         capacity_factor(P_rated, E, CF, hours))),
+     random_inputs=_rnd_cf,
+     templates=["Capacity factor: P_rated = 2 MW, E = 5256 MWh", "Capacity factor: P_rated = 500 MW, CF = 90%"],
+     examples=[{"inputs": {"P_rated": 2e6, "E": 5256 * 3.6e9}, "outputs": {"capacity_factor": 0.3, "full_load_hours": 2628.0, "average_power": 6e5}},
+               {"inputs": {"P_rated": 500e6, "CF": 0.9}, "outputs": {"E_MWh": 3942000.0, "E": 1.41912e16}},
+               {"inputs": {"P_rated": 1e6, "E": 6 * 3.6e9, "hours": 24.0}, "outputs": {"capacity_factor": 0.25, "full_load_hours": 6.0}}],
+     questions=[{"q": "Capacity factor: P_rated = 2 MW, E = 5256 MWh", "outputs": {"capacity_factor": 0.3}},
+                {"q": "Capacity factor: P_rated = 500 MW, CF = 90%", "outputs": {"E_MWh": 3942000.0}},
+                {"q": "Capacity factor: P_rated = 2 MW, E = 20000 MWh", "outcome": "INVALID_INPUT"},
+                {"q": "Capacity factor: P_rated = 2 MW, E = 5256 MWh, CF = 30%", "outcome": "INVALID_INPUT"}])
+
+
+def induction_power_flow(f, poles, P_in, P_scl, s=None, n_r=None, P_core=0.0, P_fw=0.0, E2=None):
+    _pos("the supply frequency and the input power", f, P_in)
+    _need(isinstance(poles, int) and poles >= 2 and poles % 2 == 0, "the number of poles must be an even whole number (2, 4, 6, ...)")
+    _nonneg("the stator copper, core and friction losses", P_scl, P_core, P_fw)
+    _need((s is None) != (n_r is None), "give exactly one of the slip s and the rotor speed n_r")
+    ws = 4 * math.pi * f / poles
+    if s is None:
+        _fin("the rotor speed", n_r)
+        s = (ws - n_r) / ws
+    _need(isinstance(s, (int, float)) and 0 < s < 1, "the slip must lie strictly between 0 and 1 (motoring below synchronous speed)")
+    Pag = P_in - P_scl - P_core
+    _need(Pag > 0, "the stator losses must be less than the input power")
+    Prcl = s * Pag
+    Pconv = (1 - s) * Pag
+    Pout = Pconv - P_fw
+    _need(Pout > 0, "the friction and windage loss must be less than the converted power")
+    wm = (1 - s) * ws
+    out = {"n_sync_rpm": 120 * f / poles, "n_rotor_rpm": (1 - s) * 120 * f / poles, "slip": s, "f_rotor": s * f, "P_ag": Pag,
+           "P_rcl": Prcl, "P_conv": Pconv, "P_out": Pout, "T_ind": Pag / ws, "T_shaft": Pout / wm, "efficiency_pct": 100 * Pout / P_in}
+    if E2 is not None:
+        _pos("the standstill rotor emf", E2)
+        out["E_rotor"] = s * E2
+    return _out(**out)
+
+
+def _ref_induction_power_flow(f, poles, P_in, P_scl, s=None, n_r=None, P_core=0.0, P_fw=0.0, E2=None):
+    """Torque and speed route (exact rationals, sympy): the induced torque T = P_ag/omega_s acts at the field speed on
+    the rotor; the rotor copper loss is T times the slip speed (omega_s - omega_m), the converted power T omega_m; the
+    rotor frequency from the slip speed times the pole pairs; the shaft torque from the output power and the rotor
+    speed."""
+    import sympy as sp
+    R = lambda v: sp.Rational(repr(float(v)))   # noqa: E731
+    ws = 4 * sp.pi * R(f) / poles
+    wm = ws * (1 - R(s)) if s is not None else R(n_r)
+    Pag = R(P_in) - R(P_scl) - R(P_core)
+    T = Pag / ws
+    Prcl, Pconv = T * (ws - wm), T * wm
+    Pout = Pconv - R(P_fw)
+    out = {"n_sync_rpm": float(ws * 30 / sp.pi), "n_rotor_rpm": float(wm * 30 / sp.pi), "slip": float((ws - wm) / ws),
+           "f_rotor": float((ws - wm) * sp.Rational(poles, 2) / (2 * sp.pi)), "P_ag": float(Pag), "P_rcl": float(Prcl), "P_conv": float(Pconv),
+           "P_out": float(Pout), "T_ind": float(T), "T_shaft": float(Pout / wm), "efficiency_pct": float(100 * Pout / R(P_in))}
+    if E2 is not None:
+        out["E_rotor"] = float((ws - wm) / ws * R(E2))
+    return out
+
+
+def _rnd_ipf(rng):
+    f, poles = rng.choice([50.0, 60.0]), rng.choice([2, 4, 6, 8])
+    Pin = _lu(rng, 500, 5e6)
+    x = {"f": f, "poles": poles, "P_in": Pin, "P_scl": Pin * rng.uniform(0.01, 0.06)}
+    sl = rng.uniform(0.005, 0.12)
+    if rng.random() < 0.5:
+        x["s"] = sl
+    else:
+        x["n_r"] = 4 * math.pi * f / poles * (1 - sl)
+    if rng.random() < 0.7:
+        x["P_core"] = Pin * rng.uniform(0.005, 0.03)
+    if rng.random() < 0.7:
+        x["P_fw"] = Pin * rng.uniform(0.003, 0.02)
+    if rng.random() < 0.3:
+        x["E2"] = rng.uniform(50, 1000)
+    return x
+
+
+_add("energy_induction_power_flow",
+     name="Induction motor power flow from slip and losses", topic="machines / induction motors",
+     purpose="The power flow of a three-phase induction motor from its input power and losses: synchronous and rotor speed, slip, rotor frequency (and rotor emf), air-gap power, rotor copper loss s P_ag, converted power, output, induced and shaft torque, and efficiency (no equivalent-circuit parameters needed).",
+     inputs=[_phys("f", "frequency", "supply frequency"), _intin("poles", "number of poles (even)", 2, 64),
+             _phys("P_in", "power", "electrical input power"), _phys("P_scl", "power", "stator copper loss"),
+             _numin("s", "slip (fraction or %; give s or n_r)", required=False), _phys("n_r", "angular_frequency", "rotor speed (rpm; give s or n_r)", required=False),
+             _phys("P_core", "power", "core (iron) loss, default 0", required=False), _phys("P_fw", "power", "friction and windage loss, default 0", required=False),
+             _phys("E2", "voltage", "rotor emf per phase at standstill (optional)", required=False)],
+     outputs=[_o("n_sync_rpm", "number", "synchronous speed 120 f/p, rpm"), _o("n_rotor_rpm", "number", "rotor speed, rpm"), _o("slip", "number", "slip"),
+              _o("f_rotor", "frequency", "rotor current frequency s f"), _o("P_ag", "power", "air-gap power P_in - stator losses"),
+              _o("P_rcl", "power", "rotor copper loss s P_ag"), _o("P_conv", "power", "converted (mechanical developed) power (1 - s) P_ag"),
+              _o("P_out", "power", "output (shaft) power P_conv - friction and windage"), _o("T_ind", "torque", "induced torque P_ag/omega_s"),
+              _o("T_shaft", "torque", "shaft (output) torque P_out/omega_m"), _o("efficiency_pct", "number", "efficiency P_out/P_in in percent"),
+              _o("E_rotor", "voltage", "rotor emf per phase at the running slip s E2 (with E2)")],
+     primary="P_out", conditions=["even number of poles", "exactly one of s and n_r", "0 < s < 1 (motoring)", "stator losses < P_in", "P_out > 0",
+                                  "the core loss is taken with the stator losses"],
+     method="P_ag = P_in - P_scl - P_core; P_rcl = s P_ag; P_conv = (1 - s) P_ag; P_out = P_conv - P_fw; T = P_ag/omega_s; f_r = s f",
+     latex=r"P_{ag} = P_{in} - P_{scl} - P_{core},\quad P_{rcl} = s\,P_{ag},\quad P_{conv} = (1-s)P_{ag},\quad \eta = \frac{P_{conv} - P_{fw}}{P_{in}}",
+     run=induction_power_flow,
+     parse=lambda q: _pairs(q, r"induction motor power flow|power flow (?:in|of) an induction motor",
+                            {"f": "f", "poles": "poles", "p": "poles", "P_in": "P_in", "Pin": "P_in", "P_scl": "P_scl", "stator_copper_loss": "P_scl",
+                             "s": "s", "slip": "s", "n_r": "n_r", "n": "n_r", "P_core": "P_core", "core_loss": "P_core", "P_fw": "P_fw",
+                             "friction_loss": "P_fw", "E2": "E2"},
+                            phys={"f", "P_in", "P_scl", "n_r", "P_core", "P_fw", "E2"}, num_units=_pct_units("s")),
+     reference=_ref_induction_power_flow,
+     wrong=_safe(lambda f, poles, P_in, P_scl, s=None, n_r=None, P_core=0.0, P_fw=0.0, E2=None: (lambda o: dict(
+         o, P_rcl=_r(o["slip"] * P_in), P_conv=_r(o["P_ag"] - o["slip"] * P_in), P_out=_r(o["P_ag"] - o["slip"] * P_in - P_fw)))(
+         induction_power_flow(f, poles, P_in, P_scl, s, n_r, P_core, P_fw, E2))),
+     random_inputs=_rnd_ipf,
+     templates=["Induction motor power flow: f = 50 Hz, poles = 4, s = 4%, P_in = 50 kW, P_scl = 1.5 kW, P_core = 1 kW, P_fw = 900 W",
+                "Induction motor power flow: f = 60 Hz, poles = 6, n_r = 1140 rpm, P_in = 20 kW, P_scl = 800 W, E2 = 200 V"],
+     examples=[{"inputs": {"f": 50.0, "poles": 4, "s": 0.04, "P_in": 50e3, "P_scl": 1500.0, "P_core": 1000.0, "P_fw": 900.0},
+                "outputs": {"n_sync_rpm": 1500.0, "n_rotor_rpm": 1440.0, "f_rotor": 2.0, "P_ag": 47500.0, "P_rcl": 1900.0, "P_conv": 45600.0,
+                            "P_out": 44700.0, "efficiency_pct": 89.4, "T_ind": 950 / math.pi, "T_shaft": 931.25 / math.pi}},
+               {"inputs": {"f": 60.0, "poles": 6, "n_r": 1140 * math.pi / 30, "P_in": 20e3, "P_scl": 800.0, "E2": 200.0},
+                "outputs": {"slip": 0.05, "f_rotor": 3.0, "P_ag": 19200.0, "P_rcl": 960.0, "P_out": 18240.0, "efficiency_pct": 91.2, "E_rotor": 10.0}}],
+     questions=[{"q": "Induction motor power flow: f = 50 Hz, poles = 4, s = 4%, P_in = 50 kW, P_scl = 1.5 kW, P_core = 1 kW, P_fw = 900 W",
+                 "outputs": {"P_rcl": 1900.0, "P_out": 44700.0, "efficiency_pct": 89.4}},
+                {"q": "Induction motor power flow: f = 60 Hz, poles = 6, n_r = 1140 rpm, P_in = 20 kW, P_scl = 800 W, E2 = 200 V",
+                 "outputs": {"slip": 0.05, "P_rcl": 960.0, "E_rotor": 10.0}},
+                {"q": "Induction motor power flow: f = 50 Hz, poles = 4, s = 4%, n_r = 1440 rpm, P_in = 50 kW, P_scl = 1.5 kW", "outcome": "INVALID_INPUT"},
+                {"q": "Induction motor power flow: f = 50 Hz, poles = 4, n_r = 1600 rpm, P_in = 50 kW, P_scl = 1.5 kW", "outcome": "INVALID_INPUT"},
+                {"q": "Induction motor power flow: f = 50 Hz, poles = 4, s = 4%, P_in = 50 kW", "outcome": "NEEDS_INPUT"}])
+
+
 # ================================================================================================ power kinds
 # Reactive power is reported in var and apparent power in VA, never in W: their own kinds (same dimension as power).
 _REACTIVE = [('energy_parallel_transformers', 'Q'), ('energy_parallel_transformers', 'Q1'), ('energy_parallel_transformers', 'Q2'), ('energy_power_angle', 'Q_received'), ('energy_power_angle', 'Q_sent'), ('energy_synchronous_generator', 'Q'), ('energy_three_phase_power', 'Q'), ('energy_transformer_loading', 'Q'), ('energy_transformer_loading', 'Q_loss'), ('energy_two_bus_load_flow', 'Q'), ('energy_two_bus_load_flow', 'Q_loss')]
@@ -5080,3 +5329,186 @@ for _k, _sym in _REACTIVE + _APPARENT:
     _hits = [i for i in PROCEDURES[_k]["inputs"] + PROCEDURES[_k]["outputs"] if i["symbol"] == _sym]
     assert len(_hits) == 1 and _hits[0]["kind"] == "power", (_k, _sym)
     _hits[0]["kind"] = _kind
+
+
+# ================================================================================================ ELECTRODE KINETICS (core gap, 2026-11-12)
+# The Butler-Volmer equation j = j0 [exp(alpha_a F eta/(R T)) - exp(-alpha_c F eta/(R T))] and its Tafel limits.
+# Conventions: anodic current and overpotential positive, cathodic negative; alpha_a and alpha_c are the anodic and
+# cathodic transfer coefficients INCLUDING the number of electrons of the rate-determining step (alpha_a + alpha_c = n
+# for a simple one-step reaction); no mass-transport limitation; R = 8.31446261815324 J/(mol K) (exact, N_A k) and the
+# module's F. Current densities are plain numbers in A/m^2 (the question form accepts A/m^2, A/cm^2, mA/cm^2 and
+# uA/cm^2 and converts them here); the Tafel slopes are in V per decade; the charge-transfer resistance R_ct =
+# R T/((alpha_a + alpha_c) F j0) is the small-signal value at equilibrium, in ohm m^2. The Tafel overpotential
+# (b log10(|j|/j0)) is given only when |j| > j0, beside the exact value, so its error is visible.
+R_BV = 8.31446261815324
+F_BV = 96485.33212331001       # C/mol, e N_A exact (F_FARADAY above is rounded to 10 digits; near j = j0 the Tafel
+                                # line amplifies that 3e-11 difference ~100x, box certification 2026-11-12)
+_JD_UNITS = {"A/m^2": 1.0, "A/m2": 1.0, "mA/m^2": 1e-3, "kA/m^2": 1e3, "A/cm^2": 1e4, "A/cm2": 1e4, "mA/cm^2": 10.0,
+             "mA/cm2": 10.0, "uA/cm^2": 1e-2, "uA/cm2": 1e-2, "µA/cm^2": 1e-2, "µA/cm2": 1e-2}
+
+
+def butler_volmer(j0, alpha_a, alpha_c, T, eta=None, j=None):
+    _pos("the exchange current density j0", j0)
+    _need(j0 <= 1e6, "the exchange current density j0 (A/m^2) must be at most 1e6")
+    _pos("the transfer coefficients", alpha_a, alpha_c)
+    _need(alpha_a <= 4 and alpha_c <= 4, "the transfer coefficients (electrons included) must be at most 4")
+    _pos("the temperature", T)
+    _need(200 <= T <= 1500, "the temperature must lie between 200 and 1500 K")
+    _need((eta is None) != (j is None), "give exactly one of the overpotential eta and the current density j")
+    f = F_BV / (R_BV * T)
+    if eta is not None:
+        _fin("the overpotential", eta)
+        _need(abs(eta) <= 2.0, "the overpotential must lie within +-2 V")
+        _need(alpha_a * f * eta <= 700 and -alpha_c * f * eta <= 700, "the overpotential is too large for this temperature (the current overflows)")
+        e = eta
+        jj = j0 * (math.expm1(alpha_a * f * e) - math.expm1(-alpha_c * f * e))
+    else:
+        _fin("the current density", j)
+        _need(abs(j) <= 1e8, "the current density (A/m^2) must be at most 1e8 in magnitude")
+        if j == 0:
+            e = 0.0
+        else:
+            if j > 0:
+                lo, hi = 0.0, math.log1p(j / j0) / (alpha_a * f)
+            else:
+                lo, hi = -math.log1p(-j / j0) / (alpha_c * f), 0.0
+            e = _illinois(lambda x: j0 * (math.expm1(alpha_a * f * x) - math.expm1(-alpha_c * f * x)) - j, lo, hi)
+        _need(abs(e) <= 2.0, "the current density needs an overpotential beyond +-2 V")
+        jj = j
+    ba = math.log(10.0) / (alpha_a * f)
+    bc = math.log(10.0) / (alpha_c * f)
+    rct = 1.0 / ((alpha_a + alpha_c) * f * j0)
+    out = {"j": jj, "j_mA_cm2": jj / 10.0, "eta": e, "eta_mV": e * 1000.0, "j_anodic": j0 * math.exp(alpha_a * f * e),
+           "j_cathodic": -j0 * math.exp(-alpha_c * f * e), "b_a": ba, "b_c": bc, "b_a_mV": ba * 1000.0, "b_c_mV": bc * 1000.0,
+           "R_ct": rct, "R_ct_ohm_cm2": rct * 1e4}
+    if abs(jj) > j0:
+        # log1p of the excess over j0, so a current just above j0 keeps its digits (log10 of a ratio near 1 does not)
+        out["eta_tafel"] = (ba * math.log1p((jj - j0) / j0) / math.log(10.0) if jj > 0
+                            else -bc * math.log1p((-jj - j0) / j0) / math.log(10.0))
+    return _out(**out)
+
+
+def _ref_butler_volmer(j0, alpha_a, alpha_c, T, eta=None, j=None):
+    """scipy.constants' F and R; the current in the product form 2 j0 exp((aa - ac) f eta/2) sinh((aa + ac) f eta/2)
+    (numpy); an asked overpotential by scipy brentq on that form; the Tafel slopes as 1/(d log10(j_branch)/d eta),
+    differentiated by mpmath.diff at 40 digits, and the Tafel-line overpotential from them with the net current also at
+    40 digits (mpmath); R_ct from a central difference of j(eta) at 0. (The current
+    is the same equation in another form: a weaker reference for that output, documented.)"""
+    import numpy as np
+    from scipy import constants
+    from scipy.optimize import brentq
+    f = constants.physical_constants["Faraday constant"][0] / (constants.R * T)
+
+    def cur(x):
+        return float(2.0 * j0 * np.exp((alpha_a - alpha_c) * f * x / 2.0) * np.sinh((alpha_a + alpha_c) * f * x / 2.0))
+    if eta is not None:
+        e = eta
+        jj = cur(e)
+    else:
+        jj = j
+        if j == 0:
+            e = 0.0
+        else:
+            e = brentq(lambda x: cur(x) - j, -2.5, 2.5, xtol=1e-16, rtol=8.9e-16, maxiter=500)
+    import mpmath
+    with mpmath.workdps(40):
+        fm = mpmath.mpf(repr(float(constants.physical_constants["Faraday constant"][0]))) / (mpmath.mpf(repr(float(constants.R))) * mpmath.mpf(repr(float(T))))
+        J0, AA, AC = mpmath.mpf(repr(float(j0))), mpmath.mpf(repr(float(alpha_a))), mpmath.mpf(repr(float(alpha_c)))
+        # Tafel slopes as 1 / (d log10(j_branch) / d eta), the derivative of each exponential branch taken by mpmath.diff
+        ba_m = 1 / mpmath.diff(lambda x: mpmath.log10(J0 * mpmath.exp(AA * fm * x)), mpmath.mpf("0.1"))
+        bc_m = 1 / mpmath.diff(lambda x: mpmath.log10(J0 * mpmath.exp(AC * fm * x)), mpmath.mpf("0.1"))
+        if eta is not None:                          # the net current at 40 digits (product form), for the Tafel line
+            E = mpmath.mpf(repr(float(eta)))
+            jm = 2 * J0 * mpmath.exp((AA - AC) * fm * E / 2) * mpmath.sinh((AA + AC) * fm * E / 2)
+        else:
+            jm = mpmath.mpf(repr(float(j)))
+        tafel = None
+        if abs(jj) > j0:
+            tafel = ba_m * mpmath.log10(jm / J0) if jm > 0 else -bc_m * mpmath.log10(-jm / J0)
+        ba, bc = float(ba_m), float(bc_m)
+        tafel = None if tafel is None else float(tafel)
+    h = 1e-7
+    rct = 2 * h / (cur(h) - cur(-h))
+    out = {"j": jj, "j_mA_cm2": jj / 10.0, "eta": e, "eta_mV": e * 1000.0, "j_anodic": float(j0 * np.exp(alpha_a * f * e)),
+           "j_cathodic": float(-j0 * np.exp(-alpha_c * f * e)), "b_a": ba, "b_c": bc, "b_a_mV": ba * 1000.0,
+           "b_c_mV": bc * 1000.0, "R_ct": rct, "R_ct_ohm_cm2": rct * 1e4}
+    if tafel is not None:
+        out["eta_tafel"] = tafel
+    return out
+
+
+def _wrong_butler_volmer(j0, alpha_a, alpha_c, T, eta=None, j=None):
+    """The transfer coefficients forgotten (both taken as 1) and the Tafel slopes taken per e-fold (ln, not log10)."""
+    o = butler_volmer(j0, 1.0, 1.0, T, eta, j)
+    f = F_BV / (R_BV * T)
+    o = dict(o, b_a=_r(1.0 / (alpha_a * f)), b_c=_r(1.0 / (alpha_c * f)))
+    return o
+
+
+def _rnd_bv(rng):
+    x = {"j0": float(f"{_lu(rng, 1e-4, 100.0):.3g}"), "alpha_a": round(rng.uniform(0.3, 0.7), 2), "T": round(rng.uniform(293.15, 1073.15), 2)}
+    x["alpha_c"] = round(rng.choice([1.0 - x["alpha_a"], rng.uniform(0.3, 0.7)]), 2)
+    if rng.random() < 0.5:
+        x["eta"] = round(rng.choice([1, -1]) * rng.uniform(0.002, 0.4), 4)
+    else:
+        x["j"] = float(f"{rng.choice([1, -1]) * x['j0'] * _lu(rng, 0.05, 1e4):.4g}")
+    return x
+
+
+def parse_butler_volmer(q):
+    out = _pairs(q, r"butler[- ]volmer(?: equation| kinetics)?|electrode kinetics|tafel (?:equation|overpotential)",
+                 {"j0": "j0", "i0": "j0", "alpha_a": "alpha_a", "aa": "alpha_a", "alpha_c": "alpha_c", "ac": "alpha_c",
+                  "T": "T", "eta": "eta", "j": "j", "i": "j"},
+                 phys={"j0", "j", "T", "eta"})
+    if out is None:
+        return None
+    for k in ("j0", "j"):
+        if k in out:
+            num, unit = out[k].split(None, 1)
+            if unit not in _JD_UNITS:
+                return None                           # a current density needs one of the stated units
+            out[k] = float(num) * _JD_UNITS[unit]
+    return out
+
+
+_F298 = F_BV / (R_BV * 298.15)
+_F353 = F_BV / (R_BV * 353.15)
+
+_add("energy_butler_volmer",
+     name="Electrode kinetics: Butler-Volmer current, overpotential and Tafel slopes", topic="fuel cells / electrode kinetics",
+     purpose="The current density of an electrode reaction at an overpotential by the Butler-Volmer equation (or the overpotential that drives a current density), with the anodic and cathodic partial currents, the Tafel slopes, the Tafel-line overpotential and the charge-transfer resistance.",
+     inputs=[_numin("j0", "exchange current density in A/m^2 (questions: A/m^2, A/cm^2, mA/cm^2, uA/cm^2)"),
+             _numin("alpha_a", "anodic transfer coefficient (electrons included)"), _numin("alpha_c", "cathodic transfer coefficient (electrons included)"),
+             _phys("T", "temperature", "electrode temperature"),
+             _phys("eta", "voltage", "overpotential (anodic positive; give eta or j)", required=False),
+             _numin("j", "current density in A/m^2, anodic positive (give j or eta)", required=False)],
+     outputs=[_o("j", "number", "net current density in A/m^2 (anodic positive)"), _o("j_mA_cm2", "number", "net current density in mA/cm^2"),
+              _o("eta", "voltage", "overpotential"), _o("eta_mV", "number", "overpotential in mV"),
+              _o("j_anodic", "number", "anodic partial current density in A/m^2"), _o("j_cathodic", "number", "cathodic partial current density in A/m^2 (negative)"),
+              _o("b_a", "number", "anodic Tafel slope in V per decade"), _o("b_c", "number", "cathodic Tafel slope in V per decade"),
+              _o("b_a_mV", "number", "anodic Tafel slope in mV per decade"), _o("b_c_mV", "number", "cathodic Tafel slope in mV per decade"),
+              _o("R_ct", "number", "charge-transfer resistance at equilibrium in ohm m^2"), _o("R_ct_ohm_cm2", "number", "charge-transfer resistance in ohm cm^2"),
+              _o("eta_tafel", "voltage", "overpotential of the Tafel line b log10(|j|/j0) (when |j| > j0)")],
+     primary="j", conditions=["0 < j0 <= 1e6 A/m^2", "0 < alpha_a, alpha_c <= 4", "200 K <= T <= 1500 K", "exactly one of eta and j; |eta| <= 2 V",
+                              "no mass-transport (concentration) limitation"],
+     method="j = j0 [exp(alpha_a F eta/RT) - exp(-alpha_c F eta/RT)] (evaluated with expm1); eta from j by bracketed regula falsi; b = ln10 RT/(alpha F); R_ct = RT/((alpha_a + alpha_c) F j0)",
+     latex=r"j = j_0\left[e^{\alpha_a F\eta/RT} - e^{-\alpha_c F\eta/RT}\right],\quad b_a = \frac{2.303\,RT}{\alpha_a F},\quad \eta \approx b_a\log_{10}\frac{j}{j_0}",
+     run=butler_volmer, parse=parse_butler_volmer, reference=_ref_butler_volmer, wrong=_safe(_wrong_butler_volmer), random_inputs=_rnd_bv,
+     templates=["Butler-Volmer: j0 = 1 mA/cm^2, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 100 mV",
+                "Butler-Volmer: j0 = 10 A/m^2, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, j = 1000 A/m^2"],
+     examples=[{"inputs": {"j0": 10.0, "alpha_a": 0.5, "alpha_c": 0.5, "T": 298.15, "eta": 0.1},
+                "outputs": {"j": 20.0 * math.sinh(0.05 * _F298), "b_a": math.log(10.0) / (0.5 * _F298), "R_ct": 1.0 / (_F298 * 10.0),
+                            "j_anodic": 10.0 * math.exp(0.05 * _F298)}},
+               {"inputs": {"j0": 10.0, "alpha_a": 0.5, "alpha_c": 0.5, "T": 298.15, "j": 1000.0},
+                "outputs": {"eta": 2.0 / _F298 * math.asinh(50.0), "eta_tafel": 2.0 * math.log(10.0) / (0.5 * _F298), "j_mA_cm2": 100.0}},
+               {"inputs": {"j0": 0.5, "alpha_a": 0.3, "alpha_c": 0.7, "T": 353.15, "eta": -0.2},
+                "outputs": {"j": 0.5 * (math.exp(-0.06 * _F353) - math.exp(0.14 * _F353)), "b_c": math.log(10.0) / (0.7 * _F353)}}],
+     questions=[{"q": "Butler-Volmer: j0 = 1 mA/cm^2, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 100 mV",
+                 "outputs": {"j": 20.0 * math.sinh(0.05 * _F298)}},
+                {"q": "Tafel overpotential: j0 = 10 A/m^2, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, j = 100 mA/cm^2",
+                 "outputs": {"eta": 2.0 / _F298 * math.asinh(50.0), "eta_tafel": 2.0 * math.log(10.0) / (0.5 * _F298)}},
+                {"q": "Butler-Volmer: j0 = 0.05 mA/cm^2, alpha_a = 0.3, alpha_c = 0.7, T = 80 degC, eta = -200 mV",
+                 "outputs": {"j": 0.5 * (math.exp(-0.06 * _F353) - math.exp(0.14 * _F353))}},
+                {"q": "Butler-Volmer: j0 = 10 A/m^2, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 0.1 V, j = 100 A/m^2", "outcome": "INVALID_INPUT"},
+                {"q": "Butler-Volmer: j0 = 10, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 0.1 V", "outcome": "UNRECOGNIZED_FORMAT"},
+                {"q": "Butler-Volmer: alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 0.1 V", "outcome": "NEEDS_INPUT"}])

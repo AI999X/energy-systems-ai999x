@@ -22,12 +22,15 @@ result.show()
 | Batteries / equivalent circuits | [Battery terminal voltage under constant current (one-RC equivalent circuit)](#energy_battery_rc_discharge) |
 | Batteries / pack design | [Battery pack series-parallel sizing](#energy_battery_pack_sizing) |
 | Batteries / state of charge | [State of charge by coulomb counting](#energy_coulomb_counting) |
+| Fuel cells / electrode kinetics | [Electrode kinetics: Butler-Volmer current, overpotential and Tafel slopes](#energy_butler_volmer) |
 | Fuel cells / electrolysis | [Water electrolyser: hydrogen production and energy per kilogram](#energy_electrolyser) |
 | Fuel cells / hydrogen fuel cells | [Hydrogen fuel-cell stack: consumption, power and efficiency](#energy_fuel_cell_stack) |
 | Fuel cells / stack power | [Electrical power of a fuel-cell or electrolyser stack](#energy_stack_electrical_power) |
+| Generation / hydropower | [Hydroelectric power from flow and head, and the energy over a period](#energy_hydro_power) |
+| Generation / plant performance | [Capacity factor and energy of a generating plant](#energy_capacity_factor) |
 | Hydrogen / compression | [Minimum (isothermal) work to compress hydrogen](#energy_hydrogen_isothermal_compression), [Isentropic (adiabatic) compression of hydrogen](#energy_hydrogen_isentropic_compression) |
 | Hydrogen / storage | [Hydrogen stored in a tank at pressure (real gas)](#energy_hydrogen_tank) |
-| Machines / induction motors | [Induction motor performance from its equivalent circuit](#energy_induction_motor), [Induction motor breakdown (maximum) torque and starting torque](#energy_induction_max_torque) |
+| Machines / induction motors | [Induction motor performance from its equivalent circuit](#energy_induction_motor), [Induction motor breakdown (maximum) torque and starting torque](#energy_induction_max_torque), [Induction motor power flow from slip and losses](#energy_induction_power_flow) |
 | Machines / speed and slip | [Synchronous speed, rotor speed and slip of an AC machine](#energy_synchronous_speed) |
 | Machines / synchronous machines | [Synchronous generator internal EMF, power angle and regulation](#energy_synchronous_generator) |
 | Photovoltaics / array output | [PV array DC power with temperature derating (PVWatts)](#energy_pvwatts_dc), [PV array output at operating temperature](#energy_pv_array_output) |
@@ -181,6 +184,10 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 | energy_synchronous_speed | Synchronous speed, rotor speed and slip of an AC machine | f, poles, s, n_r | n_sync_rpm, omega_sync, n_rotor_rpm, slip, slip_frequency |
 | energy_stack_electrical_power | Electrical power of a fuel-cell or electrolyser stack | I, N, V_cell | P, P_kW, V_stack |
 | energy_coulomb_counting | State of charge by coulomb counting | SOC0, Q, currents, dt | SOC, SOC_min, SOC_max, charge_out, charge_out_Ah |
+| energy_hydro_power | Hydroelectric power from flow and head, and the energy over a period | Q, H, eta, rho, g, CF, hours | P, P_kW, P_MW, P_hydraulic, E, E_MWh |
+| energy_capacity_factor | Capacity factor and energy of a generating plant | P_rated, E, CF, hours | capacity_factor, capacity_factor_pct, E, E_MWh, full_load_hours, average_power |
+| energy_induction_power_flow | Induction motor power flow from slip and losses | f, poles, P_in, P_scl, s, n_r, P_core, P_fw, E2 | n_sync_rpm, n_rotor_rpm, slip, f_rotor, P_ag, P_rcl, P_conv, P_out, T_ind, T_shaft, efficiency_pct, E_rotor |
+| energy_butler_volmer | Electrode kinetics: Butler-Volmer current, overpotential and Tafel slopes | j0, alpha_a, alpha_c, T, eta, j | j, j_mA_cm2, eta, eta_mV, j_anodic, j_cathodic, b_a, b_c, b_a_mV, b_c_mV, R_ct, R_ct_ohm_cm2, eta_tafel |
 
 <a id="energy_solar_declination"></a>
 
@@ -4088,3 +4095,260 @@ energy_systems_ai999x.solve('energy_coulomb_counting', SOC0=1.0, Q=7200.0, curre
 | Coulomb counting: SOC0 = 90%, Q = 50 Ah, currents = [10, 20, -5], dt = 1 h | SOLVED | SOC = 0.4, SOC_min = 0.3, SOC_max = 0.9, charge_out = 90000 C, charge_out_Ah = 25 |
 | Coulomb counting: SOC0 = 90%, Q = 50 Ah, currents = [100, 20], dt = 1 h | INVALID_INPUT | State of charge by coulomb counting: the state of charge leaves the range 0 to 100% (more charge than the capacity). |
 | Coulomb counting: SOC0 = 90%, Q = 50 Ah, currents = [10, 20, -5] | NEEDS_INPUT | energy_coulomb_counting needs dt (length of each time step). Example: solve('energy_coulomb_counting', SOC0=0.9, Q='1800 |
+
+<a id="energy_hydro_power"></a>
+
+### Hydroelectric power from flow and head, and the energy over a period, `energy_hydro_power`
+
+The electrical output $P = \eta$ rho g Q H of a hydroelectric plant from the flow rate, the net head and the overall efficiency, the hydraulic power, and the energy over a period (default a year of 8760 h) at a capacity factor (default 1).
+
+$$
+P = \eta\,\rho g Q H,\quad E = P \cdot CF \cdot t
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `Q` | volume flow rate through the turbines |  |
+| `H` | net head |  |
+| `eta` | overall efficiency (turbine x generator; fraction or %) |  |
+| `rho` | water density (default 1000 kg/m^3) |  |
+| `g` | gravitational acceleration (default 9.81 m/s^2) |  |
+| `CF` | capacity factor for the energy (fraction or %, default 1) |  |
+| `hours` | length of the period in hours (default 8760) |  |
+
+| output | meaning |
+|---|---|
+| `P` | electrical output |
+| `P_kW` | electrical output in kW |
+| `P_MW` | electrical output in MW |
+| `P_hydraulic` | hydraulic power rho g Q H |
+| `E` | energy over the period |
+| `E_MWh` | energy over the period in MWh |
+
+- **Method:** $P = \eta$ rho g Q H; $E = P$ CF hours
+- **Assumes:** Q, $H > 0$; $0 < \eta  \leq  1$; $0 < CF  \leq  1$; 0 < hours <= 8784; net head (losses in the penstock already deducted)
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![P (electrical output) against Q (volume flow rate through the turbines) from 5 m^3/s to 15 m^3/s](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydro-power-curve)
+
+*P (electrical output) against Q (volume flow rate through the turbines) from 5 m^3/s to 15 m^3/s. One curve for each value of H (net head): 50 m, 25 m, 100 m. Other inputs as in the worked example: eta = 0.9. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, Q = 10 m^3/s, P = 4.4145e+06 W.*
+
+```python
+energy_systems_ai999x.solve('energy_hydro_power', Q=10.0, H=50.0, eta=0.9)
+# -> P = 4.4145e+06 W, P_kW = 4414.5, P_MW = 4.4145, P_hydraulic = 4.905e+06 W, E = 1.39216e+14 J, E_MWh = 38671   (SOLVED)
+```
+
+```python
+energy_systems_ai999x.solve('energy_hydro_power', Q=2.0, H=100.0, eta=0.85, CF=0.5)
+# -> P = 1.6677e+06 W, P_kW = 1667.7, P_MW = 1.6677, P_hydraulic = 1.962e+06 W, E = 2.62963e+13 J, E_MWh = 7304.53   (SOLVED)
+```
+
+```python
+energy_systems_ai999x.solve('energy_hydro_power', Q=1.0, H=10.0, eta=1.0, g=9.80665, hours=1.0)
+# -> P = 98066.5 W, P_kW = 98.0665, P_MW = 0.0980665, P_hydraulic = 98066.5 W, E = 3.53039e+08 J, E_MWh = 0.0980665   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Hydro power: Q = 10 m^3/s, H = 50 m, eta = 90% | SOLVED | P = 4.4145e+06 W, P_kW = 4414.5, P_MW = 4.4145, P_hydraulic = 4.905e+06 W, E = 1.39216e+14 J, E_MWh = 38671 |
+| Hydro power: Q = 2 m^3/s, H = 100 m, eta = 85%, CF = 50% | SOLVED | P = 1.6677e+06 W, P_kW = 1667.7, P_MW = 1.6677, P_hydraulic = 1.962e+06 W, E = 2.62963e+13 J, E_MWh = 7304.53 |
+| Hydro power: Q = 10 m^3/s, H = 50 m, eta = 120% | INVALID_INPUT | Hydroelectric power from flow and head, and the energy over a period: the efficiency must lie in (0, 1] (e.g. 0.9 or 90% |
+| Hydro power: Q = 10 m^3/s, eta = 90% | NEEDS_INPUT | energy_hydro_power needs H (net head). Example: solve('energy_hydro_power', Q='10 m^3/s', H='50 m', eta=0.9). |
+
+<a id="energy_capacity_factor"></a>
+
+### Capacity factor and energy of a generating plant, `energy_capacity_factor`
+
+The capacity factor of a plant of any type from its rated power and the energy produced over a period (default a year of 8760 h), or the energy from a capacity factor, with the equivalent full-load hours and the average output.
+
+$$
+CF = \frac{E}{P_{rated}\,t}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `P_rated` | rated (nameplate) power |  |
+| `E` | energy produced in the period (give E or CF) |  |
+| `CF` | capacity factor (fraction or %; give E or CF) |  |
+| `hours` | length of the period in hours (default 8760) |  |
+
+| output | meaning |
+|---|---|
+| `capacity_factor` | capacity factor E/(P_rated t) |
+| `capacity_factor_pct` | capacity factor in percent |
+| `E` | energy produced in the period |
+| `E_MWh` | energy produced in MWh |
+| `full_load_hours` | equivalent full-load hours CF t |
+| `average_power` | average output CF P_rated |
+
+- **Method:** CF = E/(P_rated t); $E = CF$ P_rated t; full-load hours = CF t
+- **Assumes:** P_rated > 0; exactly one of E and CF; $0 < CF  \leq  1$; 0 < hours <= 8784
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![capacity_factor (capacity factor E/(P_rated t)) against P_rated (rated (nameplate) power) from 1e+06 W to 3e+06 W](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-capacity-factor-curve)
+
+*capacity_factor (capacity factor E/(P_rated t)) against P_rated (rated (nameplate) power) from 1e+06 W to 3e+06 W. One curve for each value of E (energy produced in the period (give E or CF)): 1.8922e+13 J, 9.4608e+12 J, 3.7843e+13 J. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, P_rated = 2e+06 W, capacity_factor = 0.3.*
+
+![capacity_factor (capacity factor E/(P_rated t)) over P_rated (rated (nameplate) power) from 1e+06 W to 3e+06 W and E (energy produced in the period (give E or CF)) from 9](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-capacity-factor-field)
+
+*capacity_factor (capacity factor E/(P_rated t)) over P_rated (rated (nameplate) power) from 1e+06 W to 3e+06 W and E (energy produced in the period (give E or CF)) from 9.4608e+12 J to 2.8382e+13 J: each of the 21 × 15 cells is one run of energy-systems-ai999x, shaded by its value (light 0.1 to dark 0.9); iso-lines at capacity_factor = 0.2, 0.4, 0.6, 0.8. Marked: the worked example, P_rated = 2e+06 W, E = 1.8922e+13 J, capacity_factor = 0.3.*
+
+```python
+energy_systems_ai999x.solve('energy_capacity_factor', P_rated=2000000.0, E=18921600000000.0)
+# -> capacity_factor = 0.3, capacity_factor_pct = 30, E = 1.89216e+13 J, E_MWh = 5256, full_load_hours = 2628, average_power = 600000 W   (SOLVED)
+```
+
+```python
+energy_systems_ai999x.solve('energy_capacity_factor', P_rated=500000000.0, CF=0.9)
+# -> capacity_factor = 0.9, capacity_factor_pct = 90, E = 1.41912e+16 J, E_MWh = 3.942e+06, full_load_hours = 7884, average_power = 4.5e+08 W   (SOLVED)
+```
+
+```python
+energy_systems_ai999x.solve('energy_capacity_factor', P_rated=1000000.0, E=21600000000.0, hours=24.0)
+# -> capacity_factor = 0.25, capacity_factor_pct = 25, E = 2.16e+10 J, E_MWh = 6, full_load_hours = 6, average_power = 250000 W   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Capacity factor: P_rated = 2 MW, E = 5256 MWh | SOLVED | capacity_factor = 0.3, capacity_factor_pct = 30, E = 1.89216e+13 J, E_MWh = 5256, full_load_hours = 2628, average_power = 600000 W |
+| Capacity factor: P_rated = 500 MW, CF = 90% | SOLVED | capacity_factor = 0.9, capacity_factor_pct = 90, E = 1.41912e+16 J, E_MWh = 3.942e+06, full_load_hours = 7884, average_power = 4.5e+08 W |
+| Capacity factor: P_rated = 2 MW, E = 20000 MWh | INVALID_INPUT | Capacity factor and energy of a generating plant: the energy produced cannot exceed rated power x period (capacity facto |
+| Capacity factor: P_rated = 2 MW, E = 5256 MWh, CF = 30% | INVALID_INPUT | Capacity factor and energy of a generating plant: give exactly one of the energy produced E and the capacity factor CF. |
+
+<a id="energy_induction_power_flow"></a>
+
+### Induction motor power flow from slip and losses, `energy_induction_power_flow`
+
+The power flow of a three-phase induction motor from its input power and losses: synchronous and rotor speed, slip, rotor frequency (and rotor emf), air-gap power, rotor copper loss s P_ag, converted power, output, induced and shaft torque, and efficiency (no equivalent-circuit parameters needed).
+
+$$
+P_{ag} = P_{in} - P_{scl} - P_{core},\quad P_{rcl} = s\,P_{ag},\quad P_{conv} = (1-s)P_{ag},\quad \eta = \frac{P_{conv} - P_{fw}}{P_{in}}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `f` | supply frequency |  |
+| `poles` | number of poles (even) |  |
+| `P_in` | electrical input power |  |
+| `P_scl` | stator copper loss |  |
+| `s` | slip (fraction or %; give s or n_r) |  |
+| `n_r` | rotor speed (rpm; give s or n_r) |  |
+| `P_core` | core (iron) loss, default 0 |  |
+| `P_fw` | friction and windage loss, default 0 |  |
+| `E2` | rotor emf per phase at standstill (optional) |  |
+
+| output | meaning |
+|---|---|
+| `n_sync_rpm` | synchronous speed 120 f/p, rpm |
+| `n_rotor_rpm` | rotor speed, rpm |
+| `slip` | slip |
+| `f_rotor` | rotor current frequency s f |
+| `P_ag` | air-gap power P_in - stator losses |
+| `P_rcl` | rotor copper loss s P_ag |
+| `P_conv` | converted (mechanical developed) power $(1 - s)$ P_ag |
+| `P_out` | output (shaft) power P_conv - friction and windage |
+| `T_ind` | induced torque P_ag/omega_s |
+| `T_shaft` | shaft (output) torque P_out/omega_m |
+| `efficiency_pct` | efficiency P_out/P_in in percent |
+| `E_rotor` | rotor emf per phase at the running slip s E2 (with E2) |
+
+- **Method:** P_ag = P_in - P_scl - P_core; P_rcl = s P_ag; P_conv = (1 - s) P_ag; P_out = P_conv - P_fw; $T = P_ag/omega_s$; $f_r = s$ f
+- **Assumes:** even number of poles; exactly one of s and n_r; $0 < s < 1$ (motoring); stator losses < P_in; P_out > 0; the core loss is taken with the stator losses
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![P_out (output (shaft) power P_conv - friction and windage) against P_in (electrical input power) from 25000 W to 75000 W](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-power-flow-curve)
+
+*P_out (output (shaft) power P_conv - friction and windage) against P_in (electrical input power) from 25000 W to 75000 W. One curve for each value of s (slip (fraction or %; give s or n_r)): 0.04, 0.26, 0.74. Other inputs as in the worked example: f = 50.0 Hz, poles = 4, P_scl = 1500.0 W, P_core = 1000.0 W, P_fw = 900.0 W. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, P_in = 50000 W, P_out = 44700 W.*
+
+```python
+energy_systems_ai999x.solve('energy_induction_power_flow', f=50.0, poles=4, s=0.04, P_in=50000.0, P_scl=1500.0, P_core=1000.0, P_fw=900.0)
+# -> n_sync_rpm = 1500, n_rotor_rpm = 1440, slip = 0.04, f_rotor = 2 Hz, P_ag = 47500 W, P_rcl = 1900 W, P_conv = 45600 W, P_out = 44700 W, T_ind = 302.394 N*m, T_shaft = 296.426 N*m, efficiency_pct = 89.4   (SOLVED)
+```
+
+```python
+energy_systems_ai999x.solve('energy_induction_power_flow', f=60.0, poles=6, n_r=119.38052083641215, P_in=20000.0, P_scl=800.0, E2=200.0)
+# -> n_sync_rpm = 1200, n_rotor_rpm = 1140, slip = 0.05, f_rotor = 3 Hz, P_ag = 19200 W, P_rcl = 960 W, P_conv = 18240 W, P_out = 18240 W, T_ind = 152.789 N*m, T_shaft = 152.789 N*m, efficiency_pct = 91.2, E_rotor = 10 V   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Induction motor power flow: f = 50 Hz, poles = 4, s = 4%, P_in = 50 kW, P_scl = 1.5 kW, P_core = 1 kW, P_fw = 900 W | SOLVED | n_sync_rpm = 1500, n_rotor_rpm = 1440, slip = 0.04, f_rotor = 2 Hz, P_ag = 47500 W, P_rcl = 1900 W, P_conv = 45600 W, P_out = 44700 W, T_ind = 302.394 N*m, T_shaft = 296.426 N*m, efficiency_pct = 89.4 |
+| Induction motor power flow: f = 60 Hz, poles = 6, n_r = 1140 rpm, P_in = 20 kW, P_scl = 800 W, E2 = 200 V | SOLVED | n_sync_rpm = 1200, n_rotor_rpm = 1140, slip = 0.05, f_rotor = 3 Hz, P_ag = 19200 W, P_rcl = 960 W, P_conv = 18240 W, P_out = 18240 W, T_ind = 152.789 N*m, T_shaft = 152.789 N*m, efficiency_pct = 91.2, E_rotor = 10 V |
+| Induction motor power flow: f = 50 Hz, poles = 4, s = 4%, n_r = 1440 rpm, P_in = 50 kW, P_scl = 1.5 kW | INVALID_INPUT | Induction motor power flow from slip and losses: give exactly one of the slip s and the rotor speed n_r. |
+| Induction motor power flow: f = 50 Hz, poles = 4, n_r = 1600 rpm, P_in = 50 kW, P_scl = 1.5 kW | INVALID_INPUT | Induction motor power flow from slip and losses: the slip must lie strictly between 0 and 1 (motoring below synchronous  |
+| Induction motor power flow: f = 50 Hz, poles = 4, s = 4%, P_in = 50 kW | NEEDS_INPUT | energy_induction_power_flow needs P_scl (stator copper loss). Example: solve('energy_induction_power_flow', f='50 Hz', p |
+
+<a id="energy_butler_volmer"></a>
+
+### Electrode kinetics: Butler-Volmer current, overpotential and Tafel slopes, `energy_butler_volmer`
+
+The current density of an electrode reaction at an overpotential by the Butler-Volmer equation (or the overpotential that drives a current density), with the anodic and cathodic partial currents, the Tafel slopes, the Tafel-line overpotential and the charge-transfer resistance.
+
+$$
+j = j_0\left[e^{\alpha_a F\eta/RT} - e^{-\alpha_c F\eta/RT}\right],\quad b_a = \frac{2.303\,RT}{\alpha_a F},\quad \eta \approx b_a\log_{10}\frac{j}{j_0}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `j0` | exchange current density in $A/m^{2}$ (questions: $A/m^{2}$, $A/cm^{2}$, $mA/cm^{2}$, uA/cm^2) |  |
+| `alpha_a` | anodic transfer coefficient (electrons included) |  |
+| `alpha_c` | cathodic transfer coefficient (electrons included) |  |
+| `T` | electrode temperature |  |
+| `eta` | overpotential (anodic positive; give eta or j) |  |
+| `j` | current density in $A/m^{2}$, anodic positive (give j or eta) |  |
+
+| output | meaning |
+|---|---|
+| `j` | net current density in $A/m^{2}$ (anodic positive) |
+| `j_mA_cm2` | net current density in $mA/cm^{2}$ |
+| `eta` | overpotential |
+| `eta_mV` | overpotential in mV |
+| `j_anodic` | anodic partial current density in $A/m^{2}$ |
+| `j_cathodic` | cathodic partial current density in $A/m^{2}$ (negative) |
+| `b_a` | anodic Tafel slope in V per decade |
+| `b_c` | cathodic Tafel slope in V per decade |
+| `b_a_mV` | anodic Tafel slope in mV per decade |
+| `b_c_mV` | cathodic Tafel slope in mV per decade |
+| `R_ct` | charge-transfer resistance at equilibrium in ohm $m^{2}$ |
+| `R_ct_ohm_cm2` | charge-transfer resistance in ohm $cm^{2}$ |
+| `eta_tafel` | overpotential of the Tafel line b log10(\|j\|/j0) (when \|j\| > j0) |
+
+- **Method:** $j = j_{0}$ [exp(alpha_a F eta/RT) - exp(-alpha_c F eta/RT)] (evaluated with expm1); eta from j by bracketed regula falsi; $b = ln10$ RT/(alpha F); $R_ct = RT$/((alpha_a + alpha_c) F j0)
+- **Assumes:** $0 < j_{0}  \leq  1e6$ $A/m^{2}$; $0 < alpha_a$, $alpha_c  \leq  4$; 200 $K  \leq  T  \leq  1500$ K; exactly one of eta and j; |eta| <= 2 V; no mass-transport (concentration) limitation
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![j (net current density in A/m^2 (anodic positive)) against eta (overpotential (anodic positive; give eta or j)) from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-butler-volmer-curve)
+
+*j (net current density in A/m^2 (anodic positive)) against eta (overpotential (anodic positive; give eta or j)) from 0.01 V to 1 V on a logarithmic axis, logarithmic output axis. One curve for each value of j0 (exchange current density in A/m^2 (questions: A/m^2, A/cm^2, mA/cm^2, uA/cm^2)): 10, 5, 20. Other inputs as in the worked example: alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, eta = 0.1 V, j = 68.5841.*
+
+```python
+energy_systems_ai999x.solve('energy_butler_volmer', j0=10.0, alpha_a=0.5, alpha_c=0.5, T=298.15, eta=0.1)
+# -> j = 68.5841, j_mA_cm2 = 6.85841, eta = 0.1 V, eta_mV = 100, j_anodic = 70.0124, j_cathodic = -1.42832, b_a = 0.118319, b_c = 0.118319, b_a_mV = 118.319, b_c_mV = 118.319, R_ct = 0.00256926, R_ct_ohm_cm2 = 25.6926, eta_tafel = 0.0989409 V   (SOLVED)
+```
+
+```python
+energy_systems_ai999x.solve('energy_butler_volmer', j0=10.0, alpha_a=0.5, alpha_c=0.5, T=298.15, j=1000.0)
+# -> j = 1000, j_mA_cm2 = 100, eta = 0.236643 V, eta_mV = 236.643, j_anodic = 1000.1, j_cathodic = -0.09999, b_a = 0.118319, b_c = 0.118319, b_a_mV = 118.319, b_c_mV = 118.319, R_ct = 0.00256926, R_ct_ohm_cm2 = 25.6926, eta_tafel = 0.236637 V   (SOLVED)
+```
+
+```python
+energy_systems_ai999x.solve('energy_butler_volmer', j0=0.5, alpha_a=0.3, alpha_c=0.7, T=353.15, eta=-0.2)
+# -> j = -49.6926, j_mA_cm2 = -4.96926, eta = -0.2 V, eta_mV = -200, j_anodic = 0.0696168, j_cathodic = -49.7622, b_a = 0.233575, b_c = 0.100104, b_a_mV = 233.575, b_c_mV = 100.104, R_ct = 0.0608642, R_ct_ohm_cm2 = 608.642, eta_tafel = -0.199939 V   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Butler-Volmer: j0 = 1 mA/cm^2, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 100 mV | SOLVED | j = 68.5841, j_mA_cm2 = 6.85841, eta = 0.1 V, eta_mV = 100, j_anodic = 70.0124, j_cathodic = -1.42832, b_a = 0.118319, b_c = 0.118319, b_a_mV = 118.319, b_c_mV = 118.319, R_ct = 0.00256926, R_ct_ohm_cm2 = 25.6926, eta_tafel = 0.0989409 V |
+| Tafel overpotential: j0 = 10 A/m^2, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, j = 100 mA/cm^2 | SOLVED | j = 1000, j_mA_cm2 = 100, eta = 0.236643 V, eta_mV = 236.643, j_anodic = 1000.1, j_cathodic = -0.09999, b_a = 0.118319, b_c = 0.118319, b_a_mV = 118.319, b_c_mV = 118.319, R_ct = 0.00256926, R_ct_ohm_cm2 = 25.6926, eta_tafel = 0.236637 V |
+| Butler-Volmer: j0 = 0.05 mA/cm^2, alpha_a = 0.3, alpha_c = 0.7, T = 80 degC, eta = -200 mV | SOLVED | j = -49.6926, j_mA_cm2 = -4.96926, eta = -0.2 V, eta_mV = -200, j_anodic = 0.0696168, j_cathodic = -49.7622, b_a = 0.233575, b_c = 0.100104, b_a_mV = 233.575, b_c_mV = 100.104, R_ct = 0.0608642, R_ct_ohm_cm2 = 608.642, eta_tafel = -0.199939 V |
+| Butler-Volmer: j0 = 10 A/m^2, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 0.1 V, j = 100 A/m^2 | INVALID_INPUT | Electrode kinetics: Butler-Volmer current, overpotential and Tafel slopes: give exactly one of the overpotential eta and |
+| Butler-Volmer: j0 = 10, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 0.1 V | UNRECOGNIZED_FORMAT | I could not match this question to a documented form, so I will not guess. Every form: energy_systems_ai999x.templates() |
+| Butler-Volmer: alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 0.1 V | NEEDS_INPUT | energy_butler_volmer needs j0 (exchange current density in A/m^2 (questions: A/m^2, A/cm^2, mA/cm^2, uA/cm^2)). Example: |

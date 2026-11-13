@@ -4,11 +4,11 @@
 
 **[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/energy-systems-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/energy-systems-ai999x/)** · **[Guides](https://huggingface.co/AI999X/energy-systems-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/energy-systems-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.5.0
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.6.0
 
 Field: **Engineering** · Tasks: Question Answering
 
-energy-systems-ai999x is an offline, deterministic energy systems solver written in Rust: a desktop app, a command-line program, a browser module and a Python package. It answers energy systems questions with verified results from 79 certified capabilities, gives 311 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
+energy-systems-ai999x is an offline, deterministic energy systems solver written in Rust: a desktop app, a command-line program, a browser module and a Python package. It answers energy systems questions with verified results from 83 certified capabilities, gives 341 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
 
 **energy-systems-ai999x** reads a question in plain English (or a typed call), picks a certified energy systems capability, computes the answer exactly, checks it, and returns the result with its steps, units, LaTeX and assumptions, or a refusal that says what is missing. It runs fully offline on any CPU, needs no GPU, no API key and no internet, and is built to give **zero wrong answers**: when it is not sure, it refuses instead of guessing.
 
@@ -20,13 +20,13 @@ energy-systems-ai999x is an offline, deterministic energy systems solver written
 
 | Way to run it | For | Get it |
 |---|---|---|
-| **AI999X Energy Systems desktop app** 1.5.0 | Windows, Linux. This model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-energy-systems-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-energy-systems-1.5.0-linux-x86_64.tar.gz) |
-| **AI999X desktop app** 1.5.0 | Windows, Linux. Every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz) |
-| **Command line** (`energy-systems`) | Windows, Linux. One program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz) |
+| **AI999X Energy Systems desktop app** 1.6.0 | Windows, Linux. This model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-energy-systems-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-energy-systems-1.6.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.6.0 | Windows, Linux. Every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz) |
+| **Command line** (`energy-systems`) | Windows, Linux. One program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz) |
 | **In your browser** | any device. Nothing to install | [Compute on the model page](https://www.ai999x.com/models/energy-systems-ai999x/#try) |
 | **Python** | Python 3.10+ | `pip install energy-systems-ai999x` |
 
-Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
+Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
 
 ## Quick start
 
@@ -37,11 +37,11 @@ Download **AI999X Energy Systems** for your system (above), unpack it and start 
 Linux, from a terminal:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-energy-systems-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-energy-systems-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-energy-systems-1.5.0-linux-x86_64.tar.gz
-./ai999x-energy-systems-1.5.0-linux-x86_64/ai999x-energy-systems
+tar xzf ai999x-energy-systems-1.6.0-linux-x86_64.tar.gz
+./ai999x-energy-systems-1.6.0-linux-x86_64/ai999x-energy-systems
 ```
 
 ### Command line
@@ -49,23 +49,23 @@ tar xzf ai999x-energy-systems-1.5.0-linux-x86_64.tar.gz
 Linux:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 energy-systems --version
 ```
 
 Windows (PowerShell):
 
 ```powershell
-$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.6.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 energy-systems --version
 ```
@@ -301,7 +301,7 @@ _What this means:_ This calculation determines the battery's state of charge by 
 ## Highlights
 
 - **Verified, not generated.** Every answer is computed by a certified energy systems capability and checked (substituted back, dimension-checked or compared with an independent computation) before it is returned.
-- **Zero wrong answers by design.** Seven explicit outcomes (SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR), never a silent guess. Every one of its 311 documented answers is reproduced exactly on every tested platform.
+- **Zero wrong answers by design.** Seven explicit outcomes (SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR), never a silent guess. Every one of its 341 documented answers is reproduced exactly on every tested platform.
 - **Plain-English questions and a guaranteed typed interface.** `ask()` reads documented question forms; `solve(capability_id, **inputs)` always solves a supported task with valid inputs.
 - **Explains itself.** Steps, formulas in LaTeX, units, assumptions and the model used, ready for notebooks, tutoring apps and homework checkers.
 - **Native and in the browser.** Every capability also computes natively in Rust: the desktop app and the `energy-systems` command line for Windows and Linux, and WebAssembly on the model page, no Python, no network.
@@ -312,11 +312,11 @@ _What this means:_ This calculation determines the battery's state of charge by 
 
 | Property | Value |
 |---|---|
-| Package | `energy-systems-ai999x` 1.5.0 (import `energy_systems_ai999x`) |
+| Package | `energy-systems-ai999x` 1.6.0 (import `energy_systems_ai999x`) |
 | Type | Deterministic neuro-symbolic energy systems engine (rule-based reading + certified symbolic capabilities) |
-| Capabilities | 79 certified procedures |
+| Capabilities | 83 certified procedures |
 | Knowledge pack | version 1.0.1 |
-| Golden answers | 311 documented answers, identical on every tested platform |
+| Golden answers | 341 documented answers, identical on every tested platform |
 | Platforms tested | Windows (Python 3.13), Linux x86-64 (Python 3.10, 3.11, 3.12, 3.13, 3.14) |
 | Runtime | CPU only, offline; no GPU, no network, no API key |
 | License | Apache-2.0 |
@@ -346,7 +346,7 @@ energy_systems.ask("Who created you?").message
 # -> energy-systems-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-The Python package also installs a Python command, `energy-systems-ai999x "<question>"`; for the native program use `energy-systems` (above). The outputs above were produced by running this exact code on energy-systems-ai999x 1.5.0.
+The Python package also installs a Python command, `energy-systems-ai999x "<question>"`; for the native program use `energy-systems` (above). The outputs above were produced by running this exact code on energy-systems-ai999x 1.6.0.
 
 ## How every answer is verified
 
@@ -469,9 +469,9 @@ _Wind speed at nine heights extrapolated from 5 m/s measured at 10 m, drawn as a
 
 ## Capabilities
 
-79 certified procedures. A few of them:
+83 certified procedures. A few of them:
 
-- **Procedures:** AC load flow by Newton-Raphson; Actuator-disc (momentum theory) rotor performance; Air density at hub height; Angle of incidence of the sun on a tilted surface; Annual energy production from a power curve and a Weibull distribution; Balanced three-phase power from line quantities; Base impedance and per-unit impedance; Battery pack series-parallel sizing; Battery terminal voltage under constant current (one-RC equivalent circuit); Clear-sky global horizontal irradiance (Haurwitz); Clear-sky irradiance (Ineichen-Perez with Linke turbidity); Combined PV system losses (PVWatts); Critical clearing angle and time (equal-area criterion); DC power flow; Diffuse and direct irradiance from global horizontal irradiance (Erbs); Direct normal irradiance from global horizontal irradiance (DISC model); Double line-to-ground fault (symmetrical components); Economic dispatch with quadratic costs and limits; Electrical power of a fuel-cell or electrolyser stack; Equation of time; Extraterrestrial (top-of-atmosphere) normal irradiance; Frequency deviation and load sharing under governor droop; Geometric mean distance of a three-phase line; Hydrogen fuel-cell stack: consumption, power and efficiency …
+- **Procedures:** AC load flow by Newton-Raphson; Actuator-disc (momentum theory) rotor performance; Air density at hub height; Angle of incidence of the sun on a tilted surface; Annual energy production from a power curve and a Weibull distribution; Balanced three-phase power from line quantities; Base impedance and per-unit impedance; Battery pack series-parallel sizing; Battery terminal voltage under constant current (one-RC equivalent circuit); Capacity factor and energy of a generating plant; Clear-sky global horizontal irradiance (Haurwitz); Clear-sky irradiance (Ineichen-Perez with Linke turbidity); Combined PV system losses (PVWatts); Critical clearing angle and time (equal-area criterion); DC power flow; Diffuse and direct irradiance from global horizontal irradiance (Erbs); Direct normal irradiance from global horizontal irradiance (DISC model); Double line-to-ground fault (symmetrical components); Economic dispatch with quadratic costs and limits; Electrical power of a fuel-cell or electrolyser stack; Electrode kinetics: Butler-Volmer current, overpotential and Tafel slopes; Equation of time; Extraterrestrial (top-of-atmosphere) normal irradiance; Frequency deviation and load sharing under governor droop …
 
 `energy_systems_ai999x.templates()` lists every question form `ask()` reads; the capability guide (PDF, every example executed) is included in this repository.
 
@@ -490,10 +490,10 @@ _Wind speed at nine heights extrapolated from 5 m/s measured at 10 m, drawn as a
 ## Citation
 
 ```bibtex
-@software{energy_systems_ai999x_1_5_0,
+@software{energy_systems_ai999x_1_6_0,
   title  = {energy-systems-ai999x: an offline, verified energy systems solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.5.0},
+  year   = {2026}, version = {1.6.0},
   url    = {https://huggingface.co/AI999X/energy-systems-ai999x}
 }
 ```
@@ -510,7 +510,7 @@ Created and engineered by **Ibnul Jaif Farabi** · **[AI999X](https://huggingfac
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/energy-systems-ai999x/) (`pip install .` builds it). Releases are tagged `v1.5.0`; the [GitHub release](https://github.com/AI999X/energy-systems-ai999x/releases/tag/v1.5.0) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/energy-systems-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.0`; the [GitHub release](https://github.com/AI999X/energy-systems-ai999x/releases/tag/v1.6.0) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 

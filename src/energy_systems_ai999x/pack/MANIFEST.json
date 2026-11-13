@@ -1,5 +1,5 @@
 {
- "package": "1.5.0",
+ "package": "1.6.0",
  "pack": "1.0.1",
  "knowledge_db": null,
  "files": {
@@ -7,8 +7,8 @@
   "dictionary/terms.json": "3781eac9e78cc74a52dfbb7f7c6ecd5f218e2a208be5aad6dabd1094f82ddc60",
   "knowledge/relations.json": "37be80baea7ca193eb7a1a1809ef82aa0f33fa53fc88e12ec8feb60c13768fcd",
   "knowledge/reference_cases.json": "7414a14e2c4202a7fae8cdd14e1a2ef7267f35a9665b0633001349c698d4e4e7",
-  "capabilities/procedures.py": "21aa085239c800ce9c62204a1fe986b937e9af82ba69e65d2cbbe0b0385ac08c",
-  "capabilities/procedures_certified.json": "29e071fcd035e5e10fa693db01973c93be17978d2d95a579769c5a0cb109aa8d",
+  "capabilities/procedures.py": "97c0f31c39c83a1a5bb328b930d2b68665014f10c672478533e220c3d3f6f727",
+  "capabilities/procedures_certified.json": "40951e967d147852a788750b3c16668a81a8513e6ec51488d4ed5512cf0bbd65",
   "energy_systems_knowledge_public.sqlite": "e93f94d789bbc46a3d28b1f7307cbdc770dcdef2999ad236c988e676797acafd"
  },
  "engine": [

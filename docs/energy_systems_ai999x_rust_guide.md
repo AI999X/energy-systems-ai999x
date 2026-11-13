@@ -1,8 +1,8 @@
 # energy-systems: the Energy Systems program, user guide
 
-**energy-systems-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**energy-systems-ai999x 1.6.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
-Energy Systems covers power systems and load flow, three-phase power, transformers and machines, solar photovoltaics, wind power, batteries, fuel cells and hydrogen. This guide is about `energy-systems`, the model as a self-contained program for Windows and Linux: 79 capabilities in 10 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/energy-systems-ai999x/); the Python package (`pip install energy-systems-ai999x`) has its own guide. Every command output printed here is what the program printed.
+Energy Systems covers power systems and load flow, three-phase power, transformers and machines, solar photovoltaics, wind power, batteries, fuel cells and hydrogen. This guide is about `energy-systems`, the model as a self-contained program for Windows and Linux: 83 capabilities in 11 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/energy-systems-ai999x/); the Python package (`pip install energy-systems-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
 ## Contents
 
@@ -17,37 +17,37 @@ Energy Systems covers power systems and load flow, three-phase power, transforme
 
 ## 1. Get it
 
-Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.6.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Energy Systems | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-energy-systems-1.5.0-windows-x86_64.zip |
-| Desktop app: Energy Systems | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-energy-systems-1.5.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: Energy Systems | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-energy-systems-1.6.0-windows-x86_64.zip |
+| Desktop app: Energy Systems | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-energy-systems-1.6.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Energy Systems in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-energy-systems-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-energy-systems.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Energy Systems in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-energy-systems-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-energy-systems.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-energy-systems-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-energy-systems-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-energy-systems-1.5.0-linux-x86_64.tar.gz
-./ai999x-energy-systems-1.5.0-linux-x86_64/ai999x-energy-systems
+tar xzf ai999x-energy-systems-1.6.0-linux-x86_64.tar.gz
+./ai999x-energy-systems-1.6.0-linux-x86_64/ai999x-energy-systems
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
-./ai999x-1.5.0-linux-x86_64/ai999x
+tar xzf ai999x-1.6.0-linux-x86_64.tar.gz
+./ai999x-1.6.0-linux-x86_64/ai999x
 ```
 
 ### Command line: Linux
@@ -55,11 +55,11 @@ tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
 The bundle holds one program per model; `energy-systems` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 energy-systems --version
 ```
 
@@ -68,12 +68,12 @@ energy-systems --version
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.6.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 energy-systems --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ energy-systems --version
-energy-systems-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
+energy-systems-ai999x 1.6.0 (Rust build, ax-engine 1.6.0)
 ```
 
 ### 2.2 Ask in words
@@ -147,10 +147,10 @@ energy_air_mass                          Optical air mass
 energy_angle_of_incidence                Angle of incidence of the sun on a tilted surface
 energy_battery_pack_sizing               Battery pack series-parallel sizing
 energy_battery_rc_discharge              Battery terminal voltage under constant current (one-RC equivalent circuit)
+energy_butler_volmer                     Electrode kinetics: Butler-Volmer current, overpotential and Tafel slopes
+energy_capacity_factor                   Capacity factor and energy of a generating plant
 energy_cell_temperature_faiman           PV module temperature (Faiman model)
-energy_cell_temperature_noct             PV cell temperature from NOCT
-energy_cell_temperature_sapm             PV cell and module temperature (Sandia SAPM model)
-… 71 more
+… 75 more
 ```
 
 ### 2.5 What a capability needs
@@ -469,7 +469,7 @@ charge_out_Ah = 25
 
 **What the worked example means:** This calculation determines the battery's state of charge by tracking the current flow over time. Starting from an initial value of 0.9, the system subtracts the total charge removed from the capacity 180000 C. The result shows that the state of charge ended at 0.4, having varied between 0.3 and 0.9 during the interval, while a net amount of 90000 C coulombs was delivered to the load.
 
-### Fuel cells (3)
+### Fuel cells (4)
 
 <a id="energy_stack_electrical_power"></a>
 
@@ -504,6 +504,66 @@ V_stack = 70 V
 ```
 
 **What the worked example means:** This calculation determines the electrical power generated by a fuel-cell stack or consumed by an electrolyser stack. It uses the number of cells in series, the current flowing through them, and the average voltage per cell. The result shows that the total power is 14000 W, which converts to 14 kilowatts. The overall voltage across the entire stack is calculated as 70 V, derived from multiplying the individual cell voltage by the count of cells.
+
+<a id="energy_butler_volmer"></a>
+
+#### Electrode kinetics: Butler-Volmer current, overpotential and Tafel slopes, `energy_butler_volmer`
+
+The current density of an electrode reaction at an overpotential by the Butler-Volmer equation (or the overpotential that drives a current density), with the anodic and cathodic partial currents, the Tafel slopes, the Tafel-line overpotential and the charge-transfer resistance.
+
+$$
+j = j_0\left[e^{\alpha_a F\eta/RT} - e^{-\alpha_c F\eta/RT}\right],\quad b_a = \frac{2.303\,RT}{\alpha_a F},\quad \eta \approx b_a\log_{10}\frac{j}{j_0}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `j0` | in | exchange current density in A/m^2 (questions: A/m^2, A/cm^2, mA/cm^2, uA/cm^2) | - |
+| `alpha_a` | in | anodic transfer coefficient (electrons included) | - |
+| `alpha_c` | in | cathodic transfer coefficient (electrons included) | - |
+| `T` | in | electrode temperature | K |
+| `eta` | in | overpotential (anodic positive; give eta or j) (optional) | V |
+| `j` | in | current density in A/m^2, anodic positive (give j or eta) (optional) | - |
+| `j` | out | net current density in A/m^2 (anodic positive) | - |
+| `j_mA_cm2` | out | net current density in mA/cm^2 | - |
+| `eta` | out | overpotential | V |
+| `eta_mV` | out | overpotential in mV | - |
+| `j_anodic` | out | anodic partial current density in A/m^2 | - |
+| `j_cathodic` | out | cathodic partial current density in A/m^2 (negative) | - |
+| `b_a` | out | anodic Tafel slope in V per decade | - |
+| `b_c` | out | cathodic Tafel slope in V per decade | - |
+| `b_a_mV` | out | anodic Tafel slope in mV per decade | - |
+| `b_c_mV` | out | cathodic Tafel slope in mV per decade | - |
+| `R_ct` | out | charge-transfer resistance at equilibrium in ohm m^2 | - |
+| `R_ct_ohm_cm2` | out | charge-transfer resistance in ohm cm^2 | - |
+| `eta_tafel` | out | overpotential of the Tafel line b log10(\|j\|/j0) (when \|j\| > j0) | V |
+
+**Applies when:** 0 < j0 <= 1e6 A/m^2; 0 < alpha_a, alpha_c <= 4; 200 K <= T <= 1500 K; exactly one of eta and j; |eta| <= 2 V; no mass-transport (concentration) limitation.
+
+```shell
+$ energy-systems solve energy_butler_volmer j0=10 alpha_a=0.5 alpha_c=0.5 "T=298.15 K" "eta=100 mV"
+j = 68.58407791
+j_mA_cm2 = 6.858407791
+eta = 0.1 V
+eta_mV = 100
+j_anodic = 70.0123964
+j_cathodic = -1.428318486
+b_a = 0.1183186994
+b_c = 0.1183186994
+b_a_mV = 118.3186994
+b_c_mV = 118.3186994
+R_ct = 0.002569257912
+R_ct_ohm_cm2 = 25.69257912
+eta_tafel = 0.09894085372 V
+  by: Electrode kinetics: Butler-Volmer current, overpotential and Tafel slopes  (j = j0 [exp(alpha_a F eta/RT) - exp(-alpha_c F eta/RT)] (evaluated with expm1); eta from j by bracketed regula falsi; b = ln10 RT/(alpha F); R_ct = RT/((alpha_a + alpha_c) F j0))
+  j0 = 10
+  alpha_a = 0.5
+  alpha_c = 0.5
+  T = 298.15 K
+  eta = 0.1 V
+  assumes: 0 < j0 <= 1e6 A/m^2; 0 < alpha_a, alpha_c <= 4; 200 K <= T <= 1500 K; exactly one of eta and j; |eta| <= 2 V; no mass-transport (concentration) limitation
+```
+
+In the worked example, j0 = 10, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 100 mV go through the equation above and give j = 68.58407791, j_mA_cm2 = 6.858407791, eta = 0.1 V, eta_mV = 100. It applies only when 0 < j0 <= 1e6 A/m^2; 0 < alpha_a, alpha_c <= 4; 200 K <= T <= 1500 K; exactly one of eta and j; |eta| <= 2 V; no mass-transport (concentration) limitation: outside that it says what is wrong instead of returning a number.
 
 <a id="energy_fuel_cell_stack"></a>
 
@@ -592,6 +652,94 @@ efficiency_LHV = 0.6265874685
 ```
 
 **What the worked example means:** This calculation determines the hydrogen output rate, water consumption, and electrical efficiency of an electrolyser stack based on the applied current and cell voltage. By applying Faraday's law, it computes that the system generates 0.00201588 kg/s of hydrogen per second while consuming 0.0180153 kg/s of water. The resulting specific energy is 53.1807, indicating how much electricity is required for each kilogram of hydrogen produced, which directly influences the overall efficiency values.
+
+### Generation (2)
+
+<a id="energy_capacity_factor"></a>
+
+#### Capacity factor and energy of a generating plant, `energy_capacity_factor`
+
+The capacity factor of a plant of any type from its rated power and the energy produced over a period (default a year of 8760 h), or the energy from a capacity factor, with the equivalent full-load hours and the average output.
+
+$$
+CF = \frac{E}{P_{rated}\,t}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `P_rated` | in | rated (nameplate) power | W |
+| `E` | in | energy produced in the period (give E or CF) (optional) | J |
+| `CF` | in | capacity factor (fraction or %; give E or CF) (optional) | - |
+| `hours` | in | length of the period in hours (default 8760) (optional) | - |
+| `capacity_factor` | out | capacity factor E/(P_rated t) | - |
+| `capacity_factor_pct` | out | capacity factor in percent | - |
+| `E` | out | energy produced in the period | J |
+| `E_MWh` | out | energy produced in MWh | - |
+| `full_load_hours` | out | equivalent full-load hours CF t | - |
+| `average_power` | out | average output CF P_rated | W |
+
+**Applies when:** P_rated > 0; exactly one of E and CF; 0 < CF <= 1; 0 < hours <= 8784.
+
+```shell
+$ energy-systems solve energy_capacity_factor "P_rated=2 MW" "E=5256 MWh"
+capacity_factor = 0.3
+capacity_factor_pct = 30
+E = 1.89216e+13 J
+E_MWh = 5256
+full_load_hours = 2628
+average_power = 600000 W
+  by: Capacity factor and energy of a generating plant  (CF = E/(P_rated t); E = CF P_rated t; full-load hours = CF t)
+  P_rated = 2000000 W
+  E = 1.89216e+13 J
+  assumes: P_rated > 0; exactly one of E and CF; 0 < CF <= 1; 0 < hours <= 8784
+```
+
+In the worked example, P_rated = 2 MW, E = 5256 MWh go through the equation above and give capacity_factor = 0.3, capacity_factor_pct = 30, E = 1.89216e+13 J, E_MWh = 5256. It applies only when P_rated > 0; exactly one of E and CF; 0 < CF <= 1; 0 < hours <= 8784: outside that it says what is wrong instead of returning a number.
+
+<a id="energy_hydro_power"></a>
+
+#### Hydroelectric power from flow and head, and the energy over a period, `energy_hydro_power`
+
+The electrical output P = eta rho g Q H of a hydroelectric plant from the flow rate, the net head and the overall efficiency, the hydraulic power, and the energy over a period (default a year of 8760 h) at a capacity factor (default 1).
+
+$$
+P = \eta\,\rho g Q H,\quad E = P \cdot CF \cdot t
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `Q` | in | volume flow rate through the turbines | m^3/s |
+| `H` | in | net head | m |
+| `eta` | in | overall efficiency (turbine x generator; fraction or %) | - |
+| `rho` | in | water density (default 1000 kg/m^3) (optional) | kg/m^3 |
+| `g` | in | gravitational acceleration (default 9.81 m/s^2) (optional) | m/s^2 |
+| `CF` | in | capacity factor for the energy (fraction or %, default 1) (optional) | - |
+| `hours` | in | length of the period in hours (default 8760) (optional) | - |
+| `P` | out | electrical output | W |
+| `P_kW` | out | electrical output in kW | - |
+| `P_MW` | out | electrical output in MW | - |
+| `P_hydraulic` | out | hydraulic power rho g Q H | W |
+| `E` | out | energy over the period | J |
+| `E_MWh` | out | energy over the period in MWh | - |
+
+**Applies when:** Q, H > 0; 0 < eta <= 1; 0 < CF <= 1; 0 < hours <= 8784; net head (losses in the penstock already deducted).
+
+```shell
+$ energy-systems solve energy_hydro_power "Q=10 m^3/s" "H=50 m" eta=0.9
+P = 4414500 W
+P_kW = 4414.5
+P_MW = 4.4145
+P_hydraulic = 4905000 W
+E = 1.39215672e+14 J
+E_MWh = 38671.02
+  by: Hydroelectric power from flow and head, and the energy over a period  (P = eta rho g Q H; E = P CF hours)
+  Q = 10 m^3/s
+  H = 50 m
+  eta = 0.9
+  assumes: Q, H > 0; 0 < eta <= 1; 0 < CF <= 1; 0 < hours <= 8784; net head (losses in the penstock already deducted)
+```
+
+In the worked example, Q = 10 m^3/s, H = 50 m, eta = 0.9 go through the equation above and give P = 4414500 W, P_kW = 4414.5, P_MW = 4.4145, P_hydraulic = 4905000 W. It applies only when Q, H > 0; 0 < eta <= 1; 0 < CF <= 1; 0 < hours <= 8784; net head (losses in the penstock already deducted): outside that it says what is wrong instead of returning a number.
 
 ### Hydrogen (3)
 
@@ -710,7 +858,7 @@ real_over_ideal = 1.000843387
 
 **What the worked example means:** This calculation determines the theoretical minimum energy required to compress hydrogen gas reversibly and isothermally. Starting at an initial pressure of 1 bar and ending at a final pressure of 2 bar, while maintaining a constant temperature of 300 K, the real-gas work is found to be 858386 J/kg. This value represents the increase in Gibbs free energy per unit mass for the actual hydrogen state, accounting for non-ideal behavior via the Leachman equation of state. For comparison, the ideal-gas approximation yields 857663 J/kg, showing that the real process requires 1.00084 times the ideal work under these conditions.
 
-### Machines (4)
+### Machines (5)
 
 <a id="energy_induction_max_torque"></a>
 
@@ -826,6 +974,67 @@ efficiency_pct = 92.44093315
 ```
 
 **What the worked example means:** This calculation determines the performance of a three-phase induction motor based on its per-phase equivalent circuit. Using inputs such as line voltage, frequency, pole count, and impedance parameters, the model computes key outputs including rotor current, air-gap power, induced torque, and overall efficiency. For instance, the resulting line current is 18.8919 A, which contributes to an input power of 12525.1 W. The converted mechanical power is 11578.4 W, leading to a final shaft output of 11578.4 W. These values allow engineers to assess whether the motor meets the specific load requirements under steady-state conditions.
+
+<a id="energy_induction_power_flow"></a>
+
+#### Induction motor power flow from slip and losses, `energy_induction_power_flow`
+
+The power flow of a three-phase induction motor from its input power and losses: synchronous and rotor speed, slip, rotor frequency (and rotor emf), air-gap power, rotor copper loss s P_ag, converted power, output, induced and shaft torque, and efficiency (no equivalent-circuit parameters needed).
+
+$$
+P_{ag} = P_{in} - P_{scl} - P_{core},\quad P_{rcl} = s\,P_{ag},\quad P_{conv} = (1-s)P_{ag},\quad \eta = \frac{P_{conv} - P_{fw}}{P_{in}}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `f` | in | supply frequency | Hz |
+| `poles` | in | number of poles (even) | - |
+| `P_in` | in | electrical input power | W |
+| `P_scl` | in | stator copper loss | W |
+| `s` | in | slip (fraction or %; give s or n_r) (optional) | - |
+| `n_r` | in | rotor speed (rpm; give s or n_r) (optional) | rad/s |
+| `P_core` | in | core (iron) loss, default 0 (optional) | W |
+| `P_fw` | in | friction and windage loss, default 0 (optional) | W |
+| `E2` | in | rotor emf per phase at standstill (optional) (optional) | V |
+| `n_sync_rpm` | out | synchronous speed 120 f/p, rpm | - |
+| `n_rotor_rpm` | out | rotor speed, rpm | - |
+| `slip` | out | slip | - |
+| `f_rotor` | out | rotor current frequency s f | Hz |
+| `P_ag` | out | air-gap power P_in - stator losses | W |
+| `P_rcl` | out | rotor copper loss s P_ag | W |
+| `P_conv` | out | converted (mechanical developed) power (1 - s) P_ag | W |
+| `P_out` | out | output (shaft) power P_conv - friction and windage | W |
+| `T_ind` | out | induced torque P_ag/omega_s | N*m |
+| `T_shaft` | out | shaft (output) torque P_out/omega_m | N*m |
+| `efficiency_pct` | out | efficiency P_out/P_in in percent | - |
+| `E_rotor` | out | rotor emf per phase at the running slip s E2 (with E2) | V |
+
+**Applies when:** even number of poles; exactly one of s and n_r; 0 < s < 1 (motoring); stator losses < P_in; P_out > 0; the core loss is taken with the stator losses.
+
+```shell
+$ energy-systems solve energy_induction_power_flow "f=50 Hz" poles=4 s=0.04 "P_in=50 kW" "P_scl=1.5 kW" "P_core=1 kW" "P_fw=900 W"
+n_sync_rpm = 1500
+n_rotor_rpm = 1440
+slip = 0.04
+f_rotor = 2 Hz
+P_ag = 47500 W
+P_rcl = 1900 W
+P_conv = 45600 W
+P_out = 44700 W
+T_ind = 302.3943919 N*m
+T_shaft = 296.4260815 N*m
+efficiency_pct = 89.4
+  by: Induction motor power flow from slip and losses  (P_ag = P_in - P_scl - P_core; P_rcl = s P_ag; P_conv = (1 - s) P_ag; P_out = P_conv - P_fw; T = P_ag/omega_s; f_r = s f)
+  f = 50 Hz
+  s = 0.04
+  P_in = 50000 W
+  P_scl = 1500 W
+  P_core = 1000 W
+  P_fw = 900 W
+  assumes: even number of poles; exactly one of s and n_r; 0 < s < 1 (motoring); stator losses < P_in; P_out > 0; the core loss is taken with the stator losses
+```
+
+In the worked example, f = 50 Hz, poles = 4, s = 0.04, P_in = 50 kW, P_scl = 1.5 kW, P_core = 1 kW, P_fw = 900 W go through the equation above and give n_sync_rpm = 1500, n_rotor_rpm = 1440, slip = 0.04, f_rotor = 2 Hz. It applies only when even number of poles; exactly one of s and n_r; 0 < s < 1 (motoring); stator losses < P_in; P_out > 0; the core loss is taken with the stator losses: outside that it says what is wrong instead of returning a number.
 
 <a id="energy_synchronous_generator"></a>
 

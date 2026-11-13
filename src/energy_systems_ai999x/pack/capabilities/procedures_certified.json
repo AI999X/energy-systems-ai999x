@@ -78,9 +78,13 @@
   "energy_geometric_mean_distance",
   "energy_synchronous_speed",
   "energy_stack_electrical_power",
-  "energy_coulomb_counting"
+  "energy_coulomb_counting",
+  "energy_hydro_power",
+  "energy_capacity_factor",
+  "energy_induction_power_flow",
+  "energy_butler_volmer"
  ],
- "generated": "2026-10-24",
+ "generated": "2026-11-13",
  "tool": "tools/certify_procedures.py",
  "report": "release/procedure_certification.json",
  "weak_references": {

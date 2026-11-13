@@ -15,7 +15,7 @@ def _bind(product) -> None:
     _P = product
 
 
-CapabilityId = Literal["energy_actuator_disc", "energy_air_mass", "energy_angle_of_incidence", "energy_battery_pack_sizing", "energy_battery_rc_discharge", "energy_cell_temperature_faiman", "energy_cell_temperature_noct", "energy_cell_temperature_sapm", "energy_clear_sky_haurwitz", "energy_clear_sky_ineichen", "energy_coulomb_counting", "energy_critical_clearing", "energy_dc_power_flow", "energy_desoto_parameters", "energy_disc_dni", "energy_dlg_fault", "energy_droop_sharing", "energy_economic_dispatch", "energy_electrolyser", "energy_equation_of_time", "energy_erbs_decomposition", "energy_extraterrestrial_irradiance", "energy_fuel_cell_stack", "energy_geometric_mean_distance", "energy_hub_air_density", "energy_hydrogen_isentropic_compression", "energy_hydrogen_isothermal_compression", "energy_hydrogen_tank", "energy_iam_ashrae", "energy_iam_physical", "energy_induction_max_torque", "energy_induction_motor", "energy_line_parameters", "energy_ll_fault", "energy_long_line", "energy_medium_line", "energy_newton_load_flow", "energy_parallel_transformers", "energy_per_unit_change_of_base", "energy_per_unit_impedance", "energy_peukert", "energy_poa_haydavies", "energy_poa_isotropic", "energy_poa_klucher", "energy_poa_perez", "energy_poa_reindl", "energy_power_angle", "energy_power_curve_density_corrected", "energy_power_curve_output", "energy_pv_array_output", "energy_pv_module_at_conditions", "energy_pvwatts_dc", "energy_pvwatts_inverter", "energy_pvwatts_losses", "energy_short_line", "energy_single_diode_current", "energy_single_diode_mpp", "energy_single_diode_voltage", "energy_slg_fault", "energy_solar_declination", "energy_solar_position", "energy_solar_time_hour_angle", "energy_stack_electrical_power", "energy_sun_angles", "energy_sunrise_sunset", "energy_symmetrical_fault", "energy_synchronous_generator", "energy_synchronous_speed", "energy_three_phase_power", "energy_transformer_loading", "energy_transformer_max_efficiency", "energy_transformer_performance", "energy_transformer_tests", "energy_two_bus_load_flow", "energy_weibull_aep", "energy_weibull_wind", "energy_wind_power", "energy_wind_shear_log", "energy_wind_shear_power_law"]
+CapabilityId = Literal["energy_actuator_disc", "energy_air_mass", "energy_angle_of_incidence", "energy_battery_pack_sizing", "energy_battery_rc_discharge", "energy_butler_volmer", "energy_capacity_factor", "energy_cell_temperature_faiman", "energy_cell_temperature_noct", "energy_cell_temperature_sapm", "energy_clear_sky_haurwitz", "energy_clear_sky_ineichen", "energy_coulomb_counting", "energy_critical_clearing", "energy_dc_power_flow", "energy_desoto_parameters", "energy_disc_dni", "energy_dlg_fault", "energy_droop_sharing", "energy_economic_dispatch", "energy_electrolyser", "energy_equation_of_time", "energy_erbs_decomposition", "energy_extraterrestrial_irradiance", "energy_fuel_cell_stack", "energy_geometric_mean_distance", "energy_hub_air_density", "energy_hydro_power", "energy_hydrogen_isentropic_compression", "energy_hydrogen_isothermal_compression", "energy_hydrogen_tank", "energy_iam_ashrae", "energy_iam_physical", "energy_induction_max_torque", "energy_induction_motor", "energy_induction_power_flow", "energy_line_parameters", "energy_ll_fault", "energy_long_line", "energy_medium_line", "energy_newton_load_flow", "energy_parallel_transformers", "energy_per_unit_change_of_base", "energy_per_unit_impedance", "energy_peukert", "energy_poa_haydavies", "energy_poa_isotropic", "energy_poa_klucher", "energy_poa_perez", "energy_poa_reindl", "energy_power_angle", "energy_power_curve_density_corrected", "energy_power_curve_output", "energy_pv_array_output", "energy_pv_module_at_conditions", "energy_pvwatts_dc", "energy_pvwatts_inverter", "energy_pvwatts_losses", "energy_short_line", "energy_single_diode_current", "energy_single_diode_mpp", "energy_single_diode_voltage", "energy_slg_fault", "energy_solar_declination", "energy_solar_position", "energy_solar_time_hour_angle", "energy_stack_electrical_power", "energy_sun_angles", "energy_sunrise_sunset", "energy_symmetrical_fault", "energy_synchronous_generator", "energy_synchronous_speed", "energy_three_phase_power", "energy_transformer_loading", "energy_transformer_max_efficiency", "energy_transformer_performance", "energy_transformer_tests", "energy_two_bus_load_flow", "energy_weibull_aep", "energy_weibull_wind", "energy_wind_power", "energy_wind_shear_log", "energy_wind_shear_power_law"]
 
 
 def solve(find: CapabilityId | str, given: dict | None = None, conditions=(), *, target: str | None = None, **inputs):
@@ -100,6 +100,36 @@ def energy_battery_rc_discharge(OCV=None, R0=None, R1=None, C1=None, I=None, t=N
     """
     given = {k: v for k, v in dict(OCV=OCV, R0=R0, R1=R1, C1=C1, I=I, t=t).items() if v is not None}
     return _P.solve("energy_battery_rc_discharge", **given)
+
+def energy_butler_volmer(j0=None, alpha_a=None, alpha_c=None, T=None, eta=None, j=None):
+    """Electrode kinetics: Butler-Volmer current, overpotential and Tafel slopes. The current density of an electrode reaction at an overpotential by the Butler-Volmer equation (or the overpotential that drives a current density), with the anodic and cathodic partial currents, the Tafel slopes, the Tafel-line overpotential and the charge-transfer resistance.
+    Formula: j = j_0\\left[e^{\\alpha_a F\\eta/RT} - e^{-\\alpha_c F\\eta/RT}\\right],\\quad b_a = \\frac{2.303\\,RT}{\\alpha_a F},\\quad \\eta \\approx b_a\\log_{10}\\frac{j}{j_0}
+    Inputs:
+        j0: exchange current density in A/m^2 (questions: A/m^2, A/cm^2, mA/cm^2, uA/cm^2)
+        alpha_a: anodic transfer coefficient (electrons included)
+        alpha_c: cathodic transfer coefficient (electrons included)
+        T: electrode temperature
+        eta: overpotential (anodic positive; give eta or j) (optional)
+        j: current density in A/m^2, anodic positive (give j or eta) (optional)
+    Outputs: j (net current density in A/m^2 (anodic positive)), j_mA_cm2 (net current density in mA/cm^2), eta (overpotential), eta_mV (overpotential in mV), j_anodic (anodic partial current density in A/m^2), j_cathodic (cathodic partial current density in A/m^2 (negative)), b_a (anodic Tafel slope in V per decade), b_c (cathodic Tafel slope in V per decade), b_a_mV (anodic Tafel slope in mV per decade), b_c_mV (cathodic Tafel slope in mV per decade), R_ct (charge-transfer resistance at equilibrium in ohm m^2), R_ct_ohm_cm2 (charge-transfer resistance in ohm cm^2), eta_tafel (overpotential of the Tafel line b log10(|j|/j0) (when |j| > j0))
+    See also: help("energy_butler_volmer")
+    """
+    given = {k: v for k, v in dict(j0=j0, alpha_a=alpha_a, alpha_c=alpha_c, T=T, eta=eta, j=j).items() if v is not None}
+    return _P.solve("energy_butler_volmer", **given)
+
+def energy_capacity_factor(P_rated=None, E=None, CF=None, hours=None):
+    """Capacity factor and energy of a generating plant. The capacity factor of a plant of any type from its rated power and the energy produced over a period (default a year of 8760 h), or the energy from a capacity factor, with the equivalent full-load hours and the average output.
+    Formula: CF = \\frac{E}{P_{rated}\\,t}
+    Inputs:
+        P_rated: rated (nameplate) power
+        E: energy produced in the period (give E or CF) (optional)
+        CF: capacity factor (fraction or %; give E or CF) (optional)
+        hours: length of the period in hours (default 8760) (optional)
+    Outputs: capacity_factor (capacity factor E/(P_rated t)), capacity_factor_pct (capacity factor in percent), E (energy produced in the period), E_MWh (energy produced in MWh), full_load_hours (equivalent full-load hours CF t), average_power (average output CF P_rated)
+    See also: help("energy_capacity_factor")
+    """
+    given = {k: v for k, v in dict(P_rated=P_rated, E=E, CF=CF, hours=hours).items() if v is not None}
+    return _P.solve("energy_capacity_factor", **given)
 
 def energy_cell_temperature_faiman(poa=None, T_air=None, wind=None, u0=None, u1=None):
     """PV module temperature (Faiman model). Module (cell) temperature by the Faiman heat-loss model used in IEC 61853: T = T_a + G/(u0 + u1 v).
@@ -382,6 +412,23 @@ def energy_hub_air_density(p=None, h_p=None, T=None, h_T=None, hub=None, model=N
     given = {k: v for k, v in dict(p=p, h_p=h_p, T=T, h_T=h_T, hub=hub, model=model).items() if v is not None}
     return _P.solve("energy_hub_air_density", **given)
 
+def energy_hydro_power(Q=None, H=None, eta=None, rho=None, g=None, CF=None, hours=None):
+    """Hydroelectric power from flow and head, and the energy over a period. The electrical output P = eta rho g Q H of a hydroelectric plant from the flow rate, the net head and the overall efficiency, the hydraulic power, and the energy over a period (default a year of 8760 h) at a capacity factor (default 1).
+    Formula: P = \\eta\\,\\rho g Q H,\\quad E = P \\cdot CF \\cdot t
+    Inputs:
+        Q: volume flow rate through the turbines
+        H: net head
+        eta: overall efficiency (turbine x generator; fraction or %)
+        rho: water density (default 1000 kg/m^3) (optional)
+        g: gravitational acceleration (default 9.81 m/s^2) (optional)
+        CF: capacity factor for the energy (fraction or %, default 1) (optional)
+        hours: length of the period in hours (default 8760) (optional)
+    Outputs: P (electrical output), P_kW (electrical output in kW), P_MW (electrical output in MW), P_hydraulic (hydraulic power rho g Q H), E (energy over the period), E_MWh (energy over the period in MWh)
+    See also: help("energy_hydro_power")
+    """
+    given = {k: v for k, v in dict(Q=Q, H=H, eta=eta, rho=rho, g=g, CF=CF, hours=hours).items() if v is not None}
+    return _P.solve("energy_hydro_power", **given)
+
 def energy_hydrogen_isentropic_compression(p1=None, T1=None, p2=None):
     """Isentropic (adiabatic) compression of hydrogen. Outlet temperature and work per kilogram of a reversible adiabatic compression of hydrogen from (p1, T1) to p2, from the full Leachman equation of state (real gas, variable heat capacity).
     Formula: s(p_2, T_2) = s(p_1, T_1),\\quad w = h_2 - h_1
@@ -486,6 +533,25 @@ def energy_induction_motor(VL=None, f=None, poles=None, R1=None, X1=None, R2=Non
     """
     given = {k: v for k, v in dict(VL=VL, f=f, poles=poles, R1=R1, X1=X1, R2=R2, X2=X2, Xm=Xm, slip=slip, connection=connection, P_rot=P_rot).items() if v is not None}
     return _P.solve("energy_induction_motor", **given)
+
+def energy_induction_power_flow(f=None, poles=None, P_in=None, P_scl=None, s=None, n_r=None, P_core=None, P_fw=None, E2=None):
+    """Induction motor power flow from slip and losses. The power flow of a three-phase induction motor from its input power and losses: synchronous and rotor speed, slip, rotor frequency (and rotor emf), air-gap power, rotor copper loss s P_ag, converted power, output, induced and shaft torque, and efficiency (no equivalent-circuit parameters needed).
+    Formula: P_{ag} = P_{in} - P_{scl} - P_{core},\\quad P_{rcl} = s\\,P_{ag},\\quad P_{conv} = (1-s)P_{ag},\\quad \\eta = \\frac{P_{conv} - P_{fw}}{P_{in}}
+    Inputs:
+        f: supply frequency
+        poles: number of poles (even)
+        P_in: electrical input power
+        P_scl: stator copper loss
+        s: slip (fraction or %; give s or n_r) (optional)
+        n_r: rotor speed (rpm; give s or n_r) (optional)
+        P_core: core (iron) loss, default 0 (optional)
+        P_fw: friction and windage loss, default 0 (optional)
+        E2: rotor emf per phase at standstill (optional) (optional)
+    Outputs: n_sync_rpm (synchronous speed 120 f/p, rpm), n_rotor_rpm (rotor speed, rpm), slip (slip), f_rotor (rotor current frequency s f), P_ag (air-gap power P_in - stator losses), P_rcl (rotor copper loss s P_ag), P_conv (converted (mechanical developed) power (1 - s) P_ag), P_out (output (shaft) power P_conv - friction and windage), T_ind (induced torque P_ag/omega_s), T_shaft (shaft (output) torque P_out/omega_m), efficiency_pct (efficiency P_out/P_in in percent), E_rotor (rotor emf per phase at the running slip s E2 (with E2))
+    See also: help("energy_induction_power_flow")
+    """
+    given = {k: v for k, v in dict(f=f, poles=poles, P_in=P_in, P_scl=P_scl, s=s, n_r=n_r, P_core=P_core, P_fw=P_fw, E2=E2).items() if v is not None}
+    return _P.solve("energy_induction_power_flow", **given)
 
 def energy_line_parameters(D_ab=None, D_bc=None, D_ca=None, r=None, f=None, gmr=None, n_bundle=None, spacing=None, V=None):
     """Inductance, capacitance and surge impedance of a three-phase overhead line. Per-phase inductance, capacitance, reactance, susceptance, surge impedance (and surge-impedance loading at a voltage) of a fully transposed three-phase line from its phase spacings, conductor radius and geometric mean radius, with optional bundled conductors.
@@ -1226,4 +1292,4 @@ def energy_wind_shear_power_law(v1=None, h1=None, h2=None, alpha=None):
     return _P.solve("energy_wind_shear_power_law", **given)
 
 
-__all__ = ["CapabilityId", "solve", "help", "energy_actuator_disc", "energy_air_mass", "energy_angle_of_incidence", "energy_battery_pack_sizing", "energy_battery_rc_discharge", "energy_cell_temperature_faiman", "energy_cell_temperature_noct", "energy_cell_temperature_sapm", "energy_clear_sky_haurwitz", "energy_clear_sky_ineichen", "energy_coulomb_counting", "energy_critical_clearing", "energy_dc_power_flow", "energy_desoto_parameters", "energy_disc_dni", "energy_dlg_fault", "energy_droop_sharing", "energy_economic_dispatch", "energy_electrolyser", "energy_equation_of_time", "energy_erbs_decomposition", "energy_extraterrestrial_irradiance", "energy_fuel_cell_stack", "energy_geometric_mean_distance", "energy_hub_air_density", "energy_hydrogen_isentropic_compression", "energy_hydrogen_isothermal_compression", "energy_hydrogen_tank", "energy_iam_ashrae", "energy_iam_physical", "energy_induction_max_torque", "energy_induction_motor", "energy_line_parameters", "energy_ll_fault", "energy_long_line", "energy_medium_line", "energy_newton_load_flow", "energy_parallel_transformers", "energy_per_unit_change_of_base", "energy_per_unit_impedance", "energy_peukert", "energy_poa_haydavies", "energy_poa_isotropic", "energy_poa_klucher", "energy_poa_perez", "energy_poa_reindl", "energy_power_angle", "energy_power_curve_density_corrected", "energy_power_curve_output", "energy_pv_array_output", "energy_pv_module_at_conditions", "energy_pvwatts_dc", "energy_pvwatts_inverter", "energy_pvwatts_losses", "energy_short_line", "energy_single_diode_current", "energy_single_diode_mpp", "energy_single_diode_voltage", "energy_slg_fault", "energy_solar_declination", "energy_solar_position", "energy_solar_time_hour_angle", "energy_stack_electrical_power", "energy_sun_angles", "energy_sunrise_sunset", "energy_symmetrical_fault", "energy_synchronous_generator", "energy_synchronous_speed", "energy_three_phase_power", "energy_transformer_loading", "energy_transformer_max_efficiency", "energy_transformer_performance", "energy_transformer_tests", "energy_two_bus_load_flow", "energy_weibull_aep", "energy_weibull_wind", "energy_wind_power", "energy_wind_shear_log", "energy_wind_shear_power_law"]
+__all__ = ["CapabilityId", "solve", "help", "energy_actuator_disc", "energy_air_mass", "energy_angle_of_incidence", "energy_battery_pack_sizing", "energy_battery_rc_discharge", "energy_butler_volmer", "energy_capacity_factor", "energy_cell_temperature_faiman", "energy_cell_temperature_noct", "energy_cell_temperature_sapm", "energy_clear_sky_haurwitz", "energy_clear_sky_ineichen", "energy_coulomb_counting", "energy_critical_clearing", "energy_dc_power_flow", "energy_desoto_parameters", "energy_disc_dni", "energy_dlg_fault", "energy_droop_sharing", "energy_economic_dispatch", "energy_electrolyser", "energy_equation_of_time", "energy_erbs_decomposition", "energy_extraterrestrial_irradiance", "energy_fuel_cell_stack", "energy_geometric_mean_distance", "energy_hub_air_density", "energy_hydro_power", "energy_hydrogen_isentropic_compression", "energy_hydrogen_isothermal_compression", "energy_hydrogen_tank", "energy_iam_ashrae", "energy_iam_physical", "energy_induction_max_torque", "energy_induction_motor", "energy_induction_power_flow", "energy_line_parameters", "energy_ll_fault", "energy_long_line", "energy_medium_line", "energy_newton_load_flow", "energy_parallel_transformers", "energy_per_unit_change_of_base", "energy_per_unit_impedance", "energy_peukert", "energy_poa_haydavies", "energy_poa_isotropic", "energy_poa_klucher", "energy_poa_perez", "energy_poa_reindl", "energy_power_angle", "energy_power_curve_density_corrected", "energy_power_curve_output", "energy_pv_array_output", "energy_pv_module_at_conditions", "energy_pvwatts_dc", "energy_pvwatts_inverter", "energy_pvwatts_losses", "energy_short_line", "energy_single_diode_current", "energy_single_diode_mpp", "energy_single_diode_voltage", "energy_slg_fault", "energy_solar_declination", "energy_solar_position", "energy_solar_time_hour_angle", "energy_stack_electrical_power", "energy_sun_angles", "energy_sunrise_sunset", "energy_symmetrical_fault", "energy_synchronous_generator", "energy_synchronous_speed", "energy_three_phase_power", "energy_transformer_loading", "energy_transformer_max_efficiency", "energy_transformer_performance", "energy_transformer_tests", "energy_two_bus_load_flow", "energy_weibull_aep", "energy_weibull_wind", "energy_wind_power", "energy_wind_shear_log", "energy_wind_shear_power_law"]
