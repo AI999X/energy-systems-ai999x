@@ -311,7 +311,7 @@ $$
 
 ![hour_angle_deg (hour angle in degrees (negative before solar noon)) against n (day of the year (1 = 1 January)) from 1 to 344 on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-solar-time-hour-angle-curve)
 
-*hour_angle_deg (hour angle in degrees (negative before solar noon)) against n (day of the year (1 = 1 January)) from 1 to 344 on a logarithmic axis. One curve for each value of clock (local clock (standard) time in decimal hours or hh:mm): 14.5, 7.25. Other inputs as in the worked example: longitude = -75, utc_offset = -5. 35 points per curve computed by energy-systems-ai999x; marked: the worked example, n = 172, hour_angle_deg = 37.1641.*
+*hour_angle_deg (hour angle in degrees (negative before solar noon)) against n (day of the year (1 = 1 January)) from 1 to 344 on a logarithmic axis. One curve for each value of clock (local clock (standard) time in decimal hours or hh:mm): 14.5, 7.25. Other inputs as in the worked example: longitude = -75.0, utc_offset = -5.0. 35 points per curve computed by energy-systems-ai999x; marked: the worked example, n = 172, hour_angle_deg = 37.1641.*
 
 ```python
 energy_systems_ai999x.solve('energy_solar_time_hour_angle', n=172, clock=14.5, longitude=-75, utc_offset=-5)
@@ -417,7 +417,7 @@ $$
 
 ![elevation_deg (solar elevation in degrees) against n (day of the year (1 = 1 January)) from 1 to 344 on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-solar-position-curve)
 
-*elevation_deg (solar elevation in degrees) against n (day of the year (1 = 1 January)) from 1 to 344 on a logarithmic axis. One curve for each value of clock (local clock (standard) time in decimal hours or hh:mm): 13, 6.5. Other inputs as in the worked example: latitude = 40, longitude = -105, utc_offset = -7. 35 points per curve computed by energy-systems-ai999x; marked: the worked example, n = 172, elevation_deg = 69.34.*
+*elevation_deg (solar elevation in degrees) against n (day of the year (1 = 1 January)) from 1 to 344 on a logarithmic axis. One curve for each value of clock (local clock (standard) time in decimal hours or hh:mm): 13, 6.5. Other inputs as in the worked example: latitude = 40.0, longitude = -105.0, utc_offset = -7.0. 35 points per curve computed by energy-systems-ai999x; marked: the worked example, n = 172, elevation_deg = 69.34.*
 
 ```python
 energy_systems_ai999x.solve('energy_solar_position', latitude=40, longitude=-105, n=172, clock=13.0, utc_offset=-7)
@@ -603,7 +603,7 @@ $$
 
 ![aoi_deg (angle of incidence in degrees) against tilt (surface tilt from horizontal in degrees) from 0 to 90](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-angle-of-incidence-curve)
 
-*aoi_deg (angle of incidence in degrees) against tilt (surface tilt from horizontal in degrees) from 0 to 90. One curve for each value of surface_azimuth (surface azimuth in degrees clockwise from north (south = 180)): 180, 45, 135. Other inputs as in the worked example: zenith = 30, azimuth = 180. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, tilt = 30, aoi_deg = 0.*
+*aoi_deg (angle of incidence in degrees) against tilt (surface tilt from horizontal in degrees) from 0 to 90. One curve for each value of zenith (solar zenith angle in degrees): 60, 22.5, 67.5. Other inputs as in the worked example: surface_azimuth = 180.0, azimuth = 100.0. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, tilt = 0, aoi_deg = 60.*
 
 ```python
 energy_systems_ai999x.solve('energy_angle_of_incidence', tilt=30, surface_azimuth=180, zenith=30, azimuth=180)
@@ -1172,13 +1172,13 @@ $$
 - **Assumes:** $P_dc > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![true when the output is limited at the AC rating (clipped) over pdc (DC input power) from 500 W to 50000 W and pdc0 (inverter DC input rating) from 500 W to 50000 W (logarithmic axes): each of the 31 × 21 cells is one run of energy-systems-ai999x, coloured by the verdict it returned, yes: 324 cells, no: 327 cells](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-inverter-decision)
+![true when the output is limited at the AC rating (clipped) over pdc (DC input power) from 600 W to 60000 W and pdc0 (inverter DC input rating) from 500 W to 50000 W (logarithmic axes): each of the 31 × 21 cells is one run of energy-systems-ai999x, coloured by the verdict it returned, yes: 339 cells, no: 312 cells](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-inverter-decision)
 
-*true when the output is limited at the AC rating (clipped) over pdc (DC input power) from 500 W to 50000 W and pdc0 (inverter DC input rating) from 500 W to 50000 W (logarithmic axes): each of the 31 × 21 cells is one run of energy-systems-ai999x, coloured by the verdict it returned, yes: 324 cells, no: 327 cells. Marked: the worked example, pdc = 5000 W, pdc0 = 5000 W → yes.*
+*true when the output is limited at the AC rating (clipped) over pdc (DC input power) from 600 W to 60000 W and pdc0 (inverter DC input rating) from 500 W to 50000 W (logarithmic axes): each of the 31 × 21 cells is one run of energy-systems-ai999x, coloured by the verdict it returned, yes: 339 cells, no: 312 cells. Marked: the worked example, pdc = 6000 W, pdc0 = 5000 W → yes.*
 
-![pac (AC output power) against pdc0 (inverter DC input rating) from 500 W to 50000 W on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-inverter-curve)
+![pac (AC output power) against pdc (DC input power) from 600 W to 60000 W on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-inverter-curve)
 
-*pac (AC output power) against pdc0 (inverter DC input rating) from 500 W to 50000 W on a logarithmic axis. One curve for each value of pdc (DC input power): 5000 W, 2500 W, 10000 W. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, pdc0 = 5000 W, pac = 4800 W.*
+*pac (AC output power) against pdc (DC input power) from 600 W to 60000 W on a logarithmic axis. One curve for each value of pdc0 (inverter DC input rating): 5000 W, 2500 W, 10000 W. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, pdc = 6000 W, pac = 4800 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_pvwatts_inverter', pdc=5000, pdc0=5000)
@@ -1367,7 +1367,7 @@ $$
 
 ![P_wind (power in the wind through the swept area) against v (wind speed) from 5 m/s to 15 m/s](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-power-curve)
 
-*P_wind (power in the wind through the swept area) against v (wind speed) from 5 m/s to 15 m/s. One curve for each value of D (rotor diameter): 1.12838 m, 0.56419 m, 2.25676 m. Other inputs as in the worked example: rho = 1.2 kg/m^3. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, v = 10 m/s, P_wind = 600 W.*
+*P_wind (power in the wind through the swept area) against v (wind speed) from 5 m/s to 15 m/s. One curve for each value of D (rotor diameter): 80 m, 40 m, 160 m. Other inputs as in the worked example: rho = 1.225 kg/m^3, cp = 0.4. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, v = 10 m/s, P_wind = 3.07876e+06 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_wind_power', rho=1.2, D=1.1283791670955126, v=10)
@@ -1463,9 +1463,9 @@ $$
 - **Assumes:** heights > 0; $0  \leq  \alpha  \leq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![v2 (wind speed at h2) against h1 (measurement height) from 5 m to 15 m](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-shear-power-law-curve)
+![v2 (wind speed at h2) against alpha (shear exponent (default 1/7)) from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-shear-power-law-curve)
 
-*v2 (wind speed at h2) against h1 (measurement height) from 5 m to 15 m. One curve for each value of v1 (measured wind speed): 5 m/s, 2.5 m/s, 10 m/s. Other inputs as in the worked example: h2 = 80 m, alpha = 0.3333333333333333. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, h1 = 10 m, v2 = 10 m/s.*
+*v2 (wind speed at h2) against alpha (shear exponent (default 1/7)) from 0.166667 to 0.5. One curve for each value of v1 (measured wind speed): 6 m/s, 3 m/s, 12 m/s. Other inputs as in the worked example: h1 = 10.0 m, h2 = 1280.0 m. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, alpha = 0.333333, v2 = 30.2381 m/s.*
 
 ```python
 energy_systems_ai999x.solve('energy_wind_shear_power_law', v1=5, h1=10, h2=80, alpha=0.3333333333333333)
@@ -1517,7 +1517,7 @@ $$
 
 ![v2 (wind speed at h2) against h1 (measurement height) from 1 m to 100 m on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-shear-log-curve)
 
-*v2 (wind speed at h2) against h1 (measurement height) from 1 m to 100 m on a logarithmic axis. One curve for each value of v1 (measured wind speed): 5 m/s, 2.5 m/s, 10 m/s. Other inputs as in the worked example: h2 = 100 m, z0 = 1 m. 40 points per curve computed by energy-systems-ai999x; marked: the worked example, h1 = 10 m, v2 = 10 m/s.*
+*v2 (wind speed at h2) against h1 (measurement height) from 1 m to 100 m on a logarithmic axis. One curve for each value of v1 (measured wind speed): 5 m/s, 2.5 m/s, 10 m/s. Other inputs as in the worked example: h2 = 100.0 m, z0 = 1.0 m. 40 points per curve computed by energy-systems-ai999x; marked: the worked example, h1 = 10 m, v2 = 10 m/s.*
 
 ```python
 energy_systems_ai999x.solve('energy_wind_shear_log', v1=5, h1=10, h2=100, z0=1)
@@ -1567,7 +1567,7 @@ $$
 
 ![rho (air density at hub height) against T (measured air temperature) from 144](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hub-air-density-curve)
 
-*rho (air density at hub height) against T (measured air temperature) from 144.075 K to 432.225 K. One curve for each value of p (measured air pressure): 101330 Pa, 50665 Pa, 202660 Pa. Other inputs as in the worked example: h_p = 0 m, h_T = 0 m, hub = 0 m. 30 points per curve computed by energy-systems-ai999x; marked: the worked example, T = 288.15 K, rho = 1.225 kg/m^3.*
+*rho (air density at hub height) against T (measured air temperature) from 144.075 K to 432.225 K. One curve for each value of p (measured air pressure): 101330 Pa, 50665 Pa, 202660 Pa. Other inputs as in the worked example: h_p = 0.0 m, h_T = 0.0 m, hub = 0.0 m. 30 points per curve computed by energy-systems-ai999x; marked: the worked example, T = 288.15 K, rho = 1.225 kg/m^3.*
 
 ```python
 energy_systems_ai999x.solve('energy_hub_air_density', p=101330, h_p=0, T=288.15, h_T=0, hub=0)
@@ -1861,9 +1861,9 @@ $$
 - **Assumes:** $X_pu > 0$; positive bases
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![X_pu_new (per-unit reactance on the new base) against V_new (new base voltage (line-to-line)) from 69000 V to 207000 V](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-per-unit-change-of-base-curve)
+![X_pu_new (per-unit reactance on the new base) against V_new (new base voltage (line-to-line)) from 5500 V to 16500 V](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-per-unit-change-of-base-curve)
 
-*X_pu_new (per-unit reactance on the new base) against V_new (new base voltage (line-to-line)) from 69000 V to 207000 V. One curve for each value of V_old (old base voltage (line-to-line)): 132000 V, 66000 V, 264000 V. Other inputs as in the worked example: R_pu = 0.0, X_pu = 0.1, S_old = 50000000.0 VA, S_new = 100000000.0 VA. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, V_new = 138000 V, X_pu_new = 0.182987.*
+*X_pu_new (per-unit reactance on the new base) against V_new (new base voltage (line-to-line)) from 5500 V to 16500 V. One curve for each value of V_old (old base voltage (line-to-line)): 11000 V, 5500 V, 22000 V. Other inputs as in the worked example: R_pu = 0.01, X_pu = 0.1, S_old = 10000000.0 VA, S_new = 100000000.0 VA. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, V_new = 11000 V, X_pu_new = 1.*
 
 ```python
 energy_systems_ai999x.solve('energy_per_unit_change_of_base', R_pu=0.0, X_pu=0.1, S_old=50000000.0, V_old=132000.0, S_new=100000000.0, V_new=138000.0)
@@ -2839,7 +2839,7 @@ $$
 
 ![V_lv_actual (low-voltage side voltage under load) against P (load real power on the low-voltage side) from 40000 W to 4e+06 W on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-loading-curve)
 
-*V_lv_actual (low-voltage side voltage under load) against P (load real power on the low-voltage side) from 40000 W to 4e+06 W on a logarithmic axis. One curve for each value of V_lv (rated low-voltage side voltage): 400 V, 200 V, 800 V. Other inputs as in the worked example: sn = 630000.0 VA, V_hv = 20000.0 V, vk = 0.06, vkr = 0.012, P0 = 1500 W, i0 = 0.003, Q = 150000.0 var. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, P = 400000 W, V_lv_actual = 390.876 V.*
+*V_lv_actual (low-voltage side voltage under load) against P (load real power on the low-voltage side) from 40000 W to 4e+06 W on a logarithmic axis. One curve for each value of V_lv (rated low-voltage side voltage): 400 V, 200 V, 800 V. Other inputs as in the worked example: sn = 630000.0 VA, V_hv = 20000.0 V, vk = 0.06, vkr = 0.012, P0 = 1500.0 W, i0 = 0.003, Q = 150000.0 var. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, P = 400000 W, V_lv_actual = 390.876 V.*
 
 ```python
 energy_systems_ai999x.solve('energy_transformer_loading', sn=630000.0, V_hv=20000.0, V_lv=400, vk=0.06, vkr=0.012, P0=1500, i0=0.003, P=400000.0, Q=150000.0)
@@ -2892,7 +2892,7 @@ $$
 
 ![S1_share (apparent power delivered by transformer 1 in VA) against vkr1 (its resistive part (fraction or %)) from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-parallel-transformers-curve)
 
-*S1_share (apparent power delivered by transformer 1 in VA) against vkr1 (its resistive part (fraction or %)) from 0.005 to 0.015. One curve for each value of P (load real power): 600000 W, 300000 W, 1.2e+06 W. Other inputs as in the worked example: S1 = 500000.0 VA, vk1 = 0.05, S2 = 500000.0 VA, vk2 = 0.05, vkr2 = 0.01, V_lv = 400 V, Q = 200000.0 var. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, vkr1 = 0.01, S1_share = 316228 VA.*
+*S1_share (apparent power delivered by transformer 1 in VA) against vkr1 (its resistive part (fraction or %)) from 0.005 to 0.015. One curve for each value of P (load real power): 600000 W, 300000 W, 1.2e+06 W. Other inputs as in the worked example: S1 = 500000.0 VA, vk1 = 0.05, S2 = 500000.0 VA, vk2 = 0.05, vkr2 = 0.01, V_lv = 400.0 V, Q = 200000.0 var. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, vkr1 = 0.01, S1_share = 316228 VA.*
 
 ```python
 energy_systems_ai999x.solve('energy_parallel_transformers', S1=500000.0, vk1=0.05, vkr1=0.01, S2=500000.0, vk2=0.05, vkr2=0.01, V_lv=400, P=600000.0, Q=200000.0)
@@ -3400,7 +3400,7 @@ $$
 
 ![w (real-gas isothermal work per kg) against p1 (initial pressure) from 50000 Pa to 150000 Pa](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydrogen-isothermal-compression-curve)
 
-*w (real-gas isothermal work per kg) against p1 (initial pressure) from 50000 Pa to 150000 Pa. One curve for each value of p2 (final pressure): 200000 Pa, 100000 Pa, 400000 Pa. Other inputs as in the worked example: T = 300 K. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, p1 = 100000 Pa, w = 858386 J/kg.*
+*w (real-gas isothermal work per kg) against p1 (initial pressure) from 50000 Pa to 150000 Pa. One curve for each value of p2 (final pressure): 200000 Pa, 100000 Pa, 400000 Pa. Other inputs as in the worked example: T = 300.0 K. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, p1 = 100000 Pa, w = 858386 J/kg.*
 
 ```python
 energy_systems_ai999x.solve('energy_hydrogen_isothermal_compression', p1=100000.0, p2=200000.0, T=300)
