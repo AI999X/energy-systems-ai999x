@@ -435,7 +435,7 @@ fn daylight(s: &Solved) -> Option<Figure> {
     let oset: Vec<(f64, f64)> = theirs.iter().map(|(d, v)| (*d, v.map(|x| x.1).unwrap_or(f64::NAN))).collect();
     p.dashed(&orise, "axp-c3");
     p.dashed(&oset, "axp-c3");
-    p.marker((n0, rise0), &format!("day {}: {} h of day", num(n0), num(len0)));
+    p.marker((n0, rise0), &format!("day {}: sunrise {} h ({} h of day)", num(n0), num(rise0), num(len0)));
     p.frame("Day of the year n", "Clock time (h)", "");
     p.legend(&[(format!("daylight at {}° (given)", num(lat)), "axp-s"), (format!("sunrise and sunset, {}°", num(other)), "axp-c3")]);
     Some(s.chart("chart", "Sunrise, sunset and day length through the year",
