@@ -851,9 +851,9 @@ $$
 - **Assumes:** 0 <= zenith <= 85; GHI > 0; kt is capped at 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Diffuse fraction against clearness index in the package's Erbs decomposition: global horizontal irradiance stepped from 20 to 1000 W/m² at a solar zenith of 60° on day 172 (the worked example's), both axes the package's returns](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-erbs-decomposition-curve)
+![Diffuse fraction against clearness index in the package's Erbs decomposition: global horizontal irradiance stepped from 20 to 1000 W/m² at a solar zenith of 0° on day 1 (the worked example's), both axes the package's returns](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-erbs-decomposition-curve)
 
-*Diffuse fraction against clearness index in the package's Erbs decomposition: global horizontal irradiance stepped from 20 to 1000 W/m² at a solar zenith of 60° on day 172 (the worked example's), both axes the package's returns. Overcast skies (low kt) are nearly all diffuse. Marked: the worked example, GHI 528.6 W/m², kt 0.8, diffuse fraction 0.1653, DHI 87.37 and DNI 882.6 W/m².*
+*Diffuse fraction against clearness index in the package's Erbs decomposition: global horizontal irradiance stepped from 20 to 1000 W/m² at a solar zenith of 0° on day 1 (the worked example's), both axes the package's returns. Overcast skies (low kt) are nearly all diffuse. Marked: the worked example, GHI 141.4 W/m², kt 0.1, diffuse fraction 0.991, DHI 140.1 and DNI 1.273 W/m².*
 
 ```python
 energy_systems_ai999x.solve('energy_erbs_decomposition', ghi=528.6494370285654, zenith=60, n=172)
@@ -1315,9 +1315,9 @@ $$
 - **Assumes:** each loss between 0 and 100%
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![System losses of a PV array (PVWatts loss model) for the worked example (every loss at its default; defaults elsewhere): each step adds one loss to those before it and the package returns the remaining performance factor; a step's drop (printed) is the difference of two returned factors](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-losses-chart)
+![System losses of a PV array (PVWatts loss model) for the worked example (soiling 0 %, shading 0 %, snow 0 %, mismatch 0 %, wiring 0 %, connections 0 %, lid 0 %, nameplate_rating 0 %, age 0 %, availability 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-losses-chart)
 
-*System losses of a PV array (PVWatts loss model) for the worked example (every loss at its default; defaults elsewhere): each step adds one loss to those before it and the package returns the remaining performance factor; a step's drop (printed) is the difference of two returned factors. The losses multiply, so the total 14.08 % is less than their sum. Marked: performance factor 0.8592.*
+*System losses of a PV array (PVWatts loss model) for the worked example (soiling 0 %, shading 0 %, snow 0 %, mismatch 0 %, wiring 0 %, connections 0 %, lid 0 %, nameplate_rating 0 %, age 0 %, availability 0.1 %; defaults elsewhere): each step adds one loss to those before it and the package returns the remaining performance factor; a step's drop (printed) is the difference of two returned factors. The losses multiply, so the total 10 % is less than their sum. Marked: performance factor 0.9.*
 
 ```python
 energy_systems_ai999x.solve('energy_pvwatts_losses', )
@@ -1419,7 +1419,7 @@ $$
 
 ![Top: the stream tube through an ideal rotor (diameter 10 m, free wind 8 m/s, air 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-actuator-disc-schematic)
 
-*Top: the stream tube through an ideal rotor (diameter 10 m, free wind 8 m/s, air 1.2 kg/m³, induction factor a = 0.3333, the worked example) with the package's speeds at the disc (5.333 m/s) and in the wake (2.667 m/s); the tube widths are a sketch whose end radii follow continuity of those speeds. Bottom: the package's Cp and Ct against a. Marked: Cp = 0.5926, Ct = 0.8889, P = 14.3 kW, thrust 2.681 kN.*
+*Top: the stream tube through an ideal rotor (diameter 10 m, free wind 8 m/s, air 1.2 kg/m³, induction factor a = 0.25, the worked example) with the package's speeds at the disc (6 m/s) and in the wake (4 m/s); the tube widths are a sketch whose end radii follow continuity of those speeds. Bottom: the package's Cp and Ct against a. Marked: Cp = 0.5625, Ct = 0.75, P = 13.57 kW, thrust 2.262 kN.*
 
 ```python
 energy_systems_ai999x.solve('energy_actuator_disc', a=0.3333333333333333, rho=1.2, D=10, v=8)
@@ -2137,9 +2137,9 @@ $$
 - **Assumes:** the load is within the line's transfer limit (a real solution exists); the high-voltage (normal) solution is reported
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A 33 kV source feeding a load of 0 + j0 MVA over a line of R = 0 Ω, X = 10 Ω (the worked example)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-two-bus-load-flow-oneline)
+![A 2 kV source feeding a load of 1 + j0 MVA over a line of R = 0 Ω, X = 1 Ω (the worked example)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-two-bus-load-flow-oneline)
 
-*A 33 kV source feeding a load of 0 + j0 MVA over a line of R = 0 Ω, X = 10 Ω (the worked example). Top: the package returns Vr = 33 kV at δ = 0°, I = 0 A, voltage drop 0 %, losses 0 kW. Bottom: Vr against the load at the same power factor (Q = 0 P), one run per point; points the package refuses (no voltage solution) are left out, so the curve stops near the largest load the line can carry (54.28 MW drawn). Marked: the worked example's load.*
+*A 2 kV source feeding a load of 1 + j0 MVA over a line of R = 0 Ω, X = 1 Ω (the worked example). Top: the package returns Vr = 1.932 kV at δ = -15°, I = 298.9 A, voltage drop 3.407 %, losses 0 kW. Bottom: Vr against the load at the same power factor (Q = 0 P), one run per point; points the package refuses (no voltage solution) are left out, so the curve stops near the largest load the line can carry (1.994 MW drawn). Marked: the worked example's load.*
 
 ```python
 energy_systems_ai999x.solve('energy_two_bus_load_flow', Vs=33000.0, R=0.0, X=10.0, P=0.0, Q=0.0)
@@ -2687,9 +2687,9 @@ $$
 - **Assumes:** approximate equivalent circuit (shunt branch at the primary terminals); 0 < load <= 2
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The worked example's 10 kVA, 1000/100 V transformer (referred to the high-voltage side: Req = 1 Ω, Xeq = 0 Ω, Rc = 1e+06 Ω, Xm = 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-performance-circuit)
+![The worked example's 10 kVA, 1000/100 V transformer (referred to the high-voltage side: Req = 1 Ω, Xeq = 0 Ω, Rc = 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-performance-circuit)
 
-*The worked example's 10 kVA, 1000/100 V transformer (referred to the high-voltage side: Req = 1 Ω, Xeq = 0 Ω, Rc = 1e+06 Ω, Xm = 1.0000e+09 Ω) supplying power factor 1 lagging. Top: the circuit; at 1 of rated load the package returns V1 = 1010 V, I1 = 10 A, copper loss 100 W, core loss 1.02 W. Middle and bottom: efficiency and regulation against load, one run per point. Marked: the worked example's load, 99 % and 1 %.*
+*The worked example's 10 kVA, 1000/100 V transformer (referred to the high-voltage side: Req = 1 Ω, Xeq = 0 Ω, Rc = 1.0000e+09 Ω, Xm = 1.0000e+09 Ω) supplying power factor 1 lagging. Top: the circuit; at 1 of rated load the package returns V1 = 1010 V, I1 = 10 A, copper loss 100 W, core loss 0.00102 W. Middle and bottom: efficiency and regulation against load, one run per point. Marked: the worked example's load, 99.01 % and 1 %.*
 
 ```python
 energy_systems_ai999x.solve('energy_transformer_performance', S=10000.0, V1=1000, V2=100, Req=1.0, Xeq=0.0, Rc=1000000.0, Xm=1000000000.0, load=1.0, pf=1.0)
@@ -2946,9 +2946,9 @@ $$
 - **Assumes:** steady state, balanced supply; 0 < slip <= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Top: the per-phase equivalent circuit of the worked example's motor (692](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-motor-circuit)
+![Top: the per-phase equivalent circuit of the worked example's motor (460 V, 60 Hz, 4 poles, star, R1 = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-motor-circuit)
 
-*Top: the per-phase equivalent circuit of the worked example's motor (692.82 V, 50 Hz, 4 poles, star, R1 = 0 Ω, X1 = 2 Ω, R2 = 1.5 Ω, X2 = 2 Ω, Xm = 1.0000e+12 Ω per phase) at slip 0.5, the rotor resistance appearing as R2/s = 3 Ω. Bottom: the package's torque against slip from standstill (s = 1) to near synchronous speed. Marked: at s = 0.5 the package returns T = 366.7 N·m, line current 80 A, power factor 0.6, air-gap power 57.6 kW, output 28.8 kW, efficiency 50 %.*
+*Top: the per-phase equivalent circuit of the worked example's motor (460 V, 60 Hz, 4 poles, star, R1 = 0.641 Ω, X1 = 1.106 Ω, R2 = 0.332 Ω, X2 = 0.464 Ω, Xm = 26.3 Ω per phase) at slip 0.022, the rotor resistance appearing as R2/s = 15.09 Ω. Bottom: the package's torque against slip from standstill (s = 1) to near synchronous speed. Marked: at s = 0.022 the package returns T = 62.81 N·m, line current 18.89 A, power factor 0.8321, air-gap power 11.84 kW, output 11.58 kW, efficiency 92.44 %.*
 
 ```python
 energy_systems_ai999x.solve('energy_induction_motor', VL=692.8203230275509, f=50, poles=4, R1=0.0, X1=2.0, R2=1.5, X2=2.0, Xm=1000000000000.0, slip=0.5, connection='star')
@@ -2998,9 +2998,9 @@ $$
 - **Assumes:** constant parameters (no deep-bar or saturation effects)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Torque–slip curve of the worked example's induction motor (692](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-max-torque-curve)
+![Torque–slip curve of the worked example's induction motor (460 V, 60 Hz, 4 poles, star, R1 = 0 Ω, X1 = 1 Ω, R2 = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-max-torque-curve)
 
-*Torque–slip curve of the worked example's induction motor (692.82 V, 50 Hz, 4 poles, star, R1 = 0 Ω, X1 = 1 Ω, R2 = 0.2 Ω, X2 = 1 Ω, Xm = 1.0000e+12 Ω per phase): each point is the package's torque at one slip. Marked: the package's breakdown torque T_max = 763.9 N·m at slip 0.1 and starting torque 151.3 N·m (starting current 199 A, Thevenin voltage 400 V).*
+*Torque–slip curve of the worked example's induction motor (460 V, 60 Hz, 4 poles, star, R1 = 0 Ω, X1 = 1 Ω, R2 = 0.2 Ω, X2 = 1 Ω, Xm = 1.0000e+12 Ω per phase): each point is the package's torque at one slip. Marked: the package's breakdown torque T_max = 280.6 N·m at slip 0.1 and starting torque 55.57 N·m (starting current 132.1 A, Thevenin voltage 265.6 V).*
 
 ```python
 energy_systems_ai999x.solve('energy_induction_max_torque', VL=692.8203230275509, f=50, poles=4, R1=0.0, X1=1.0, R2=0.2, X2=1.0, Xm=1000000000000.0, connection='star')
@@ -3486,7 +3486,7 @@ $$
 
 ![Top: the single-diode equivalent circuit (photocurrent source, diode, shunt and series resistance) with the worked example's values (photocurrent 5 A, saturation current 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-current-schematic)
 
-*Top: the single-diode equivalent circuit (photocurrent source, diode, shunt and series resistance) with the worked example's values (photocurrent 5 A, saturation current 1.0000e-10 A, Rs = 0 Ω, Rsh = 1.0000e+09 Ω, nNsVth = 1 V). Bottom: the package's current at 61 voltages from 0 to Voc = 24.64 V. Marked: at V = 0 V the package returns I = 5 A and P = 0 W.*
+*Top: the single-diode equivalent circuit (photocurrent source, diode, shunt and series resistance) with the worked example's values (photocurrent 5 A, saturation current 1.0000e-10 A, Rs = 0 Ω, Rsh = 100 Ω, nNsVth = 1 V). Bottom: the package's current at 61 voltages from 0 to Voc = 24.58 V. Marked: at V = 1 V the package returns I = 4.99 A and P = 4.99 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_single_diode_current', V=0.0, IL=5.0, I0=1e-10, Rs=0.0, Rsh=1000000000.0, nNsVth=1.0)
@@ -3533,9 +3533,9 @@ $$
 - **Assumes:** IL, I0, Rsh, $a > 0$; $Rs  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The worked example: at a current of 8 A the package returns V = 41](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-voltage-curve)
+![The worked example: at a current of 0 A the package returns V = 24](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-voltage-curve)
 
-*The worked example: at a current of 8 A the package returns V = 41.13 V and P = 329 W (single-diode parameters photocurrent 9 A, saturation current 1.0000e-10 A, Rs = 0.3 Ω, Rsh = 400 Ω, nNsVth = 1.9 V). The I–V (top) and P–V (bottom) curves are the package's currents at 61 voltages. Marked: the asked point and the maximum power point Pmp = 335.3 W at 39.6 V.*
+*The worked example: at a current of 0 A the package returns V = 24.64 V and P = 0 W (single-diode parameters photocurrent 5 A, saturation current 1.0000e-10 A, Rs = 0 Ω, Rsh = 1.0000e+15 Ω, nNsVth = 1 V). The I–V (top) and P–V (bottom) curves are the package's currents at 61 voltages. Marked: the asked point and the maximum power point Pmp = 102.8 W at 21.52 V.*
 
 ```python
 energy_systems_ai999x.solve('energy_single_diode_voltage', I=8.0, IL=9.0, I0=1e-10, Rs=0.3, Rsh=400.0, nNsVth=1.9)
@@ -3584,9 +3584,9 @@ $$
 
 *Current–voltage curve of a PV module (single-diode model: photocurrent 9 A, saturation current 1.0000e-10 A, Rs = 0.3 Ω, Rsh = 400 Ω), computed by the package at 81 voltages. The shaded rectangle is the maximum power the package finds, P = 335.252 W at V = 39.6025 V, I = 8.46542 A; it fills 0.778276 of Isc × Voc (8.99326 A × 47.8984 V), the fill factor.*
 
-![Current–voltage (top) and power–voltage (bottom) curves of a PV module, single-diode model with the worked example's parameters (photocurrent 9 A, saturation current 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-mpp-curve-2)
+![Current–voltage (top) and power–voltage (bottom) curves of a PV module, single-diode model with the worked example's parameters (photocurrent 5 A, saturation current 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-mpp-curve-2)
 
-*Current–voltage (top) and power–voltage (bottom) curves of a PV module, single-diode model with the worked example's parameters (photocurrent 9 A, saturation current 1.0000e-10 A, Rs = 0.3 Ω, Rsh = 400 Ω, nNsVth = 1.9 V); each point is the package's current at one of 61 voltages, the power is V·I of those points. Marked: the package's maximum power point Vmp = 39.6 V, Imp = 8.465 A, Pmp = 335.3 W, Isc = 8.993 A, Voc = 47.9 V, fill factor 0.7783.*
+*Current–voltage (top) and power–voltage (bottom) curves of a PV module, single-diode model with the worked example's parameters (photocurrent 5 A, saturation current 1.0000e-10 A, Rs = 0 Ω, Rsh = 1.0000e+15 Ω, nNsVth = 1 V); each point is the package's current at one of 61 voltages, the power is V·I of those points. Marked: the package's maximum power point Vmp = 21.52 V, Imp = 4.778 A, Pmp = 102.8 W, Isc = 5 A, Voc = 24.64 V, fill factor 0.8348.*
 
 ```python
 energy_systems_ai999x.solve('energy_single_diode_mpp', IL=9.0, I0=1e-10, Rs=0.3, Rsh=400.0, nNsVth=1.9)
@@ -3687,9 +3687,9 @@ $$
 - **Assumes:** reference conditions 1000 $W/m^{2}$ and 25 degC
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Module current–voltage curves at four irradiances and a cell temperature of 318](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pv-module-at-conditions-curve)
+![Module current–voltage curves at four irradiances and a cell temperature of 298](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pv-module-at-conditions-curve)
 
-*Module current–voltage curves at four irradiances and a cell temperature of 318.15 K (the worked example's), from the package's De Soto parameters (reference photocurrent 9 A, saturation current 1e-10 A, a_ref = 1.9 V, Rsh_ref = 400 Ω, Rs = 0.3 Ω, short-circuit temperature coefficient 0.004 A/K) and its single-diode current, one run per voltage. Dots: the maximum power point of each curve, G = 1000 W/m²: 308.2 W, G = 800 W/m²: 247 W, G = 600 W/m²: 184.9 W, G = 400 W/m²: 122.2 W. Marked: the worked example (G = 800 W/m²) as the package returns it, Pmp = 247 W at 36.37 V, 6.79 A, fill factor 0.7683.*
+*Module current–voltage curves at four irradiances and a cell temperature of 298.15 K (the worked example's), from the package's De Soto parameters (reference photocurrent 9 A, saturation current 1e-10 A, a_ref = 1.9 V, Rsh_ref = 400 Ω, Rs = 0.3 Ω, short-circuit temperature coefficient 0.004 A/K) and its single-diode current, one run per voltage. Dots: the maximum power point of each curve, G = 1000 W/m²: 335.3 W, G = 800 W/m²: 268.8 W, G = 600 W/m²: 201.4 W, G = 400 W/m²: 133.4 W. Marked: the worked example (G = 1000 W/m²) as the package returns it, Pmp = 102.8 W at 21.52 V, 4.778 A, fill factor 0.8348.*
 
 ```python
 energy_systems_ai999x.solve('energy_pv_module_at_conditions', G=800, T_cell=318.15, alpha_sc=0.004, a_ref=1.9, IL_ref=9.0, I0_ref=1e-10, Rsh_ref=400.0, Rs=0.3)
@@ -3781,9 +3781,9 @@ $$
 - **Assumes:** sun above the horizon; $1  \leq  TL  \leq  10$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Clear-sky irradiance against the Sun's zenith angle for the worked example's sky (Linke turbidity 1, altitude 0 m, day 1), each point a run of the package: global horizontal, direct normal and diffuse horizontal](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-clear-sky-ineichen-curve)
+![Clear-sky irradiance against the Sun's zenith angle for the worked example's sky (Linke turbidity 3, altitude 500 m, day 172), each point a run of the package: global horizontal, direct normal and diffuse horizontal](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-clear-sky-ineichen-curve)
 
-*Clear-sky irradiance against the Sun's zenith angle for the worked example's sky (Linke turbidity 1, altitude 0 m, day 1), each point a run of the package: global horizontal, direct normal and diffuse horizontal. Marked: at zenith 0° the package returns GHI 1181, DNI 1149 and DHI 31.77 W/m² (absolute air mass 0.9997).*
+*Clear-sky irradiance against the Sun's zenith angle for the worked example's sky (Linke turbidity 3, altitude 500 m, day 172), each point a run of the package: global horizontal, direct normal and diffuse horizontal. Marked: at zenith 30° the package returns GHI 885, DNI 910.1 and DHI 96.8 W/m² (absolute air mass 1.087).*
 
 ```python
 energy_systems_ai999x.solve('energy_clear_sky_ineichen', zenith=0, linke_turbidity=1, altitude=0, n=1)
