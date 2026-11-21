@@ -10,8 +10,8 @@ Energy Systems covers power systems and load flow, three-phase power, transforme
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-energy-systems-1.6.5-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-energy-systems-1.6.5-linux-x86_64.tar.gz) |
-| **Command line** `energy-systems` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.4/ai999x-cli-1.6.4-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.4/ai999x-cli-1.6.4-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-energy-systems-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-energy-systems-1.6.6-linux-x86_64.tar.gz) |
+| **Command line** `energy-systems` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/energy-systems-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install energy-systems-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -241,143 +241,6 @@ w = 1833212.524 J/kg
 w_kWh_per_kg = 0.5092257011
 ```
 
-## Rust library: 15 examples
-
-The crate `energy-systems-ai999x` (in `rust/` of the GitHub repository) answers a JSON request with `energy_systems_ai999x::solve_json`. Each call below was compiled and run on this release; the comment under it is what it printed. The whole program is `rust/energy-systems/examples/readme.rs`: `cd rust && cargo run --release --example readme -p energy-systems-ai999x`.
-
-```rust
-use serde_json::{json, Value};
-
-fn show(request: Value) {
-    let answer: Value = serde_json::from_str(&energy_systems_ai999x::solve_json(&request.to_string())).unwrap();
-    println!("{}", answer["outcome"].as_str().unwrap_or(""));
-    for v in answer["values"].as_array().into_iter().flatten() {
-        let unit = v[2].as_str().unwrap_or("");
-        let unit = if unit.is_empty() || unit == "1" { String::new() } else { format!(" {unit}") };
-        println!("{} = {}{}", v[0].as_str().unwrap_or(""), v[1], unit);
-    }
-}
-
-show(json!({"key": "energy_battery_pack_sizing", "inputs": {"V_target": "48 V", "E_target": "10 kWh", "V_cell": "3.2 V", "Q_cell": "360000 C"}}));
-// SOLVED
-// N_series = 15
-// N_parallel = 3
-// N_cells = 45
-// V_pack = 48.0 V
-// E_pack_kWh = 14.4
-// Q_pack_Ah = 300.0
-
-show(json!({"key": "energy_stack_electrical_power", "inputs": {"I": "200 A", "N": "100", "V_cell": "0.7 V"}}));
-// SOLVED
-// P = 14000.0 W
-// P_kW = 14.0
-// V_stack = 70.0 V
-
-show(json!({"key": "energy_capacity_factor", "inputs": {"P_rated": "2 MW", "E": "5256 MWh"}}));
-// SOLVED
-// capacity_factor = 0.3
-// capacity_factor_pct = 30.0
-// E = 18921600000000.0 J
-// E_MWh = 5256.0
-// full_load_hours = 2628.0
-// average_power = 600000.0 W
-
-show(json!({"key": "energy_hydrogen_tank", "inputs": {"V": "1 m^3", "p": "700 bar", "T": "288.15 K"}}));
-// SOLVED
-// rho = 40.1721610778 kg/m^3
-// Z = 1.46616963797
-// mass = 40.1721610778 kg
-// rho_ideal = 58.899202864 kg/m^3
-// mass_ideal = 58.899202864 kg
-// ideal_over_real = 1.46616963797
-
-show(json!({"key": "energy_induction_max_torque", "inputs": {"VL": "460 V", "f": "60 Hz", "poles": "4", "R1": "0 ohm", "X1": "1 ohm", "R2": "0.2 ohm", "X2": "1 ohm", "Xm": "1e+12 ohm", "connection": "star"}}));
-// SOLVED
-// s_maxT = 0.1
-// T_max = 280.643216318 N*m
-// T_start = 55.5729141225 N*m
-// I_start = 132.131547613 A
-// V_th = 265.581123827 V
-// R_th = 0.0 ohm
-
-show(json!({"key": "energy_pvwatts_losses", "inputs": {"soiling": "0", "shading": "0", "snow": "0", "mismatch": "0", "wiring": "0", "connections": "0", "lid": "0", "nameplate_rating": "0", "age": "0", "availability": "0.1"}}));
-// SOLVED
-// total_loss = 0.1
-// performance_factor = 0.9
-// total_loss_pct = 10.0
-
-show(json!({"key": "energy_newton_load_flow", "inputs": {"lines": "1 2 0.0 0.5 0.0", "loads": "2 0.0 0.0"}}));
-// SOLVED
-// V = [1.0,1.0]
-// angle_deg = [0.0,0.0]
-// P_slack = 0.0
-// Q_slack = 0.0
-// P_loss = 0.0
-// Q_gen = []
-
-show(json!({"key": "energy_angle_of_incidence", "inputs": {"tilt": "0", "surface_azimuth": "180", "zenith": "60", "azimuth": "100"}}));
-// SOLVED
-// aoi_deg = 60.0
-// cos_aoi = 0.5
-
-show(json!({"key": "energy_three_phase_power", "inputs": {"VL": "400 V", "IL": "50 A", "pf": "0.8", "connection": "star"}}));
-// SOLVED
-// P = 27712.8129211 W
-// Q = 20784.6096908 var
-// S = 34641.0161514 VA
-// V_phase = 230.940107676 V
-// I_phase = 50.0 A
-
-show(json!({"key": "energy_transformer_max_efficiency", "inputs": {"S": "100 kVA", "P_core": "500 W", "P_cu_fl": "2000 W", "pf": "1"}}));
-// SOLVED
-// load_fraction = 0.5
-// S_at_max = 50000.0 VA
-// efficiency_max_pct = 98.0392156863
-// efficiency_full_load_pct = 97.5609756098
-
-show(json!({"key": "energy_actuator_disc", "inputs": {"a": "0.25", "rho": "1.2 kg/m^3", "D": "10 m", "v": "8 m/s"}}));
-// SOLVED
-// Cp = 0.5625
-// Ct = 0.75
-// v_disc = 6.0 m/s
-// v_wake = 4.0 m/s
-// P = 13571.6802635 W
-// T = 2261.94671058 N
-
-show(json!({"key": "energy_battery_rc_discharge", "inputs": {"OCV": "4 V", "R0": "10 mohm", "R1": "20 mohm", "C1": "1000 F", "I": "10 A", "t": "0 s"}}));
-// SOLVED
-// V_terminal = 3.9 V
-// V_rc = 0.0 V
-// E_delivered = 0.0 J
-// E_Wh = 0.0
-// heat = 0.0 J
-// tau = 20.0 s
-
-show(json!({"key": "energy_butler_volmer", "inputs": {"j0": "10", "alpha_a": "0.5", "alpha_c": "0.5", "T": "298.15 K", "eta": "100 mV"}}));
-// SOLVED
-// j = 68.5840779148
-// j_mA_cm2 = 6.85840779148
-// eta = 0.1 V
-// eta_mV = 100.0
-// j_anodic = 70.0123964004
-// j_cathodic = -1.4283184856
-
-show(json!({"key": "energy_hydro_power", "inputs": {"Q": "10 m^3/s", "H": "50 m", "eta": "0.9"}}));
-// SOLVED
-// P = 4414500.0 W
-// P_kW = 4414.5
-// P_MW = 4.4145
-// P_hydraulic = 4905000.0 W
-// E = 139215672000000.0 J
-// E_MWh = 38671.02
-
-show(json!({"key": "energy_hydrogen_isentropic_compression", "inputs": {"p1": "30 bar", "T1": "300 K", "p2": "100 bar"}}));
-// SOLVED
-// T2 = 423.293556425 K
-// w = 1833212.52408 J/kg
-// w_kWh_per_kg = 0.509225701134
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/energy-systems-ai999x/blob/main/docs/energy_systems_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/energy-systems-ai999x/blob/main/docs/energy_systems_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/energy-systems-ai999x/blob/main/docs/energy_systems_ai999x_desktop_guide.md)
@@ -386,7 +249,7 @@ show(json!({"key": "energy_hydrogen_isentropic_compression", "inputs": {"p1": "3
 
 Every calculation, with its formula, a worked example and its figures: **[Energy Systems on ai999x.com](https://www.ai999x.com/models/energy-systems-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.4 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
