@@ -10,8 +10,8 @@ Energy Systems covers power systems and load flow, three-phase power, transforme
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-energy-systems-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-energy-systems-1.6.6-linux-x86_64.tar.gz) |
-| **Command line** `energy-systems` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-energy-systems-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-energy-systems-1.6.7-linux-x86_64.tar.gz) |
+| **Command line** `energy-systems` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/energy-systems-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install energy-systems-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -131,116 +131,6 @@ print(a.outcome, a.values)
 # SOLVED {'T_cell': 323.15, 'T_cell_C': 50.0}
 ```
 
-## Command line: 15 examples
-
-Each command below was run with `energy-systems` of this release; the lines under it are the answer it printed (the full answer goes on with the method, every input in SI units and the conditions it assumes).
-
-```text
-$ energy-systems solve energy_battery_pack_sizing "V_target=48 V" "E_target=10 kWh" "V_cell=3.2 V" "Q_cell=360000 C"
-N_series = 15
-N_parallel = 3
-N_cells = 45
-V_pack = 48 V
-E_pack_kWh = 14.4
-Q_pack_Ah = 300
-
-$ energy-systems solve energy_stack_electrical_power "I=200 A" N=100 "V_cell=0.7 V"
-P = 14000 W
-P_kW = 14
-V_stack = 70 V
-
-$ energy-systems solve energy_capacity_factor "P_rated=2 MW" "E=5256 MWh"
-capacity_factor = 0.3
-capacity_factor_pct = 30
-E = 1.89216e+13 J
-E_MWh = 5256
-full_load_hours = 2628
-average_power = 600000 W
-
-$ energy-systems solve energy_hydrogen_tank "V=1 m^3" "p=700 bar" "T=288.15 K"
-rho = 40.17216108 kg/m^3
-Z = 1.466169638
-mass = 40.17216108 kg
-rho_ideal = 58.89920286 kg/m^3
-mass_ideal = 58.89920286 kg
-ideal_over_real = 1.466169638
-
-$ energy-systems solve energy_induction_max_torque "VL=460 V" "f=60 Hz" poles=4 "R1=0 ohm" "X1=1 ohm" "R2=0.2 ohm" "X2=1 ohm" "Xm=1e+12 ohm" connection=star
-s_maxT = 0.1
-T_max = 280.6432163 N*m
-T_start = 55.57291412 N*m
-I_start = 132.1315476 A
-V_th = 265.5811238 V
-R_th = 0 ohm
-
-$ energy-systems solve energy_pvwatts_losses soiling=0 shading=0 snow=0 mismatch=0 wiring=0 connections=0 lid=0 nameplate_rating=0 age=0 availability=0.1
-total_loss = 0.1
-performance_factor = 0.9
-total_loss_pct = 10
-
-$ energy-systems solve energy_newton_load_flow "lines=1 2 0.0 0.5 0.0" "loads=2 0.0 0.0"
-V = [1.0,1.0]
-angle_deg = [0.0,0.0]
-P_slack = 0
-Q_slack = 0
-P_loss = 0
-Q_gen = []
-
-$ energy-systems solve energy_angle_of_incidence tilt=0 surface_azimuth=180 zenith=60 azimuth=100
-aoi_deg = 60
-cos_aoi = 0.5
-
-$ energy-systems solve energy_three_phase_power "VL=400 V" "IL=50 A" pf=0.8 connection=star
-P = 27712.81292 W
-Q = 20784.60969 var
-S = 34641.01615 VA
-V_phase = 230.9401077 V
-I_phase = 50 A
-
-$ energy-systems solve energy_transformer_max_efficiency "S=100 kVA" "P_core=500 W" "P_cu_fl=2000 W" pf=1
-load_fraction = 0.5
-S_at_max = 50000 VA
-efficiency_max_pct = 98.03921569
-efficiency_full_load_pct = 97.56097561
-
-$ energy-systems solve energy_actuator_disc a=0.25 "rho=1.2 kg/m^3" "D=10 m" "v=8 m/s"
-Cp = 0.5625
-Ct = 0.75
-v_disc = 6 m/s
-v_wake = 4 m/s
-P = 13571.68026 W
-T = 2261.946711 N
-
-$ energy-systems solve energy_battery_rc_discharge "OCV=4 V" "R0=10 mohm" "R1=20 mohm" "C1=1000 F" "I=10 A" "t=0 s"
-V_terminal = 3.9 V
-V_rc = 0 V
-E_delivered = 0 J
-E_Wh = 0
-heat = 0 J
-tau = 20 s
-
-$ energy-systems solve energy_butler_volmer j0=10 alpha_a=0.5 alpha_c=0.5 "T=298.15 K" "eta=100 mV"
-j = 68.58407791
-j_mA_cm2 = 6.858407791
-eta = 0.1 V
-eta_mV = 100
-j_anodic = 70.0123964
-j_cathodic = -1.428318486
-
-$ energy-systems solve energy_hydro_power "Q=10 m^3/s" "H=50 m" eta=0.9
-P = 4414500 W
-P_kW = 4414.5
-P_MW = 4.4145
-P_hydraulic = 4905000 W
-E = 1.39215672e+14 J
-E_MWh = 38671.02
-
-$ energy-systems solve energy_hydrogen_isentropic_compression "p1=30 bar" "T1=300 K" "p2=100 bar"
-T2 = 423.2935564 K
-w = 1833212.524 J/kg
-w_kWh_per_kg = 0.5092257011
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/energy-systems-ai999x/blob/main/docs/energy_systems_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/energy-systems-ai999x/blob/main/docs/energy_systems_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/energy-systems-ai999x/blob/main/docs/energy_systems_ai999x_desktop_guide.md)
@@ -249,13 +139,13 @@ w_kWh_per_kg = 0.5092257011
 
 Every calculation, with its formula, a worked example and its figures: **[Energy Systems on ai999x.com](https://www.ai999x.com/models/energy-systems-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.7 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/energy-systems-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.6`; the [GitHub release](https://github.com/AI999X/energy-systems-ai999x/releases/tag/v1.6.6) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/energy-systems-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.7`; the [GitHub release](https://github.com/AI999X/energy-systems-ai999x/releases/tag/v1.6.7) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 
