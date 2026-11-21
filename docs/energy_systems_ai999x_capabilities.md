@@ -213,9 +213,9 @@ $$
 - **Assumes:** $1  \leq  n  \leq  366$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Declination in degrees as n runs from 152 to 192, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-solar-declination-live-1)
+![The Sun's declination through the year, one run of the package every four days (its default formula)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-solar-declination-curve)
 
-*Declination in degrees as n runs from 152 to 192, every other input as you entered it (41 solutions). Marked: your n = 172 gives declination_deg = 23.45. Your inputs: n = 172.*
+*The Sun's declination through the year, one run of the package every four days (its default formula). Dots: days 81, 172 and 355 with their returned declinations. Marked: the worked example, day 172, declination 23.45°.*
 
 ```python
 energy_systems_ai999x.solve('energy_solar_declination', n=172)
@@ -261,17 +261,9 @@ $$
 - **Assumes:** $1  \leq  n  \leq  366$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The analemma: the model's equation of time (across, minutes) against its solar declination (up) for every fifth day of the year, where the Sun stands at clock noon through the year](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-equation-of-time-chart)
+![The analemma: the package's equation of time (horizontal, minutes) against its solar declination (vertical) for every fourth day of the year, where the Sun stands at clock noon through the year](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-equation-of-time-chart)
 
-*The analemma: the model's equation of time (across, minutes) against its solar declination (up) for every fifth day of the year, where the Sun stands at clock noon through the year. Marked: day 81, equation of time -7.53 min at declination -2.657e-14°. Your inputs: n = 81, method = pvcdrom.*
-
-![Equation of time in minutes as n runs from 61 to 101, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-equation-of-time-live-1)
-
-*Equation of time in minutes as n runs from 61 to 101, every other input as you entered it (41 solutions). Marked: your n = 81 gives eot_min = -7.53. Your inputs: n = 81, method = pvcdrom.*
-
-![Equation of time in minutes for every choice of method, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-equation-of-time-live-2)
-
-*Equation of time in minutes for every choice of method, every other input as you entered it (highlighted: your choice). spencer: -7.565; pvcdrom: -7.53. Your inputs: n = 81, method = pvcdrom.*
+*The analemma: the package's equation of time (horizontal, minutes) against its solar declination (vertical) for every fourth day of the year, where the Sun stands at clock noon through the year. Marked: the worked example, day 81, equation of time -7.53 min at declination -2.6571e-14°.*
 
 ```python
 energy_systems_ai999x.solve('energy_equation_of_time', n=81, method='pvcdrom')
@@ -317,13 +309,9 @@ $$
 - **Assumes:** $1  \leq  n  \leq  366$; 0 <= clock < 24; -180 <= longitude <= 180
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Hour angle in degrees (negative before solar](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-solar-time-hour-angle-live-1)
+![hour_angle_deg (hour angle in degrees (negative before solar noon)) against n (day of the year (1 = 1 January)) from 1 to 344 on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-solar-time-hour-angle-curve)
 
-*Hour angle in degrees (negative before solar... as clock runs from 3.625 to 23.74, every other input as you entered it (38 solutions). Marked: your clock = 14.5 gives hour_angle_deg = 37.16. Your inputs: n = 172, clock = 14.5, longitude = -75, utc_offset = -5.*
-
-![Hour angle in degrees (negative before solar](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-solar-time-hour-angle-live-2)
-
-*Hour angle in degrees (negative before solar... as longitude runs from -131.2 to -18.75, every other input as you entered it (29 solutions). Marked: your longitude = -75 gives hour_angle_deg = 37.16. Your inputs: n = 172, clock = 14.5, longitude = -75, utc_offset = -5.*
+*hour_angle_deg (hour angle in degrees (negative before solar noon)) against n (day of the year (1 = 1 January)) from 1 to 344 on a logarithmic axis. One curve for each value of clock (local clock (standard) time in decimal hours or hh:mm): 14.5, 7.25. Other inputs as in the worked example: longitude = -75.0, utc_offset = -5.0. 35 points per curve computed by energy-systems-ai999x; marked: the worked example, n = 172, hour_angle_deg = 37.1641.*
 
 ```python
 energy_systems_ai999x.solve('energy_solar_time_hour_angle', n=172, clock=14.5, longitude=-75, utc_offset=-5)
@@ -370,17 +358,9 @@ $$
 - **Assumes:** -90 < latitude < 90; |declination| <= 23.5; |hour angle| <= 180
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Sun-path chart at latitude 40°: elevation against azimuth on the solstices and the equinox, each point a run of the model for an hour angle every 7](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-sun-angles-chart)
+![Sun-path chart at latitude 40° N: elevation against azimuth on three days, each point a run of the package for an hour angle every 15 minutes (dots hourly, labelled in solar time on the June curve)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-sun-angles-chart)
 
-*Sun-path chart at latitude 40°: elevation against azimuth on the solstices and the equinox, each point a run of the model for an hour angle every 7.5° (half an hour), only while the Sun is up. Marked: declination 23.45° at hour angle 30°, elevation 59.82°, azimuth 245.8°, zenith 30.18°. Your inputs: latitude = 40, declination = 23.45, hour_angle = 30.*
-
-![Solar elevation (altitude) in degrees as hour_angle runs from 7](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-sun-angles-live-1)
-
-*Solar elevation (altitude) in degrees as hour_angle runs from 7.5 to 52.5, every other input as you entered it (41 solutions). Marked: your hour_angle = 30 gives elevation_deg = 59.82. Your inputs: latitude = 40, declination = 23.45, hour_angle = 30.*
-
-![Solar elevation (altitude) in degrees as latitude runs from 10 to 70, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-sun-angles-live-2)
-
-*Solar elevation (altitude) in degrees as latitude runs from 10 to 70, every other input as you entered it (29 solutions). Marked: your latitude = 40 gives elevation_deg = 59.82. Your inputs: latitude = 40, declination = 23.45, hour_angle = 30.*
+*Sun-path chart at latitude 40° N: elevation against azimuth on three days, each point a run of the package for an hour angle every 15 minutes (dots hourly, labelled in solar time on the June curve). Marked: the worked example, declination 0° at hour angle 0°, elevation 50°, azimuth 180°, zenith 40°.*
 
 ```python
 energy_systems_ai999x.solve('energy_sun_angles', latitude=40, declination=0, hour_angle=0)
@@ -431,17 +411,13 @@ $$
 - **Assumes:** $1  \leq  n  \leq  366$; 0 <= clock < 24; -90 < latitude < 90
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The Sun's path across the sky at latitude 40°, longitude -105° on three days: azimuth around the rim (N at the top) and elevation inward (rings at 0°, 30° and 60°), computed by the model every 20 minutes of clock time while the Sun is up; dots every 2 h](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-solar-position-sky.svg)
+![The Sun's path across the sky at latitude 40°, longitude -105° (UTC-7) on three days: azimuth around the rim (N at the top) and elevation inward (rings at 0°, 30° and 60°), computed by the package every 15 minutes while the Sun is up; dots every 2 h of clock time](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-solar-position-sky.svg)
 
-*The Sun's path across the sky at latitude 40°, longitude -105° on three days: azimuth around the rim (N at the top) and elevation inward (rings at 0°, 30° and 60°), computed by the model every 20 minutes of clock time while the Sun is up; dots every 2 h. Highest computed elevations: 21 June 73.45°, 22 March 50.29°, 21 December 26.58°. Marked: day 172 at 13 h, elevation 69.34°, azimuth 221.2°. Your inputs: latitude = 40, longitude = -105, n = 172, clock = 13, utc_offset = -7.*
+*The Sun's path across the sky at latitude 40°, longitude -105° (UTC-7) on three days: azimuth around the rim (N at the top) and elevation inward (rings at 0°, 30° and 60°), computed by the package every 15 minutes while the Sun is up; dots every 2 h of clock time. Highest computed elevations: 21 June 73.4496°, 22 March 50.2928°, 21 December 26.5781°. Marked: 21 June at 13 h, elevation 69.34°, azimuth 221.165°.*
 
-![Solar elevation in degrees as longitude runs from -180 to -26](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-solar-position-live-1)
+![elevation_deg (solar elevation in degrees) against n (day of the year (1 = 1 January)) from 1 to 344 on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-solar-position-curve)
 
-*Solar elevation in degrees as longitude runs from -180 to -26.25, every other input as you entered it (42 solutions). Marked: your longitude = -105 gives elevation_deg = 69.34. Your inputs: latitude = 40, longitude = -105, n = 172, clock = 13, utc_offset = -7.*
-
-![Solar elevation in degrees as clock runs from 3](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-solar-position-live-2)
-
-*Solar elevation in degrees as clock runs from 3.25 to 22.75, every other input as you entered it (29 solutions). Marked: your clock = 13 gives elevation_deg = 69.34. Your inputs: latitude = 40, longitude = -105, n = 172, clock = 13, utc_offset = -7.*
+*elevation_deg (solar elevation in degrees) against n (day of the year (1 = 1 January)) from 1 to 344 on a logarithmic axis. One curve for each value of clock (local clock (standard) time in decimal hours or hh:mm): 13, 6.5. Other inputs as in the worked example: latitude = 40.0, longitude = -105.0, utc_offset = -7.0. 35 points per curve computed by energy-systems-ai999x; marked: the worked example, n = 172, elevation_deg = 69.34.*
 
 ```python
 energy_systems_ai999x.solve('energy_solar_position', latitude=40, longitude=-105, n=172, clock=13.0, utc_offset=-7)
@@ -484,17 +460,9 @@ $$
 - **Assumes:** the sun rises and sets on that day (no polar day or night)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Sunrise and sunset in clock hours through the year at the longitude and time zone given, at the latitude given, 51](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-sunrise-sunset-chart)
+![Sunrise and sunset in clock hours (UTC+0) through the year at longitude 0°, at the worked example's latitude 0° N (shaded daylight) and at 52° N (dashed), one run of the package per week](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-sunrise-sunset-chart)
 
-*Sunrise and sunset in clock hours through the year at the longitude and time zone given, at the latitude given, 51.5° (shaded daylight), and at 0° (dashed), one run of the model per week; days the model refuses (no sunrise or no sunset) are left out. The wobble of both edges is the equation of time. Marked: day 172: sunrise 3.819 h, sunset 20.23 h, 16.41 h of daylight. Your inputs: latitude = 51.5, longitude = 0, n = 172, utc_offset = 0.*
-
-![Day length in hours as latitude runs from 12](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-sunrise-sunset-live-1)
-
-*Day length in hours as latitude runs from 12.88 to 64.93, every other input as you entered it (29 solutions). Marked: your latitude = 51.5 gives day_length_h = 16.41. Your inputs: latitude = 51.5, longitude = 0, n = 172, utc_offset = 0.*
-
-![Sunrise, local clock time in decimal hours as utc_offset runs from -1 to 1, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-sunrise-sunset-live-2)
-
-*Sunrise, local clock time in decimal hours as utc_offset runs from -1 to 1, every other input as you entered it (29 solutions). Marked: your utc_offset = 0 gives sunrise_h = 3.819. Your inputs: latitude = 51.5, longitude = 0, n = 172, utc_offset = 0.*
+*Sunrise and sunset in clock hours (UTC+0) through the year at longitude 0°, at the worked example's latitude 0° N (shaded daylight) and at 52° N (dashed), one run of the package per week. Day lengths returned on days 172 and 355: 0° N 12 and 12 h; 52° N 16.5 and 7.511 h. The wobble of both edges is the equation of time. Marked: the worked example, day 81: sunrise 6.126 h, sunset 18.13 h, 12 h of daylight.*
 
 ```python
 energy_systems_ai999x.solve('energy_sunrise_sunset', latitude=0, longitude=0, n=81, utc_offset=0)
@@ -538,17 +506,9 @@ $$
 - **Assumes:** $1  \leq  n  \leq  366$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Extraterrestrial normal irradiance as solar_constant runs from 820](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-extraterrestrial-irradiance-live-1)
+![Solar irradiance on a plane normal to the Sun above the atmosphere through the year for a solar constant of 1367 W/m² (the worked example's), each point a run of the package (two of its formulas)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-extraterrestrial-irradiance-curve)
 
-*Extraterrestrial normal irradiance as solar_constant runs from 820.2 to 1914 W/m^2, every other input as you entered it (41 solutions). Marked: your solar_constant = 1367 W/m^2 gives G_on = 1412. Your inputs: n = 365, method = asce, solar_constant = 1367 W/m^2.*
-
-![Extraterrestrial normal irradiance for every choice of method, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-extraterrestrial-irradiance-live-2)
-
-*Extraterrestrial normal irradiance for every choice of method, every other input as you entered it (highlighted: your choice). spencer: 1415; asce: 1412. Your inputs: n = 365, method = asce, solar_constant = 1367 W/m^2.*
-
-![Extraterrestrial normal irradiance as n runs from 345 to 366, every other input as you entered it (22 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-extraterrestrial-irradiance-live-3)
-
-*Extraterrestrial normal irradiance as n runs from 345 to 366, every other input as you entered it (22 solutions). Marked: your n = 365 gives G_on = 1412. Your inputs: n = 365, method = asce, solar_constant = 1367 W/m^2.*
+*Solar irradiance on a plane normal to the Sun above the atmosphere through the year for a solar constant of 1367 W/m² (the worked example's), each point a run of the package (two of its formulas). Dots: day 3, 1412 W/m² (distance factor 1.033), and day 185, 1322 W/m². Marked: the worked example, day 365 (asce formula), 1412 W/m².*
 
 ```python
 energy_systems_ai999x.solve('energy_extraterrestrial_irradiance', n=365, method='asce', solar_constant=1367.0)
@@ -593,13 +553,9 @@ $$
 - **Assumes:** 0 <= zenith < 90
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Relative air mass as zenith runs from 15 to 89](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-air-mass-live-1)
+![AM_relative (relative air mass (sea level)) against zenith (solar zenith angle in degrees (apparent zenith for the refraction-based models)) from 0 to 90](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-air-mass-curve)
 
-*Relative air mass as zenith runs from 15 to 89.25, every other input as you entered it (34 solutions). Marked: your zenith = 60 gives AM_relative = 2. Your inputs: zenith = 60, model = simple.*
-
-![Relative air mass for every choice of model, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-air-mass-live-2)
-
-*Relative air mass for every choice of model, every other input as you entered it (highlighted: your choice). kastenyoung1989: 1.994; kasten1966: 1.993; simple: 2; pickering2002: 1.993; youngirvine1967: 1.993; young1994: 1.992; gueymard1993: 1.994; gueymard2003: 1.995. Your inputs: zenith = 60, model = simple.*
+*AM_relative (relative air mass (sea level)) against zenith (solar zenith angle in degrees (apparent zenith for the refraction-based models)) from 0 to 90. Other inputs as in the worked example: model = simple. 40 points computed by energy-systems-ai999x; marked: the worked example, zenith = 60, AM_relative = 2.*
 
 ```python
 energy_systems_ai999x.solve('energy_air_mass', zenith=60, model='simple')
@@ -645,13 +601,9 @@ $$
 - **Assumes:** 0 <= tilt <= 180; azimuths from 0 to 360 degrees
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Angle of incidence in degrees as surface_azimuth runs from 45 to 315, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-angle-of-incidence-live-1)
+![aoi_deg (angle of incidence in degrees) against tilt (surface tilt from horizontal in degrees) from 0 to 90](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-angle-of-incidence-curve)
 
-*Angle of incidence in degrees as surface_azimuth runs from 45 to 315, every other input as you entered it (41 solutions). Marked: your surface_azimuth = 180 gives aoi_deg = 15.11. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 40, azimuth = 160.*
-
-![Angle of incidence in degrees as azimuth runs from 40 to 280, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-angle-of-incidence-live-2)
-
-*Angle of incidence in degrees as azimuth runs from 40 to 280, every other input as you entered it (29 solutions). Marked: your azimuth = 160 gives aoi_deg = 15.11. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 40, azimuth = 160.*
+*aoi_deg (angle of incidence in degrees) against tilt (surface tilt from horizontal in degrees) from 0 to 90. One curve for each value of zenith (solar zenith angle in degrees): 60, 22.5, 67.5. Other inputs as in the worked example: surface_azimuth = 180.0, azimuth = 100.0. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, tilt = 0, aoi_deg = 60.*
 
 ```python
 energy_systems_ai999x.solve('energy_angle_of_incidence', tilt=30, surface_azimuth=180, zenith=30, azimuth=180)
@@ -703,17 +655,9 @@ $$
 - **Assumes:** sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Irradiance on a tilted panel split into its parts by the model for the sky given (DNI 800, GHI 792](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-isotropic-chart)
+![Irradiance on a tilted panel split into its parts by the package (Irradiance on a tilted plane (isotropic sky)) for the worked example's sky (DNI 800, GHI 792](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-isotropic-chart)
 
-*Irradiance on a tilted panel split into its parts by the model for the sky given (DNI 800, GHI 792.8, DHI 100 W/m²) at tilts from 0 to 90°, one run per tilt, stacked: direct, sky diffuse and ground-reflected, the line their returned total. Marked: tilt 30°, direct 800, sky 93.3, ground 10.62, global 903.9 W/m² (angle of incidence 0°). Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
-
-![Total irradiance on the plane as tilt runs from 7](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-isotropic-live-1)
-
-*Total irradiance on the plane as tilt runs from 7.5 to 52.5, every other input as you entered it (41 solutions). Marked: your tilt = 30 gives poa_global = 903.9. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
-
-![Total irradiance on the plane as surface_azimuth runs from 45 to 315, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-isotropic-live-2)
-
-*Total irradiance on the plane as surface_azimuth runs from 45 to 315, every other input as you entered it (29 solutions). Marked: your surface_azimuth = 180 gives poa_global = 903.9. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
+*Irradiance on a tilted panel split into its parts by the package (Irradiance on a tilted plane (isotropic sky)) for the worked example's sky (DNI 800, GHI 792.8, DHI 100 W/m², Sun at zenith 30°, azimuth 180°, panel facing 180°, albedo 0.2) at tilts from 0 to 90°, stacked: direct, sky diffuse and ground-reflected, the line their returned total. Marked: tilt 30°, direct 800, sky 93.3, ground 10.62, global 903.9 W/m² (angle of incidence 0°).*
 
 ```python
 energy_systems_ai999x.solve('energy_poa_isotropic', tilt=30, surface_azimuth=180, zenith=30, azimuth=180, dni=800, ghi=792.820323027551, dhi=100, albedo=0.2)
@@ -761,17 +705,9 @@ $$
 - **Assumes:** sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Irradiance on a tilted panel split into its parts by the model for the sky given (DNI 800, GHI 792](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-klucher-chart)
+![Irradiance on a tilted panel split into its parts by the package (Irradiance on a tilted plane (Klucher sky model)) for the worked example's sky (DNI 800, GHI 792](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-klucher-chart)
 
-*Irradiance on a tilted panel split into its parts by the model for the sky given (DNI 800, GHI 792.8, DHI 100 W/m²) at tilts from 0 to 90°, one run per tilt, stacked: direct, sky diffuse and ground-reflected, the line their returned total. Marked: tilt 30°, direct 800, sky 106.6, ground 10.62, global 917.2 W/m² (angle of incidence 0°). Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
-
-![Total irradiance on the plane as tilt runs from 7](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-klucher-live-1)
-
-*Total irradiance on the plane as tilt runs from 7.5 to 52.5, every other input as you entered it (41 solutions). Marked: your tilt = 30 gives poa_global = 917.2. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
-
-![Total irradiance on the plane as surface_azimuth runs from 45 to 315, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-klucher-live-2)
-
-*Total irradiance on the plane as surface_azimuth runs from 45 to 315, every other input as you entered it (29 solutions). Marked: your surface_azimuth = 180 gives poa_global = 917.2. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
+*Irradiance on a tilted panel split into its parts by the package (Irradiance on a tilted plane (Klucher sky model)) for the worked example's sky (DNI 800, GHI 792.8, DHI 100 W/m², Sun at zenith 30°, azimuth 180°, panel facing 180°, albedo 0.2) at tilts from 0 to 90°, stacked: direct, sky diffuse and ground-reflected, the line their returned total. Marked: tilt 30°, direct 800, sky 106.6, ground 10.62, global 917.2 W/m² (angle of incidence 0°).*
 
 ```python
 energy_systems_ai999x.solve('energy_poa_klucher', tilt=30, surface_azimuth=180, zenith=30, azimuth=180, dni=800, ghi=792.820323027551, dhi=100, albedo=0.2)
@@ -820,17 +756,9 @@ $$
 - **Assumes:** sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Irradiance on a tilted panel split into its parts by the model for the sky given (DNI 800, GHI 792](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-haydavies-chart)
+![Irradiance on a tilted panel split into its parts by the package (Irradiance on a tilted plane (Hay-Davies sky model)) for the worked example's sky (DNI 800, GHI 792](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-haydavies-chart)
 
-*Irradiance on a tilted panel split into its parts by the model for the sky given (DNI 800, GHI 792.8, DHI 100 W/m²) at tilts from 0 to 90°, one run per tilt, stacked: direct, sky diffuse and ground-reflected, the line their returned total. Marked: tilt 30°, direct 800, sky 106.7, ground 10.62, global 917.3 W/m² (angle of incidence 0°). Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
-
-![Total irradiance on the plane as tilt runs from 7](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-haydavies-live-1)
-
-*Total irradiance on the plane as tilt runs from 7.5 to 52.5, every other input as you entered it (41 solutions). Marked: your tilt = 30 gives poa_global = 917.3. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
-
-![Total irradiance on the plane as surface_azimuth runs from 45 to 315, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-haydavies-live-2)
-
-*Total irradiance on the plane as surface_azimuth runs from 45 to 315, every other input as you entered it (29 solutions). Marked: your surface_azimuth = 180 gives poa_global = 917.3. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
+*Irradiance on a tilted panel split into its parts by the package (Irradiance on a tilted plane (Hay-Davies sky model)) for the worked example's sky (DNI 800, GHI 792.8, DHI 100 W/m², Sun at zenith 30°, azimuth 180°, panel facing 180°, albedo 0.2) at tilts from 0 to 90°, stacked: direct, sky diffuse and ground-reflected, the line their returned total. Marked: tilt 30°, direct 800, sky 106.7, ground 10.62, global 917.3 W/m² (angle of incidence 0°).*
 
 ```python
 energy_systems_ai999x.solve('energy_poa_haydavies', tilt=30, surface_azimuth=180, zenith=30, azimuth=180, dni=800, ghi=792.820323027551, dhi=100, albedo=0.2, n=172)
@@ -879,17 +807,9 @@ $$
 - **Assumes:** sun above the horizon; DHI <= GHI; 0 <= albedo <= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Irradiance on a tilted panel split into its parts by the model for the sky given (DNI 800, GHI 792](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-reindl-chart)
+![Irradiance on a tilted panel split into its parts by the package (Irradiance on a tilted plane (Reindl sky model)) for the worked example's sky (DNI 800, GHI 792](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-reindl-chart)
 
-*Irradiance on a tilted panel split into its parts by the model for the sky given (DNI 800, GHI 792.8, DHI 100 W/m²) at tilts from 0 to 90°, one run per tilt, stacked: direct, sky diffuse and ground-reflected, the line their returned total. Marked: tilt 30°, direct 800, sky 107.3, ground 10.62, global 917.9 W/m² (angle of incidence 0°). Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
-
-![Total irradiance on the plane as tilt runs from 7](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-reindl-live-1)
-
-*Total irradiance on the plane as tilt runs from 7.5 to 52.5, every other input as you entered it (41 solutions). Marked: your tilt = 30 gives poa_global = 917.9. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
-
-![Total irradiance on the plane as surface_azimuth runs from 45 to 315, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-reindl-live-2)
-
-*Total irradiance on the plane as surface_azimuth runs from 45 to 315, every other input as you entered it (29 solutions). Marked: your surface_azimuth = 180 gives poa_global = 917.9. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
+*Irradiance on a tilted panel split into its parts by the package (Irradiance on a tilted plane (Reindl sky model)) for the worked example's sky (DNI 800, GHI 792.8, DHI 100 W/m², Sun at zenith 30°, azimuth 180°, panel facing 180°, albedo 0.2) at tilts from 0 to 90°, stacked: direct, sky diffuse and ground-reflected, the line their returned total. Marked: tilt 30°, direct 800, sky 107.3, ground 10.62, global 917.9 W/m² (angle of incidence 0°).*
 
 ```python
 energy_systems_ai999x.solve('energy_poa_reindl', tilt=30, surface_azimuth=180, zenith=30, azimuth=180, dni=800, ghi=792.820323027551, dhi=100, albedo=0.2, n=172)
@@ -931,13 +851,9 @@ $$
 - **Assumes:** 0 <= zenith <= 85; GHI > 0; kt is capped at 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Diffuse horizontal irradiance and direct normal irradiance as ghi runs from 360 to 840 W/m^2, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-erbs-decomposition-live-1)
+![Diffuse fraction against clearness index in the package's Erbs decomposition: global horizontal irradiance stepped from 20 to 1000 W/m² at a solar zenith of 0° on day 1 (the worked example's), both axes the package's returns](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-erbs-decomposition-curve)
 
-*Diffuse horizontal irradiance and direct normal irradiance as ghi runs from 360 to 840 W/m^2, every other input as you entered it (41 solutions). Marked: your ghi = 600 W/m^2 gives dhi = 324.9. Your inputs: ghi = 600 W/m^2, zenith = 35, n = 172.*
-
-![Diffuse horizontal irradiance and direct normal irradiance as zenith runs from 8](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-erbs-decomposition-live-2)
-
-*Diffuse horizontal irradiance and direct normal irradiance as zenith runs from 8.75 to 61.25, every other input as you entered it (29 solutions). Marked: your zenith = 35 gives dhi = 324.9. Your inputs: ghi = 600 W/m^2, zenith = 35, n = 172.*
+*Diffuse fraction against clearness index in the package's Erbs decomposition: global horizontal irradiance stepped from 20 to 1000 W/m² at a solar zenith of 0° on day 1 (the worked example's), both axes the package's returns. Overcast skies (low kt) are nearly all diffuse. Marked: the worked example, GHI 141.4 W/m², kt 0.1, diffuse fraction 0.991, DHI 140.1 and DNI 1.273 W/m².*
 
 ```python
 energy_systems_ai999x.solve('energy_erbs_decomposition', ghi=528.6494370285654, zenith=60, n=172)
@@ -978,9 +894,9 @@ $$
 - **Assumes:** 0 <= zenith <= 180
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Clear-sky global horizontal irradiance (0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-clear-sky-haurwitz-live-1)
+![ghi (clear-sky global horizontal irradiance (0 when the sun is below the horizon)) against zenith (apparent solar zenith angle in degrees) from 0 to 90](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-clear-sky-haurwitz-curve)
 
-*Clear-sky global horizontal irradiance (0... as zenith runs from 7.5 to 52.5, every other input as you entered it (41 solutions). Marked: your zenith = 30 gives ghi = 888.3. Your inputs: zenith = 30.*
+*ghi (clear-sky global horizontal irradiance (0 when the sun is below the horizon)) against zenith (apparent solar zenith angle in degrees) from 0 to 90. 41 points computed by energy-systems-ai999x; marked: the worked example, zenith = 0, ghi = 1035.09 W/m^2.*
 
 ```python
 energy_systems_ai999x.solve('energy_clear_sky_haurwitz', zenith=0)
@@ -1024,13 +940,9 @@ $$
 - **Assumes:** irradiance >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Cell temperature in degC as noct runs from 22](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-cell-temperature-noct-live-1)
+![Cell temperature by the nominal-operating-cell-temperature rule (NOCT 45 °C, 318](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-cell-temperature-noct-curve)
 
-*Cell temperature in degC as noct runs from 22.5 to 78.75 degC, every other input as you entered it (41 solutions). Marked: your noct = 45 degC gives T_cell_C = 50. Your inputs: poa = 800 W/m^2, T_air = 25 degC, noct = 45 degC.*
-
-![Cell temperature in degC as poa runs from 480 to 1120 W/m^2, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-cell-temperature-noct-live-2)
-
-*Cell temperature in degC as poa runs from 480 to 1120 W/m^2, every other input as you entered it (29 solutions). Marked: your poa = 800 W/m^2 gives T_cell_C = 50. Your inputs: poa = 800 W/m^2, T_air = 25 degC, noct = 45 degC.*
+*Cell temperature by the nominal-operating-cell-temperature rule (NOCT 45 °C, 318.15 K, the worked example's) against irradiance for 3 air temperatures, one run per point. Marked: the worked example, 800 W/m² in 25 °C air, 50 °C.*
 
 ```python
 energy_systems_ai999x.solve('energy_cell_temperature_noct', poa=800, T_air=298.15, noct=318.15)
@@ -1076,13 +988,9 @@ $$
 - **Assumes:** $G  \geq  0$; $u_{0} > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Module temperature in degC as poa runs from 600 to 1400 W/m^2, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-cell-temperature-faiman-live-1)
+![PV cell temperature against irradiance in air at 25 °C (298](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-cell-temperature-faiman-curve)
 
-*Module temperature in degC as poa runs from 600 to 1400 W/m^2, every other input as you entered it (41 solutions). Marked: your poa = 1000 W/m^2 gives T_cell_C = 50.85. Your inputs: poa = 1000 W/m^2, T_air = 25 degC, wind = 2 m/s.*
-
-![Module temperature in degC as T_air runs from 12](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-cell-temperature-faiman-live-2)
-
-*Module temperature in degC as T_air runs from 12.5 to 43.75 degC, every other input as you entered it (30 solutions). Marked: your T_air = 25 degC gives T_cell_C = 50.85. Your inputs: poa = 1000 W/m^2, T_air = 25 degC, wind = 2 m/s.*
+*PV cell temperature against irradiance in air at 25 °C (298.15 K) for 3 wind speeds, one run of the package's Faiman model per point. Wind cools the module. Marked: the worked example, 1000 W/m² with wind 0 m/s, 65 °C.*
 
 ```python
 energy_systems_ai999x.solve('energy_cell_temperature_faiman', poa=1000, T_air=298.15, wind=0)
@@ -1129,17 +1037,9 @@ $$
 - **Assumes:** $G  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Cell temperature in degC as T_air runs from 243](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-cell-temperature-sapm-live-1)
+![Cell temperature against irradiance (Sandia model, mounting 'open_rack_glass_glass', air at 10 °C) for three wind speeds, one run per point](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-cell-temperature-sapm-curve)
 
-*Cell temperature in degC as T_air runs from 243.1 to 323.1 K, every other input as you entered it (41 solutions). Marked: your T_air = 283.1 K gives T_cell_C = 44.12. Your inputs: poa = 1000 W/m^2, T_air = 283.15 K, wind = 0 m/s, mount = open_rack_glass_glass.*
-
-![Cell temperature in degC for every choice of mount, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-cell-temperature-sapm-live-2)
-
-*Cell temperature in degC for every choice of mount, every other input as you entered it (highlighted: your choice). open_rack_glass_glass: 44.12; close_mount_glass_glass: 61.79; open_rack_glass_polymer: 41.44; insulated_back_glass_polymer: 70.2. Your inputs: poa = 1000 W/m^2, T_air = 283.15 K, wind = 0 m/s, mount = open_rack_glass_glass.*
-
-![Cell temperature in degC as poa runs from 600 to 1400 W/m^2, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-cell-temperature-sapm-live-3)
-
-*Cell temperature in degC as poa runs from 600 to 1400 W/m^2, every other input as you entered it (29 solutions). Marked: your poa = 1000 W/m^2 gives T_cell_C = 44.12. Your inputs: poa = 1000 W/m^2, T_air = 283.15 K, wind = 0 m/s, mount = open_rack_glass_glass.*
+*Cell temperature against irradiance (Sandia model, mounting 'open_rack_glass_glass', air at 10 °C) for three wind speeds, one run per point. Marked: the worked example, 1000 W/m² in still air, cell 44.12 °C, module back 41.12 °C.*
 
 ```python
 energy_systems_ai999x.solve('energy_cell_temperature_sapm', poa=1000, T_air=283.15, wind=0, mount='open_rack_glass_glass')
@@ -1179,13 +1079,9 @@ $$
 - **Assumes:** $-0.02  \leq  \gamma  \leq  0.01$ per K
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![DC power as G_eff runs from 480 to 1120 W/m^2, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-dc-live-1)
+![pdc (DC power) against pdc0 (DC rating at 1000 W/m^2 and 25 degC) from 2500 W to 7500 W](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-dc-curve)
 
-*DC power as G_eff runs from 480 to 1120 W/m^2, every other input as you entered it (41 solutions). Marked: your G_eff = 800 W/m^2 gives pdc = 3680. Your inputs: G_eff = 800 W/m^2, T_cell = 318.15 K, pdc0 = 5000 W, gamma = -0.004.*
-
-![DC power as pdc0 runs from 3000 to 7000 W, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-dc-live-2)
-
-*DC power as pdc0 runs from 3000 to 7000 W, every other input as you entered it (29 solutions). Marked: your pdc0 = 5000 W gives pdc = 3680. Your inputs: G_eff = 800 W/m^2, T_cell = 318.15 K, pdc0 = 5000 W, gamma = -0.004.*
+*pdc (DC power) against pdc0 (DC rating at 1000 W/m^2 and 25 degC) from 2500 W to 7500 W. One curve for each value of G_eff (effective (transmitted) irradiance on the cells): 800 W/m^2, 1.5708 W/m^2, 4.71239 W/m^2. Other inputs as in the worked example: T_cell = 318.15 K, gamma = -0.004. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, pdc0 = 5000 W, pdc = 3680 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_pvwatts_dc', G_eff=800, T_cell=318.15, pdc0=5000, gamma=-0.004)
@@ -1233,13 +1129,9 @@ $$
 - **Assumes:** $G > 0$; $-0.02  \leq  \gamma  \leq  0.01$ per K
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![DC output as T_air runs from 258](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pv-array-output-live-1)
+![pdc (DC output) against pdc0 (array DC rating at STC) from 5000 W to 15000 W](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pv-array-output-curve)
 
-*DC output as T_air runs from 258.1 to 338.1 K, every other input as you entered it (41 solutions). Marked: your T_air = 298.1 K gives pdc = 7200. Your inputs: poa = 800 W/m^2, T_air = 298.15 K, noct = 318.15 K, pdc0 = 10000 W, gamma = -0.004.*
-
-![DC output as noct runs from 278](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pv-array-output-live-2)
-
-*DC output as noct runs from 278.1 to 358.1 K, every other input as you entered it (29 solutions). Marked: your noct = 318.1 K gives pdc = 7200. Your inputs: poa = 800 W/m^2, T_air = 298.15 K, noct = 318.15 K, pdc0 = 10000 W, gamma = -0.004.*
+*pdc (DC output) against pdc0 (array DC rating at STC) from 5000 W to 15000 W. One curve for each value of poa (plane-of-array irradiance): 800 W/m^2, 1.5708 W/m^2, 4.71239 W/m^2. Other inputs as in the worked example: T_air = 298.15 K, noct = 318.15 K, gamma = -0.004. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, pdc0 = 10000 W, pdc = 7200 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_pv_array_output', poa=800, T_air=298.15, noct=318.15, pdc0=10000, gamma=-0.004)
@@ -1280,13 +1172,13 @@ $$
 - **Assumes:** $P_dc > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![AC output power as pdc runs from 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-inverter-live-1)
+![true when the output is limited at the AC rating (clipped) over pdc (DC input power) from 600 W to 60000 W and pdc0 (inverter DC input rating) from 500 W to 50000 W (logarithmic axes): each of the 31 × 21 cells is one run of energy-systems-ai999x, coloured by the verdict it returned, yes: 339 cells, no: 312 cells](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-inverter-decision)
 
-*AC output power as pdc runs from 1.2 to 2.8 kW, every other input as you entered it (41 solutions). Marked: your pdc = 2 kW gives pac = 1922. Your inputs: pdc = 2 kW, pdc0 = 5 kW.*
+*true when the output is limited at the AC rating (clipped) over pdc (DC input power) from 600 W to 60000 W and pdc0 (inverter DC input rating) from 500 W to 50000 W (logarithmic axes): each of the 31 × 21 cells is one run of energy-systems-ai999x, coloured by the verdict it returned, yes: 339 cells, no: 312 cells. Marked: the worked example, pdc = 6000 W, pdc0 = 5000 W → yes.*
 
-![AC output power as pdc0 runs from 3 to 7 kW, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-inverter-live-2)
+![pac (AC output power) against pdc (DC input power) from 600 W to 60000 W on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-inverter-curve)
 
-*AC output power as pdc0 runs from 3 to 7 kW, every other input as you entered it (29 solutions). Marked: your pdc0 = 5 kW gives pac = 1922. Your inputs: pdc = 2 kW, pdc0 = 5 kW.*
+*pac (AC output power) against pdc (DC input power) from 600 W to 60000 W on a logarithmic axis. One curve for each value of pdc0 (inverter DC input rating): 5000 W, 2500 W, 10000 W. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, pdc = 6000 W, pac = 4800 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_pvwatts_inverter', pdc=5000, pdc0=5000)
@@ -1328,9 +1220,9 @@ $$
 - **Assumes:** 0 <= aoi <= 180
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Incidence angle modifier as aoi runs from 15 to 105, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-iam-ashrae-live-1)
+![iam (incidence angle modifier) against aoi (angle of incidence in degrees) from 0 to 90](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-iam-ashrae-curve)
 
-*Incidence angle modifier as aoi runs from 15 to 105, every other input as you entered it (41 solutions). Marked: your aoi = 60 gives iam = 0.95. Your inputs: aoi = 60.*
+*iam (incidence angle modifier) against aoi (angle of incidence in degrees) from 0 to 90. 41 points computed by energy-systems-ai999x; marked: the worked example, aoi = 60, iam = 0.95.*
 
 ```python
 energy_systems_ai999x.solve('energy_iam_ashrae', aoi=60)
@@ -1374,9 +1266,9 @@ $$
 - **Assumes:** 0 <= aoi < 90; $1 < n < 3$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Incidence angle modifier as aoi runs from 15 to 89](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-iam-physical-live-1)
+![iam (incidence angle modifier) against aoi (angle of incidence in degrees) from 0 to 90](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-iam-physical-curve)
 
-*Incidence angle modifier as aoi runs from 15 to 89.25, every other input as you entered it (34 solutions). Marked: your aoi = 60 gives iam = 0.946. Your inputs: aoi = 60.*
+*iam (incidence angle modifier) against aoi (angle of incidence in degrees) from 0 to 90. 40 points computed by energy-systems-ai999x; marked: the worked example, aoi = 0, iam = 1.*
 
 ```python
 energy_systems_ai999x.solve('energy_iam_physical', aoi=0)
@@ -1423,9 +1315,9 @@ $$
 - **Assumes:** each loss between 0 and 100%
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![System losses of a PV array (PVWatts loss model) for the losses given (defaults where none is given): each step adds one loss to those before it and the model returns the remaining performance factor; a step's drop (printed) is the difference of two returned factors](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-losses-chart)
+![System losses of a PV array (PVWatts loss model) for the worked example (soiling 0 %, shading 0 %, snow 0 %, mismatch 0 %, wiring 0 %, connections 0 %, lid 0 %, nameplate_rating 0 %, age 0 %, availability 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pvwatts-losses-chart)
 
-*System losses of a PV array (PVWatts loss model) for the losses given (defaults where none is given): each step adds one loss to those before it and the model returns the remaining performance factor; a step's drop (printed) is the difference of two returned factors. The losses multiply, so the total 14.08 % is less than their sum. Marked: performance factor 0.8592.*
+*System losses of a PV array (PVWatts loss model) for the worked example (soiling 0 %, shading 0 %, snow 0 %, mismatch 0 %, wiring 0 %, connections 0 %, lid 0 %, nameplate_rating 0 %, age 0 %, availability 0.1 %; defaults elsewhere): each step adds one loss to those before it and the package returns the remaining performance factor; a step's drop (printed) is the difference of two returned factors. The losses multiply, so the total 10 % is less than their sum. Marked: performance factor 0.9.*
 
 ```python
 energy_systems_ai999x.solve('energy_pvwatts_losses', )
@@ -1473,13 +1365,9 @@ $$
 - **Assumes:** rho, D, $v > 0$; $0 < cp  \leq  16/27$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Power in the wind through the swept area as v runs from 6 to 14 m/s, every other input as you entered it (41 solutions)](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-wind-power-live-1.svg)
+![P_wind (power in the wind through the swept area) against v (wind speed) from 5 m/s to 15 m/s](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-power-curve)
 
-*Power in the wind through the swept area as v runs from 6 to 14 m/s, every other input as you entered it (41 solutions). Marked: your v = 10 m/s gives P_wind = 3079 kW. Your inputs: rho = 1.225 kg/m^3, D = 80 m, v = 10 m/s.*
-
-![Power in the wind through the swept area as D runs from 48 to 112 m, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-power-live-2)
-
-*Power in the wind through the swept area as D runs from 48 to 112 m, every other input as you entered it (29 solutions). Marked: your D = 80 m gives P_wind = 3079 kW. Your inputs: rho = 1.225 kg/m^3, D = 80 m, v = 10 m/s.*
+*P_wind (power in the wind through the swept area) against v (wind speed) from 5 m/s to 15 m/s. One curve for each value of D (rotor diameter): 80 m, 40 m, 160 m. Other inputs as in the worked example: rho = 1.225 kg/m^3, cp = 0.4. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, v = 10 m/s, P_wind = 3.07876e+06 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_wind_power', rho=1.2, D=1.1283791670955126, v=10)
@@ -1529,17 +1417,9 @@ $$
 - **Assumes:** $0  \leq  a < 0.5$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Top: the stream tube through an ideal rotor of induction factor a = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-actuator-disc-schematic)
+![Top: the stream tube through an ideal rotor (diameter 10 m, free wind 8 m/s, air 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-actuator-disc-schematic)
 
-*Top: the stream tube through an ideal rotor of induction factor a = 0.3333 in a wind of 10 m/s, with the model's speeds at the disc (6.667 m/s) and in the far wake (3.333 m/s); the tube outline is a sketch. Bottom: the model's power and thrust coefficients for a from 0.02 to 0.48, one run per point. Marked: Cp = 0.5926, Ct = 0.8889, power 1.824 MW, thrust 273.7 kN. Your inputs: a = 0.3333333333333333, rho = 1.225 kg/m^3, D = 80 m, v = 10 m/s.*
-
-![Cp as a runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-actuator-disc-live-1)
-
-*Cp as a runs from 0.08333 to 0.4958, every other input as you entered it (34 solutions). Marked: your a = 0.3333 gives Cp = 0.5926. Your inputs: a = 0.3333333333333333, rho = 1.225 kg/m^3, D = 80 m, v = 10 m/s.*
-
-![Power extracted as v runs from 6 to 14 m/s, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-actuator-disc-live-2)
-
-*Power extracted as v runs from 6 to 14 m/s, every other input as you entered it (29 solutions). Marked: your v = 10 m/s gives P = 1824 kW. Your inputs: a = 0.3333333333333333, rho = 1.225 kg/m^3, D = 80 m, v = 10 m/s.*
+*Top: the stream tube through an ideal rotor (diameter 10 m, free wind 8 m/s, air 1.2 kg/m³, induction factor a = 0.25, the worked example) with the package's speeds at the disc (6 m/s) and in the wake (4 m/s); the tube widths are a sketch whose end radii follow continuity of those speeds. Bottom: the package's Cp and Ct against a. Marked: Cp = 0.5625, Ct = 0.75, P = 13.57 kW, thrust 2.262 kN.*
 
 ```python
 energy_systems_ai999x.solve('energy_actuator_disc', a=0.3333333333333333, rho=1.2, D=10, v=8)
@@ -1583,13 +1463,9 @@ $$
 - **Assumes:** heights > 0; $0  \leq  \alpha  \leq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Wind speed at h2 as v1 runs from 3](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-shear-power-law-live-1)
+![v2 (wind speed at h2) against alpha (shear exponent (default 1/7)) from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-shear-power-law-curve)
 
-*Wind speed at h2 as v1 runs from 3.6 to 8.4 m/s, every other input as you entered it (41 solutions). Marked: your v1 = 6 m/s gives v2 = 9.509. Your inputs: v1 = 6 m/s, h1 = 10 m, h2 = 100 m, alpha = 0.2.*
-
-![Wind speed at h2 as α runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-shear-power-law-live-2)
-
-*Wind speed at h2 as α runs from 0.05 to 0.35, every other input as you entered it (29 solutions). Marked: your α = 0.2 gives v2 = 9.509. Your inputs: v1 = 6 m/s, h1 = 10 m, h2 = 100 m, alpha = 0.2.*
+*v2 (wind speed at h2) against alpha (shear exponent (default 1/7)) from 0.166667 to 0.5. One curve for each value of v1 (measured wind speed): 6 m/s, 3 m/s, 12 m/s. Other inputs as in the worked example: h1 = 10.0 m, h2 = 1280.0 m. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, alpha = 0.333333, v2 = 30.2381 m/s.*
 
 ```python
 energy_systems_ai999x.solve('energy_wind_shear_power_law', v1=5, h1=10, h2=80, alpha=0.3333333333333333)
@@ -1635,17 +1511,13 @@ $$
 - **Assumes:** $h - 0.7$ $d > z_{0}$ at both heights
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Wind speed at nine heights extrapolated from 5 m/s measured at 10 m, drawn as arrows whose length is the speed: the logarithmic law with the roughness given (this capability) and, for comparison, the power law with exponent 1/7, each computed by the model](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-shear-log-profile)
+![Wind speed at nine heights extrapolated from 5 m/s measured at 10 m, drawn as arrows whose length is the speed: logarithmic law (roughness length 1 m) and power law (exponent 0](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-wind-shear-log-profile.svg)
 
-*Wind speed at nine heights extrapolated from 5 m/s measured at 10 m, drawn as arrows whose length is the speed: the logarithmic law with the roughness given (this capability) and, for comparison, the power law with exponent 1/7, each computed by the model. At 80 m the model returns 7.258 m/s; at the top: log law 7.698 m/s at 120 m, power law 7.131 m/s at 120 m. Your inputs: v1 = 5 m/s, h1 = 10 m, h2 = 80 m, z0 = 0.1 m.*
+*Wind speed at nine heights extrapolated from 5 m/s measured at 10 m, drawn as arrows whose length is the speed: logarithmic law (roughness length 1 m) and power law (exponent 0.333333), each computed by the package. At 100 m: 10 and 10.7722 m/s; at 150 m: 10.8805 and 12.3311 m/s.*
 
-![Wind speed at h2 as v1 runs from 3 to 7 m/s, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-shear-log-live-1)
+![v2 (wind speed at h2) against h1 (measurement height) from 1 m to 100 m on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-shear-log-curve)
 
-*Wind speed at h2 as v1 runs from 3 to 7 m/s, every other input as you entered it (41 solutions). Marked: your v1 = 5 m/s gives v2 = 7.258. Your inputs: v1 = 5 m/s, h1 = 10 m, h2 = 80 m, z0 = 0.1 m.*
-
-![Wind speed at h2 as h1 runs from 6 to 14 m, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-wind-shear-log-live-2)
-
-*Wind speed at h2 as h1 runs from 6 to 14 m, every other input as you entered it (29 solutions). Marked: your h1 = 10 m gives v2 = 7.258. Your inputs: v1 = 5 m/s, h1 = 10 m, h2 = 80 m, z0 = 0.1 m.*
+*v2 (wind speed at h2) against h1 (measurement height) from 1 m to 100 m on a logarithmic axis. One curve for each value of v1 (measured wind speed): 5 m/s, 2.5 m/s, 10 m/s. Other inputs as in the worked example: h2 = 100.0 m, z0 = 1.0 m. 40 points per curve computed by energy-systems-ai999x; marked: the worked example, h1 = 10 m, v2 = 10 m/s.*
 
 ```python
 energy_systems_ai999x.solve('energy_wind_shear_log', v1=5, h1=10, h2=100, z0=1)
@@ -1693,13 +1565,9 @@ $$
 - **Assumes:** pressure and temperature stay positive at hub height
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Air density at hub height as T runs from 248](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hub-air-density-live-1)
+![rho (air density at hub height) against T (measured air temperature) from 144](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hub-air-density-curve)
 
-*Air density at hub height as T runs from 248.1 to 328.1 K, every other input as you entered it (41 solutions). Marked: your T = 288.1 K gives ρ = 1.225. Your inputs: p = 101330 Pa, h_p = 0 m, T = 288.15 K, h_T = 0 m, hub = 0 m.*
-
-![Air density at hub height as p runs from 6](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hub-air-density-live-2)
-
-*Air density at hub height as p runs from 6.08e+04 to 1.419e+05 Pa, every other input as you entered it (29 solutions). Marked: your p = 1.013e+05 Pa gives ρ = 1.225. Your inputs: p = 101330 Pa, h_p = 0 m, T = 288.15 K, h_T = 0 m, hub = 0 m.*
+*rho (air density at hub height) against T (measured air temperature) from 144.075 K to 432.225 K. One curve for each value of p (measured air pressure): 101330 Pa, 50665 Pa, 202660 Pa. Other inputs as in the worked example: h_p = 0.0 m, h_T = 0.0 m, hub = 0.0 m. 30 points per curve computed by energy-systems-ai999x; marked: the worked example, T = 288.15 K, rho = 1.225 kg/m^3.*
 
 ```python
 energy_systems_ai999x.solve('energy_hub_air_density', p=101330, h_p=0, T=288.15, h_T=0, hub=0)
@@ -1743,17 +1611,17 @@ $$
 - **Assumes:** speeds strictly increasing; one power per speed
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Turbine output against the wind speed at hub height from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-power-curve-output-curve-2)
+![Wind turbine output against wind speed from the tabulated power curve (speeds 3, 5, 8, 12, 25 m/s, powers 0, 150, 800, 2000, 2000 kW), computed by the package at 121 speeds from 0 to 30 m/s: nothing below cut-in at 3 m/s, rated 2000 kW up to cut-out at 25 m/s, nothing above](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-power-curve-output-curve.svg)
 
-*Turbine output against the wind speed at hub height from 0.65 to 65 m/s on a logarithmic axis, 41 points each computed by the model from the power curve given; marked: v = 6.5 m/s, P = 475 kW. In SI units: P = 4.75e+05 W. Your inputs: speeds = 3, 5, 8, 12, 25, powers = 0, 150, 800, 2000, 2000, v = 6.5 m/s.*
+*Wind turbine output against wind speed from the tabulated power curve (speeds 3, 5, 8, 12, 25 m/s, powers 0, 150, 800, 2000, 2000 kW), computed by the package at 121 speeds from 0 to 30 m/s: nothing below cut-in at 3 m/s, rated 2000 kW up to cut-out at 25 m/s, nothing above. Marked: v = 6.5 m/s, P = 475 kW.*
 
-![The power-curve outputs against the power-curve wind speeds as given (5 points), and the output the model returns at v = 6](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-power-curve-output-xy)
+![The data powers (power-curve outputs in kW) against speeds (power-curve wind speeds in m/s (increasing)) as given in the worked example (5 points)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-power-curve-output-xy)
 
-*The power-curve outputs against the power-curve wind speeds as given (5 points), and the output the model returns at v = 6.5 m/s: P_kW = 475, P = 475 kW. In SI units: P = 4.75e+05 W. Your inputs: speeds = 3, 5, 8, 12, 25, powers = 0, 150, 800, 2000, 2000, v = 6.5 m/s.*
+*The data powers (power-curve outputs in kW) against speeds (power-curve wind speeds in m/s (increasing)) as given in the worked example (5 points). Also returned: P_kW = 475, P = 475000 W. Other inputs: v = 6.5 m/s.*
 
-![Output as v runs from 3](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-power-curve-output-live-1)
+![P (output) against v (wind speed at hub height) from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-power-curve-output-curve-2)
 
-*Output as v runs from 3.9 to 9.1 m/s, every other input as you entered it (41 solutions). Marked: your v = 6.5 m/s gives P = 475 kW. Your inputs: speeds = 3, 5, 8, 12, 25, powers = 0, 150, 800, 2000, 2000, v = 6.5 m/s.*
+*P (output) against v (wind speed at hub height) from 0.65 m/s to 65 m/s on a logarithmic axis. Other inputs as in the worked example: speeds = 3, 5, 8, 12, 25, powers = 0, 150, 800, 2000, 2000. 41 points computed by energy-systems-ai999x; marked: the worked example, v = 6.5 m/s, P = 475000 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_power_curve_output', speeds='3, 5, 8, 12, 25', powers='0, 150, 800, 2000, 2000', v=6.5)
@@ -1799,13 +1667,9 @@ $$
 - **Assumes:** $0.5 < \rho < 1.6$ $kg/m^{3}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Output as v runs from 3](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-power-curve-density-corrected-live-1)
+![The worked example's tabulated power curve (speeds [3, 5, 8, 12, 25] m/s, powers [0, 150, 800, 2000, 2000] kW at standard air density) corrected by the package to 3 air densities, each curve a run per speed](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-power-curve-density-corrected-curve)
 
-*Output as v runs from 3.9 to 9.1 m/s, every other input as you entered it (41 solutions). Marked: your v = 6.5 m/s gives P = 475 kW. Your inputs: speeds = 3, 5, 8, 12, 25, powers = 0, 150, 800, 2000, 2000, v = 6.5 m/s, rho = 1.225 kg/m^3.*
-
-![Output as ρ runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-power-curve-density-corrected-live-2)
-
-*Output as ρ runs from 0.735 to 1.575 kg/m^3, every other input as you entered it (25 solutions). Marked: your ρ = 1.225 kg/m^3 gives P = 475 kW. Your inputs: speeds = 3, 5, 8, 12, 25, powers = 0, 150, 800, 2000, 2000, v = 6.5 m/s, rho = 1.225 kg/m^3.*
+*The worked example's tabulated power curve (speeds [3, 5, 8, 12, 25] m/s, powers [0, 150, 800, 2000, 2000] kW at standard air density) corrected by the package to 3 air densities, each curve a run per speed. Thinner air shifts the curve to higher speeds. Marked: the worked example, 6.5 m/s at ρ = 1.225 kg/m³ → 475 kW.*
 
 ```python
 energy_systems_ai999x.solve('energy_power_curve_density_corrected', speeds=[3, 5, 8, 12, 25], powers=[0, 150, 800, 2000, 2000], v=6.5, rho=1.225)
@@ -1847,17 +1711,13 @@ $$
 - **Assumes:** $1 < k  \leq  5$; $c > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Weibull wind-speed distribution with shape k = 2 and scale c = 8 m/s](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-weibull-wind-distribution)
+![Weibull wind-speed distribution with shape k = 2 and scale c = 8 m/s (the worked example)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-weibull-wind-distribution)
 
-*Weibull wind-speed distribution with shape k = 2 and scale c = 8 m/s. The density is the model's: at each of 40 speeds, its mean output for a narrow unit power curve centred there (the share of time near that speed); the dashed energy-share curve weights it by the model's wind power density at that speed (scaled to the same peak). The marked speeds are the model's: most probable 5.657 m/s, mean 7.09 m/s and the speed carrying the most energy 11.31 m/s. It also returns the mean power density 416.9 W/m² and the energy pattern factor 1.91. Your inputs: k = 2, c = 8 m/s, rho = 1.225 kg/m^3.*
+*Weibull wind-speed distribution with shape k = 2 and scale c = 8 m/s (the worked example). The density curve and the dashed energy-share curve are drawn from the stated k and c by the Weibull formula; the marked speeds are the package's: most probable 5.657 m/s, mean 7.09 m/s and the speed carrying the most energy 11.31 m/s. The package also returns the mean power density 416.9 W/m² (air density 1.225 kg/m³) and energy pattern factor 1.91.*
 
-![Power density as c runs from 4](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-weibull-wind-live-1)
+![power_density (mean wind power density in W/m^2) against k (Weibull shape factor (1 < k <= 5)) from 1 to 3](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-weibull-wind-curve)
 
-*Power density as c runs from 4.8 to 11.2 m/s, every other input as you entered it (41 solutions). Marked: your c = 8 m/s gives power_density = 416.9. Your inputs: k = 2, c = 8 m/s, rho = 1.225 kg/m^3.*
-
-![Power density as k runs from 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-weibull-wind-live-2)
-
-*Power density as k runs from 1.036 to 3.5, every other input as you entered it (24 solutions). Marked: your k = 2 gives power_density = 416.9. Your inputs: k = 2, c = 8 m/s, rho = 1.225 kg/m^3.*
+*power_density (mean wind power density in W/m^2) against k (Weibull shape factor (1 < k <= 5)) from 1 to 3. One curve for each value of c (Weibull scale factor): 8 m/s, 4 m/s, 16 m/s. Other inputs as in the worked example: rho = 1.225 kg/m^3. 30 points per curve computed by energy-systems-ai999x; marked: the worked example, k = 2, power_density = 416.881.*
 
 ```python
 energy_systems_ai999x.solve('energy_weibull_wind', k=2, c=8, rho=1.225)
@@ -1899,9 +1759,9 @@ $$
 - **Assumes:** $1 < k  \leq  5$; speeds strictly increasing
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The answer for your inputs: mean_power_kW (mean output in kW) = 1000](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-weibull-aep-live-1)
+![Annual energy of the worked example's turbine (power curve: speeds [0, 100] m/s, powers [1000, 1000] kW) in Weibull winds of shape k = 2 (and 3) against the scale speed c, each point one run of the package](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-weibull-aep-curve)
 
-*The answer for your inputs: mean_power_kW (mean output in kW) = 1000. Your inputs: speeds = 0, 100, powers = 1000, 1000, k = 2, c = 7 m/s.*
+*Annual energy of the worked example's turbine (power curve: speeds [0, 100] m/s, powers [1000, 1000] kW) in Weibull winds of shape k = 2 (and 3) against the scale speed c, each point one run of the package. Marked: the worked example, c = 7 m/s, gives 8760 MWh, mean power 1000 kW and capacity factor 1.*
 
 ```python
 energy_systems_ai999x.solve('energy_weibull_aep', speeds=[0, 100], powers=[1000, 1000], k=2, c=7)
@@ -1950,17 +1810,9 @@ $$
 - **Assumes:** balanced load; $0 < pf  \leq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Power triangle of the three-phase load: the model returns P = 27](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-three-phase-power-phasor.svg)
+![Power triangle of the worked example: a star-connected load at 400 V line, 50 A, power factor 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-three-phase-power-phasor)
 
-*Power triangle of the three-phase load: the model returns P = 27.71 kW, Q = 20.78 kvar and S = 34.64 kVA (phase voltage 230.9 V, phase current 50 A); φ = 36.87° is the angle of the returned P and Q. In SI units: P = 2.771e+04 W. Your inputs: VL = 400 V, IL = 50 A, pf = 0.8, connection = star.*
-
-![Real power (three-phase total) as VL runs from 240 to 560 V, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-three-phase-power-live-1)
-
-*Real power (three-phase total) as VL runs from 240 to 560 V, every other input as you entered it (41 solutions). Marked: your VL = 400 V gives P = 27.71 kW. Your inputs: VL = 400 V, IL = 50 A, pf = 0.8, connection = star.*
-
-![Real power (three-phase total) as IL runs from 30 to 70 A, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-three-phase-power-live-2)
-
-*Real power (three-phase total) as IL runs from 30 to 70 A, every other input as you entered it (29 solutions). Marked: your IL = 50 A gives P = 27.71 kW. Your inputs: VL = 400 V, IL = 50 A, pf = 0.8, connection = star.*
+*Power triangle of the worked example: a star-connected load at 400 V line, 50 A, power factor 0.8. The package returns P = 27.71 kW, Q = 20.78 kvar and S = 34.64 kVA (phase voltage 230.9 V, phase current 50 A); φ = atan(Q/P) = 36.87° is derived from the returned P and Q.*
 
 ```python
 energy_systems_ai999x.solve('energy_three_phase_power', VL=400, IL=50, pf=0.8, connection='star')
@@ -2009,13 +1861,9 @@ $$
 - **Assumes:** $X_pu > 0$; positive bases
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Per-unit reactance on the new base as V_new runs from 82](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-per-unit-change-of-base-live-1)
+![X_pu_new (per-unit reactance on the new base) against V_new (new base voltage (line-to-line)) from 5500 V to 16500 V](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-per-unit-change-of-base-curve)
 
-*Per-unit reactance on the new base as V_new runs from 82.8 to 193.2 kV, every other input as you entered it (41 solutions). Marked: your V_new = 138 kV gives X_pu_new = 0.183. Your inputs: R_pu = 0.01, X_pu = 0.1, S_old = 50 MVA, V_old = 132 kV, S_new = 100 MVA, V_new = 138 kV.*
-
-![Per-unit reactance on the new base as V_old runs from 79](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-per-unit-change-of-base-live-2)
-
-*Per-unit reactance on the new base as V_old runs from 79.2 to 184.8 kV, every other input as you entered it (29 solutions). Marked: your V_old = 132 kV gives X_pu_new = 0.183. Your inputs: R_pu = 0.01, X_pu = 0.1, S_old = 50 MVA, V_old = 132 kV, S_new = 100 MVA, V_new = 138 kV.*
+*X_pu_new (per-unit reactance on the new base) against V_new (new base voltage (line-to-line)) from 5500 V to 16500 V. One curve for each value of V_old (old base voltage (line-to-line)): 11000 V, 5500 V, 22000 V. Other inputs as in the worked example: R_pu = 0.01, X_pu = 0.1, S_old = 10000000.0 VA, S_new = 100000000.0 VA. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, V_new = 11000 V, X_pu_new = 1.*
 
 ```python
 energy_systems_ai999x.solve('energy_per_unit_change_of_base', R_pu=0.0, X_pu=0.1, S_old=50000000.0, V_old=132000.0, S_new=100000000.0, V_new=138000.0)
@@ -2067,17 +1915,9 @@ $$
 - **Assumes:** short line: shunt admittance neglected; balanced three-phase load
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Short-line model: a series impedance 5 Ω + j20 Ω carrying 10 MW at power factor 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-short-line-circuit)
+![Short-line model: a series impedance 0 + j0 Ω (the worked example's) carrying 10 MW at power factor 1 lagging to a 33 kV receiving end](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-short-line-circuit)
 
-*Short-line model: a series impedance 5 Ω + j20 Ω carrying 10 MW at power factor 0.8 to a 33 kV receiving end. The model returns the sending voltage 39.37 kV at 7.185°, current 218.7 A, losses 717.4 kW, regulation 19.3 % and efficiency 93.31 %. In SI units: Vs = 3.937e+04 V. Your inputs: Vr = 33 kV, P = 10 MW, pf = 0.8, R = 5 ohm, X = 20 ohm.*
-
-![Sending-end line voltage as Vr runs from 19](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-short-line-live-1)
-
-*Sending-end line voltage as Vr runs from 19.8 to 46.2 kV, every other input as you entered it (41 solutions). Marked: your Vr = 33 kV gives Vs = 39.37 kV. Your inputs: Vr = 33 kV, P = 10 MW, pf = 0.8, R = 5 ohm, X = 20 ohm.*
-
-![Sending-end line voltage as P runs from 6 to 14 MW, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-short-line-live-2)
-
-*Sending-end line voltage as P runs from 6 to 14 MW, every other input as you entered it (29 solutions). Marked: your P = 10 MW gives Vs = 39.37 kV. Your inputs: Vr = 33 kV, P = 10 MW, pf = 0.8, R = 5 ohm, X = 20 ohm.*
+*Short-line model: a series impedance 0 + j0 Ω (the worked example's) carrying 10 MW at power factor 1 lagging to a 33 kV receiving end. The package returns the sending voltage 33 kV at 0°, current 175 A, losses 0 kW, regulation 0 % and efficiency 100 %. Marked: every returned value.*
 
 ```python
 energy_systems_ai999x.solve('energy_short_line', Vr=33000.0, P=10000000.0, pf=1.0, R=0.0, X=0.0)
@@ -2135,17 +1975,9 @@ $$
 - **Assumes:** nominal-pi model (half the shunt admittance at each end); balanced load
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Nominal-π model of a medium line: series 10 Ω + j40 Ω, half the shunt susceptance (300 µS in all) at each end, delivering 50 MW at power factor 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-medium-line-circuit)
+![Nominal-π model of a medium line: series 0 + j40 Ω, half the shunt susceptance (0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-medium-line-circuit)
 
-*Nominal-π model of a medium line: series 10 Ω + j40 Ω, half the shunt susceptance (300 µS in all) at each end, delivering 50 MW at power factor 0.8 and 132 kV. The model returns the sending voltage 146.9 kV at 4.885°, current 258.7 A, losses 2.133 MW, regulation 11.95 %, efficiency 95.91 %, and the constants A = 0.994∠0.08646°, B = 41.23∠75.96° Ω. In SI units: Vs = 1.469e+05 V. Your inputs: Vr = 132 kV, P = 50 MW, pf = 0.8, R = 10 ohm, X = 40 ohm, B = 0.0003 S.*
-
-![Sending-end line voltage as Vr runs from 79](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-medium-line-live-1)
-
-*Sending-end line voltage as Vr runs from 79.2 to 184.8 kV, every other input as you entered it (41 solutions). Marked: your Vr = 132 kV gives Vs = 146.9 kV. Your inputs: Vr = 132 kV, P = 50 MW, pf = 0.8, R = 10 ohm, X = 40 ohm, B = 0.0003 S.*
-
-![Sending-end line voltage as P runs from 30 to 70 MW, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-medium-line-live-2)
-
-*Sending-end line voltage as P runs from 30 to 70 MW, every other input as you entered it (29 solutions). Marked: your P = 50 MW gives Vs = 146.9 kV. Your inputs: Vr = 132 kV, P = 50 MW, pf = 0.8, R = 10 ohm, X = 40 ohm, B = 0.0003 S.*
+*Nominal-π model of a medium line: series 0 + j40 Ω, half the shunt susceptance (0.5 mS in all) at each end (the worked example's), delivering 50 MW at power factor 1 lagging at 132 kV. The package returns Vs = 131.6 kV at 6.614°, Is = 219.8 A, losses 0 kW, regulation 0.6699 %, efficiency 100 %, and the constants A = 0.99∠0°, B = 40∠90° Ω.*
 
 ```python
 energy_systems_ai999x.solve('energy_medium_line', Vr=132000.0, P=50000000.0, pf=1.0, R=0.0, X=40.0, B=0.0005)
@@ -2201,13 +2033,9 @@ $$
 - **Assumes:** uniformly distributed parameters; balanced load
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Sending-end line voltage as Vr runs from 240 to 560 kV, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-long-line-live-1)
+![A long line with the worked example's totals R = 0 Ω, X = 100 Ω, B = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-long-line-curve)
 
-*Sending-end line voltage as Vr runs from 240 to 560 kV, every other input as you entered it (41 solutions). Marked: your Vr = 400 kV gives Vs = 455.3 kV. Your inputs: Vr = 400 kV, P = 500 MW, pf = 0.95, R = 10 ohm, X = 120 ohm, B = 0.0012 S.*
-
-![Sending-end line voltage as pf runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-long-line-live-2)
-
-*Sending-end line voltage as pf runs from 0.2375 to 0.95, every other input as you entered it (15 solutions). Marked: your pf = 0.95 gives Vs = 455.3 kV. Your inputs: Vr = 400 kV, P = 500 MW, pf = 0.95, R = 10 ohm, X = 120 ohm, B = 0.0012 S.*
+*A long line with the worked example's totals R = 0 Ω, X = 100 Ω, B = 0.4 mS (distributed parameters): the sending voltage the package returns to hold 400 kV at the receiving end, against the power delivered at power factor 1 lagging, light loads need less than the receiving voltage (line charging). Marked: at 1 MW, Vs = 392 kV at 0.0363°, efficiency 100 %; the package's constants A = 0.9801∠0°, B = 99.33∠90° Ω, surge impedance 500 Ω, βl = 0.2 rad.*
 
 ```python
 energy_systems_ai999x.solve('energy_long_line', Vr=400000.0, P=1000000.0, pf=1.0, R=0.0, X=100.0, B=0.0004)
@@ -2257,17 +2085,9 @@ $$
 - **Assumes:** fully transposed line; spacings much larger than the conductors; ground effect neglected
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The three-phase arrangement drawn to scale from the spacings given (5 m, 5 m and 5 m)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-line-parameters-schematic)
+![The worked example's three-phase arrangement drawn to scale (spacings 5, 5 and 5 m; conductor radius 10 mm, GMR 5 mm, 50 Hz, single conductors)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-line-parameters-schematic)
 
-*The three-phase arrangement drawn to scale from the spacings given (5 m, 5 m and 5 m). Marked: the model's per-phase inductance 1.382 mH/km, reactance 0.434 Ω/km, capacitance 8.952 nF/km, susceptance 2.812 µS/km and surge impedance 392.8 Ω. Your inputs: D_ab = 5 m, D_bc = 5 m, D_ca = 5 m, r = 0.01 m, f = 50 Hz, gmr = 0.005 m.*
-
-![Shunt susceptance in uS/km as f runs from 30 to 70 Hz, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-line-parameters-live-1)
-
-*Shunt susceptance in uS/km as f runs from 30 to 70 Hz, every other input as you entered it (41 solutions). Marked: your f = 50 Hz gives B_uS_per_km = 2.812. Your inputs: D_ab = 5 m, D_bc = 5 m, D_ca = 5 m, r = 0.01 m, f = 50 Hz, gmr = 0.005 m.*
-
-![Inductance per phase in mH/km as gmr runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-line-parameters-live-2)
-
-*Inductance per phase in mH/km as gmr runs from 0.003 to 0.007 m, every other input as you entered it (29 solutions). Marked: your gmr = 0.005 m gives L_mH_per_km = 1.382. Your inputs: D_ab = 5 m, D_bc = 5 m, D_ca = 5 m, r = 0.01 m, f = 50 Hz, gmr = 0.005 m.*
+*The worked example's three-phase arrangement drawn to scale (spacings 5, 5 and 5 m; conductor radius 10 mm, GMR 5 mm, 50 Hz, single conductors). Marked: the package's per-phase inductance 1.382 mH/km, reactance 0.434 Ω/km, capacitance 8.952 nF/km, susceptance 2.812 µS/km and surge impedance 392.8 Ω.*
 
 ```python
 energy_systems_ai999x.solve('energy_line_parameters', D_ab=5, D_bc=5, D_ca=5, r=0.01, f=50, gmr=0.005)
@@ -2317,17 +2137,9 @@ $$
 - **Assumes:** the load is within the line's transfer limit (a real solution exists); the high-voltage (normal) solution is reported
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A 33 kV source feeding a load of 10 MW + j5 Mvar over a line of R = 3 Ω, X = 12 Ω](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-two-bus-load-flow-oneline)
+![A 2 kV source feeding a load of 1 + j0 MVA over a line of R = 0 Ω, X = 1 Ω (the worked example)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-two-bus-load-flow-oneline)
 
-*A 33 kV source feeding a load of 10 MW + j5 Mvar over a line of R = 3 Ω, X = 12 Ω. Top: the model returns Vr = 29.79 kV at -6.131°, I = 216.7 A, voltage drop 9.727 %, losses 422.6 kW. Bottom: Vr against the load at the same power factor, one run per point; loads the model refuses (no voltage solution) are left out, so the curve stops near the largest load the line can carry (23.85 MW drawn). In SI units: Vr = 2.979e+04 V. Your inputs: Vs = 33 kV, R = 3 ohm, X = 12 ohm, P = 10 MW, Q = 5 Mvar.*
-
-![Receiving-end line voltage as Vs runs from 21](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-two-bus-load-flow-live-1)
-
-*Receiving-end line voltage as Vs runs from 21.78 to 46.2 kV, every other input as you entered it (38 solutions). Marked: your Vs = 33 kV gives Vr = 29.79 kV. Your inputs: Vs = 33 kV, R = 3 ohm, X = 12 ohm, P = 10 MW, Q = 5 Mvar.*
-
-![Receiving-end line voltage as P runs from 6 to 14 MW, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-two-bus-load-flow-live-2)
-
-*Receiving-end line voltage as P runs from 6 to 14 MW, every other input as you entered it (29 solutions). Marked: your P = 10 MW gives Vr = 29.79 kV. Your inputs: Vs = 33 kV, R = 3 ohm, X = 12 ohm, P = 10 MW, Q = 5 Mvar.*
+*A 2 kV source feeding a load of 1 + j0 MVA over a line of R = 0 Ω, X = 1 Ω (the worked example). Top: the package returns Vr = 1.932 kV at δ = -15°, I = 298.9 A, voltage drop 3.407 %, losses 0 kW. Bottom: Vr against the load at the same power factor (Q = 0 P), one run per point; points the package refuses (no voltage solution) are left out, so the curve stops near the largest load the line can carry (1.994 MW drawn). Marked: the worked example's load.*
 
 ```python
 energy_systems_ai999x.solve('energy_two_bus_load_flow', Vs=33000.0, R=0.0, X=10.0, P=0.0, Q=0.0)
@@ -2371,21 +2183,9 @@ $$
 - **Assumes:** connected network; positive reactances; bus 1 is the slack
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![DC power flow of the 3-bus network given (lines 1-2 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-dc-power-flow-oneline)
+![DC power flow of the worked example's 3-bus network (lines 1-2 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-dc-power-flow-oneline)
 
-*DC power flow of the 3-bus network given (lines 1-2 0.1, 2-3 0.2: from-to and series reactance in per unit; injections 0, -1 pu at buses 2 to 3, bus 1 the slack). The model returns the bus angles 0°, -5.73°, -17.19°, the line flows 1, 1 pu (arrows point the way power flows) and the slack injection 1 pu. Your inputs: lines = 1-2 0.1, 2-3 0.2, P = 0, -1.*
-
-![Slack (bus 1) injection in per unit as P[1] runs from 0 to 4, every other input as you entered it (5 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-dc-power-flow-live-1)
-
-*Slack (bus 1) injection in per unit as P[1] runs from 0 to 4, every other input as you entered it (5 solutions). Marked: your P[1] = 0 gives P_slack = 1. Your inputs: lines = 1-2 0.1, 2-3 0.2, P = 0, -1.*
-
-![The 2 edges as given (weights written on them), drawn with the nodes on a circle](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-dc-power-flow-live-2)
-
-*The 2 edges as given (weights written on them), drawn with the nodes on a circle. Under each node: its theta_deg. Your inputs: lines = 1-2 0.1, 2-3 0.2, P = 0, -1.*
-
-![Every entry of theta_deg as computed for your inputs (3 entries: 0, -5](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-dc-power-flow-live-3)
-
-*Every entry of theta_deg as computed for your inputs (3 entries: 0, -5.73, -17.19). Your inputs: lines = 1-2 0.1, 2-3 0.2, P = 0, -1.*
+*DC power flow of the worked example's 3-bus network (lines 1-2 0.1, 2-3 0.2: from–to and series reactance in per unit; injections 0, -1 pu at buses 2, 3, bus 1 the slack). The package returns the bus angles θ = 0°, -5.73°, -17.19°, the line flows 1, 1 pu (arrows point the way power flows) and the slack injection 1 pu. Marked: every angle, flow and injection.*
 
 ```python
 energy_systems_ai999x.solve('energy_dc_power_flow', lines='1-2 0.1, 2-3 0.2', P='0, -1')
@@ -2435,21 +2235,9 @@ $$
 - **Assumes:** buses numbered 1..n, bus 1 the slack; the load flow converges from a flat start
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![AC load flow (Newton-Raphson) of the 2-bus network given (lines 1 2 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-newton-load-flow-oneline)
+![AC load flow (Newton–Raphson) of the worked example's 2-bus network: lines 1 2 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-newton-load-flow-oneline)
 
-*AC load flow (Newton-Raphson) of the 2-bus network given (lines 1 2 0.0 0.5 0.0: from, to, r, x, shunt b in per unit), bus 1 the slack. The model returns the bus voltages 1∠0°, 1∠0°, the slack injection P = 0, Q = 0 pu and the real power loss 0 pu. Your inputs: lines = 1 2 0.0 0.5 0.0, loads = 2 0.0 0.0.*
-
-![Slack real power injection as loads[1,2] runs from -1 to 1, every other input as you entered it (31 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-newton-load-flow-live-1)
-
-*Slack real power injection as loads[1,2] runs from -1 to 1, every other input as you entered it (31 solutions). Marked: your loads[1,2] = 0 gives P_slack = 0. Your inputs: lines = 1 2 0.0 0.5 0.0, loads = 2 0.0 0.0.*
-
-![Every entry of V as computed for your inputs (2 entries: 1, 1)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-newton-load-flow-live-2)
-
-*Every entry of V as computed for your inputs (2 entries: 1, 1). Your inputs: lines = 1 2 0.0 0.5 0.0, loads = 2 0.0 0.0.*
-
-![Slack reactive power injection as loads[1,3] runs from -1 to 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-newton-load-flow-live-3)
-
-*Slack reactive power injection as loads[1,3] runs from -1 to 0.4615, every other input as you entered it (20 solutions). Marked: your loads[1,3] = 0 gives Q_slack = 0. Your inputs: lines = 1 2 0.0 0.5 0.0, loads = 2 0.0 0.0.*
+*AC load flow (Newton–Raphson) of the worked example's 2-bus network: lines 1 2 0.0 0.5 0.0 (from, to, r, x, total shunt b in per unit), loads 2 0.0 0.0 (bus, P, Q in pu), bus 1 the slack at 1 pu. The package returns the voltages 1∠0°, 1∠0° pu, the slack injection P = 0, Q = 0 pu and the real power loss 0 pu. Marked: every returned value.*
 
 ```python
 energy_systems_ai999x.solve('energy_newton_load_flow', lines='1 2 0.0 0.5 0.0', loads='2 0.0 0.0')
@@ -2489,21 +2277,13 @@ $$
 - **Assumes:** $c > 0$ for every unit; sum Pmin <= demand <= sum Pmax; at least one unit between its limits
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Economic dispatch of 3 generators with quadratic cost curves meeting the demand given: the model returns outputs 400, 250, 150 MW (bars, dashed lines the limits given) at a common incremental cost λ = 8](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-economic-dispatch-bars.svg)
+![Economic dispatch of 3 generators with quadratic cost curves (rows a, b, c, Pmin, Pmax: 500 5](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-economic-dispatch-bars.svg)
 
-*Economic dispatch of 3 generators with quadratic cost curves meeting the demand given: the model returns outputs 400, 250, 150 MW (bars, dashed lines the limits given) at a common incremental cost λ = 8.5 per MWh, total cost 6682 per hour. Your inputs: costs = 500 5.3 0.004 200 450..., demand = 800.*
+*Economic dispatch of 3 generators with quadratic cost curves (rows a, b, c, Pmin, Pmax: 500 5.3 0.004 200 450; 400 5.5 0.006 150 350; 200 5.8 0.009 100 225) meeting a demand of 800 MW: the package returns outputs 400, 250, 150 MW (bars, dashed lines the limits) at a common incremental cost λ = 8.5 per MWh, total cost 6682.5 per hour.*
 
-![Economic dispatch of 3 units meeting 800 MW](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-economic-dispatch-diagram)
+![Economic dispatch of the worked example's three units (cost a + bP + cP², rows a, b, c, Pmin, Pmax: 500 5](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-economic-dispatch-diagram)
 
-*Economic dispatch of 3 units meeting 800 MW. Each line joins the model's common incremental cost and that unit's output for demands from 450 to 1025 MW (one run each; flat and upright pieces are a unit held at a limit), so it traces the unit's incremental cost. The model's λ = 8.5 per MWh cuts every line at that unit's dispatched output. Marked: outputs 400, 250, 150 MW. In SI units: cost = 6682. Your inputs: costs = 500 5.3 0.004 200 450..., demand = 800.*
-
-![Total cost in $/h as demand runs from 464 to 1016, every other input as you entered it (39 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-economic-dispatch-live-1)
-
-*Total cost in $/h as demand runs from 464 to 1016, every other input as you entered it (39 solutions). Marked: your demand = 800 gives cost = 6682. Your inputs: costs = 500 5.3 0.004 200 450..., demand = 800.*
-
-![Every entry of P as computed for your inputs (3 entries: 400, 250, 150)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-economic-dispatch-live-2)
-
-*Every entry of P as computed for your inputs (3 entries: 400, 250, 150). Your inputs: costs = 500 5.3 0.004 200 450..., demand = 800.*
+*Economic dispatch of the worked example's three units (cost a + bP + cP², rows a, b, c, Pmin, Pmax: 500 5.3 0.004 200 450; 400 5.5 0.006 150 350; 200 5.8 0.009 100 225) meeting 800 MW. Each line is a unit's incremental cost b + 2cP between its limits, drawn from the stated coefficients; the package's common incremental cost λ = 8.5 per MWh cuts every line at that unit's dispatched output. Marked: outputs 400, 250, 150 MW, total cost 6682 per hour.*
 
 ```python
 energy_systems_ai999x.solve('energy_economic_dispatch', costs='500 5.3 0.004 200 450; 400 5.5 0.006 150 350; 200 5.8 0.009 100 225', demand=800)
@@ -2552,21 +2332,9 @@ $$
 - **Assumes:** reactance network; no prefault load current (all prefault voltages Vf)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Three-phase fault at bus 2 of the network given (0-1 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-symmetrical-fault-oneline)
+![Three-phase fault at bus 2 of the worked example's network (0-1 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-symmetrical-fault-oneline)
 
-*Three-phase fault at bus 2 of the network given (0-1 0.2, 1-2 0.3: from-to and reactance in per unit; bus 0 is the source). The model returns the fault current If = 2 pu, the Thevenin reactance at the fault X_th = 0.5 pu and the bus voltages during the fault V1 = 0.6, V2 = 0 pu. Your inputs: network = 0-1 0.2, 1-2 0.3, fault_bus = 2.*
-
-![Fault current in per unit as fault_bus runs from 1 to 2, every other input as you entered it (2 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-symmetrical-fault-live-1)
-
-*Fault current in per unit as fault_bus runs from 1 to 2, every other input as you entered it (2 solutions). Marked: your fault_bus = 2 gives If = 2. Your inputs: network = 0-1 0.2, 1-2 0.3, fault_bus = 2.*
-
-![The 2 edges as given (weights written on them), drawn with the nodes on a circle](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-symmetrical-fault-live-2)
-
-*The 2 edges as given (weights written on them), drawn with the nodes on a circle. Ringed: nodes named in the inputs (2). Your inputs: network = 0-1 0.2, 1-2 0.3, fault_bus = 2.*
-
-![Every entry of V as computed for your inputs (2 entries: 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-symmetrical-fault-live-3)
-
-*Every entry of V as computed for your inputs (2 entries: 0.6, 0). Your inputs: network = 0-1 0.2, 1-2 0.3, fault_bus = 2.*
+*Three-phase fault at bus 2 of the worked example's network (0-1 0.2, 1-2 0.3: from–to and reactance in per unit; bus 0 is the source at 1 pu). The package returns the fault current If = 2 pu, the Thevenin reactance at the fault X_th = 0.5 pu and the bus voltages during the fault V1 = 0.6, V2 = 0 pu. Marked: If and every voltage.*
 
 ```python
 energy_systems_ai999x.solve('energy_symmetrical_fault', network='0-1 0.2, 1-2 0.3', fault_bus=2)
@@ -2622,17 +2390,9 @@ $$
 - **Assumes:** sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Top: the sequence networks connected in series (the same current flows through all three), with the Thevenin reactances given (X1 = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-slg-fault-schematic)
+![A single line-to-ground fault with the worked example's Thevenin reactances X1 = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-slg-fault-schematic)
 
-*Top: the sequence networks connected in series (the same current flows through all three), with the Thevenin reactances given (X1 = 0.25, X2 = 0.25, X0 = 0.35 pu) and the model's sequence currents I1 = 1.176, I2 = 1.176, I0 = 1.176 pu. Bottom: the model's fault currents Ia = 3.529, Ib = 0, Ic = 0, In = 3.529 pu and phase voltages Va = 0, Vb = 1.064, Vc = 1.064 pu. Your inputs: X1 = 0.25, X2 = 0.25, X0 = 0.35.*
-
-![Ia as X0 runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-slg-fault-live-1)
-
-*Ia as X0 runs from 0.0875 to 0.6125, every other input as you entered it (41 solutions). Marked: your X0 = 0.35 gives Ia = 3.529. Your inputs: X1 = 0.25, X2 = 0.25, X0 = 0.35.*
-
-![Ia as X1 runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-slg-fault-live-2)
-
-*Ia as X1 runs from 0.0625 to 0.4375, every other input as you entered it (29 solutions). Marked: your X1 = 0.25 gives Ia = 3.529. Your inputs: X1 = 0.25, X2 = 0.25, X0 = 0.35.*
+*A single line-to-ground fault with the worked example's Thevenin reactances X1 = 0.1, X2 = 0.1, X0 = 0.1 pu (a bolted fault from a 1 pu prefault voltage unless stated). Top: the sequence networks connected in series (the same current flows through all three). Bottom: the package's fault currents Ia = 10, Ib = 0, Ic = 0, In = 10 pu and phase voltages Va = 0, Vb = 1, Vc = 1 pu. Marked: the sequence currents I1 = 3.333, I2 = 3.333, I0 = 3.333 pu.*
 
 ```python
 energy_systems_ai999x.solve('energy_slg_fault', X1=0.1, X2=0.1, X0=0.1)
@@ -2683,17 +2443,9 @@ $$
 - **Assumes:** sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Top: the positive and negative sequence networks connected in parallel; the zero-sequence network stays open, with the Thevenin reactances given (X1 = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-ll-fault-schematic)
+![A line-to-line fault with the worked example's Thevenin reactances X1 = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-ll-fault-schematic)
 
-*Top: the positive and negative sequence networks connected in parallel; the zero-sequence network stays open, with the Thevenin reactances given (X1 = 0.25, X2 = 0.25, X0 = 0.35 pu) and the model's sequence currents I1 = 2, I2 = 2, I0 = 0 pu. Bottom: the model's fault currents Ia = 0, Ib = 3.464, Ic = 3.464, In = 0 pu and phase voltages Va = 1, Vb = 0.5, Vc = 0.5 pu. Your inputs: X1 = 0.25, X2 = 0.25, X0 = 0.35.*
-
-![Ib as X2 runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-ll-fault-live-1)
-
-*Ib as X2 runs from 0.0625 to 0.4375, every other input as you entered it (41 solutions). Marked: your X2 = 0.25 gives Ib = 3.464. Your inputs: X1 = 0.25, X2 = 0.25, X0 = 0.35.*
-
-![Ib as X1 runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-ll-fault-live-2)
-
-*Ib as X1 runs from 0.0625 to 0.4375, every other input as you entered it (29 solutions). Marked: your X1 = 0.25 gives Ib = 3.464. Your inputs: X1 = 0.25, X2 = 0.25, X0 = 0.35.*
+*A line-to-line fault with the worked example's Thevenin reactances X1 = 0.1, X2 = 0.1, X0 = 0.1 pu (a bolted fault from a 1 pu prefault voltage unless stated). Top: the sequence networks connected in parallel; the zero-sequence network stays open. Bottom: the package's fault currents Ia = 0, Ib = 8.66, Ic = 8.66, In = 0 pu and phase voltages Va = 1, Vb = 0.5, Vc = 0.5 pu. Marked: the sequence currents I1 = 5, I2 = 5, I0 = 0 pu.*
 
 ```python
 energy_systems_ai999x.solve('energy_ll_fault', X1=0.1, X2=0.1, X0=0.1)
@@ -2744,17 +2496,9 @@ $$
 - **Assumes:** sequence networks from the Thevenin reactances at the fault; prefault no-load voltage Vf
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Top: the sequence networks connected all three in parallel, with the Thevenin reactances given (X1 = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-dlg-fault-schematic)
+![A double line-to-ground fault with the worked example's Thevenin reactances X1 = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-dlg-fault-schematic)
 
-*Top: the sequence networks connected all three in parallel, with the Thevenin reactances given (X1 = 0.25, X2 = 0.25, X0 = 0.35 pu) and the model's sequence currents I1 = 2.526, I2 = 1.474, I0 = 1.053 pu. Bottom: the model's fault currents Ia = 0, Ib = 3.807, Ic = 3.807, In = 3.158 pu and phase voltages Va = 1.105, Vb = 0, Vc = 0 pu. Your inputs: X1 = 0.25, X2 = 0.25, X0 = 0.35.*
-
-![Ib as X0 runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-dlg-fault-live-1)
-
-*Ib as X0 runs from 0.0875 to 0.6125, every other input as you entered it (41 solutions). Marked: your X0 = 0.35 gives Ib = 3.807. Your inputs: X1 = 0.25, X2 = 0.25, X0 = 0.35.*
-
-![Ib as X1 runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-dlg-fault-live-2)
-
-*Ib as X1 runs from 0.0625 to 0.4375, every other input as you entered it (29 solutions). Marked: your X1 = 0.25 gives Ib = 3.807. Your inputs: X1 = 0.25, X2 = 0.25, X0 = 0.35.*
+*A double line-to-ground fault with the worked example's Thevenin reactances X1 = 0.1, X2 = 0.1, X0 = 0.1 pu (a bolted fault from a 1 pu prefault voltage unless stated). Top: the sequence networks connected all three in parallel. Bottom: the package's fault currents Ia = 0, Ib = 10, Ic = 10, In = 10 pu and phase voltages Va = 1, Vb = 0, Vc = 0 pu. Marked: the sequence currents I1 = 6.667, I2 = 3.333, I0 = 3.333 pu.*
 
 ```python
 energy_systems_ai999x.solve('energy_dlg_fault', X1=0.1, X2=0.1, X0=0.1)
@@ -2798,13 +2542,9 @@ $$
 - **Assumes:** lossless transfer reactance; |P| < V1 $V_{2}/X$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Power angle (V2 ahead of V1) in degrees as V1 runs from 79](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-power-angle-live-1)
+![Power transferred between two buses (V1 = 100 kV, V2 = 100 kV, X = 100 Ω, the worked example) against the power angle: each point is the package's angle for a given power from 0 to Pmax](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-power-angle-curve)
 
-*Power angle (V2 ahead of V1) in degrees as V1 runs from 79.2 to 184.8 kV, every other input as you entered it (41 solutions). Marked: your V1 = 132 kV gives δ_deg = 24.31. Your inputs: V1 = 132 kV, V2 = 138 kV, X = 50 ohm, P = 150 MW.*
-
-![Power angle (V2 ahead of V1) in degrees as V2 runs from 82](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-power-angle-live-2)
-
-*Power angle (V2 ahead of V1) in degrees as V2 runs from 82.8 to 193.2 kV, every other input as you entered it (29 solutions). Marked: your V2 = 138 kV gives δ_deg = 24.31. Your inputs: V1 = 132 kV, V2 = 138 kV, X = 50 ohm, P = 150 MW.*
+*Power transferred between two buses (V1 = 100 kV, V2 = 100 kV, X = 100 Ω, the worked example) against the power angle: each point is the package's angle for a given power from 0 to Pmax. Marked: the operating point P = 50 MW at δ = 30°, the limit Pmax = 100 MW (stability margin 50 %), sending reactive power 13.4 Mvar.*
 
 ```python
 energy_systems_ai999x.solve('energy_power_angle', V1=100000.0, V2=100000.0, X=100.0, P=50000000.0)
@@ -2848,17 +2588,9 @@ $$
 - **Assumes:** Pmax_fault < Pm < Pmax_pre, Pmax_post; classical model (constant voltage behind transient reactance, no damping)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Equal-area criterion for mechanical power Pm = 1 pu and transfer limits 2 (before), 0 (during) and 2 pu (after the fault)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-critical-clearing-diagram)
+![Equal-area criterion for the worked example's machine: mechanical power Pm = 1 pu and transfer limits 2 (before), 0 (during) and 2 pu (after the fault)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-critical-clearing-diagram)
 
-*Equal-area criterion for mechanical power Pm = 1 pu and transfer limits 2 (before), 0 (during) and 2 pu (after the fault). Each power-angle curve is traced by the model: for a mechanical power on that curve, its initial angle and its largest angle. The angles marked are the model's: δ0 = 30°, the critical clearing angle δcr = 79.56° and the largest angle δmax = 150°; clearing at δcr makes the accelerating area A1 equal to the decelerating area A2. Your inputs: Pm = 1, Pmax_pre = 2, Pmax_fault = 0, Pmax_post = 2.*
-
-![Critical clearing angle in degrees as Pmax_post runs from 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-critical-clearing-live-1)
-
-*Critical clearing angle in degrees as Pmax_post runs from 1.1 to 3.5, every other input as you entered it (33 solutions). Marked: your Pmax_post = 2 gives δ_cr_deg = 79.56. Your inputs: Pm = 1, Pmax_pre = 2, Pmax_fault = 0, Pmax_post = 2.*
-
-![Critical clearing angle in degrees as Pmax_pre runs from 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-critical-clearing-live-2)
-
-*Critical clearing angle in degrees as Pmax_pre runs from 1.036 to 3.5, every other input as you entered it (24 solutions). Marked: your Pmax_pre = 2 gives δ_cr_deg = 79.56. Your inputs: Pm = 1, Pmax_pre = 2, Pmax_fault = 0, Pmax_post = 2.*
+*Equal-area criterion for the worked example's machine: mechanical power Pm = 1 pu and transfer limits 2 (before), 0 (during) and 2 pu (after the fault). The power curves are Pmax·sin δ drawn from these stated limits; the angles are the package's: initial δ0 = 30°, critical clearing angle δcr = 79.56° and the largest angle δmax = 150°. Clearing at δcr makes the accelerating area A1 equal to the decelerating area A2. Marked: δ0, δcr, δmax.*
 
 ```python
 energy_systems_ai999x.solve('energy_critical_clearing', Pm=1.0, Pmax_pre=2.0, Pmax_fault=0.0, Pmax_post=2.0)
@@ -2901,21 +2633,9 @@ $$
 - **Assumes:** primary control only (no secondary/AGC); R, ratings > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![2 generators on droop control (droops 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-droop-sharing-diagram)
+![2 generators on droop control (the worked example's droops [0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-droop-sharing-diagram)
 
-*2 generators on droop control (droops 0.05, 0.05 on ratings 500, 500 MW, nominal 50 Hz) taking up a load increase stepped from 0 to 200 MW: each line joins the model's frequency and that unit's share for every step. Marked: the 100 MW increase given settles at 49.75 Hz with shares 50, 50 MW. In SI units: df = -0.25. Your inputs: R = 0.05, 0.05, ratings = 500, 500, dP = 100, f0 = 50 Hz.*
-
-![Frequency change in Hz as dP runs from 25 to 175, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-droop-sharing-live-1)
-
-*Frequency change in Hz as dP runs from 25 to 175, every other input as you entered it (41 solutions). Marked: your dP = 100 gives df = -0.25. Your inputs: R = 0.05, 0.05, ratings = 500, 500, dP = 100, f0 = 50 Hz.*
-
-![Every entry of dP_gen as computed for your inputs (2 entries: 50, 50)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-droop-sharing-live-2)
-
-*Every entry of dP_gen as computed for your inputs (2 entries: 50, 50). Your inputs: R = 0.05, 0.05, ratings = 500, 500, dP = 100, f0 = 50 Hz.*
-
-![Frequency change in Hz as f0 runs from 30 to 70 Hz, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-droop-sharing-live-3)
-
-*Frequency change in Hz as f0 runs from 30 to 70 Hz, every other input as you entered it (29 solutions). Marked: your f0 = 50 Hz gives df = -0.25. Your inputs: R = 0.05, 0.05, ratings = 500, 500, dP = 100, f0 = 50 Hz.*
+*2 generators on droop control (the worked example's droops [0.05, 0.05] on ratings [500, 500] MW, nominal 50 Hz) taking up a load increase stepped from 0 to 200 MW: each line joins the package's frequency and that unit's share for every step. Marked: the worked example's 100 MW increase settles at 49.75 Hz with shares 50, 50 MW.*
 
 ```python
 energy_systems_ai999x.solve('energy_droop_sharing', R=[0.05, 0.05], ratings=[500, 500], dP=100, f0=50)
@@ -2967,17 +2687,9 @@ $$
 - **Assumes:** approximate equivalent circuit (shunt branch at the primary terminals); 0 < load <= 2
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The 10 kVA transformer referred to its high-voltage side (Req = 1 Ω, Xeq = 0 Ω, Rc = 1 MΩ, Xm = 1 GΩ)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-performance-circuit)
+![The worked example's 10 kVA, 1000/100 V transformer (referred to the high-voltage side: Req = 1 Ω, Xeq = 0 Ω, Rc = 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-performance-circuit)
 
-*The 10 kVA transformer referred to its high-voltage side (Req = 1 Ω, Xeq = 0 Ω, Rc = 1 MΩ, Xm = 1 GΩ). Top: the circuit; at 1 of rated load the model returns V1 = 1.01 kV, I1 = 10 A, copper loss 100 W, core loss 1.02 W. Middle and bottom: the model's efficiency and regulation against load, one run per point. Marked: the load given, 99 % and 1 %. Your inputs: S = 10000 VA, V1 = 1000 V, V2 = 100 V, Req = 1 ohm, Xeq = 0 ohm, Rc = 1000000 ohm, Xm = 1000000000 ohm, load = 1.*
-
-![Voltage regulation in percent as V1 runs from 600 to 1400 V, every other input as you entered it (33 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-performance-live-1)
-
-*Voltage regulation in percent as V1 runs from 600 to 1400 V, every other input as you entered it (33 solutions). Marked: your V1 = 1000 V gives regulation_pct = 1. Your inputs: S = 10000 VA, V1 = 1000 V, V2 = 100 V, Req = 1 ohm, Xeq = 0 ohm, Rc = 1000000 ohm, Xm = 1000000000 ohm, load = 1.*
-
-![Voltage regulation in percent as S runs from 6000 to 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-performance-live-2)
-
-*Voltage regulation in percent as S runs from 6000 to 1.4e+04 VA, every other input as you entered it (29 solutions). Marked: your S = 1e+04 VA gives regulation_pct = 1. Your inputs: S = 10000 VA, V1 = 1000 V, V2 = 100 V, Req = 1 ohm, Xeq = 0 ohm, Rc = 1000000 ohm, Xm = 1000000000 ohm, load = 1.*
+*The worked example's 10 kVA, 1000/100 V transformer (referred to the high-voltage side: Req = 1 Ω, Xeq = 0 Ω, Rc = 1.0000e+09 Ω, Xm = 1.0000e+09 Ω) supplying power factor 1 lagging. Top: the circuit; at 1 of rated load the package returns V1 = 1010 V, I1 = 10 A, copper loss 100 W, core loss 0.00102 W. Middle and bottom: efficiency and regulation against load, one run per point. Marked: the worked example's load, 99.01 % and 1 %.*
 
 ```python
 energy_systems_ai999x.solve('energy_transformer_performance', S=10000.0, V1=1000, V2=100, Req=1.0, Xeq=0.0, Rc=1000000.0, Xm=1000000000.0, load=1.0, pf=1.0)
@@ -3029,17 +2741,9 @@ $$
 - **Assumes:** $P < V$ I in both tests
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Approximate equivalent circuit of the transformer from its two tests (open circuit 240 V, 4](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-tests-circuit)
+![Approximate equivalent circuit of a transformer from its two tests (the worked example: open circuit 100 V, 1 A, 60 W; short circuit 50 V, 10 A, 300 W), referred to the side the tests were made on](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-tests-circuit)
 
-*Approximate equivalent circuit of the transformer from its two tests (open circuit 240 V, 4.8 A, 400 W; short circuit 120 V, 20 A, 900 W), referred to the side the tests were made on. Marked: the model's core-loss resistance Rc = 144 Ω and magnetising reactance Xm = 53.32 Ω (shunt), series Req = 2.25 Ω and Xeq = 5.562 Ω (|Zeq| = 6 Ω); power factors 0.3472 and 0.375. Your inputs: Voc = 240 V, Ioc = 4.8 A, Poc = 400 W, Vsc = 120 V, Isc = 20 A, Psc = 900 W.*
-
-![Core-loss resistance (open-circuit side) as Voc runs from 144 to 336 V, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-tests-live-1)
-
-*Core-loss resistance (open-circuit side) as Voc runs from 144 to 336 V, every other input as you entered it (41 solutions). Marked: your Voc = 240 V gives Rc = 144. Your inputs: Voc = 240 V, Ioc = 4.8 A, Poc = 400 W, Vsc = 120 V, Isc = 20 A, Psc = 900 W.*
-
-![Equivalent leakage reactance (short-circuit](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-tests-live-2)
-
-*Equivalent leakage reactance (short-circuit... as Isc runs from 12 to 28 A, every other input as you entered it (29 solutions). Marked: your Isc = 20 A gives Xeq = 5.562. Your inputs: Voc = 240 V, Ioc = 4.8 A, Poc = 400 W, Vsc = 120 V, Isc = 20 A, Psc = 900 W.*
+*Approximate equivalent circuit of a transformer from its two tests (the worked example: open circuit 100 V, 1 A, 60 W; short circuit 50 V, 10 A, 300 W), referred to the side the tests were made on. Marked: the package's core-loss resistance Rc = 166.7 Ω and magnetising reactance Xm = 125 Ω (shunt), series Req = 3 Ω and Xeq = 4 Ω (|Zeq| = 5 Ω); power factors 0.6 and 0.6.*
 
 ```python
 energy_systems_ai999x.solve('energy_transformer_tests', Voc=100, Ioc=1, Poc=60, Vsc=50, Isc=10, Psc=300)
@@ -3081,13 +2785,9 @@ $$
 - **Assumes:** constant core loss, copper loss proportional to the load squared
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Apparent power at maximum efficiency in VA as S runs from 60 to 140 kVA, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-max-efficiency-live-1)
+![load_fraction (load fraction for maximum efficiency sqrt(P_core/P_cu)) against P_cu_fl (copper loss at full load) from 1000 W to 3000 W](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-max-efficiency-curve)
 
-*Apparent power at maximum efficiency in VA as S runs from 60 to 140 kVA, every other input as you entered it (41 solutions). Marked: your S = 100 kVA gives S_at_max = 5e+04. Your inputs: S = 100 kVA, P_core = 500 W, P_cu_fl = 2000 W, pf = 0.8.*
-
-![Load fraction as P_cu_fl runs from 1200 to 2800 W, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-max-efficiency-live-2)
-
-*Load fraction as P_cu_fl runs from 1200 to 2800 W, every other input as you entered it (29 solutions). Marked: your P_cu_fl = 2000 W gives load_fraction = 0.5. Your inputs: S = 100 kVA, P_core = 500 W, P_cu_fl = 2000 W, pf = 0.8.*
+*load_fraction (load fraction for maximum efficiency sqrt(P_core/P_cu)) against P_cu_fl (copper loss at full load) from 1000 W to 3000 W. One curve for each value of P_core (core (no-load) loss): 500 W, 250 W, 1000 W. Other inputs as in the worked example: S = 100000.0 VA, pf = 1.0. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, P_cu_fl = 2000 W, load_fraction = 0.5.*
 
 ```python
 energy_systems_ai999x.solve('energy_transformer_max_efficiency', S=100000.0, P_core=500, P_cu_fl=2000, pf=1.0)
@@ -3137,13 +2837,9 @@ $$
 - **Assumes:** T equivalent circuit (series impedance halved on each side of the magnetizing branch); rated voltage applied, nominal tap
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Low-voltage side voltage under load as P runs from 2](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-loading-live-1)
+![V_lv_actual (low-voltage side voltage under load) against P (load real power on the low-voltage side) from 40000 W to 4e+06 W on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-loading-curve)
 
-*Low-voltage side voltage under load as P runs from 2.4e+05 to 5.6e+05 W, every other input as you entered it (37 solutions). Marked: your P = 4e+05 W gives V_lv_actual = 390.9. Your inputs: sn = 630000 VA, V_hv = 20000 V, V_lv = 400 V, vk = 0.06, vkr = 0.012, P0 = 1500 W, i0 = 0.003, P = 400000 W.*
-
-![Low-voltage side voltage under load as vk runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-transformer-loading-live-2)
-
-*Low-voltage side voltage under load as vk runs from 0.015 to 0.105, every other input as you entered it (29 solutions). Marked: your vk = 0.06 gives V_lv_actual = 390.9. Your inputs: sn = 630000 VA, V_hv = 20000 V, V_lv = 400 V, vk = 0.06, vkr = 0.012, P0 = 1500 W, i0 = 0.003, P = 400000 W.*
+*V_lv_actual (low-voltage side voltage under load) against P (load real power on the low-voltage side) from 40000 W to 4e+06 W on a logarithmic axis. One curve for each value of V_lv (rated low-voltage side voltage): 400 V, 200 V, 800 V. Other inputs as in the worked example: sn = 630000.0 VA, V_hv = 20000.0 V, vk = 0.06, vkr = 0.012, P0 = 1500.0 W, i0 = 0.003, Q = 150000.0 var. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, P = 400000 W, V_lv_actual = 390.876 V.*
 
 ```python
 energy_systems_ai999x.solve('energy_transformer_loading', sn=630000.0, V_hv=20000.0, V_lv=400, vk=0.06, vkr=0.012, P0=1500, i0=0.003, P=400000.0, Q=150000.0)
@@ -3194,13 +2890,9 @@ $$
 - **Assumes:** equal voltage ratios (no circulating current); magnetizing branches neglected
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Apparent power delivered by transformer 1 in VA as P runs from 3](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-parallel-transformers-live-1)
+![S1_share (apparent power delivered by transformer 1 in VA) against vkr1 (its resistive part (fraction or %)) from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-parallel-transformers-curve)
 
-*Apparent power delivered by transformer 1 in VA as P runs from 3.6e+05 to 8.4e+05 W, every other input as you entered it (37 solutions). Marked: your P = 6e+05 W gives S1_share = 3.162e+05. Your inputs: S1 = 500000 VA, vk1 = 0.05, vkr1 = 0.01, S2 = 500000 VA, vk2 = 0.05, vkr2 = 0.01, V_lv = 400 V, P = 600000 W.*
-
-![Apparent power delivered by transformer 1 in VA as Q runs from 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-parallel-transformers-live-2)
-
-*Apparent power delivered by transformer 1 in VA as Q runs from 1.2e+05 to 2.8e+05 var, every other input as you entered it (29 solutions). Marked: your Q = 2e+05 var gives S1_share = 3.162e+05. Your inputs: S1 = 500000 VA, vk1 = 0.05, vkr1 = 0.01, S2 = 500000 VA, vk2 = 0.05, vkr2 = 0.01, V_lv = 400 V, P = 600000 W.*
+*S1_share (apparent power delivered by transformer 1 in VA) against vkr1 (its resistive part (fraction or %)) from 0.005 to 0.015. One curve for each value of P (load real power): 600000 W, 300000 W, 1.2e+06 W. Other inputs as in the worked example: S1 = 500000.0 VA, vk1 = 0.05, S2 = 500000.0 VA, vk2 = 0.05, vkr2 = 0.01, V_lv = 400.0 V, Q = 200000.0 var. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, vkr1 = 0.01, S1_share = 316228 VA.*
 
 ```python
 energy_systems_ai999x.solve('energy_parallel_transformers', S1=500000.0, vk1=0.05, vkr1=0.01, S2=500000.0, vk2=0.05, vkr2=0.01, V_lv=400, P=600000.0, Q=200000.0)
@@ -3254,21 +2946,9 @@ $$
 - **Assumes:** steady state, balanced supply; 0 < slip <= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Top: the per-phase equivalent circuit with the values given (R1 = 0 Ω, X1 = 2 Ω, R2 = 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-motor-circuit)
+![Top: the per-phase equivalent circuit of the worked example's motor (460 V, 60 Hz, 4 poles, star, R1 = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-motor-circuit)
 
-*Top: the per-phase equivalent circuit with the values given (R1 = 0 Ω, X1 = 2 Ω, R2 = 1.5 Ω, X2 = 2 Ω, Xm = 1 TΩ), the rotor resistance appearing as R2/s at slip 0.5. Bottom: the model's torque against slip from 0.02 to standstill (s = 1), one run per point. Marked: at s = 0.5 the model returns T = 366.7 N·m, line current 80 A, power factor 0.6, air-gap power 57.6 kW, output 28.8 kW, efficiency 50 %. Your inputs: VL = 692.8203230275509 V, f = 50 Hz, poles = 4, R1 = 0 ohm, X1 = 2 ohm, R2 = 1.5 ohm, X2 = 2 ohm, Xm = 1000000000000 ohm.*
-
-![Induced torque as VL runs from 415](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-motor-live-1)
-
-*Induced torque as VL runs from 415.7 to 969.9 V, every other input as you entered it (37 solutions). Marked: your VL = 692.8 V gives T = 366.7. Your inputs: VL = 692.8203230275509 V, f = 50 Hz, poles = 4, R1 = 0 ohm, X1 = 2 ohm, R2 = 1.5 ohm, X2 = 2 ohm, Xm = 1000000000000 ohm.*
-
-![Induced torque for every choice of connection, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-motor-live-2)
-
-*Induced torque for every choice of connection, every other input as you entered it (highlighted: your choice). star: 366.7; delta: 1100. Your inputs: VL = 692.8203230275509 V, f = 50 Hz, poles = 4, R1 = 0 ohm, X1 = 2 ohm, R2 = 1.5 ohm, X2 = 2 ohm, Xm = 1000000000000 ohm.*
-
-![Induced torque as poles runs from 2 to 8, every other input as you entered it (4 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-motor-live-3)
-
-*Induced torque as poles runs from 2 to 8, every other input as you entered it (4 solutions). Values in this range where the inputs admit no answer (3 of 7) are left out. Marked: your poles = 4 gives T = 366.7. Your inputs: VL = 692.8203230275509 V, f = 50 Hz, poles = 4, R1 = 0 ohm, X1 = 2 ohm, R2 = 1.5 ohm, X2 = 2 ohm, Xm = 1000000000000 ohm.*
+*Top: the per-phase equivalent circuit of the worked example's motor (460 V, 60 Hz, 4 poles, star, R1 = 0.641 Ω, X1 = 1.106 Ω, R2 = 0.332 Ω, X2 = 0.464 Ω, Xm = 26.3 Ω per phase) at slip 0.022, the rotor resistance appearing as R2/s = 15.09 Ω. Bottom: the package's torque against slip from standstill (s = 1) to near synchronous speed. Marked: at s = 0.022 the package returns T = 62.81 N·m, line current 18.89 A, power factor 0.8321, air-gap power 11.84 kW, output 11.58 kW, efficiency 92.44 %.*
 
 ```python
 energy_systems_ai999x.solve('energy_induction_motor', VL=692.8203230275509, f=50, poles=4, R1=0.0, X1=2.0, R2=1.5, X2=2.0, Xm=1000000000000.0, slip=0.5, connection='star')
@@ -3318,17 +2998,9 @@ $$
 - **Assumes:** constant parameters (no deep-bar or saturation effects)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Maximum (pull-out) torque and starting torque as R1 runs from 0 to 1 ohm, every other input as you entered it (19 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-max-torque-live-1)
+![Torque–slip curve of the worked example's induction motor (460 V, 60 Hz, 4 poles, star, R1 = 0 Ω, X1 = 1 Ω, R2 = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-max-torque-curve)
 
-*Maximum (pull-out) torque and starting torque as R1 runs from 0 to 1 ohm, every other input as you entered it (19 solutions). Marked: your R1 = 0 ohm gives T_max = 763.9. Your inputs: VL = 692.8203230275509 V, f = 50 Hz, poles = 4, R1 = 0 ohm, X1 = 1 ohm, R2 = 0.2 ohm, X2 = 1 ohm, Xm = 1000000000000 ohm.*
-
-![Maximum (pull-out) torque for every choice of connection, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-max-torque-live-2)
-
-*Maximum (pull-out) torque for every choice of connection, every other input as you entered it (highlighted: your choice). star: 763.9; delta: 2292. Your inputs: VL = 692.8203230275509 V, f = 50 Hz, poles = 4, R1 = 0 ohm, X1 = 1 ohm, R2 = 0.2 ohm, X2 = 1 ohm, Xm = 1000000000000 ohm.*
-
-![Maximum (pull-out) torque and starting torque as VL runs from 415](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-max-torque-live-3)
-
-*Maximum (pull-out) torque and starting torque as VL runs from 415.7 to 969.9 V, every other input as you entered it (29 solutions). Marked: your VL = 692.8 V gives T_max = 763.9. Your inputs: VL = 692.8203230275509 V, f = 50 Hz, poles = 4, R1 = 0 ohm, X1 = 1 ohm, R2 = 0.2 ohm, X2 = 1 ohm, Xm = 1000000000000 ohm.*
+*Torque–slip curve of the worked example's induction motor (460 V, 60 Hz, 4 poles, star, R1 = 0 Ω, X1 = 1 Ω, R2 = 0.2 Ω, X2 = 1 Ω, Xm = 1.0000e+12 Ω per phase): each point is the package's torque at one slip. Marked: the package's breakdown torque T_max = 280.6 N·m at slip 0.1 and starting torque 55.57 N·m (starting current 132.1 A, Thevenin voltage 265.6 V).*
 
 ```python
 energy_systems_ai999x.solve('energy_induction_max_torque', VL=692.8203230275509, f=50, poles=4, R1=0.0, X1=1.0, R2=0.2, X2=1.0, Xm=1000000000000.0, connection='star')
@@ -3374,17 +3046,13 @@ $$
 - **Assumes:** cylindrical rotor (no saliency), star connection, unsaturated
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Phasor diagram of the synchronous generator per phase: the terminal phase voltage V = 100 V (the reference, as the model's E and regulation give it), 10 A at power factor 1 (lagging), the current drawn at 6 V per A](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-synchronous-generator-phasor)
+![Phasor diagram of the worked example's synchronous generator per phase: terminal 173](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-synchronous-generator-phasor)
 
-*Phasor diagram of the synchronous generator per phase: the terminal phase voltage V = 100 V (the reference, as the model's E and regulation give it), 10 A at power factor 1 (lagging), the current drawn at 6 V per A. The model returns E = 141.4 V per phase (244.9 V line) at load angle δ = 45°, regulation 41.42 %, P = 3 kW, Q = 0 var; the third side joins the tip of V to the tip of E. Your inputs: VL = 173.20508075688772 V, IL = 10 A, pf = 1, Xs = 10 ohm.*
+*Phasor diagram of the worked example's synchronous generator per phase: terminal 173.205 V line (V = 100 V phase, the reference), 10 A at power factor 1 lagging, synchronous reactance Xs = 10 Ω, armature resistance neglected (default). The package returns E = 141.4 V per phase (244.9 V line) at load angle δ = 45°, regulation 41.42 %, P = 3 kW, Q = 0 kvar; the third side joins the tip of V to the tip of E (jXs·I). Current drawn at 6 V per A. Marked: E, δ, φ.*
 
-![Internal EMF and internal EMF per phase as pf runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-synchronous-generator-live-1)
+![E_line (internal EMF (line value)) against VL (terminal line voltage) from 17](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-synchronous-generator-curve)
 
-*Internal EMF and internal EMF per phase as pf runs from 0.25 to 1, every other input as you entered it (21 solutions). Marked: your pf = 1 gives E_line = 244.9. Your inputs: VL = 173.20508075688772 V, IL = 10 A, pf = 1, Xs = 10 ohm.*
-
-![Internal EMF and internal EMF per phase as IL runs from 6 to 14 A, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-synchronous-generator-live-2)
-
-*Internal EMF and internal EMF per phase as IL runs from 6 to 14 A, every other input as you entered it (29 solutions). Marked: your IL = 10 A gives E_line = 244.9. Your inputs: VL = 173.20508075688772 V, IL = 10 A, pf = 1, Xs = 10 ohm.*
+*E_line (internal EMF (line value)) against VL (terminal line voltage) from 17.3205 V to 1732.05 V on a logarithmic axis. One curve for each value of IL (armature (line) current): 10 A, 5 A, 20 A. Other inputs as in the worked example: pf = 1.0, Xs = 10.0 ohm. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, VL = 173.205 V, E_line = 244.949 V.*
 
 ```python
 energy_systems_ai999x.solve('energy_synchronous_generator', VL=173.20508075688772, IL=10, pf=1.0, Xs=10.0)
@@ -3425,9 +3093,9 @@ $$
 - **Assumes:** at least two tests at different currents; constant temperature and cut-off voltage
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Run time at I in hours as I runs from 3 to 7 A, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-peukert-live-1)
+![Battery runtime against discharge current on logarithmic axes from the worked example's two tests (100 h at 1 A, 10 h at 10 A): the package fits Peukert's exponent k = 1 and capacity C_p = 100, and each point of the line is its runtime at one current](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-peukert-curve)
 
-*Run time at I in hours as I runs from 3 to 7 A, every other input as you entered it (41 solutions). Marked: your I = 5 A gives runtime_h = 20. Your inputs: currents = 1, 10, times = 100, 10, I = 5 A.*
+*Battery runtime against discharge current on logarithmic axes from the worked example's two tests (100 h at 1 A, 10 h at 10 A): the package fits Peukert's exponent k = 1 and capacity C_p = 100, and each point of the line is its runtime at one current. Marked: at 5 A, 20 h, 100 Ah delivered.*
 
 ```python
 energy_systems_ai999x.solve('energy_peukert', currents=[1, 10], times=[100, 10], I=5)
@@ -3476,17 +3144,9 @@ $$
 - **Assumes:** nominal voltages and capacities; a target met within $1e-9$ counts as met
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The pack the model sizes: each box is one cell and a row is one series string (15 cells in series, 3 strings in parallel; long rows and many strings are shortened with dots)](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-battery-pack-sizing-schematic.svg)
+![Battery pack sized by the package for the worked example: target 48 V and 10 kWh from cells of 3](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-battery-pack-sizing-schematic)
 
-*The pack the model sizes: each box is one cell and a row is one series string (15 cells in series, 3 strings in parallel; long rows and many strings are shortened with dots). Marked: 45 cells in all, nominal pack voltage 48 V, energy 14.4 kWh, capacity 300 Ah. Your inputs: V_target = 48 V, E_target = 36000000 J, V_cell = 3.2 V, Q_cell = 360000 C.*
-
-![Total cells as V_target runs from 28](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-battery-pack-sizing-live-1)
-
-*Total cells as V_target runs from 28.8 to 67.2 V, every other input as you entered it (41 solutions). Marked: your V_target = 48 V gives N_cells = 45. Your inputs: V_target = 48 V, E_target = 36000000 J, V_cell = 3.2 V, Q_cell = 360000 C.*
-
-![Total cells as V_cell runs from 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-battery-pack-sizing-live-2)
-
-*Total cells as V_cell runs from 1.92 to 4.48 V, every other input as you entered it (29 solutions). Marked: your V_cell = 3.2 V gives N_cells = 45. Your inputs: V_target = 48 V, E_target = 36000000 J, V_cell = 3.2 V, Q_cell = 360000 C.*
+*Battery pack sized by the package for the worked example: target 48 V and 10 kWh from cells of 3.2 V and 100 Ah. Each box is one cell; a row is one series string. Marked: 15 in series, 3 in parallel, 45 cells, pack 48 V, 14.4 kWh, 300 Ah.*
 
 ```python
 energy_systems_ai999x.solve('energy_battery_pack_sizing', V_target=48, E_target=36000000.0, V_cell=3.2, Q_cell=360000)
@@ -3537,17 +3197,9 @@ $$
 - **Assumes:** constant open-circuit voltage over the interval (short pulse or flat OCV curve); RC branch initially relaxed
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Top: the one-RC battery model with the values given (OCV = 3](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-battery-rc-discharge-schematic)
+![Top: the one-RC battery model with the worked example's values (OCV = 4 V, R0 = 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-battery-rc-discharge-schematic)
 
-*Top: the one-RC battery model with the values given (OCV = 3.7 V, R0 = 20 mΩ, R1 = 15 mΩ, C1 = 2 kF). Bottom: the model's terminal voltage during a constant 10 A discharge, one run per time from 0 to 5τ, τ = 30 s as returned. Marked: at t = 60 s the model returns 3.37 V. Your inputs: OCV = 3.7 V, R0 = 20 mohm, R1 = 15 mohm, C1 = 2000 F, I = 10 A, t = 60 s.*
-
-![Terminal voltage and voltage across the RC branch as I runs from 6 to 14 A, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-battery-rc-discharge-live-1)
-
-*Terminal voltage and voltage across the RC branch as I runs from 6 to 14 A, every other input as you entered it (41 solutions). Marked: your I = 10 A gives V_terminal = 3.37. Your inputs: OCV = 3.7 V, R0 = 20 mohm, R1 = 15 mohm, C1 = 2000 F, I = 10 A, t = 60 s.*
-
-![Terminal voltage as t runs from 36 to 84 s, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-battery-rc-discharge-live-2)
-
-*Terminal voltage as t runs from 36 to 84 s, every other input as you entered it (29 solutions). Marked: your t = 60 s gives V_terminal = 3.37. Your inputs: OCV = 3.7 V, R0 = 20 mohm, R1 = 15 mohm, C1 = 2000 F, I = 10 A, t = 60 s.*
+*Top: the one-RC battery model with the worked example's values (OCV = 4 V, R0 = 0.01 Ω, R1 = 0.02 Ω, C1 = 1000 F). Bottom: terminal voltage during a constant 10 A discharge, one run per time from 0 to 5τ; the instant drop is I·R0 and the slower one charges R1–C1 with τ = 20 s (returned). Marked: at t = τ the package returns 3.774 V, 0.2126 Wh delivered and 26.72 J of heat.*
 
 ```python
 energy_systems_ai999x.solve('energy_battery_rc_discharge', OCV=4.0, R0=0.01, R1=0.02, C1=1000, I=10, t=0)
@@ -3598,17 +3250,13 @@ $$
 - **Assumes:** hydrogen/oxygen cell, 2 electrons per H2; heating values at 25 degC
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Mass and energy balance of the hydrogen fuel cell as the model returns it: hydrogen 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-fuel-cell-stack-schematic)
+![Mass and energy balance of a hydrogen fuel cell as the package returns it for the worked example (1 cell at 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-fuel-cell-stack-schematic)
 
-*Mass and energy balance of the hydrogen fuel cell as the model returns it: hydrogen 0.7522 kg/h and oxygen 5.97 kg/h in, water 6.722 kg/h out (kg/s times 3600). Marked: heat released 11.06 kW and efficiencies 0.5586 on the lower and 0.4726 on the higher heating value. In SI units: H2_kg_s = 0.0002089 kg/s. Your inputs: I = 200 A, N = 100, V_cell = 0.7 V.*
+*Mass and energy balance of a hydrogen fuel cell as the package returns it for the worked example (1 cell at 1.93e+05 A and 0.7 V, full fuel utilisation by default): hydrogen 7.257 kg/h and oxygen 57.6 kg/h in, water 64.86 kg/h out. Marked: heat released 106.7 kW and efficiencies 0.5586 (lower) and 0.4726 (higher heating value).*
 
-![Heat released (water vapour product) as V_cell runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-fuel-cell-stack-live-1)
+![H2_kg_s (hydrogen consumed) against I (stack current) from 96485](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-fuel-cell-stack-curve)
 
-*Heat released (water vapour product) as V_cell runs from 0.42 to 0.98 V, every other input as you entered it (41 solutions). Marked: your V_cell = 0.7 V gives heat_LHV = 11.06 kW. Your inputs: I = 200 A, N = 100, V_cell = 0.7 V.*
-
-![Hydrogen consumed, hydrogen fed and oxygen consumed as I runs from 120 to 280 A, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-fuel-cell-stack-live-2)
-
-*Hydrogen consumed, hydrogen fed and oxygen consumed as I runs from 120 to 280 A, every other input as you entered it (29 solutions). Marked: your I = 200 A gives H2_kg_s = 0.2089 g/s. Your inputs: I = 200 A, N = 100, V_cell = 0.7 V.*
+*H2_kg_s (hydrogen consumed) against I (stack current) from 96485.3 A to 289456 A. One curve for each value of N (number of cells in series): 1, 2, 3. Other inputs as in the worked example: V_cell = 0.7 V. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, I = 192971 A, H2_kg_s = 0.00201588 kg/s.*
 
 ```python
 energy_systems_ai999x.solve('energy_fuel_cell_stack', I=192970.66424, N=1, V_cell=0.7)
@@ -3653,17 +3301,13 @@ $$
 - **Assumes:** water electrolysis, 2 electrons per H2; heating values at 25 degC
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Mass balance of the water electrolyser as the model returns it: water in 33](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-electrolyser-schematic)
+![Mass balance of a water electrolyser as the package returns it for the worked example (1 cell at 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-electrolyser-schematic)
 
-*Mass balance of the water electrolyser as the model returns it: water in 33.61 kg/h, hydrogen 3.761 kg/h and oxygen 29.85 kg/h out (kg/s times 3600). Marked: 50.52 kWh of electricity per kg of hydrogen and efficiencies 0.7796 on the higher and 0.6596 on the lower heating value. Your inputs: I = 1000 A, N = 100, V_cell = 1.9 V.*
+*Mass balance of a water electrolyser as the package returns it for the worked example (1 cell at 1.93e+05 A (one faraday per second), and 2 V, full faradaic efficiency by default): water in 64.86 kg/h, hydrogen 7.257 kg/h and oxygen 57.6 kg/h out (kg/s × 3600). Marked: specific energy 53.18 kWh per kg of hydrogen and efficiencies 0.7406 (higher) and 0.6266 (lower heating value).*
 
-![Hydrogen produced as I runs from 600 to 1400 A, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-electrolyser-live-1)
+![specific_energy_kWh_per_kg (electricity per kg of hydrogen in kWh/kg) against V_cell (cell voltage (1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-electrolyser-curve)
 
-*Hydrogen produced as I runs from 600 to 1400 A, every other input as you entered it (41 solutions). Marked: your I = 1000 A gives H2_kg_s = 1.045 g/s. Your inputs: I = 1000 A, N = 100, V_cell = 1.9 V.*
-
-![Electricity per kg of hydrogen in kWh/kg as V_cell runs from 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-electrolyser-live-2)
-
-*Electricity per kg of hydrogen in kWh/kg as V_cell runs from 1.249 to 2.66 V, every other input as you entered it (27 solutions). Marked: your V_cell = 1.9 V gives specific_energy_kWh_per_kg = 50.52. Your inputs: I = 1000 A, N = 100, V_cell = 1.9 V.*
+*specific_energy_kWh_per_kg (electricity per kg of hydrogen in kWh/kg) against V_cell (cell voltage (1.23 to 3 V)) from 1 V to 3 V. Other inputs as in the worked example: I = 192970.66424 A, N = 1. 27 points computed by energy-systems-ai999x; marked: the worked example, V_cell = 2 V, specific_energy_kWh_per_kg = 53.1807.*
 
 ```python
 energy_systems_ai999x.solve('energy_electrolyser', I=192970.66424, N=1, V_cell=2.0)
@@ -3707,17 +3351,13 @@ $$
 - **Assumes:** 1 kPa <= p <= 1500 bar; 200 $K  \leq  T  \leq  700$ K; normal hydrogen, uniform state
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Stored hydrogen mass against the internal tank volume from 0](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-hydrogen-tank-curve-2.svg)
+![Hydrogen held in a 1 m³ tank at 288](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydrogen-tank-curve)
 
-*Stored hydrogen mass against the internal tank volume from 0.0625 to 0.1875 m³, one curve for each pressure (the one given, 70 MPa, half and twice it), 31 points per curve, each computed by the model (real gas); marked: the inputs given, V = 0.125 m³, mass = 5.022 kg. Your inputs: V = 125 L, p = 700 bar, T = 15 degC.*
+*Hydrogen held in a 1 m³ tank at 288.15 K against pressure, each point a run of the package: the real-gas mass (with its compressibility factor) and the ideal-gas mass. Marked: the worked example at 70 MPa, 40.17 kg (ideal 58.9 kg, Z = 1.466), 1339 kWh of lower heating value.*
 
-![Stored hydrogen mass and ideal-gas mass as V runs from 75 to 175 L, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydrogen-tank-live-1)
+![mass (stored hydrogen mass) against V (internal tank volume) from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydrogen-tank-curve-2)
 
-*Stored hydrogen mass and ideal-gas mass as V runs from 75 to 175 L, every other input as you entered it (41 solutions). Marked: your V = 125 L gives mass = 5.022. Your inputs: V = 125 L, p = 700 bar, T = 15 degC.*
-
-![Stored hydrogen mass and ideal-gas mass as p runs from 420 to 980 bar, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydrogen-tank-live-2)
-
-*Stored hydrogen mass and ideal-gas mass as p runs from 420 to 980 bar, every other input as you entered it (29 solutions). Marked: your p = 700 bar gives mass = 5.022. Your inputs: V = 125 L, p = 700 bar, T = 15 degC.*
+*mass (stored hydrogen mass) against V (internal tank volume) from 0.5 m^3 to 1.5 m^3. One curve for each value of p (gas pressure (absolute)): 7.0000e+07 Pa, 3.5000e+07 Pa, 1.4000e+08 Pa. Other inputs as in the worked example: T = 288.15 K. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, V = 1 m^3, mass = 40.1722 kg.*
 
 ```python
 energy_systems_ai999x.solve('energy_hydrogen_tank', V=1.0, p=70000000.0, T=288.15)
@@ -3758,13 +3398,9 @@ $$
 - **Assumes:** reversible and isothermal; 200 $K  \leq  T  \leq  700$ K, pressures up to 1500 bar
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Real-gas isothermal work per kg as T runs from 260 to 340 K, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydrogen-isothermal-compression-live-1)
+![w (real-gas isothermal work per kg) against p1 (initial pressure) from 50000 Pa to 150000 Pa](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydrogen-isothermal-compression-curve)
 
-*Real-gas isothermal work per kg as T runs from 260 to 340 K, every other input as you entered it (41 solutions). Marked: your T = 300 K gives w = 4.923e+06. Your inputs: p1 = 20 bar, p2 = 700 bar, T = 300 K.*
-
-![Real-gas isothermal work per kg as p2 runs from 420 to 980 bar, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydrogen-isothermal-compression-live-2)
-
-*Real-gas isothermal work per kg as p2 runs from 420 to 980 bar, every other input as you entered it (29 solutions). Marked: your p2 = 700 bar gives w = 4.923e+06. Your inputs: p1 = 20 bar, p2 = 700 bar, T = 300 K.*
+*w (real-gas isothermal work per kg) against p1 (initial pressure) from 50000 Pa to 150000 Pa. One curve for each value of p2 (final pressure): 200000 Pa, 100000 Pa, 400000 Pa. Other inputs as in the worked example: T = 300.0 K. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, p1 = 100000 Pa, w = 858386 J/kg.*
 
 ```python
 energy_systems_ai999x.solve('energy_hydrogen_isothermal_compression', p1=100000.0, p2=200000.0, T=300)
@@ -3804,13 +3440,9 @@ $$
 - **Assumes:** reversible adiabatic, single stage; outlet temperature below 1000 K
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Compression work per kg (h2 - h1) as p2 runs from 60 to 140 bar, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydrogen-isentropic-compression-live-1)
+![w (compression work per kg (h2 - h1)) against p2 (outlet pressure) from 1e+06 Pa to 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydrogen-isentropic-compression-curve)
 
-*Compression work per kg (h2 - h1) as p2 runs from 60 to 140 bar, every other input as you entered it (41 solutions). Marked: your p2 = 100 bar gives w = 1.833e+06. Your inputs: p1 = 30 bar, T1 = 300 K, p2 = 100 bar.*
-
-![Compression work per kg (h2 - h1) as p1 runs from 18 to 42 bar, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydrogen-isentropic-compression-live-2)
-
-*Compression work per kg (h2 - h1) as p1 runs from 18 to 42 bar, every other input as you entered it (29 solutions). Marked: your p1 = 30 bar gives w = 1.833e+06. Your inputs: p1 = 30 bar, T1 = 300 K, p2 = 100 bar.*
+*w (compression work per kg (h2 - h1)) against p2 (outlet pressure) from 1e+06 Pa to 1.0000e+08 Pa on a logarithmic axis. One curve for each value of p1 (inlet pressure): 3e+06 Pa, 1.5e+06 Pa, 6e+06 Pa. Other inputs as in the worked example: T1 = 300.0 K. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, p2 = 1.0000e+07 Pa, w = 1.83321e+06 J/kg.*
 
 ```python
 energy_systems_ai999x.solve('energy_hydrogen_isentropic_compression', p1=3000000.0, T1=300.0, p2=10000000.0)
@@ -3852,17 +3484,9 @@ $$
 - **Assumes:** IL, I0, Rsh, $a > 0$; $Rs  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Top: the single-diode equivalent circuit (photocurrent source, diode, shunt and series resistance) with the values given (IL = 9 A, I0 = 100 pA, Rs = 300 mΩ, Rsh = 400 Ω, nNsVth = 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-current-schematic)
+![Top: the single-diode equivalent circuit (photocurrent source, diode, shunt and series resistance) with the worked example's values (photocurrent 5 A, saturation current 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-current-schematic)
 
-*Top: the single-diode equivalent circuit (photocurrent source, diode, shunt and series resistance) with the values given (IL = 9 A, I0 = 100 pA, Rs = 300 mΩ, Rsh = 400 Ω, nNsVth = 1.9 V). Bottom: the model's current at 41 voltages from 0 to the open-circuit voltage 47.9 V (also the model's). Marked: at V = 30 V the model returns I = 8.915 A and P = 267.5 W. Your inputs: V = 30 V, IL = 9 A, I0 = 1e-10 A, Rs = 0.3 ohm, Rsh = 400 ohm, nNsVth = 1.9 V.*
-
-![Terminal current as nNsVth runs from 1 to 2 V, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-current-live-1)
-
-*Terminal current as nNsVth runs from 1 to 2 V, every other input as you entered it (41 solutions). Marked: your nNsVth = 1.9 V gives I = 8.915. Your inputs: V = 30 V, IL = 9 A, I0 = 1e-10 A, Rs = 0.3 ohm, Rsh = 400 ohm, nNsVth = 1.9 V.*
-
-![Terminal current as IL runs from 5](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-current-live-2)
-
-*Terminal current as IL runs from 5.4 to 12.6 A, every other input as you entered it (29 solutions). Marked: your IL = 9 A gives I = 8.915. Your inputs: V = 30 V, IL = 9 A, I0 = 1e-10 A, Rs = 0.3 ohm, Rsh = 400 ohm, nNsVth = 1.9 V.*
+*Top: the single-diode equivalent circuit (photocurrent source, diode, shunt and series resistance) with the worked example's values (photocurrent 5 A, saturation current 1.0000e-10 A, Rs = 0 Ω, Rsh = 100 Ω, nNsVth = 1 V). Bottom: the package's current at 61 voltages from 0 to Voc = 24.58 V. Marked: at V = 1 V the package returns I = 4.99 A and P = 4.99 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_single_diode_current', V=0.0, IL=5.0, I0=1e-10, Rs=0.0, Rsh=1000000000.0, nNsVth=1.0)
@@ -3909,13 +3533,9 @@ $$
 - **Assumes:** IL, I0, Rsh, $a > 0$; $Rs  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Terminal voltage as I runs from 4](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-voltage-live-1)
+![The worked example: at a current of 0 A the package returns V = 24](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-voltage-curve)
 
-*Terminal voltage as I runs from 4.8 to 11.2 A, every other input as you entered it (41 solutions). Marked: your I = 8 A gives V = 41.13. Your inputs: I = 8 A, IL = 9 A, I0 = 1e-10 A, Rs = 0.3 ohm, Rsh = 400 ohm, nNsVth = 1.9 V.*
-
-![Terminal voltage as IL runs from 5](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-voltage-live-2)
-
-*Terminal voltage as IL runs from 5.4 to 12.6 A, every other input as you entered it (29 solutions). Marked: your IL = 9 A gives V = 41.13. Your inputs: I = 8 A, IL = 9 A, I0 = 1e-10 A, Rs = 0.3 ohm, Rsh = 400 ohm, nNsVth = 1.9 V.*
+*The worked example: at a current of 0 A the package returns V = 24.64 V and P = 0 W (single-diode parameters photocurrent 5 A, saturation current 1.0000e-10 A, Rs = 0 Ω, Rsh = 1.0000e+15 Ω, nNsVth = 1 V). The I–V (top) and P–V (bottom) curves are the package's currents at 61 voltages. Marked: the asked point and the maximum power point Pmp = 102.8 W at 21.52 V.*
 
 ```python
 energy_systems_ai999x.solve('energy_single_diode_voltage', I=8.0, IL=9.0, I0=1e-10, Rs=0.3, Rsh=400.0, nNsVth=1.9)
@@ -3960,17 +3580,13 @@ $$
 - **Assumes:** IL, I0, Rsh, $a > 0$; $Rs  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Current-voltage (top) and power-voltage (bottom) curves of a PV module, single-diode model with the parameters given (IL = 9 A, I0 = 100 pA, Rs = 300 mΩ, Rsh = 400 Ω, nNsVth = 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-mpp-curve-2)
+![Current–voltage curve of a PV module (single-diode model: photocurrent 9 A, saturation current 1](https://huggingface.co/AI999X/energy-systems-ai999x/resolve/main/figures/energy-single-diode-mpp-curve.svg)
 
-*Current-voltage (top) and power-voltage (bottom) curves of a PV module, single-diode model with the parameters given (IL = 9 A, I0 = 100 pA, Rs = 300 mΩ, Rsh = 400 Ω, nNsVth = 1.9 V); each point is the model's current and power at one of 41 voltages from 0 to Voc. Marked: the model's maximum power point Vmp = 39.6 V, Imp = 8.465 A, Pmp = 335.3 W, Isc = 8.993 A, Voc = 47.9 V, fill factor 0.7783. Your inputs: IL = 9 A, I0 = 1e-10 A, Rs = 0.3 ohm, Rsh = 400 ohm, nNsVth = 1.9 V.*
+*Current–voltage curve of a PV module (single-diode model: photocurrent 9 A, saturation current 1.0000e-10 A, Rs = 0.3 Ω, Rsh = 400 Ω), computed by the package at 81 voltages. The shaded rectangle is the maximum power the package finds, P = 335.252 W at V = 39.6025 V, I = 8.46542 A; it fills 0.778276 of Isc × Voc (8.99326 A × 47.8984 V), the fill factor.*
 
-![Maximum power as nNsVth runs from 1 to 2 V, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-mpp-live-1)
+![Current–voltage (top) and power–voltage (bottom) curves of a PV module, single-diode model with the worked example's parameters (photocurrent 5 A, saturation current 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-mpp-curve-2)
 
-*Maximum power as nNsVth runs from 1 to 2 V, every other input as you entered it (41 solutions). Marked: your nNsVth = 1.9 V gives Pmp = 335.3. Your inputs: IL = 9 A, I0 = 1e-10 A, Rs = 0.3 ohm, Rsh = 400 ohm, nNsVth = 1.9 V.*
-
-![Maximum power as IL runs from 5](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-single-diode-mpp-live-2)
-
-*Maximum power as IL runs from 5.4 to 12.6 A, every other input as you entered it (29 solutions). Marked: your IL = 9 A gives Pmp = 335.3. Your inputs: IL = 9 A, I0 = 1e-10 A, Rs = 0.3 ohm, Rsh = 400 ohm, nNsVth = 1.9 V.*
+*Current–voltage (top) and power–voltage (bottom) curves of a PV module, single-diode model with the worked example's parameters (photocurrent 5 A, saturation current 1.0000e-10 A, Rs = 0 Ω, Rsh = 1.0000e+15 Ω, nNsVth = 1 V); each point is the package's current at one of 61 voltages, the power is V·I of those points. Marked: the package's maximum power point Vmp = 21.52 V, Imp = 4.778 A, Pmp = 102.8 W, Isc = 5 A, Voc = 24.64 V, fill factor 0.8348.*
 
 ```python
 energy_systems_ai999x.solve('energy_single_diode_mpp', IL=9.0, I0=1e-10, Rs=0.3, Rsh=400.0, nNsVth=1.9)
@@ -4019,13 +3635,9 @@ $$
 - **Assumes:** reference conditions 1000 $W/m^{2}$ and 25 degC
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Saturation current as T_cell runs from 22](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-desoto-parameters-live-1)
+![Module current–voltage curves at 1000 W/m² and four cell temperatures around the worked example's 25 °C: for each, the package's De Soto translation gives the single-diode parameters (the worked example's reference module: photocurrent 9 A, saturation current 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-desoto-parameters-curve)
 
-*Saturation current as T_cell runs from 22.5 to 78.75 degC, every other input as you entered it (41 solutions). Marked: your T_cell = 45 degC gives I0 = 2.349e-09. Your inputs: G = 800 W/m^2, T_cell = 45 degC, alpha_sc = 0.004, a_ref = 1.9 V, IL_ref = 9 A, I0_ref = 1e-10 A, Rsh_ref = 400 ohm, Rs = 0.3 ohm.*
-
-![Saturation current as I0_ref runs from 6e-11 to 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-desoto-parameters-live-2)
-
-*Saturation current as I0_ref runs from 6e-11 to 1.4e-10 A, every other input as you entered it (29 solutions). Marked: your I0_ref = 1e-10 A gives I0 = 2.349e-09. Your inputs: G = 800 W/m^2, T_cell = 45 degC, alpha_sc = 0.004, a_ref = 1.9 V, IL_ref = 9 A, I0_ref = 1e-10 A, Rsh_ref = 400 ohm, Rs = 0.3 ohm.*
+*Module current–voltage curves at 1000 W/m² and four cell temperatures around the worked example's 25 °C: for each, the package's De Soto translation gives the single-diode parameters (the worked example's reference module: photocurrent 9 A, saturation current 1.0000e-10 A, a_ref = 1.9 V, Rsh_ref = 400 Ω, Rs = 0.3 Ω, short-circuit coefficient 0.004 A/K) and its single-diode current draws the curve. Higher temperature lowers the open-circuit voltage. Dots: maximum power points, 0 °C: 368.5 W, 25 °C (example): 335.3 W, 50 °C: 301.4 W, 75 °C: 267 W. At the worked example the package returns IL = 9 A, I0 = 1.0000e-10 A, nNsVth = 1.9 V.*
 
 ```python
 energy_systems_ai999x.solve('energy_desoto_parameters', G=1000, T_cell=298.15, alpha_sc=0.004, a_ref=1.9, IL_ref=9.0, I0_ref=1e-10, Rsh_ref=400.0, Rs=0.3)
@@ -4075,13 +3687,9 @@ $$
 - **Assumes:** reference conditions 1000 $W/m^{2}$ and 25 degC
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Maximum power as a_ref runs from 1 to 2 V, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pv-module-at-conditions-live-1)
+![Module current–voltage curves at four irradiances and a cell temperature of 298](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pv-module-at-conditions-curve)
 
-*Maximum power as a_ref runs from 1 to 2 V, every other input as you entered it (41 solutions). Marked: your a_ref = 1.9 V gives Pmp = 247. Your inputs: G = 800 W/m^2, T_cell = 45 degC, alpha_sc = 0.004, a_ref = 1.9 V, IL_ref = 9 A, I0_ref = 1e-10 A, Rsh_ref = 400 ohm, Rs = 0.3 ohm.*
-
-![Maximum power as IL_ref runs from 5](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-pv-module-at-conditions-live-2)
-
-*Maximum power as IL_ref runs from 5.4 to 12.6 A, every other input as you entered it (29 solutions). Marked: your IL_ref = 9 A gives Pmp = 247. Your inputs: G = 800 W/m^2, T_cell = 45 degC, alpha_sc = 0.004, a_ref = 1.9 V, IL_ref = 9 A, I0_ref = 1e-10 A, Rsh_ref = 400 ohm, Rs = 0.3 ohm.*
+*Module current–voltage curves at four irradiances and a cell temperature of 298.15 K (the worked example's), from the package's De Soto parameters (reference photocurrent 9 A, saturation current 1e-10 A, a_ref = 1.9 V, Rsh_ref = 400 Ω, Rs = 0.3 Ω, short-circuit temperature coefficient 0.004 A/K) and its single-diode current, one run per voltage. Dots: the maximum power point of each curve, G = 1000 W/m²: 335.3 W, G = 800 W/m²: 268.8 W, G = 600 W/m²: 201.4 W, G = 400 W/m²: 133.4 W. Marked: the worked example (G = 1000 W/m²) as the package returns it, Pmp = 102.8 W at 21.52 V, 4.778 A, fill factor 0.8348.*
 
 ```python
 energy_systems_ai999x.solve('energy_pv_module_at_conditions', G=800, T_cell=318.15, alpha_sc=0.004, a_ref=1.9, IL_ref=9.0, I0_ref=1e-10, Rsh_ref=400.0, Rs=0.3)
@@ -4129,17 +3737,9 @@ $$
 - **Assumes:** 0 <= zenith < 87; DHI > 0; DHI <= GHI
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Irradiance on a tilted panel split into its parts by the model for the sky given (DNI 800, GHI 792](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-perez-chart)
+![Irradiance on a tilted panel split into its parts by the package (Irradiance on a tilted plane (Perez sky model)) for the worked example's sky (DNI 800, GHI 792](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-perez-chart)
 
-*Irradiance on a tilted panel split into its parts by the model for the sky given (DNI 800, GHI 792.8, DHI 100 W/m²) at tilts from 0 to 90°, one run per tilt, stacked: direct, sky diffuse and ground-reflected, the line their returned total. Marked: tilt 30°, direct 800, sky 113.2, ground 10.62, global 923.8 W/m² (angle of incidence 0°). Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
-
-![Total irradiance on the plane as tilt runs from 7](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-perez-live-1)
-
-*Total irradiance on the plane as tilt runs from 7.5 to 52.5, every other input as you entered it (41 solutions). Marked: your tilt = 30 gives poa_global = 923.8. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
-
-![Total irradiance on the plane as surface_azimuth runs from 45 to 315, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-poa-perez-live-2)
-
-*Total irradiance on the plane as surface_azimuth runs from 45 to 315, every other input as you entered it (29 solutions). Marked: your surface_azimuth = 180 gives poa_global = 923.8. Your inputs: tilt = 30, surface_azimuth = 180, zenith = 30, azimuth = 180, dni = 800 W/m^2, ghi = 792.820323027551 W/m^2, dhi = 100 W/m^2, albedo = 0.2.*
+*Irradiance on a tilted panel split into its parts by the package (Irradiance on a tilted plane (Perez sky model)) for the worked example's sky (DNI 800, GHI 792.8, DHI 100 W/m², Sun at zenith 30°, azimuth 180°, panel facing 180°, albedo 0.2) at tilts from 0 to 90°, stacked: direct, sky diffuse and ground-reflected, the line their returned total. Marked: tilt 30°, direct 800, sky 113.2, ground 10.62, global 923.8 W/m² (angle of incidence 0°).*
 
 ```python
 energy_systems_ai999x.solve('energy_poa_perez', tilt=30, surface_azimuth=180, zenith=30, azimuth=180, dni=800, ghi=792.820323027551, dhi=100, albedo=0.2, n=172)
@@ -4181,13 +3781,9 @@ $$
 - **Assumes:** sun above the horizon; $1  \leq  TL  \leq  10$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Clear-sky global horizontal irradiance as linke_turbidity runs from 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-clear-sky-ineichen-live-1)
+![Clear-sky irradiance against the Sun's zenith angle for the worked example's sky (Linke turbidity 3, altitude 500 m, day 172), each point a run of the package: global horizontal, direct normal and diffuse horizontal](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-clear-sky-ineichen-curve)
 
-*Clear-sky global horizontal irradiance as linke_turbidity runs from 1.087 to 5.25, every other input as you entered it (38 solutions). Marked: your linke_turbidity = 3 gives ghi = 885. Your inputs: zenith = 30, linke_turbidity = 3, altitude = 500 m, n = 172.*
-
-![Clear-sky global horizontal irradiance as zenith runs from 7](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-clear-sky-ineichen-live-2)
-
-*Clear-sky global horizontal irradiance as zenith runs from 7.5 to 52.5, every other input as you entered it (29 solutions). Marked: your zenith = 30 gives ghi = 885. Your inputs: zenith = 30, linke_turbidity = 3, altitude = 500 m, n = 172.*
+*Clear-sky irradiance against the Sun's zenith angle for the worked example's sky (Linke turbidity 3, altitude 500 m, day 172), each point a run of the package: global horizontal, direct normal and diffuse horizontal. Marked: at zenith 30° the package returns GHI 885, DNI 910.1 and DHI 96.8 W/m² (absolute air mass 1.087).*
 
 ```python
 energy_systems_ai999x.solve('energy_clear_sky_ineichen', zenith=0, linke_turbidity=1, altitude=0, n=1)
@@ -4229,13 +3825,9 @@ $$
 - **Assumes:** 0 <= zenith <= 85; GHI > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Direct normal irradiance (0 when the model](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-disc-dni-live-1)
+![Direct normal irradiance estimated by the package (DISC) from global horizontal irradiance stepped from 20 to 1000 W/m², Sun at zenith 0° on day 1 (the worked example's), plotted against the clearness index it returns](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-disc-dni-curve)
 
-*Direct normal irradiance (0 when the model... as ghi runs from 360 to 840 W/m^2, every other input as you entered it (41 solutions). Marked: your ghi = 600 W/m^2 gives dni = 266.3. Your inputs: ghi = 600 W/m^2, zenith = 35, n = 172.*
-
-![Direct normal irradiance (0 when the model](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-disc-dni-live-2)
-
-*Direct normal irradiance (0 when the model... as zenith runs from 8.75 to 61.25, every other input as you entered it (29 solutions). Marked: your zenith = 35 gives dni = 266.3. Your inputs: ghi = 600 W/m^2, zenith = 35, n = 172.*
+*Direct normal irradiance estimated by the package (DISC) from global horizontal irradiance stepped from 20 to 1000 W/m², Sun at zenith 0° on day 1 (the worked example's), plotted against the clearness index it returns. Marked: the worked example, GHI 709.009 W/m², gives kt 0.5 and DNI 163.6 W/m² (air mass 0.9995).*
 
 ```python
 energy_systems_ai999x.solve('energy_disc_dni', ghi=709.0092500000001, zenith=0, n=1)
@@ -4278,13 +3870,9 @@ $$
 - **Assumes:** R, $X  \geq  0$, not both 0; positive bases; three-phase base, line-to-line voltage
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Per-unit reactance as V_base runs from 79](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-per-unit-impedance-live-1)
+![X_pu (per-unit reactance) against V_base (line-to-line base voltage) from 66000 V to 198000 V](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-per-unit-impedance-curve)
 
-*Per-unit reactance as V_base runs from 79.2 to 184.8 kV, every other input as you entered it (41 solutions). Marked: your V_base = 132 kV gives X_pu = 0.1148. Your inputs: R = 5 ohm, X = 20 ohm, S_base = 100 MVA, V_base = 132 kV.*
-
-![Per-unit reactance as S_base runs from 60 to 140 MVA, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-per-unit-impedance-live-2)
-
-*Per-unit reactance as S_base runs from 60 to 140 MVA, every other input as you entered it (29 solutions). Marked: your S_base = 100 MVA gives X_pu = 0.1148. Your inputs: R = 5 ohm, X = 20 ohm, S_base = 100 MVA, V_base = 132 kV.*
+*X_pu (per-unit reactance) against V_base (line-to-line base voltage) from 66000 V to 198000 V. One curve for each value of X (reactance per phase (ohm)): 20 ohm, 10 ohm, 40 ohm. Other inputs as in the worked example: R = 5.0 ohm, S_base = 100000000.0 VA. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, V_base = 132000 V, X_pu = 0.114784.*
 
 ```python
 energy_systems_ai999x.solve('energy_per_unit_impedance', R=5.0, X=20.0, S_base=100000000.0, V_base=132000.0)
@@ -4329,17 +3917,9 @@ $$
 - **Assumes:** positive spacings that form a triangle (or a straight line); fully transposed line
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Phase conductors drawn to scale from the spacings given, D_ab = 4 m, D_bc = 4 m, D_ca = 8 m (a flat row: one spacing is the sum of the other two)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-geometric-mean-distance-schematic)
+![Phase conductors of a three-phase line drawn to scale from the worked example's spacings D_ab = 4 m, D_bc = 4 m, D_ca = 8 m (a flat arrangement when one spacing is the sum of the other two)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-geometric-mean-distance-schematic)
 
-*Phase conductors drawn to scale from the spacings given, D_ab = 4 m, D_bc = 4 m, D_ca = 8 m (a flat row: one spacing is the sum of the other two). Marked: the model's geometric mean distance GMD = 5.04 m, 0.9449 of the arithmetic mean spacing. Your inputs: D_ab = 4 m, D_bc = 4 m, D_ca = 8 m.*
-
-![Geometric mean distance as D_ca runs from 4](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-geometric-mean-distance-live-1)
-
-*Geometric mean distance as D_ca runs from 4.8 to 8 m, every other input as you entered it (21 solutions). Marked: your D_ca = 8 m gives GMD = 5.04. Your inputs: D_ab = 4 m, D_bc = 4 m, D_ca = 8 m.*
-
-![Geometric mean distance as D_ab runs from 4 to 5](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-geometric-mean-distance-live-2)
-
-*Geometric mean distance as D_ab runs from 4 to 5.6 m, every other input as you entered it (15 solutions). Marked: your D_ab = 4 m gives GMD = 5.04. Your inputs: D_ab = 4 m, D_bc = 4 m, D_ca = 8 m.*
+*Phase conductors of a three-phase line drawn to scale from the worked example's spacings D_ab = 4 m, D_bc = 4 m, D_ca = 8 m (a flat arrangement when one spacing is the sum of the other two). Marked: the package's geometric mean distance GMD = 5.04 m, 0.9449 of the arithmetic mean spacing.*
 
 ```python
 energy_systems_ai999x.solve('energy_geometric_mean_distance', D_ab=4.0, D_bc=4.0, D_ca=8.0)
@@ -4388,13 +3968,9 @@ $$
 - **Assumes:** $f > 0$; even number of poles; at most one of slip and rotor speed
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Synchronous speed in rpm as poles runs from 2 to 8, every other input as you entered it (4 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-synchronous-speed-live-1)
+![n_sync_rpm (synchronous speed in rpm) against poles (number of poles (even)) from 1 to 12](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-synchronous-speed-curve)
 
-*Synchronous speed in rpm as poles runs from 2 to 8, every other input as you entered it (4 solutions). Values in this range where the inputs admit no answer (3 of 7) are left out. Marked: your poles = 4 gives n_sync_rpm = 1500. Your inputs: f = 50 Hz, poles = 4.*
-
-![Synchronous speed in rpm as f runs from 30 to 70 Hz, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-synchronous-speed-live-2)
-
-*Synchronous speed in rpm as f runs from 30 to 70 Hz, every other input as you entered it (29 solutions). Marked: your f = 50 Hz gives n_sync_rpm = 1500. Your inputs: f = 50 Hz, poles = 4.*
+*n_sync_rpm (synchronous speed in rpm) against poles (number of poles (even)) from 1 to 12. Other inputs as in the worked example: f = 50.0 Hz. 6 points computed by energy-systems-ai999x; marked: the worked example, poles = 4, n_sync_rpm = 1500.*
 
 ```python
 energy_systems_ai999x.solve('energy_synchronous_speed', f=50.0, poles=4)
@@ -4447,13 +4023,9 @@ $$
 - **Assumes:** cells in series carrying the same current; 0 < V_cell <= 5 V
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Electrical power N I V_cell as I runs from 120 to 280 A, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-stack-electrical-power-live-1)
+![P (electrical power N I V_cell) against N (number of cells in series) from 1 to 200 on a logarithmic axis](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-stack-electrical-power-curve)
 
-*Electrical power N I V_cell as I runs from 120 to 280 A, every other input as you entered it (41 solutions). Marked: your I = 200 A gives P = 14 kW. Your inputs: I = 200 A, N = 100, V_cell = 0.7 V.*
-
-![Electrical power N I V_cell as V_cell runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-stack-electrical-power-live-2)
-
-*Electrical power N I V_cell as V_cell runs from 0.42 to 0.98 V, every other input as you entered it (29 solutions). Marked: your V_cell = 0.7 V gives P = 14 kW. Your inputs: I = 200 A, N = 100, V_cell = 0.7 V.*
+*P (electrical power N I V_cell) against N (number of cells in series) from 1 to 200 on a logarithmic axis. One curve for each value of I (stack current): 200 A, 100 A, 400 A. Other inputs as in the worked example: V_cell = 0.7 V. 33 points per curve computed by energy-systems-ai999x; marked: the worked example, N = 100, P = 14000 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_stack_electrical_power', I=200.0, N=100, V_cell=0.7)
@@ -4502,17 +4074,9 @@ $$
 - **Assumes:** 0 <= SOC0 <= 1; Q, $dt > 0$; the state of charge stays within 0 to 100%; no coulombic losses
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A battery starting at state of charge 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-coulomb-counting-chart)
+![A battery of 50 Ah starting at SOC 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-coulomb-counting-chart)
 
-*A battery starting at state of charge 0.9 through the profile given: 3 intervals of 3.6 ks at currents 10, 20, -5 A (bottom). Top: the model's state of charge after each interval, each point one run on the profile up to that interval (constant current between points). Marked: final state of charge 0.4, lowest 0.3, net charge out 25 Ah. Your inputs: SOC0 = 0.9, Q = 180000 C, currents = 10, 20, -5, dt = 3600 s.*
-
-![Final state of charge as dt runs from 2160 to 5040 s, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-coulomb-counting-live-1)
-
-*Final state of charge as dt runs from 2160 to 5040 s, every other input as you entered it (41 solutions). Marked: your dt = 3600 s gives SOC = 0.4. Your inputs: SOC0 = 0.9, Q = 180000 C, currents = 10, 20, -5, dt = 3600 s.*
-
-![Final state of charge as currents[2] runs from 0 to 34, every other input as you entered it (18 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-coulomb-counting-live-2)
-
-*Final state of charge as currents[2] runs from 0 to 34, every other input as you entered it (18 solutions). Marked: your currents[2] = 20 gives SOC = 0.4. Your inputs: SOC0 = 0.9, Q = 180000 C, currents = 10, 20, -5, dt = 3600 s.*
+*A battery of 50 Ah starting at SOC 0.9 through the worked example's profile of 3 intervals of 3600 s at currents ['10', '20', '-5'] A (bottom). Top: the package's SOC after each interval (each point one run on the profile up to that interval; constant current between points). Marked: final SOC 0.4, lowest 0.3, net charge out 25 Ah.*
 
 ```python
 energy_systems_ai999x.solve('energy_coulomb_counting', SOC0=0.9, Q=180000.0, currents=[10, 20, -5], dt=3600.0)
@@ -4565,13 +4129,9 @@ $$
 - **Assumes:** Q, $H > 0$; $0 < \eta  \leq  1$; $0 < CF  \leq  1$; 0 < hours <= 8784; net head (losses in the penstock already deducted)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Electrical output and hydraulic power rho g Q H as Q runs from 6 to 14 m^3/s, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydro-power-live-1)
+![P (electrical output) against Q (volume flow rate through the turbines) from 5 m^3/s to 15 m^3/s](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydro-power-curve)
 
-*Electrical output and hydraulic power rho g Q H as Q runs from 6 to 14 m^3/s, every other input as you entered it (41 solutions). Marked: your Q = 10 m^3/s gives P = 4414 kW. Your inputs: Q = 10 m^3/s, H = 50 m, eta = 0.9.*
-
-![Electrical output and hydraulic power rho g Q H as H runs from 30 to 70 m, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-hydro-power-live-2)
-
-*Electrical output and hydraulic power rho g Q H as H runs from 30 to 70 m, every other input as you entered it (29 solutions). Marked: your H = 50 m gives P = 4414 kW. Your inputs: Q = 10 m^3/s, H = 50 m, eta = 0.9.*
+*P (electrical output) against Q (volume flow rate through the turbines) from 5 m^3/s to 15 m^3/s. One curve for each value of H (net head): 50 m, 25 m, 100 m. Other inputs as in the worked example: eta = 0.9. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, Q = 10 m^3/s, P = 4.4145e+06 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_hydro_power', Q=10.0, H=50.0, eta=0.9)
@@ -4627,13 +4187,13 @@ $$
 - **Assumes:** P_rated > 0; exactly one of E and CF; $0 < CF  \leq  1$; 0 < hours <= 8784
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Capacity factor E/(P_rated t) as P_rated runs from 1](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-capacity-factor-live-1)
+![capacity_factor (capacity factor E/(P_rated t)) against P_rated (rated (nameplate) power) from 1e+06 W to 3e+06 W](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-capacity-factor-curve)
 
-*Capacity factor E/(P_rated t) as P_rated runs from 1.2 to 2.8 MW, every other input as you entered it (41 solutions). Marked: your P_rated = 2 MW gives capacity_factor = 0.3. Your inputs: P_rated = 2 MW, E = 5256 MWh.*
+*capacity_factor (capacity factor E/(P_rated t)) against P_rated (rated (nameplate) power) from 1e+06 W to 3e+06 W. One curve for each value of E (energy produced in the period (give E or CF)): 1.8922e+13 J, 9.4608e+12 J, 3.7843e+13 J. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, P_rated = 2e+06 W, capacity_factor = 0.3.*
 
-![Capacity factor E/(P_rated t) as E runs from 3154 to 7358 MWh, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-capacity-factor-live-2)
+![capacity_factor (capacity factor E/(P_rated t)) over P_rated (rated (nameplate) power) from 1e+06 W to 3e+06 W and E (energy produced in the period (give E or CF)) from 9](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-capacity-factor-field)
 
-*Capacity factor E/(P_rated t) as E runs from 3154 to 7358 MWh, every other input as you entered it (29 solutions). Marked: your E = 5256 MWh gives capacity_factor = 0.3. Your inputs: P_rated = 2 MW, E = 5256 MWh.*
+*capacity_factor (capacity factor E/(P_rated t)) over P_rated (rated (nameplate) power) from 1e+06 W to 3e+06 W and E (energy produced in the period (give E or CF)) from 9.4608e+12 J to 2.8382e+13 J: each of the 21 × 15 cells is one run of energy-systems-ai999x, shaded by its value (light 0.1 to dark 0.9); iso-lines at capacity_factor = 0.2, 0.4, 0.6, 0.8. Marked: the worked example, P_rated = 2e+06 W, E = 1.8922e+13 J, capacity_factor = 0.3.*
 
 ```python
 energy_systems_ai999x.solve('energy_capacity_factor', P_rated=2000000.0, E=18921600000000.0)
@@ -4700,13 +4260,9 @@ $$
 - **Assumes:** even number of poles; exactly one of s and n_r; $0 < s < 1$ (motoring); stator losses < P_in; P_out > 0; the core loss is taken with the stator losses
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Shaft (output) torque P_out/omega_m as poles runs from 2 to 8, every other input as you entered it (4 solutions)](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-power-flow-live-1)
+![P_out (output (shaft) power P_conv - friction and windage) against P_in (electrical input power) from 25000 W to 75000 W](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-power-flow-curve)
 
-*Shaft (output) torque P_out/omega_m as poles runs from 2 to 8, every other input as you entered it (4 solutions). Values in this range where the inputs admit no answer (3 of 7) are left out. Marked: your poles = 4 gives T_shaft = 296.4. Your inputs: f = 50 Hz, poles = 4, P_in = 50000 W, P_scl = 1500 W, s = 0.04, P_core = 1000 W, P_fw = 900 W.*
-
-![Output (shaft) power P_conv - friction and](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-induction-power-flow-live-2)
-
-*Output (shaft) power P_conv - friction and... as P_in runs from 3e+04 to 7e+04 W, every other input as you entered it (29 solutions). Marked: your P_in = 5e+04 W gives P_out = 44.7 kW. Your inputs: f = 50 Hz, poles = 4, P_in = 50000 W, P_scl = 1500 W, s = 0.04, P_core = 1000 W, P_fw = 900 W.*
+*P_out (output (shaft) power P_conv - friction and windage) against P_in (electrical input power) from 25000 W to 75000 W. One curve for each value of s (slip (fraction or %; give s or n_r)): 0.04, 0.26, 0.74. Other inputs as in the worked example: f = 50.0 Hz, poles = 4, P_scl = 1500.0 W, P_core = 1000.0 W, P_fw = 900.0 W. 31 points per curve computed by energy-systems-ai999x; marked: the worked example, P_in = 50000 W, P_out = 44700 W.*
 
 ```python
 energy_systems_ai999x.solve('energy_induction_power_flow', f=50.0, poles=4, s=0.04, P_in=50000.0, P_scl=1500.0, P_core=1000.0, P_fw=900.0)
@@ -4767,13 +4323,9 @@ $$
 - **Assumes:** $0 < j_{0}  \leq  1e6$ $A/m^{2}$; $0 < alpha_a$, $alpha_c  \leq  4$; 200 $K  \leq  T  \leq  1500$ K; exactly one of eta and j; |eta| <= 2 V; no mass-transport (concentration) limitation
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![J as η runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-butler-volmer-live-1)
+![j (net current density in A/m^2 (anodic positive)) against eta (overpotential (anodic positive; give eta or j)) from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-butler-volmer-curve)
 
-*J as η runs from 0.06 to 0.14 V, every other input as you entered it (41 solutions). Marked: your η = 0.1 V gives j = 68.58. Your inputs: j0 = 10, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 0.1 V.*
-
-![J as α_a runs from 0](https://www.ai999x.com/?ax_fig=energy-systems-ai999x/energy-butler-volmer-live-2)
-
-*J as α_a runs from 0.125 to 0.875, every other input as you entered it (29 solutions). Marked: your α_a = 0.5 gives j = 68.58. Your inputs: j0 = 10, alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K, eta = 0.1 V.*
+*j (net current density in A/m^2 (anodic positive)) against eta (overpotential (anodic positive; give eta or j)) from 0.01 V to 1 V on a logarithmic axis, logarithmic output axis. One curve for each value of j0 (exchange current density in A/m^2 (questions: A/m^2, A/cm^2, mA/cm^2, uA/cm^2)): 10, 5, 20. Other inputs as in the worked example: alpha_a = 0.5, alpha_c = 0.5, T = 298.15 K. 41 points per curve computed by energy-systems-ai999x; marked: the worked example, eta = 0.1 V, j = 68.5841.*
 
 ```python
 energy_systems_ai999x.solve('energy_butler_volmer', j0=10.0, alpha_a=0.5, alpha_c=0.5, T=298.15, eta=0.1)
